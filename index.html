@@ -149,8 +149,9 @@
 
         async function haberleriYukle() {
             try {
-                const response = await fetch('haberler.json');
-                if (!response.ok) throw new Error('JSON dosyası bulunamadı.');
+                // ARTIK HABERLER.JSON DEĞİL, LİSTE.JSON'U ÇEKİYOR
+                const response = await fetch('liste.json');
+                if (!response.ok) throw new Error('Liste dosyası bulunamadı.');
                 
                 tumHaberler = await response.json();
                 renderNews();
@@ -159,7 +160,7 @@
                 container.innerHTML = `
                     <div style="grid-column: 1/-1; text-align: center; color: #ef4444; background: #1e293b; padding: 2rem; border-radius: 8px;">
                         <h3>Haberler Henüz Yüklenmedi</h3>
-                        <p style="color: var(--text-muted); margin-top: 10px;">Python botu henüz haberler.json dosyasını oluşturmamış olabilir. Lütfen GitHub Actions'ın çalışmasını bekleyin.</p>
+                        <p style="color: var(--text-muted); margin-top: 10px;">Python botu henüz liste.json dosyasını oluşturmamış olabilir. Lütfen GitHub Actions'ın çalışmasını bekleyin.</p>
                     </div>`;
             }
         }
