@@ -35,11 +35,9 @@
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
         header { background-color: var(--header-bg); border-bottom: 1px solid #334155; }
-        
-        /* Gelişmiş Header Grid Yapısı: Sıkışmayı önler */
         .header-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem 1rem; gap: 1rem; }
         
-        .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); }
+        .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); text-decoration: none; }
         .logo-icon { display: flex; align-items: center; color: var(--accent); }
         header h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; margin: 0; }
         
@@ -64,7 +62,8 @@
         .card-title { font-size: 1.15rem; margin-bottom: 0.75rem; color: #fff; line-height: 1.4; }
         .card-excerpt { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
         .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid #334155; padding-top: 1rem; }
-        .read-more-btn { background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: color 0.2s; }
+        
+        .read-more-btn { display: inline-block; background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: color 0.2s; text-decoration: none; }
         .read-more-btn:hover { color: #60a5fa; text-decoration: underline; }
 
         .pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
@@ -77,19 +76,7 @@
         .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 0.9rem; }
         .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
         .footer-links a:hover { color: var(--accent); }
-
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; backdrop-filter: blur(4px); }
-        .modal-content { background-color: var(--card-bg); width: 100%; max-width: 800px; max-height: 90vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #334155; }
-        .modal-header { padding: 1.5rem; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: flex-start; }
-        .modal-title { font-size: 1.5rem; color: #fff; margin-right: 1rem; }
-        .close-btn { background: none; border: none; color: var(--text-muted); font-size: 2rem; cursor: pointer; line-height: 1; padding: 0 0.5rem; }
-        .close-btn:hover { color: #ef4444; }
-        .modal-body { padding: 1.5rem; overflow-y: auto; color: #e2e8f0; font-size: 1.05rem; line-height: 1.8; white-space: pre-wrap; }
-        .modal-meta { padding: 1rem 1.5rem; background-color: #0f172a; border-top: 1px solid #334155; font-size: 0.85rem; color: var(--text-muted); display: flex; justify-content: space-between; }
-        .orijinal-link { color: var(--accent); text-decoration: none; }
-        .orijinal-link:hover { text-decoration: underline; }
         
-        /* Tablet ve Telefonlar için Mobil Düzen */
         @media (max-width: 900px) { 
             .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.2rem; } 
             .action-container { width: 100%; }
@@ -102,7 +89,7 @@
 
     <header>
         <div class="header-content">
-            <div class="logo-container">
+            <a href="index.html" class="logo-container">
                 <div class="logo-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
@@ -110,7 +97,7 @@
                     </svg>
                 </div>
                 <h1>Kerimu Animasyon Haberleri</h1>
-            </div>
+            </a>
             
             <div class="filters">
                 <button class="filter-btn active" onclick="setCategory('Tümü')">Tümü</button>
@@ -142,32 +129,14 @@
         <div class="footer-content">
             <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
             <div class="footer-links">
-                <a href="https://kerimdemirkaynak.github.io/hakkinda">Hakkımızda</a> | <a href="#">Kaynaklar</a> | 
+                <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> | 
                 <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
             </div>
             <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
 
-    <div class="modal" id="news-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modal-title">Başlık</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body" id="modal-body">
-                Metin buraya gelecek...
-            </div>
-            <div class="modal-meta">
-                <span id="modal-source">Kaynak</span>
-                <a href="#" id="modal-link" target="_blank" class="orijinal-link">Orijinal Habere Git ↗</a>
-                <span id="modal-date">Tarih</span>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Footer Yılını Otomatik Ayarla
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
         let tumHaberler = []; 
@@ -177,7 +146,6 @@
 
         const container = document.getElementById('news-container');
         const paginationContainer = document.getElementById('pagination-container');
-        const modal = document.getElementById('news-modal');
 
         async function haberleriYukle() {
             try {
@@ -226,7 +194,7 @@
                             <p class="card-excerpt">${haber.ozet}</p>
                             <div class="card-footer">
                                 <span>${haber.tarih}</span>
-                                <button class="read-more-btn" onclick="openModal(${haber.id})">Haberi Oku →</button>
+                                <a href="haber.html?id=${haber.id}" class="read-more-btn">Haberi Oku →</a>
                             </div>
                         </div>
                     </article>
@@ -274,34 +242,6 @@
                 btn.classList.toggle('active', btn.innerText === kategori);
             });
             renderNews();
-        }
-
-        window.openModal = function(id) {
-            const haber = tumHaberler.find(h => h.id === id);
-            if(haber) {
-                document.getElementById('modal-title').innerText = haber.baslik;
-                
-                let modalResim = haber.resim ? `<img src="${haber.resim}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">` : "";
-                
-                document.getElementById('modal-body').innerHTML = modalResim + (haber.tamMetin || "Tam metin bulunamadı."); 
-                document.getElementById('modal-source').innerText = "Kaynak: " + haber.kaynak;
-                document.getElementById('modal-date').innerText = haber.tarih;
-                
-                const linkElement = document.getElementById('modal-link');
-                linkElement.href = haber.link;
-                
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; 
-            }
-        }
-
-        window.closeModal = function() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) closeModal();
         }
 
         window.onload = haberleriYukle;
