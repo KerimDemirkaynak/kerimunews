@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haber Detayı - Kerimu Animasyon Haberleri</title>
     <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --bg-color: #0f172a;
@@ -58,7 +59,7 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="index.html" class="logo-container">
+            <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="logo-container">
                 <div class="logo-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
@@ -71,14 +72,14 @@
     </header>
 
     <main>
-        <a href="index.html" class="back-btn">← Ana Sayfaya Dön</a>
+        <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön</a>
         
         <article class="article-container" id="news-content">
             <div style="padding: 3rem; text-align: center; color: var(--text-muted);">Haber yükleniyor...</div>
         </article>
 
         <section class="comments-section">
-            <h3 class="comments-title">Yorumlar</h3>
+            <h3 class="comments-title"><i class="fa-solid fa-comments"></i> Yorumlar</h3>
             <div id="giscus-container"></div>
         </section>
     </main>
@@ -106,7 +107,7 @@
             giscusScript.setAttribute('data-repo-id', "R_kgDOPPm0QA");
             giscusScript.setAttribute('data-category', "Yorumlar");
             giscusScript.setAttribute('data-category-id', "DIC_kwDOPPm0QM4CtM73");
-            giscusScript.setAttribute('data-mapping', "pathname");
+            giscusScript.setAttribute('data-mapping', "url");
             giscusScript.setAttribute('data-strict', "0");
             giscusScript.setAttribute('data-reactions-enabled', "1");
             giscusScript.setAttribute('data-emit-metadata', "0");
@@ -156,7 +157,7 @@
                     </div>
                     <div class="article-body">
                         ${formatlanmisMetin}
-                        <a href="${haber.link}" target="_blank" class="original-link">Orijinal Habere Git ↗</a>
+                        <a href="${haber.link}" target="_blank" class="original-link">Orijinal Habere Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 `;
                 loadGiscus();
