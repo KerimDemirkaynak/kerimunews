@@ -16,6 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml" />
 
@@ -89,7 +90,7 @@
 
     <header>
         <div class="header-content">
-            <a href="index.html" class="logo-container">
+            <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="logo-container">
                 <div class="logo-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
@@ -195,7 +196,7 @@
                             <p class="card-excerpt">${haber.ozet}</p>
                             <div class="card-footer">
                                 <span>${haber.tarih}</span>
-                                <a href="haber.html?id=${haber.id}" class="read-more-btn">Haberi Oku →</a>
+                                <a href="haber.html?id=${haber.id}" class="read-more-btn">Haberi Oku <i class="fa-solid fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -214,7 +215,7 @@
 
             const prevBtn = document.createElement('button');
             prevBtn.className = 'page-btn';
-            prevBtn.innerText = '← Önceki';
+            prevBtn.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Önceki';
             prevBtn.disabled = sayfa === 1;
             prevBtn.onclick = () => { sayfa--; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
             paginationContainer.appendChild(prevBtn);
@@ -229,7 +230,7 @@
 
             const nextBtn = document.createElement('button');
             nextBtn.className = 'page-btn';
-            nextBtn.innerText = 'Sonraki →';
+            nextBtn.innerHTML = 'Sonraki <i class="fa-solid fa-arrow-right"></i>';
             nextBtn.disabled = sayfa === toplamSayfa;
             nextBtn.onclick = () => { sayfa++; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
             paginationContainer.appendChild(nextBtn);
