@@ -26,12 +26,15 @@
         main { flex: 1; max-width: 800px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
         
         .article-container { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid #334155; margin-bottom: 2rem; }
+        .article-image { width: 100%; max-height: 400px; object-fit: cover; display: block; }
         .article-header { padding: 2rem; border-bottom: 1px solid #334155; }
         .article-title { font-size: 2rem; color: #fff; margin-bottom: 1rem; line-height: 1.3; }
         .article-meta { display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem; }
-        .article-image { width: 100%; max-height: 400px; object-fit: cover; display: block; }
-        .article-body { padding: 2rem; color: #e2e8f0; font-size: 1.1rem; line-height: 1.8; white-space: pre-wrap; }
-        .original-link { display: inline-block; margin-top: 2rem; color: var(--accent); text-decoration: none; font-weight: bold; }
+        
+        /* white-space: pre-wrap KISMI BURADAN SİLİNDİ, YAZILAR ARTIK SIKIŞMAYACAK */
+        .article-body { padding: 2rem; color: #e2e8f0; font-size: 1.1rem; line-height: 1.8; }
+        
+        .original-link { display: inline-block; margin-top: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
         .original-link:hover { text-decoration: underline; }
 
         .comments-section { background-color: var(--card-bg); border-radius: 12px; padding: 2rem; border: 1px solid #334155; }
@@ -44,6 +47,14 @@
         
         .back-btn { display: inline-block; margin-bottom: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
         .back-btn:hover { text-decoration: underline; }
+        
+        /* MOBİL EKRANLAR İÇİN DÜZELTMELER */
+        @media (max-width: 768px) {
+            .article-header { padding: 1.5rem; }
+            .article-body { padding: 1.2rem; font-size: 1.05rem; }
+            .article-title { font-size: 1.6rem; }
+            .comments-section { padding: 1.2rem; }
+        }
     </style>
 </head>
 <body>
@@ -87,7 +98,6 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Giscus Yükleme Fonksiyonu (Senin kodun, temaya uyarlandı)
         const loadGiscus = () => {
             const container = document.getElementById('giscus-container');
             if (!container) return;
@@ -98,12 +108,12 @@
             giscusScript.setAttribute('data-repo-id', "R_kgDOPPm0QA");
             giscusScript.setAttribute('data-category', "Yorumlar");
             giscusScript.setAttribute('data-category-id', "DIC_kwDOPPm0QM4CtM73");
-            giscusScript.setAttribute('data-mapping', "pathname"); // Her haberin kendi linkine göre ayrı yorum alanı açar
+            giscusScript.setAttribute('data-mapping', "pathname");
             giscusScript.setAttribute('data-strict', "0");
             giscusScript.setAttribute('data-reactions-enabled', "1");
             giscusScript.setAttribute('data-emit-metadata', "0");
             giscusScript.setAttribute('data-input-position', "top");
-            giscusScript.setAttribute('data-theme', "dark_dimmed"); // Sitemizin karanlık temasıyla uyumlu
+            giscusScript.setAttribute('data-theme', "dark_dimmed"); 
             giscusScript.setAttribute('data-lang', "tr");
             giscusScript.setAttribute('crossorigin', "anonymous");
             giscusScript.async = true;
@@ -111,7 +121,6 @@
             container.appendChild(giscusScript);
         };
 
-        // Haberi JSON'dan Çekme İşlemi
         async function haberiGetir() {
             const urlParams = new URLSearchParams(window.location.search);
             const haberId = parseInt(urlParams.get('id'));
@@ -131,6 +140,13 @@
                     
                     let resimHTML = haber.resim ? `<img src="${haber.resim}" alt="${haber.baslik}" class="article-image">` : '';
                     
+                    // Boşluk bug'ını çözen kısım: Paragrafları temizleyip düzgünce sarıyoruz
+                    let formatlanmisMetin = haber.tamMetin
+                        .split('\n')
+                        .filter(p => p.trim().length > 0)
+                        .map(p => `<p style="margin-bottom: 1.5rem; text-align: left;">${p.trim()}</p>`)
+                        .join('');
+                    
                     document.getElementById('news-content').innerHTML = `
                         ${resimHTML}
                         <div class="article-header">
@@ -141,12 +157,10 @@
                             </div>
                         </div>
                         <div class="article-body">
-                            ${haber.tamMetin}
-                            <br>
+                            ${formatlanmisMetin}
                             <a href="${haber.link}" target="_blank" class="original-link">Orijinal Habere Git ↗</a>
                         </div>
                     `;
-                    // Haber yüklendikten sonra yorumları çağır
                     loadGiscus();
                 } else {
                     document.getElementById('news-content').innerHTML = '<div style="padding: 2rem; text-align: center;">Haber bulunamadı.</div>';
