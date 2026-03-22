@@ -31,7 +31,6 @@
         .article-title { font-size: 2rem; color: #fff; margin-bottom: 1rem; line-height: 1.3; }
         .article-meta { display: flex; justify-content: space-between; color: var(--text-muted); font-size: 0.9rem; }
         
-        /* white-space: pre-wrap KISMI BURADAN SİLİNDİ, YAZILAR ARTIK SIKIŞMAYACAK */
         .article-body { padding: 2rem; color: #e2e8f0; font-size: 1.1rem; line-height: 1.8; }
         
         .original-link { display: inline-block; margin-top: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
@@ -48,7 +47,6 @@
         .back-btn { display: inline-block; margin-bottom: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
         .back-btn:hover { text-decoration: underline; }
         
-        /* MOBİL EKRANLAR İÇİN DÜZELTMELER */
         @media (max-width: 768px) {
             .article-header { padding: 1.5rem; }
             .article-body { padding: 1.2rem; font-size: 1.05rem; }
@@ -123,7 +121,7 @@
 
         async function haberiGetir() {
             const urlParams = new URLSearchParams(window.location.search);
-            const haberId = parseInt(urlParams.get('id'));
+            const haberId = urlParams.get('id'); // parseInt KALDIRILDI! Artık ID'ler harf/sayı karışık.
 
             if (!haberId) {
                 document.getElementById('news-content').innerHTML = '<div style="padding: 2rem; text-align: center;">Haber bulunamadı.</div>';
@@ -131,42 +129,40 @@
             }
 
             try {
-                const response = await fetch('haberler.json');
-                const haberler = await response.json();
-                const haber = haberler.find(h => h.id === haberId);
+                // Sadece o habere özel JSON dosyasını çekiyoruz
+                const response = await fetch(`haberler/${haberId}.json`);
+                if (!response.ok) throw new Error('Haber dosyası bulunamadı.');
+                
+                const haber = await response.json();
 
-                if (haber) {
-                    document.title = `${haber.baslik} - Kerimu Animasyon`;
-                    
-                    let resimHTML = haber.resim ? `<img src="${haber.resim}" alt="${haber.baslik}" class="article-image">` : '';
-                    
-                    // Boşluk bug'ını çözen kısım: Paragrafları temizleyip düzgünce sarıyoruz
-                    let formatlanmisMetin = haber.tamMetin
-                        .split('\n')
-                        .filter(p => p.trim().length > 0)
-                        .map(p => `<p style="margin-bottom: 1.5rem; text-align: left;">${p.trim()}</p>`)
-                        .join('');
-                    
-                    document.getElementById('news-content').innerHTML = `
-                        ${resimHTML}
-                        <div class="article-header">
-                            <h1 class="article-title">${haber.baslik}</h1>
-                            <div class="article-meta">
-                                <span>Kaynak: <strong>${haber.kaynak}</strong></span>
-                                <span>${haber.tarih}</span>
-                            </div>
+                document.title = `${haber.baslik} - Kerimu Animasyon`;
+                
+                let resimHTML = haber.resim ? `<img src="${haber.resim}" alt="${haber.baslik}" class="article-image">` : '';
+                
+                let formatlanmisMetin = haber.tamMetin
+                    .split('\n')
+                    .filter(p => p.trim().length > 0)
+                    .map(p => `<p style="margin-bottom: 1.5rem; text-align: left;">${p.trim()}</p>`)
+                    .join('');
+                
+                document.getElementById('news-content').innerHTML = `
+                    ${resimHTML}
+                    <div class="article-header">
+                        <h1 class="article-title">${haber.baslik}</h1>
+                        <div class="article-meta">
+                            <span>Kaynak: <strong>${haber.kaynak}</strong></span>
+                            <span>${haber.tarih}</span>
                         </div>
-                        <div class="article-body">
-                            ${formatlanmisMetin}
-                            <a href="${haber.link}" target="_blank" class="original-link">Orijinal Habere Git ↗</a>
-                        </div>
-                    `;
-                    loadGiscus();
-                } else {
-                    document.getElementById('news-content').innerHTML = '<div style="padding: 2rem; text-align: center;">Haber bulunamadı.</div>';
-                }
+                    </div>
+                    <div class="article-body">
+                        ${formatlanmisMetin}
+                        <a href="${haber.link}" target="_blank" class="original-link">Orijinal Habere Git ↗</a>
+                    </div>
+                `;
+                loadGiscus();
             } catch (error) {
                 console.error("Hata:", error);
+                document.getElementById('news-content').innerHTML = '<div style="padding: 2rem; text-align: center;">Haber metni yüklenemedi veya silinmiş olabilir.</div>';
             }
         }
 
