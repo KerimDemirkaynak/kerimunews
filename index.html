@@ -12,9 +12,10 @@
     <meta property="og:title" content="Kerimu Animasyon Haberleri">
     <meta property="og:description" content="Global animasyon ve anime haberleri anında Türkçe çevirisiyle tek bir yerde!">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop"> <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop"> 
+    <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+    <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
     
     <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml" />
 
@@ -34,16 +35,20 @@
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
         header { background-color: var(--header-bg); border-bottom: 1px solid #334155; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; flex-wrap: wrap; gap: 1rem; }
+        
+        /* Gelişmiş Header Grid Yapısı: Sıkışmayı önler */
+        .header-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem 1rem; gap: 1rem; }
+        
         .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); }
         .logo-icon { display: flex; align-items: center; color: var(--accent); }
-        header h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; }
+        header h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; margin: 0; }
         
-        .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;}
-        .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid #334155; padding: 0.4rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+        .filters { display: flex; gap: 0.8rem; justify-content: center; }
+        .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid #334155; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
         .filter-btn:hover, .filter-btn.active { background-color: var(--card-bg); border-color: var(--accent); color: var(--text-main); }
         
-        .rss-link-btn { display: flex; align-items: center; gap: 5px; background-color: #f97316; color: white; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: background 0.2s; margin-left: auto;}
+        .action-container { display: flex; justify-content: flex-end; }
+        .rss-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background-color: #f97316; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; }
         .rss-link-btn:hover { background-color: #ea580c; }
 
         main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
@@ -84,9 +89,12 @@
         .orijinal-link { color: var(--accent); text-decoration: none; }
         .orijinal-link:hover { text-decoration: underline; }
         
-        @media (max-width: 768px) { 
-            .header-content { flex-direction: column; justify-content: center; } 
-            .rss-link-btn { margin-left: 0; width: 100%; justify-content: center;}
+        /* Tablet ve Telefonlar için Mobil Düzen */
+        @media (max-width: 900px) { 
+            .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.2rem; } 
+            .action-container { width: 100%; }
+            .rss-link-btn { width: 100%; padding: 0.8rem; }
+            .filters { flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -103,11 +111,14 @@
                 </div>
                 <h1>Kerimu Animasyon Haberleri</h1>
             </div>
+            
             <div class="filters">
                 <button class="filter-btn active" onclick="setCategory('Tümü')">Tümü</button>
                 <button class="filter-btn" onclick="setCategory('Anime')">Anime</button>
                 <button class="filter-btn" onclick="setCategory('Çizgi Film')">Çizgi Film</button>
-                
+            </div>
+
+            <div class="action-container">
                 <a href="rss.xml" target="_blank" class="rss-link-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 11a9 9 0 0 1 9 9"></path>
@@ -131,7 +142,8 @@
         <div class="footer-content">
             <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
             <div class="footer-links">
-                <a href="#">Hakkımızda</a> | <a href="#">Kaynaklar</a> | <a href="https://github.com/Kerim_Demirkaynak" target="_blank">İletişim</a>
+                <a href="#">Hakkımızda</a> | <a href="#">Kaynaklar</a> | 
+                <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
             </div>
             <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
         </div>
