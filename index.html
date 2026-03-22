@@ -132,19 +132,17 @@
     </div>
 
     <script>
-        let tumHaberler = []; // Artık boş, veriyi JSON'dan alacağız
+        let tumHaberler = []; 
         let aktifKategori = 'Tümü';
         let sayfa = 1;
-        const haberSayisi = 9; // Bir sayfada gösterilecek haber sayısı
+        const haberSayisi = 9; 
 
         const container = document.getElementById('news-container');
         const paginationContainer = document.getElementById('pagination-container');
         const modal = document.getElementById('news-modal');
 
-        // JSON DOSYASINI ÇEKEN ANA FONKSİYON
         async function haberleriYukle() {
             try {
-                // Fetch API ile arka planın ürettiği dosyayı çekiyoruz
                 const response = await fetch('haberler.json');
                 if (!response.ok) throw new Error('JSON dosyası bulunamadı.');
                 
@@ -176,13 +174,14 @@
 
             gosterilecekHaberler.forEach(haber => {
                 const tagClass = haber.kategori === 'Anime' ? 'tag-anime' : 'tag-cartoon';
-                const kaynakYazisi = haber.kaynak.substring(0, 15); // Çok uzun kaynak isimlerini kısalt
+                
+                const resimHTML = haber.resim 
+                    ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #334155;">`
+                    : `<div class="card-img-placeholder"><span>${haber.kaynak}</span></div>`;
                 
                 const card = `
                     <article class="news-card">
-                        <div class="card-img-placeholder">
-                            <span>${haber.kaynak}</span>
-                        </div>
+                        ${resimHTML}
                         <div class="card-content">
                             <span class="card-tag ${tagClass}">${haber.kategori}</span>
                             <h2 class="card-title">${haber.baslik}</h2>
@@ -243,11 +242,13 @@
             const haber = tumHaberler.find(h => h.id === id);
             if(haber) {
                 document.getElementById('modal-title').innerText = haber.baslik;
-                document.getElementById('modal-body').innerText = haber.tamMetin || "Tam metin bulunamadı."; 
+                
+                let modalResim = haber.resim ? `<img src="${haber.resim}" style="width: 100%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;">` : "";
+                
+                document.getElementById('modal-body').innerHTML = modalResim + (haber.tamMetin || "Tam metin bulunamadı."); 
                 document.getElementById('modal-source').innerText = "Kaynak: " + haber.kaynak;
                 document.getElementById('modal-date').innerText = haber.tarih;
                 
-                // Orijinal haber linkini de ekleyelim
                 const linkElement = document.getElementById('modal-link');
                 linkElement.href = haber.link;
                 
@@ -265,7 +266,6 @@
             if (event.target == modal) closeModal();
         }
 
-        // Sayfa yüklendiğinde ilk iş verileri çek
         window.onload = haberleriYukle;
     </script>
 </body>
