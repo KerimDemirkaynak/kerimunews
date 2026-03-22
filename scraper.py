@@ -99,21 +99,30 @@ def tarih_formatla(entry):
 def rss_olustur(liste):
     rss_items = ""
     for h in liste[:20]: # RSS içine sadece en yeni 20 haberi koyalım
+        # Haberlerin kendi sitemize yönlendirmesi için link oluşturuluyor
+        kendi_linkimiz = f"https://kerimdemirkaynak.github.io/kerimunews/haber.html?id={h['id']}"
+        
+        # Resim URL'sini al, varsa enclosure tag'i oluştur
+        resim_url = h.get('resim', '')
+        enclosure_tag = f'<enclosure url="{escape(resim_url)}" type="image/jpeg" length="0" />' if resim_url else ""
+        
         rss_items += f"""
         <item>
             <title>{escape(h['baslik'])}</title>
-            <link>{escape(h['link'])}</link>
-            <description>{escape(h['ozet'])}</description>
+            <link>{escape(kendi_linkimiz)}</link>
+            <guid>{escape(kendi_linkimiz)}</guid>
+            <description><![CDATA[<img src="{resim_url}" /><br><br>{h['ozet']}]]></description>
             <category>{escape(h['kategori'])}</category>
             <source url="{escape(h['link'])}">{escape(h['kaynak'])}</source>
             <pubDate>{escape(h['tarih'])}</pubDate>
+            {enclosure_tag}
         </item>"""
 
     rss_feed = f"""<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
     <title>Kerimu Animasyon Haberleri</title>
-    <link>https://kerimdemirkaynak.github.io</link>
+    <link>https://kerimdemirkaynak.github.io/kerimunews/</link>
     <description>Otomatik Türkçe çevirili global anime ve çizgi film haberleri.</description>
     <language>tr-TR</language>
     {rss_items}
