@@ -3,7 +3,7 @@ name: Haberleri Guncelle
 on:
   schedule:
     - cron: '0 0 * * *' # Her gün gece yarısı 1 kez çalışır
-  workflow_dispatch:
+  workflow_dispatch: # Manuel tetikleme butonu
 
 permissions:
   contents: write
@@ -26,14 +26,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Python Betiğini Çalıştır (Haberleri Çek ve RSS Oluştur)
+      - name: Python Betiğini Çalıştır (Haberleri Çek ve Klasörlere Kaydet)
         run: python scraper.py
 
       - name: Değişiklikleri Git'e Kaydet ve Yükle
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add haberler.json rss.xml
-          git commit -m "Otomatik güncelleme: Yeni haberler ve RSS beslemesi oluşturuldu" || echo "Değişiklik yok"
+          #liste.json, rss.xml ve haberler klasörünün tamamını kaydet
+          git add liste.json rss.xml haberler/
+          git commit -m "Otomatik güncelleme: Yeni haberler eklendi ve arşivlendi" || echo "Değişiklik yok"
           git pull --rebase origin main
           git push
