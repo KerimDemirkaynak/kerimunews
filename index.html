@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Kerimu Animasyon Haberleri</title>
+    <meta name="description" content="En güncel anime ve çizgi film haberlerini Türkçe okuyun. Anitrendz, CBR, ANN ve daha fazlasından RSS ile anında çeviriler.">
+    <meta name="keywords" content="anime haberleri, çizgi film haberleri, türkçe anime haber, manga, kerimu animasyon, myanimelist, cbr">
+    <meta name="author" content="Kerim Demirkaynak">
+    
+    <meta property="og:title" content="Kerimu Animasyon Haberleri">
+    <meta property="og:description" content="Global animasyon ve anime haberleri anında Türkçe çevirisiyle tek bir yerde!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop"> <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📺</text></svg>">
+    
+    <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml" />
+
     <style>
         :root {
             --bg-color: #0f172a;
@@ -19,22 +33,22 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Sade Header */
         header { background-color: var(--header-bg); border-bottom: 1px solid #334155; }
         .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem; flex-wrap: wrap; gap: 1rem; }
         .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); }
         .logo-icon { display: flex; align-items: center; color: var(--accent); }
         header h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; }
         
-        .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;}
         .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid #334155; padding: 0.4rem 1rem; border-radius: 6px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
         .filter-btn:hover, .filter-btn.active { background-color: var(--card-bg); border-color: var(--accent); color: var(--text-main); }
+        
+        .rss-link-btn { display: flex; align-items: center; gap: 5px; background-color: #f97316; color: white; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: background 0.2s; margin-left: auto;}
+        .rss-link-btn:hover { background-color: #ea580c; }
 
-        /* Ana İçerik ve Grid */
         main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
         #news-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
 
-        /* Kart Tasarımı */
         .news-card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #334155; transition: transform 0.2s; }
         .news-card:hover { transform: translateY(-5px); border-color: #475569; }
         .card-img-placeholder { height: 180px; background-color: #334155; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; }
@@ -48,20 +62,17 @@
         .read-more-btn { background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: color 0.2s; }
         .read-more-btn:hover { color: #60a5fa; text-decoration: underline; }
 
-        /* Sayfalandırma */
         .pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
         .page-btn { background-color: var(--card-bg); color: var(--text-main); border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: 0.2s; }
         .page-btn:hover:not(:disabled) { background-color: #334155; }
         .page-btn.active { background-color: var(--accent); border-color: var(--accent); }
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        /* Footer */
         footer { background-color: var(--header-bg); border-top: 1px solid #334155; padding: 2rem 1rem; text-align: center; margin-top: auto; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 0.9rem; }
         .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
         .footer-links a:hover { color: var(--accent); }
 
-        /* Modal */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; padding: 1rem; backdrop-filter: blur(4px); }
         .modal-content { background-color: var(--card-bg); width: 100%; max-width: 800px; max-height: 90vh; border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #334155; }
         .modal-header { padding: 1.5rem; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: flex-start; }
@@ -73,7 +84,10 @@
         .orijinal-link { color: var(--accent); text-decoration: none; }
         .orijinal-link:hover { text-decoration: underline; }
         
-        @media (max-width: 768px) { .header-content { flex-direction: column; justify-content: center; } }
+        @media (max-width: 768px) { 
+            .header-content { flex-direction: column; justify-content: center; } 
+            .rss-link-btn { margin-left: 0; width: 100%; justify-content: center;}
+        }
     </style>
 </head>
 <body>
@@ -93,6 +107,15 @@
                 <button class="filter-btn active" onclick="setCategory('Tümü')">Tümü</button>
                 <button class="filter-btn" onclick="setCategory('Anime')">Anime</button>
                 <button class="filter-btn" onclick="setCategory('Çizgi Film')">Çizgi Film</button>
+                
+                <a href="rss.xml" target="_blank" class="rss-link-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path>
+                        <path d="M4 4a16 16 0 0 1 16 16"></path>
+                        <circle cx="5" cy="19" r="1"></circle>
+                    </svg>
+                    RSS Beslemesi
+                </a>
             </div>
         </div>
     </header>
@@ -110,7 +133,7 @@
             <div class="footer-links">
                 <a href="#">Hakkımızda</a> | <a href="#">Kaynaklar</a> | <a href="https://github.com/Kerim_Demirkaynak" target="_blank">İletişim</a>
             </div>
-            <p>&copy; 2026 Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
+            <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
 
@@ -132,6 +155,9 @@
     </div>
 
     <script>
+        // Footer Yılını Otomatik Ayarla
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         let tumHaberler = []; 
         let aktifKategori = 'Tümü';
         let sayfa = 1;
