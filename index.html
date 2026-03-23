@@ -46,8 +46,15 @@
         .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid #334155; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
         .filter-btn:hover, .filter-btn.active { background-color: var(--card-bg); border-color: var(--accent); color: var(--text-main); }
         
-        .action-container { display: flex; justify-content: flex-end; }
-        .rss-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background-color: #f97316; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; }
+        .action-container { display: flex; justify-content: flex-end; align-items: center; }
+        
+        /* Arama Kutusu Stilleri */
+        .search-container { display: flex; align-items: center; background-color: var(--card-bg); border: 1px solid #334155; border-radius: 6px; padding: 0.4rem 0.8rem; margin-right: 1rem; transition: border-color 0.2s; }
+        .search-container:focus-within { border-color: var(--accent); }
+        .search-input { background: transparent; border: none; color: var(--text-main); font-size: 0.9rem; outline: none; padding-left: 8px; width: 200px; }
+        .search-input::placeholder { color: var(--text-muted); }
+
+        .rss-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background-color: #f97316; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; white-space: nowrap; }
         .rss-link-btn:hover { background-color: #ea580c; }
 
         main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
@@ -80,7 +87,9 @@
         
         @media (max-width: 900px) { 
             .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.2rem; } 
-            .action-container { width: 100%; }
+            .action-container { width: 100%; flex-direction: column; gap: 10px; }
+            .search-container { margin-right: 0; width: 100%; }
+            .search-input { width: 100%; }
             .rss-link-btn { width: 100%; padding: 0.8rem; }
             .filters { flex-wrap: wrap; }
         }
@@ -107,6 +116,11 @@
             </div>
 
             <div class="action-container">
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
+                    <input type="text" id="search-input" class="search-input" placeholder="Haberlerde ara...">
+                </div>
+
                 <a href="rss.xml" target="_blank" class="rss-link-btn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 11a9 9 0 0 1 9 9"></path>
@@ -142,6 +156,7 @@
 
         let tumHaberler = []; 
         let aktifKategori = 'Tümü';
+        let aramaKelimesi = ''; // Arama için eklendi
         let sayfa = 1;
         const haberSayisi = 9; 
 
@@ -150,7 +165,6 @@
 
         async function haberleriYukle() {
             try {
-                // ARTIK HABERLER.JSON DEĞİL, LİSTE.JSON'U ÇEKİYOR
                 const response = await fetch('liste.json');
                 if (!response.ok) throw new Error('Liste dosyası bulunamadı.');
                 
@@ -168,14 +182,21 @@
 
         function renderNews() {
             container.innerHTML = '';
-            const filtrelenmis = tumHaberler.filter(h => aktifKategori === 'Tümü' || h.kategori === aktifKategori);
+            
+            // Filtreleme: Hem kategori hem de arama kelimesine göre filtreler
+            const filtrelenmis = tumHaberler.filter(h => {
+                const kategoriUygun = aktifKategori === 'Tümü' || h.kategori === aktifKategori;
+                const aramaUygun = h.baslik.toLowerCase().includes(aramaKelimesi.toLowerCase()) || 
+                                   h.ozet.toLowerCase().includes(aramaKelimesi.toLowerCase());
+                return kategoriUygun && aramaUygun;
+            });
             
             const baslangic = (sayfa - 1) * haberSayisi;
             const bitis = baslangic + haberSayisi;
             const gosterilecekHaberler = filtrelenmis.slice(baslangic, bitis);
 
             if (gosterilecekHaberler.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Bu kategoride haber bulunamadı.</p>';
+                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Bu kriterlere uygun haber bulunamadı.</p>';
                 paginationContainer.innerHTML = '';
                 return;
             }
@@ -245,6 +266,13 @@
             });
             renderNews();
         }
+
+        // Arama kutusunu dinleyen kod
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            aramaKelimesi = e.target.value;
+            sayfa = 1; // Arama yapıldığında her zaman 1. sayfaya dön
+            renderNews();
+        });
 
         window.onload = haberleriYukle;
     </script>
