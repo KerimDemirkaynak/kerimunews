@@ -93,6 +93,18 @@
             .rss-link-btn { width: 100%; padding: 0.8rem; }
             .filters { flex-wrap: wrap; }
         }
+
+        /* YENİ EKLENEN: MOBİL İÇİN BUTON KÜÇÜLTME AYARLARI */
+        @media (max-width: 500px) {
+            .pagination { gap: 0.25rem; } 
+            .page-btn { 
+                padding: 0.35rem 0.6rem; 
+                font-size: 0.85rem; 
+            }
+            .page-btn span {
+                font-size: 0.75rem; 
+            }
+        }
     </style>
 </head>
 <body>
@@ -156,7 +168,7 @@
 
         let tumHaberler = []; 
         let aktifKategori = 'Tümü';
-        let aramaKelimesi = ''; // Arama için eklendi
+        let aramaKelimesi = ''; 
         let sayfa = 1;
         const haberSayisi = 10; 
 
@@ -183,7 +195,6 @@
         function renderNews() {
             container.innerHTML = '';
             
-            // Filtreleme: Hem kategori hem de arama kelimesine göre filtreler
             const filtrelenmis = tumHaberler.filter(h => {
                 const kategoriUygun = aktifKategori === 'Tümü' || h.kategori === aktifKategori;
                 const aramaUygun = h.baslik.toLowerCase().includes(aramaKelimesi.toLowerCase()) || 
@@ -228,30 +239,63 @@
             renderPagination(filtrelenmis.length);
         }
 
+        // YENİ EKLENEN: SABİT 5 BUTONLU SAYFALAMA ALGORİTMASI
         function renderPagination(toplamHaber) {
             paginationContainer.innerHTML = '';
             const toplamSayfa = Math.ceil(toplamHaber / haberSayisi);
             
             if (toplamSayfa <= 1) return;
 
+            // ÖNCEKİ BUTONU
             const prevBtn = document.createElement('button');
             prevBtn.className = 'page-btn';
-            prevBtn.innerHTML = '<i class="fa-solid fa-arrow-left"></i> Önceki';
+            prevBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><i class="fa-solid fa-arrow-left"></i><span>Önceki</span></div>';
             prevBtn.disabled = sayfa === 1;
             prevBtn.onclick = () => { sayfa--; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
             paginationContainer.appendChild(prevBtn);
 
-            for (let i = 1; i <= toplamSayfa; i++) {
+            // SABİT 5 BUTON MANTIĞI
+            let sayfalar = new Set();
+            
+            if (toplamSayfa <= 5) {
+                for (let i = 1; i <= toplamSayfa; i++) sayfalar.add(i);
+            } else {
+                sayfalar.add(1);
+                sayfalar.add(toplamSayfa);
+                
+                if (sayfa <= 3) {
+                    sayfalar.add(2);
+                    sayfalar.add(3);
+                    sayfalar.add(4);
+                } else if (sayfa >= toplamSayfa - 2) {
+                    sayfalar.add(toplamSayfa - 3);
+                    sayfalar.add(toplamSayfa - 2);
+                    sayfalar.add(toplamSayfa - 1);
+                } else {
+                    sayfalar.add(sayfa - 1);
+                    sayfalar.add(sayfa);
+                    sayfalar.add(sayfa + 1);
+                }
+            }
+            
+            let siraliSayfalar = Array.from(sayfalar).sort((a, b) => a - b);
+
+            // NUMARA BUTONLARI
+            siraliSayfalar.forEach(i => {
                 const btn = document.createElement('button');
                 btn.className = `page-btn ${i === sayfa ? 'active' : ''}`;
+                btn.style.display = 'flex';
+                btn.style.alignItems = 'center';
+                btn.style.justifyContent = 'center';
                 btn.innerText = i;
                 btn.onclick = () => { sayfa = i; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
                 paginationContainer.appendChild(btn);
-            }
+            });
 
+            // SONRAKİ BUTONU
             const nextBtn = document.createElement('button');
             nextBtn.className = 'page-btn';
-            nextBtn.innerHTML = 'Sonraki <i class="fa-solid fa-arrow-right"></i>';
+            nextBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span>Sonraki</span><i class="fa-solid fa-arrow-right"></i></div>';
             nextBtn.disabled = sayfa === toplamSayfa;
             nextBtn.onclick = () => { sayfa++; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
             paginationContainer.appendChild(nextBtn);
@@ -267,10 +311,9 @@
             renderNews();
         }
 
-        // Arama kutusunu dinleyen kod
         document.getElementById('search-input').addEventListener('input', (e) => {
             aramaKelimesi = e.target.value;
-            sayfa = 1; // Arama yapıldığında her zaman 1. sayfaya dön
+            sayfa = 1; 
             renderNews();
         });
 
