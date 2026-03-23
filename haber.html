@@ -37,22 +37,36 @@
         .original-link { display: inline-block; margin-top: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
         .original-link:hover { text-decoration: underline; }
 
-        /* SOSYAL MEDYA PAYLAŞIM BUTONLARI CSS */
+        /* GÜNCELLENMİŞ SOSYAL MEDYA PAYLAŞIM BUTONLARI CSS */
         .social-share {
             display: flex;
-            align-items: center;
+            align-items: center; /* Dikey dikey hizalama */
             flex-wrap: wrap;
             gap: 12px;
             margin-top: 2.5rem;
             padding-top: 1.5rem;
             border-top: 1px solid #334155;
         }
-        .share-text { font-weight: 600; color: var(--text-muted); }
+        .share-text { 
+            font-weight: 600; 
+            color: var(--text-muted);
+            white-space: nowrap; /* Metni bir satırda tut */
+        }
+        
+        /* Buton konteyneri ekledik */
+        .share-buttons-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap; /* Butonlar sığmazsa alt satıra geçsin, ancak hizalı kalsın */
+            align-items: center; /* Dikey dikey hizalama */
+        }
+
         .share-btn {
             display: inline-flex; align-items: center; justify-content: center;
             width: 40px; height: 40px; border-radius: 50%;
             color: #fff; text-decoration: none; font-size: 1.1rem;
             transition: transform 0.2s, opacity 0.2s; border: none; cursor: pointer;
+            margin: 0; /* Tarayıcı varsayılanlarını sıfırla */
         }
         .share-btn:hover { transform: translateY(-3px); opacity: 0.9; }
         .btn-twitter { background-color: #000000; border: 1px solid #334155; } /* X için siyah */
@@ -77,7 +91,16 @@
             .article-body { padding: 1.2rem; font-size: 1.05rem; }
             .article-title { font-size: 1.6rem; }
             .comments-section { padding: 1.2rem; }
+            
+            /* Mobil için başlık ve butonları ayrı satırlara yerleştir */
+            .social-share {
+                flex-direction: column; 
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .share-text { margin-bottom: 4px; }
         }
+    </media>
     </style>
 </head>
 <body>
@@ -182,15 +205,17 @@
                 const sayfaUrl = encodeURIComponent(window.location.href);
                 const sayfaBaslik = encodeURIComponent(haber.baslik);
 
-                // Sosyal medya butonları HTML yapısı
+                // Sosyal medya butonları HTML yapısı - Konteyner ekledik
                 const paylasimHTML = `
                     <div class="social-share">
                         <span class="share-text">Haberi Paylaş:</span>
-                        <a href="https://twitter.com/intent/tweet?url=${sayfaUrl}&text=${sayfaBaslik}" target="_blank" class="share-btn btn-twitter" title="X'te (Twitter) Paylaş"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=${sayfaUrl}" target="_blank" class="share-btn btn-facebook" title="Facebook'ta Paylaş"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://api.whatsapp.com/send?text=${sayfaBaslik} - ${sayfaUrl}" target="_blank" class="share-btn btn-whatsapp" title="WhatsApp'tan Gönder"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="https://t.me/share/url?url=${sayfaUrl}&text=${sayfaBaslik}" target="_blank" class="share-btn btn-telegram" title="Telegram'da Paylaş"><i class="fa-brands fa-telegram"></i></a>
-                        <button onclick="baglantiyiKopyala()" class="share-btn btn-copy" title="Bağlantıyı Kopyala"><i class="fa-solid fa-link"></i></button>
+                        <div class="share-buttons-container">
+                            <a href="https://twitter.com/intent/tweet?url=${sayfaUrl}&text=${sayfaBaslik}" target="_blank" class="share-btn btn-twitter" title="X'te (Twitter) Paylaş"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=${sayfaUrl}" target="_blank" class="share-btn btn-facebook" title="Facebook'ta Paylaş"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://api.whatsapp.com/send?text=${sayfaBaslik} - ${sayfaUrl}" target="_blank" class="share-btn btn-whatsapp" title="WhatsApp'tan Gönder"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="https://t.me/share/url?url=${sayfaUrl}&text=${sayfaBaslik}" target="_blank" class="share-btn btn-telegram" title="Telegram'da Paylaş"><i class="fa-brands fa-telegram"></i></a>
+                            <button onclick="baglantiyiKopyala()" class="share-btn btn-copy" title="Bağlantıyı Kopyala"><i class="fa-solid fa-link"></i></button>
+                        </div>
                     </div>
                 `;
                 
