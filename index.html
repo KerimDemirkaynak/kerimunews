@@ -250,7 +250,7 @@
             // ÖNCEKİ BUTONU
             const prevBtn = document.createElement('button');
             prevBtn.className = 'page-btn';
-            prevBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><i class="fa-solid fa-arrow-left"></i><span>Önceki</span></div>';
+            prevBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span>Önceki</span><i class="fa-solid fa-arrow-left"></i></div>';
             prevBtn.disabled = sayfa === 1;
             prevBtn.onclick = () => { sayfa--; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
             paginationContainer.appendChild(prevBtn);
