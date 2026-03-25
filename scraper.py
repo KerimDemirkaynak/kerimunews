@@ -7,7 +7,6 @@ import time
 import os
 import hashlib
 from xml.sax.saxutils import escape
-from urllib.parse import urlparse
 
 AYLAR_TR = {
     "Jan": "Ocak", "Feb": "Şubat", "Mar": "Mart", "Apr": "Nisan", "May": "Mayıs", "Jun": "Haziran",
@@ -33,49 +32,19 @@ HEADERS = {
 def id_olustur(link):
     return hashlib.md5(link.encode('utf-8')).hexdigest()[:10]
 
-def cevir(metin, max_uzunluk=4500, tekrar_sayisi=3):
+def cevir(metin):
     if not metin or metin.isspace():
         return ""
-    
-    # Eğer metin sınırın altındaysa direkt çevir
-    if len(metin) <= max_uzunluk:
-        for deneme in range(tekrar_sayisi):
-            try:
-                translator = GoogleTranslator(source='auto', target='tr')
-                return translator.translate(metin)
-            except Exception as e:
-                print(f"   [!] Çeviri hatası (Deneme {deneme+1}/{tekrar_sayisi}): {e}")
-                time.sleep(2) # Hata alırsan 2 saniye bekle ve tekrar dene
-        
-        print("   [!] Çeviri tamamen başarısız oldu, orijinal metin kullanılıyor.")
+    try:
+        translator = GoogleTranslator(source='auto', target='tr')
+        return translator.translate(metin[:4999])
+    except Exception as e:
+        print(f"Çeviri hatası: {e}")
         return metin
-
-    # Eğer metin çok uzunsa bölerek çevir (Ewilan's Quest gibi makalelerin yarım kalmaması için)
-    else:
-        cevrilmis_parcalar = []
-        parcalar = [metin[i:i+max_uzunluk] for i in range(0, len(metin), max_uzunluk)]
-        
-        for parca in parcalar:
-            for deneme in range(tekrar_sayisi):
-                try:
-                    translator = GoogleTranslator(source='auto', target='tr')
-                    cevrilmis_parca = translator.translate(parca)
-                    cevrilmis_parcalar.append(cevrilmis_parca)
-                    time.sleep(1) # API'yi yormamak için parçalar arası kısa bekleme
-                    break 
-                except Exception as e:
-                     print(f"   [!] Parça çeviri hatası (Deneme {deneme+1}/{tekrar_sayisi}): {e}")
-                     time.sleep(2)
-            else:
-                 cevrilmis_parcalar.append(parca)
-                 
-        return "".join(cevrilmis_parcalar)
 
 def icerik_ve_resim_cek(entry):
     sonuc = {"metin": "", "resim": ""}
     ham_html = ""
-    
-    # 1. Aşama: RSS Feed İçinden Veri Çekmeyi Dene
     if 'content' in entry:
         ham_html = entry.content[0].value
     elif 'summary' in entry:
@@ -88,88 +57,30 @@ def icerik_ve_resim_cek(entry):
             sonuc["resim"] = img_tag['src']
             
         paragraflar = soup_rss.find_all('p')
-        metin_parcalari = [p.get_text().strip() for p in paragraflar if len(p.get_text().strip()) > 10]
+        metin_parcalari = [p.get_text().strip() for p in paragraflar if len(p.get_text().strip()) > 30]
         if metin_parcalari:
             sonuc["metin"] = "\n\n".join(metin_parcalari)
             
-    # 2. Aşama: Web Kazıma (Eğer içerik yetersizse ana siteye git)
     if len(sonuc["metin"]) < 400 or not sonuc["resim"]:
         try:
             response = requests.get(entry.link, headers=HEADERS, timeout=15)
             if response.status_code == 200:
                 soup_web = BeautifulSoup(response.content, 'html.parser')
-                
                 if not sonuc["resim"]:
                     og_image = soup_web.find("meta", property="og:image")
                     if og_image and og_image.get("content"):
                         sonuc["resim"] = og_image["content"]
-                
-                # Çeşitli sitelerin kapsayıcı formatları (AnimeNewsNetwork için KonaBody dahil)
-                kapsayici = soup_web.find('div', class_='KonaBody') or soup_web.find('section', id='article-body') or soup_web.find('article') or soup_web.find('div', class_='field-item') or soup_web
-                
-                if kapsayici:
-                    islenmis_icerik = []
-                    
-                    for eleman in kapsayici.find_all(['h2', 'h3', 'p', 'figure', 'ul', 'ol', 'blockquote']):
-                        
-                        # Çift çekilmeyi (duplikasyon) önleme
-                        if eleman.name in ['p', 'h2', 'h3', 'ul', 'ol']:
-                            if eleman.find_parent(['blockquote', 'ul', 'ol', 'figure']):
-                                continue
-                                
-                        if eleman.name in ['h2', 'h3']:
-                            baslik_metni = eleman.get_text().strip()
-                            if baslik_metni:
-                                islenmis_icerik.append(f"<h2>{cevir(baslik_metni)}</h2>")
-                                
-                        elif eleman.name == 'p':
-                            # Gereksiz kodları temizle
-                            for tag in eleman.find_all(['iframe', 'script', 'style', 'span']):
-                                tag.decompose()
-                            p_metin = eleman.get_text().strip()
-                            if len(p_metin) > 10 and not p_metin.isspace():
-                                islenmis_icerik.append(f"<p>{cevir(p_metin)}</p>")
-                                
-                        elif eleman.name in ['ul', 'ol']:
-                            liste_icerigi = []
-                            for li in eleman.find_all('li'):
-                                for tag in li.find_all(['iframe', 'script', 'style', 'span']):
-                                    tag.decompose()
-                                li_metin = li.get_text().strip()
-                                if len(li_metin) > 3:
-                                    liste_icerigi.append(f"<li>{cevir(li_metin)}</li>")
-                            if liste_icerigi:
-                                liste_tipi = eleman.name
-                                islenmis_icerik.append(f"<{liste_tipi}>\n" + "\n".join(liste_icerigi) + f"\n</{liste_tipi}>")
-                                
-                        elif eleman.name == 'blockquote':
-                            for tag in eleman.find_all(['iframe', 'script', 'style']):
-                                tag.decompose()
-                            alinti_metni = eleman.get_text(separator=" ").strip()
-                            if len(alinti_metni) > 10:
-                                islenmis_icerik.append(f'<blockquote style="border-left: 4px solid #1DA1F2; padding-left: 15px; margin: 15px 0; font-style: italic; background-color: #f8f9fa; padding: 10px; border-radius: 4px;">{cevir(alinti_metni)}</blockquote>')
-                                
-                        elif eleman.name == 'figure':
-                            img = eleman.find('img')
-                            if img:
-                                src = img.get('data-img-url') or img.get('data-src') or img.get('src')
-                                # Link root'tan başlıyorsa domain'i başına ekle
-                                if src and src.startswith('/'):
-                                    parsed_uri = urlparse(entry.link)
-                                    ana_domain = '{uri.scheme}://{uri.netloc}'.format(uri=parsed_uri)
-                                    src = ana_domain + src
-                                if src:
-                                    islenmis_icerik.append(f'<br><img src="{src}" style="max-width:100%; height:auto; border-radius:8px; margin-bottom:15px;"/><br>')
-
-                    if islenmis_icerik:
-                        sonuc["metin"] = "\n".join(islenmis_icerik)
-                        
-        except Exception as e:
-            print(f"İçerik çekme hatası ({entry.link}): {e}")
+                if len(sonuc["metin"]) < 400:
+                    kapsayici = soup_web.find('article') or soup_web.find('div', class_='field-item') or soup_web
+                    web_paragraflar = kapsayici.find_all('p')
+                    web_metin = [p.get_text().strip() for p in web_paragraflar if len(p.get_text().strip()) > 30]
+                    if web_metin:
+                        sonuc["metin"] = "\n\n".join(web_metin)
+        except Exception:
+            pass
             
     if len(sonuc["metin"]) < 50:
-         sonuc["metin"] = "<p>Tam metin çekilemedi. Lütfen orijinal kaynağa gidiniz.</p>"
-         
+         sonuc["metin"] = "Tam metin çekilemedi. Lütfen orijinal kaynağa gidiniz."
     return sonuc
 
 def tarih_formatla(entry):
@@ -187,8 +98,11 @@ def tarih_formatla(entry):
 
 def rss_olustur(liste):
     rss_items = ""
-    for h in liste[:20]: 
+    for h in liste[:20]: # RSS içine sadece en yeni 20 haberi koyalım
+        # Haberlerin kendi sitemize yönlendirmesi için link oluşturuluyor
         kendi_linkimiz = f"https://kerimdemirkaynak.github.io/kerimunews/haber.html?id={h['id']}"
+        
+        # Resim URL'sini al, varsa enclosure tag'i oluştur
         resim_url = h.get('resim', '')
         enclosure_tag = f'<enclosure url="{escape(resim_url)}" type="image/jpeg" length="0" />' if resim_url else ""
         
@@ -219,10 +133,12 @@ def rss_olustur(liste):
         f.write(rss_feed)
 
 def ana_islem():
+    # Klasör yoksa oluştur
     if not os.path.exists('haberler'):
         os.makedirs('haberler')
 
     eski_liste = []
+    # 1. Ana Kataloğu (liste.json) Oku
     if os.path.exists('liste.json'):
         try:
             with open('liste.json', 'r', encoding='utf-8') as f:
@@ -244,23 +160,23 @@ def ana_islem():
                 link = entry.link
                 haber_id = id_olustur(link)
                 
+                # Eğer haber zaten kataloğumuzda varsa atla
                 if haber_id in mevcut_id_listesi:
                     print(f" - Zaten arşivde var, atlanıyor: {entry.title}")
                     continue
                 
                 print(f" + YENİ Haber Çekiliyor: {entry.title}")
                 orijinal_baslik = entry.title
-                
-                orijinal_ozet_html = entry.get('summary', '')
-                orijinal_ozet = BeautifulSoup(orijinal_ozet_html, 'html.parser').get_text()
+                orijinal_ozet = BeautifulSoup(entry.get('summary', ''), 'html.parser').get_text()
                 
                 detaylar = icerik_ve_resim_cek(entry)
                 
                 tr_baslik = cevir(orijinal_baslik)
                 tr_ozet = cevir(orijinal_ozet[:250]) + "..."
+                tr_tam_metin = cevir(detaylar["metin"])
                 tr_tarih = tarih_formatla(entry)
-                tr_tam_metin = detaylar["metin"]
 
+                # Ana Katalog İçin Hafif Veri (tamMetin YOK)
                 katalog_verisi = {
                     "id": haber_id,
                     "kategori": kaynak["kategori"],
@@ -273,9 +189,11 @@ def ana_islem():
                 }
                 yeni_eklenenler.append(katalog_verisi)
 
+                # Özel Haber Dosyası İçin Tam Veri (Tam Metin VAR)
                 tam_veri = katalog_verisi.copy()
                 tam_veri["tamMetin"] = tr_tam_metin
 
+                # Haberi kendi klasörüne ID'si ile kaydet
                 with open(f'haberler/{haber_id}.json', 'w', encoding='utf-8') as f:
                     json.dump(tam_veri, f, ensure_ascii=False, indent=4)
                 
@@ -283,6 +201,7 @@ def ana_islem():
             print(f"HATA - {kaynak['isim']} atlanıyor: {e}")
             continue 
 
+    # 3. Yeni haberleri kataloğun en başına ekle
     guncel_liste = yeni_eklenenler + eski_liste
 
     if guncel_liste:
