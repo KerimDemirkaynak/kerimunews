@@ -2,7 +2,7 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
-from google import genai # YENİ VE GÜNCEL KÜTÜPHANE
+from google import genai
 import json
 import time
 import os
@@ -10,14 +10,14 @@ import hashlib
 from xml.sax.saxutils import escape
 import warnings
 
-# BeautifulSoup'un gereksiz uyarılarını gizler
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
-# --- YENİ GEMINI API (google-genai) YAPILANDIRMASI ---
+# --- YENİ GEMINI API YAPILANDIRMASI ---
 API_KEY = os.environ.get("GEMINI_API_KEY")
 if API_KEY:
     client = genai.Client(api_key=API_KEY)
-    model_name = 'gemini-3.1-flash-lite-preview'
+    # STABİL VE GÜÇLÜ MODELE GEÇİŞ YAPILDI
+    model_name = 'gemini-2.5-flash'
 else:
     client = None
 
@@ -49,7 +49,6 @@ def cevir(metin):
     if not metin or metin.isspace():
         return ""
     
-    # 1. Aşama: Yeni Gemini SDK ile çeviri
     if client:
         prompt = f"""
 Sen profesyonel bir anime ve animasyon haberleri çevirmenisin.
@@ -70,17 +69,22 @@ KESİN KURALLAR:
 Çevrilecek Metin:
 {metin[:4999]}
 """
-        try:
-            response = client.models.generate_content(
-                model=model_name,
-                contents=prompt
-            )
-            if response.text:
-                return response.text.strip()
-        except Exception as e:
-            print(f"Gemini API hatası, yedek çeviriye geçiliyor: {e}")
+        # HATA DURUMUNDA 3 KEZ TEKRAR DENEME MANTIĞI (RETRY)
+        for deneme in range(3):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt
+                )
+                if response.text:
+                    return response.text.strip()
+            except Exception as e:
+                print(f"Gemini API hatası (Deneme {deneme+1}/3): {e}")
+                time.sleep(5) # Hata alırsan pes etme, 5 saniye bekle tekrar dene
+        
+        print("Gemini API 3 kez başarısız oldu, Yedek Çeviriye geçiliyor...")
 
-    # 2. Aşama: Yedek Google Translate
+    # Eğer 3 denemeye rağmen API cevap vermezse mecburen Google Translate kullan
     try:
         translator = GoogleTranslator(source='auto', target='tr')
         return translator.translate(metin[:4999])
@@ -234,6 +238,7 @@ def ana_islem():
                 with open(f'haberler/{haber_id}.json', 'w', encoding='utf-8') as f:
                     json.dump(tam_veri, f, ensure_ascii=False, indent=4)
                 
+                # API limitlerini korumak için 3 saniye bekle
                 time.sleep(3)
                 
         except Exception as e:
