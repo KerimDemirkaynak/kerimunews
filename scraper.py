@@ -26,7 +26,7 @@ AYLAR_TR = {
     "Jul": "Temmuz", "Aug": "Ağustos", "Sep": "Eylül", "Oct": "Ekim", "Nov": "Kasım", "Dec": "Aralık"
 }
 
-# YENİ KAYNAK EKLENDİ (Animation Magazine)
+# TÜM KAYNAKLAR (Animation Magazine Dahil)
 KAYNAKLAR = [
     {"url": "https://anitrendz.net/news/feed/", "kategori": "Anime", "isim": "Anitrendz"},
     {"url": "https://animehunch.com/feed/", "kategori": "Anime", "isim": "AnimeHunch"},
@@ -84,10 +84,13 @@ KESİN KURALLAR:
                     contents=prompt
                 )
                 if response.text:
+                    # YENİ FREN SİSTEMİ: Başarılı çeviri sonrası RPM limitini korumak için kısa mola
+                    time.sleep(4) 
                     return response.text.strip()
             except Exception as e:
                 print(f"Gemini API hatası (Deneme {deneme+1}/3): {e}")
-                time.sleep(5) 
+                # YENİ FREN SİSTEMİ: Kota (429) veya yoğunluk (503) hatası gelirse uzun mola
+                time.sleep(15) 
         
         print("Gemini API 3 kez başarısız oldu, Yedek Çeviriye geçiliyor...")
 
@@ -132,28 +135,54 @@ def icerik_ve_resim_cek(entry):
             response = requests.get(entry.link, headers=HEADERS, timeout=15)
             if response.status_code == 200:
                 soup_web = BeautifulSoup(response.content, 'html.parser')
+                
                 if not sonuc["resim"]:
                     og_image = soup_web.find("meta", property="og:image")
                     if og_image and og_image.get("content"):
                         sonuc["resim"] = og_image["content"]
+                        
                 if len(sonuc["metin"]) < 400:
-                    kapsayici = soup_web.find('article') or soup_web.find('div', class_='field-item') or soup_web
+                    kapsayici = None
                     
-                    web_metin_parcalari = []
-                    for element in kapsayici.find_all(['p', 'ul']):
-                        if element.name == 'p':
-                            text = element.get_text().strip()
-                            if len(text) > 30:
-                                web_metin_parcalari.append(text)
-                        elif element.name == 'ul':
-                            for li in element.find_all('li'):
-                                text = li.get_text().strip()
-                                if len(text) > 5:
-                                    web_metin_parcalari.append("- " + text)
-                                    
-                    if web_metin_parcalari:
-                        sonuc["metin"] = "\n\n".join(web_metin_parcalari)
-        except Exception:
+                    # SİTEYE ÖZEL KURALLAR (Custom Parsers)
+                    if "animenewsnetwork.com" in entry.link:
+                        kapsayici = soup_web.find('div', class_='text-zone')
+                    elif "animationmagazine.net" in entry.link:
+                        kapsayici = soup_web.find('div', class_='post-content')
+                        
+                    # Özel kural yoksa genel arama (Fallback)
+                    if not kapsayici:
+                        kapsayici = (
+                            soup_web.find('article') or 
+                            soup_web.find('main') or 
+                            soup_web.find('div', class_='field-item') or 
+                            soup_web
+                        )
+                    
+                    if kapsayici:
+                        # ÇÖP AYIKLAMA: Menü, reklam ve altbilgileri sil
+                        for gereksiz in kapsayici.find_all(['nav', 'footer', 'aside', 'header', 'script', 'style']):
+                            gereksiz.decompose()
+                        
+                        web_metin_parcalari = []
+                        for element in kapsayici.find_all(['p', 'ul']):
+                            if element.parent and element.parent.name in ['nav', 'footer', 'aside']:
+                                continue
+                                
+                            if element.name == 'p':
+                                text = element.get_text().strip()
+                                if len(text) > 30:
+                                    web_metin_parcalari.append(text)
+                            elif element.name == 'ul':
+                                for li in element.find_all('li'):
+                                    text = li.get_text().strip()
+                                    if len(text) > 10 and not ("http" in text or "www" in text):
+                                        web_metin_parcalari.append("- " + text)
+                                        
+                        if web_metin_parcalari:
+                            sonuc["metin"] = "\n\n".join(web_metin_parcalari)
+        except Exception as e:
+            print(f"Site içi tarama hatası ({entry.link}): {e}")
             pass
             
     if len(sonuc["metin"]) < 50:
@@ -242,6 +271,7 @@ def ana_islem():
                 
                 detaylar = icerik_ve_resim_cek(entry)
                 
+                # Her çeviri kendi içinde beklediği için burada ekstra time.sleep() kullanmıyoruz
                 tr_baslik = cevir(orijinal_baslik)
                 tr_ozet = cevir(orijinal_ozet[:250]) + "..."
                 tr_tam_metin = cevir(detaylar["metin"])
@@ -264,9 +294,6 @@ def ana_islem():
 
                 with open(f'haberler/{haber_id}.json', 'w', encoding='utf-8') as f:
                     json.dump(tam_veri, f, ensure_ascii=False, indent=4)
-                
-                # API limitlerini korumak için 3 saniye bekle
-                time.sleep(3)
                 
         except Exception as e:
             print(f"HATA - {kaynak['isim']} atlanıyor: {e}")
