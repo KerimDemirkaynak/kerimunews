@@ -10,8 +10,10 @@ import hashlib
 from xml.sax.saxutils import escape
 import warnings
 
+# BeautifulSoup'un gereksiz uyarılarını gizler
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
+# --- YENİ GEMINI API YAPILANDIRMASI ---
 API_KEY = os.environ.get("GEMINI_API_KEY")
 if API_KEY:
     client = genai.Client(api_key=API_KEY)
@@ -24,15 +26,18 @@ AYLAR_TR = {
     "Jul": "Temmuz", "Aug": "Ağustos", "Sep": "Eylül", "Oct": "Ekim", "Nov": "Kasım", "Dec": "Aralık"
 }
 
+# YENİ KAYNAK EKLENDİ (Animation Magazine)
 KAYNAKLAR = [
     {"url": "https://anitrendz.net/news/feed/", "kategori": "Anime", "isim": "Anitrendz"},
     {"url": "https://animehunch.com/feed/", "kategori": "Anime", "isim": "AnimeHunch"},
     {"url": "https://www.animenewsnetwork.com/all/rss.xml", "kategori": "Anime", "isim": "AnimeNewsNetwork"},
     {"url": "https://www.cbr.com/feed/category/anime/", "kategori": "Anime", "isim": "CBR Anime"},
     {"url": "https://www.cbr.com/feed/tag/cartoons/", "kategori": "Çizgi Film", "isim": "CBR Çizgi Film"},
-    {"url": "https://www.cartoonbrew.com/feed", "kategori": "Çizgi Film", "isim": "CartoonBrew"}
+    {"url": "https://www.cartoonbrew.com/feed", "kategori": "Çizgi Film", "isim": "CartoonBrew"},
+    {"url": "https://www.animationmagazine.net/category/tv/feed/", "kategori": "Çizgi Film", "isim": "AnimationMagazine"}
 ]
 
+# BOT KORUMASI AŞMAK İÇİN GELİŞMİŞ HEADERS
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -53,7 +58,6 @@ def cevir(metin):
         return ""
     
     if client:
-        # PROMPT GÜNCELLENDİ: Unvanların çevrilmesi kuralı eklendi
         prompt = f"""
 Sen profesyonel bir anime ve animasyon haberleri çevirmenisin.
 Aşağıdaki İngilizce metni Türkçe'ye çevir.
@@ -108,7 +112,6 @@ def icerik_ve_resim_cek(entry):
         if img_tag and img_tag.get('src'):
             sonuc["resim"] = img_tag['src']
             
-        # DÜZELTME: Artık sadece <p> (paragraf) değil, <li> (liste) elemanları da çekiliyor.
         metin_parcalari = []
         for element in soup_rss.find_all(['p', 'ul']):
             if element.name == 'p':
@@ -118,7 +121,7 @@ def icerik_ve_resim_cek(entry):
             elif element.name == 'ul':
                 for li in element.find_all('li'):
                     text = li.get_text().strip()
-                    if len(text) > 5: # Liste isimleri kısa olabilir (örn: "Goku - Masako Nozawa")
+                    if len(text) > 5:
                         metin_parcalari.append("- " + text)
                         
         if metin_parcalari:
@@ -136,7 +139,6 @@ def icerik_ve_resim_cek(entry):
                 if len(sonuc["metin"]) < 400:
                     kapsayici = soup_web.find('article') or soup_web.find('div', class_='field-item') or soup_web
                     
-                    # Aynı düzeltme web sitesinden tam metin çekme kısmı için de yapıldı
                     web_metin_parcalari = []
                     for element in kapsayici.find_all(['p', 'ul']):
                         if element.name == 'p':
@@ -263,6 +265,7 @@ def ana_islem():
                 with open(f'haberler/{haber_id}.json', 'w', encoding='utf-8') as f:
                     json.dump(tam_veri, f, ensure_ascii=False, indent=4)
                 
+                # API limitlerini korumak için 3 saniye bekle
                 time.sleep(3)
                 
         except Exception as e:
