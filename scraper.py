@@ -2,11 +2,21 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
+import google.generativeai as genai # YAPAY ZEKA KÜTÜPHANESİ EKLENDİ
 import json
 import time
 import os
 import hashlib
 from xml.sax.saxutils import escape
+
+# --- GEMINI API YAPILANDIRMASI ---
+API_KEY = os.environ.get("GEMINI_API_KEY")
+if API_KEY:
+    genai.configure(api_key=API_KEY)
+    # Seçtiğin model tanımlandı
+    model = genai.GenerativeModel('gemini-3.1-flash-lite-preview')
+else:
+    model = None
 
 AYLAR_TR = {
     "Jan": "Ocak", "Feb": "Şubat", "Mar": "Mart", "Apr": "Nisan", "May": "Mayıs", "Jun": "Haziran",
@@ -35,11 +45,41 @@ def id_olustur(link):
 def cevir(metin):
     if not metin or metin.isspace():
         return ""
+    
+    # 1. Aşama: Eğer Gemini API Key varsa yapay zeka ile çevir
+    if model:
+        prompt = f"""
+Sen profesyonel bir anime ve animasyon haberleri çevirmenisin.
+Aşağıdaki İngilizce metni Türkçe'ye çevir.
+
+KESİN KURALLAR:
+1. Karakter isimleri, anime/manga isimleri ve stüdyo isimlerini KESİNLİKLE orijinal İngilizce veya Romaji haliyle bırak.
+2. Haber metni resmi ama anime fanlarına hitap eden, samimi ve heyecanlı bir tonda olmalı.
+3. Abartılı emoji veya "vay beee" tarzı argo kelimeler KULLANMA.
+4. Orijinal haberin tonunu koru (ciddi haber ise ciddi, duyuru ise heyecanlı).
+5. Metne hiçbir bilgi ekleme, çıkarma veya kendi yorumunu yapma.
+6. Sayılar, tarihler ve yaşlar olduğu gibi kalacak.
+7. Türkçe mükemmel, akıcı ve doğal olacak.
+8. Cümleler çok uzun ve karmaşıksa, anlamı bozmadan kır/böl.
+9. Gereksiz tekrarları temizle.
+10. SADECE çevrilmiş Türkçe metni ver, "İşte çeviri:" gibi ek açıklamalar yapma.
+
+Çevrilecek Metin:
+{metin[:4999]}
+"""
+        try:
+            response = model.generate_content(prompt)
+            if response.text:
+                return response.text.strip()
+        except Exception as e:
+            print(f"Gemini API hatası, yedek çeviriye geçiliyor: {e}")
+
+    # 2. Aşama: Gemini API'de anlık bir sorun olursa Google Translate'i yedek olarak kullan
     try:
         translator = GoogleTranslator(source='auto', target='tr')
         return translator.translate(metin[:4999])
     except Exception as e:
-        print(f"Çeviri hatası: {e}")
+        print(f"Yedek Çeviri hatası: {e}")
         return metin
 
 def icerik_ve_resim_cek(entry):
@@ -99,10 +139,7 @@ def tarih_formatla(entry):
 def rss_olustur(liste):
     rss_items = ""
     for h in liste[:20]: # RSS içine sadece en yeni 20 haberi koyalım
-        # Haberlerin kendi sitemize yönlendirmesi için link oluşturuluyor
         kendi_linkimiz = f"https://kerimdemirkaynak.github.io/kerimunews/haber.html?id={h['id']}"
-        
-        # Resim URL'sini al, varsa enclosure tag'i oluştur
         resim_url = h.get('resim', '')
         enclosure_tag = f'<enclosure url="{escape(resim_url)}" type="image/jpeg" length="0" />' if resim_url else ""
         
@@ -133,12 +170,12 @@ def rss_olustur(liste):
         f.write(rss_feed)
 
 def ana_islem():
-    # Klasör yoksa oluştur
     if not os.path.exists('haberler'):
         os.makedirs('haberler')
 
     eski_liste = []
     # 1. Ana Kataloğu (liste.json) Oku
+    # ESKİ HABERLERE DOKUNULMAZ, SADECE OKUNUP HAFIZAYA ALINIR
     if os.path.exists('liste.json'):
         try:
             with open('liste.json', 'r', encoding='utf-8') as f:
@@ -160,23 +197,23 @@ def ana_islem():
                 link = entry.link
                 haber_id = id_olustur(link)
                 
-                # Eğer haber zaten kataloğumuzda varsa atla
+                # Mevcut ID varsa pas geç (Eski haberlerin korunmasını sağlar)
                 if haber_id in mevcut_id_listesi:
                     print(f" - Zaten arşivde var, atlanıyor: {entry.title}")
                     continue
                 
-                print(f" + YENİ Haber Çekiliyor: {entry.title}")
+                print(f" + YENİ Haber Çekiliyor ve Çevriliyor: {entry.title}")
                 orijinal_baslik = entry.title
                 orijinal_ozet = BeautifulSoup(entry.get('summary', ''), 'html.parser').get_text()
                 
                 detaylar = icerik_ve_resim_cek(entry)
                 
+                # Gemini API kullanarak çeviri yap
                 tr_baslik = cevir(orijinal_baslik)
                 tr_ozet = cevir(orijinal_ozet[:250]) + "..."
                 tr_tam_metin = cevir(detaylar["metin"])
                 tr_tarih = tarih_formatla(entry)
 
-                # Ana Katalog İçin Hafif Veri (tamMetin YOK)
                 katalog_verisi = {
                     "id": haber_id,
                     "kategori": kaynak["kategori"],
@@ -189,19 +226,20 @@ def ana_islem():
                 }
                 yeni_eklenenler.append(katalog_verisi)
 
-                # Özel Haber Dosyası İçin Tam Veri (Tam Metin VAR)
                 tam_veri = katalog_verisi.copy()
                 tam_veri["tamMetin"] = tr_tam_metin
 
-                # Haberi kendi klasörüne ID'si ile kaydet
                 with open(f'haberler/{haber_id}.json', 'w', encoding='utf-8') as f:
                     json.dump(tam_veri, f, ensure_ascii=False, indent=4)
+                
+                # Rate limit (RPM) aşımını engellemek için her yeni haberden sonra 3 saniye bekle
+                time.sleep(3)
                 
         except Exception as e:
             print(f"HATA - {kaynak['isim']} atlanıyor: {e}")
             continue 
 
-    # 3. Yeni haberleri kataloğun en başına ekle
+    # 3. Yeni haberleri kataloğun en başına ekle (Eskiler listeye arkadan eklenir, bozulmaz)
     guncel_liste = yeni_eklenenler + eski_liste
 
     if guncel_liste:
