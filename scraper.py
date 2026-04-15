@@ -73,7 +73,7 @@ KESİN KURALLAR:
 Çevrilecek Metin:
 {metin[:4999]}
 """
-        # SENİN TASARLADIĞIN 4 AŞAMALI YENİLMEZ ŞELALE SİSTEMİ
+        # 4 AŞAMALI YENİLMEZ ŞELALE SİSTEMİ
         denenecek_modeller = [
             'gemini-3.1-flash-lite-preview', 
             'gemini-2.5-flash-lite', 
@@ -169,8 +169,13 @@ def icerik_ve_resim_cek(entry):
                         )
                     
                     if kapsayici:
+                        # ÇÖP AYIKLAMA: Menü, reklam, altbilgi ve betikleri sil
                         for gereksiz in kapsayici.find_all(['nav', 'footer', 'aside', 'header', 'script', 'style']):
                             gereksiz.decompose()
+                            
+                        # TWITTER EMBED AYIKLAMA: Haberin ortasındaki anlamsız tweet metinlerini yok et
+                        for tweet in kapsayici.find_all('blockquote', class_='twitter-tweet'):
+                            tweet.decompose()
                         
                         web_metin_parcalari = []
                         for element in kapsayici.find_all(['p', 'ul']):
