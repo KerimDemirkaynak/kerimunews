@@ -16,7 +16,6 @@ warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 API_KEY = os.environ.get("GEMINI_API_KEY")
 if API_KEY:
     client = genai.Client(api_key=API_KEY)
-    # STABİL VE GÜÇLÜ MODELE GEÇİŞ YAPILDI
     model_name = 'gemini-2.5-flash'
 else:
     client = None
@@ -35,11 +34,17 @@ KAYNAKLAR = [
     {"url": "https://www.cartoonbrew.com/feed", "kategori": "Çizgi Film", "isim": "CartoonBrew"}
 ]
 
+# 1. YÖNTEM: GÜNCELLENMİŞ VE DAHA GERÇEKÇİ TARAYICI KİMLİĞİ (HEADERS)
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.5',
-    'Referer': 'https://www.google.com/'
+    'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+    'Sec-Fetch-Dest': 'document',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'none',
+    'Sec-Fetch-User': '?1'
 }
 
 def id_olustur(link):
