@@ -24,11 +24,12 @@ Sistem şu anda aşağıdaki kaynaklardan düzenli olarak veri çekmektedir:
 * [AnimeNewsNetwork](https://www.animenewsnetwork.com/) (Anime)
 * [CBR](https://www.cbr.com/) (Anime & Çizgi Film)
 * [CartoonBrew](https://www.cartoonbrew.com/) (Çizgi Film)
+* [AnimationMagazine](https://www.animationmagazine.net/) (Çizgi Film)
 
 ## ⚙️ Sistem Nasıl Çalışır?
 
 1. **GitHub Actions (`update_news.yml`):** Belirlenen zaman diliminde Ubuntu sunucusunu ayağa kaldırır ve Python betiğini tetikler.
-2. **Veri Toplama ve Çeviri (`scraper.py`):** Kaynakların RSS beslemelerini okur, yeni haber varsa web scraping ile tam metni ve yüksek çözünürlüklü kapağı (og:image) çeker. Google Translate mantığıyla metinleri Türkçeye çevirir.
+2. **Veri Toplama ve Çeviri (`scraper.py`):** Kaynakların RSS beslemelerini okur, yeni haber varsa web scraping ile tam metni ve yüksek çözünürlüklü kapağı (og:image) çeker. Yapay zeka ya da Google Translate ile metinleri Türkçeye çevirir.
 3. **Arşivleme ve API Üretimi:** Çekilen her yeni habere benzersiz bir Hash ID atanır. Ana vitrin için `liste.json` güncellenir, detaylar ise `haberler/ID.json` şeklinde klasörlenir. Ayrıca en güncel 20 haberden oluşan bir `rss.xml` dosyası üretilir.
 4. **Yayınlama:** Değişiklikler otomatik olarak GitHub'a push edilir ve GitHub Pages siteyi anında günceller.
 
