@@ -2,21 +2,24 @@ import feedparser
 import requests
 from bs4 import BeautifulSoup
 from deep_translator import GoogleTranslator
-import google.generativeai as genai # YAPAY ZEKA KÜTÜPHANESİ EKLENDİ
+from google import genai # YENİ VE GÜNCEL KÜTÜPHANE
 import json
 import time
 import os
 import hashlib
 from xml.sax.saxutils import escape
+import warnings
 
-# --- GEMINI API YAPILANDIRMASI ---
+# BeautifulSoup'un gereksiz uyarılarını gizler
+warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
+
+# --- YENİ GEMINI API (google-genai) YAPILANDIRMASI ---
 API_KEY = os.environ.get("GEMINI_API_KEY")
 if API_KEY:
-    genai.configure(api_key=API_KEY)
-    # Seçtiğin model tanımlandı
-    model = genai.GenerativeModel('gemini-3.1-flash-lite-preview')
+    client = genai.Client(api_key=API_KEY)
+    model_name = 'gemini-3.1-flash-lite-preview'
 else:
-    model = None
+    client = None
 
 AYLAR_TR = {
     "Jan": "Ocak", "Feb": "Şubat", "Mar": "Mart", "Apr": "Nisan", "May": "Mayıs", "Jun": "Haziran",
@@ -46,8 +49,8 @@ def cevir(metin):
     if not metin or metin.isspace():
         return ""
     
-    # 1. Aşama: Eğer Gemini API Key varsa yapay zeka ile çevir
-    if model:
+    # 1. Aşama: Yeni Gemini SDK ile çeviri
+    if client:
         prompt = f"""
 Sen profesyonel bir anime ve animasyon haberleri çevirmenisin.
 Aşağıdaki İngilizce metni Türkçe'ye çevir.
@@ -68,13 +71,16 @@ KESİN KURALLAR:
 {metin[:4999]}
 """
         try:
-            response = model.generate_content(prompt)
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt
+            )
             if response.text:
                 return response.text.strip()
         except Exception as e:
             print(f"Gemini API hatası, yedek çeviriye geçiliyor: {e}")
 
-    # 2. Aşama: Gemini API'de anlık bir sorun olursa Google Translate'i yedek olarak kullan
+    # 2. Aşama: Yedek Google Translate
     try:
         translator = GoogleTranslator(source='auto', target='tr')
         return translator.translate(metin[:4999])
@@ -138,7 +144,7 @@ def tarih_formatla(entry):
 
 def rss_olustur(liste):
     rss_items = ""
-    for h in liste[:20]: # RSS içine sadece en yeni 20 haberi koyalım
+    for h in liste[:20]:
         kendi_linkimiz = f"https://kerimdemirkaynak.github.io/kerimunews/haber.html?id={h['id']}"
         resim_url = h.get('resim', '')
         enclosure_tag = f'<enclosure url="{escape(resim_url)}" type="image/jpeg" length="0" />' if resim_url else ""
@@ -174,8 +180,6 @@ def ana_islem():
         os.makedirs('haberler')
 
     eski_liste = []
-    # 1. Ana Kataloğu (liste.json) Oku
-    # ESKİ HABERLERE DOKUNULMAZ, SADECE OKUNUP HAFIZAYA ALINIR
     if os.path.exists('liste.json'):
         try:
             with open('liste.json', 'r', encoding='utf-8') as f:
@@ -197,7 +201,6 @@ def ana_islem():
                 link = entry.link
                 haber_id = id_olustur(link)
                 
-                # Mevcut ID varsa pas geç (Eski haberlerin korunmasını sağlar)
                 if haber_id in mevcut_id_listesi:
                     print(f" - Zaten arşivde var, atlanıyor: {entry.title}")
                     continue
@@ -208,7 +211,6 @@ def ana_islem():
                 
                 detaylar = icerik_ve_resim_cek(entry)
                 
-                # Gemini API kullanarak çeviri yap
                 tr_baslik = cevir(orijinal_baslik)
                 tr_ozet = cevir(orijinal_ozet[:250]) + "..."
                 tr_tam_metin = cevir(detaylar["metin"])
@@ -232,14 +234,12 @@ def ana_islem():
                 with open(f'haberler/{haber_id}.json', 'w', encoding='utf-8') as f:
                     json.dump(tam_veri, f, ensure_ascii=False, indent=4)
                 
-                # Rate limit (RPM) aşımını engellemek için her yeni haberden sonra 3 saniye bekle
                 time.sleep(3)
                 
         except Exception as e:
             print(f"HATA - {kaynak['isim']} atlanıyor: {e}")
             continue 
 
-    # 3. Yeni haberleri kataloğun en başına ekle (Eskiler listeye arkadan eklenir, bozulmaz)
     guncel_liste = yeni_eklenenler + eski_liste
 
     if guncel_liste:
