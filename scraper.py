@@ -13,11 +13,9 @@ import warnings
 # BeautifulSoup'un gereksiz uyarılarını gizler
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
-# --- YENİ GEMINI API YAPILANDIRMASI ---
 API_KEY = os.environ.get("GEMINI_API_KEY")
 if API_KEY:
     client = genai.Client(api_key=API_KEY)
-    model_name = 'gemini-2.5-flash'
 else:
     client = None
 
@@ -26,7 +24,6 @@ AYLAR_TR = {
     "Jul": "Temmuz", "Aug": "Ağustos", "Sep": "Eylül", "Oct": "Ekim", "Nov": "Kasım", "Dec": "Aralık"
 }
 
-# TÜM KAYNAKLAR (Animation Magazine Dahil)
 KAYNAKLAR = [
     {"url": "https://anitrendz.net/news/feed/", "kategori": "Anime", "isim": "Anitrendz"},
     {"url": "https://animehunch.com/feed/", "kategori": "Anime", "isim": "AnimeHunch"},
@@ -37,7 +34,6 @@ KAYNAKLAR = [
     {"url": "https://www.animationmagazine.net/category/tv/feed/", "kategori": "Çizgi Film", "isim": "AnimationMagazine"}
 ]
 
-# BOT KORUMASI AŞMAK İÇİN GELİŞMİŞ HEADERS
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
@@ -64,7 +60,7 @@ Aşağıdaki İngilizce metni Türkçe'ye çevir.
 
 KESİN KURALLAR:
 1. Karakter isimleri, anime/manga isimleri ve stüdyo isimlerini KESİNLİKLE orijinal İngilizce veya Romaji haliyle bırak.
-2. Anime isimlerinin yanında veya içinde geçen İngilizce meslek/unvanları KESİNLİKLE Türkçeye çevir (Örn: "character designer" -> "karakter tasarımcısı", "director" -> "yönetmen", "series composer" -> "seri senaristi/kurgucusu").
+2. Anime isimlerinin yanında veya içinde geçen İngilizce meslek/unvanları KESİNLİKLE Türkçeye çevir.
 3. Haber metni resmi ama anime fanlarına hitap eden, samimi ve heyecanlı bir tonda olmalı.
 4. Abartılı emoji veya argo kelimeler KULLANMA.
 5. Orijinal haberin tonunu koru.
@@ -77,22 +73,37 @@ KESİN KURALLAR:
 Çevrilecek Metin:
 {metin[:4999]}
 """
-        for deneme in range(3):
-            try:
-                response = client.models.generate_content(
-                    model=model_name,
-                    contents=prompt
-                )
-                if response.text:
-                    # YENİ FREN SİSTEMİ: Başarılı çeviri sonrası RPM limitini korumak için kısa mola
-                    time.sleep(4) 
-                    return response.text.strip()
-            except Exception as e:
-                print(f"Gemini API hatası (Deneme {deneme+1}/3): {e}")
-                # YENİ FREN SİSTEMİ: Kota (429) veya yoğunluk (503) hatası gelirse uzun mola
-                time.sleep(15) 
+        # SENİN TASARLADIĞIN 4 AŞAMALI YENİLMEZ ŞELALE SİSTEMİ
+        denenecek_modeller = [
+            'gemini-3.1-flash-lite-preview', 
+            'gemini-2.5-flash-lite', 
+            'gemini-2.5-flash'
+        ]
         
-        print("Gemini API 3 kez başarısız oldu, Yedek Çeviriye geçiliyor...")
+        for model_adi in denenecek_modeller:
+            for deneme in range(3):
+                try:
+                    response = client.models.generate_content(
+                        model=model_adi,
+                        contents=prompt
+                    )
+                    if response.text:
+                        time.sleep(4) # Dakikalık RPM limiti için kısa mola
+                        return response.text.strip()
+                except Exception as e:
+                    hata_mesaji = str(e)
+                    print(f"[{model_adi}] API hatası (Deneme {deneme+1}/3): {hata_mesaji}")
+                    
+                    # Günlük limit dolduysa döngüyü kırıp beklemeden diğer modele atlar
+                    if "429" in hata_mesaji or "RESOURCE_EXHAUSTED" in hata_mesaji:
+                        print(f"[{model_adi}] Günlük kota aşıldı! Boşuna beklemeden diğer modele geçiliyor...")
+                        break 
+                    else:
+                        time.sleep(5) # 503 gibi geçici sunucu hatalarında 5 sn bekle
+            else:
+                print(f"[{model_adi}] 3 denemede de yanıt alınamadı. Sonraki modele geçiliyor...")
+        
+        print("Tüm yapay zeka modelleri başarısız oldu, AŞAMA 4 (Google Translate) başlıyor...")
 
     try:
         translator = GoogleTranslator(source='auto', target='tr')
@@ -144,13 +155,11 @@ def icerik_ve_resim_cek(entry):
                 if len(sonuc["metin"]) < 400:
                     kapsayici = None
                     
-                    # SİTEYE ÖZEL KURALLAR (Custom Parsers)
                     if "animenewsnetwork.com" in entry.link:
                         kapsayici = soup_web.find('div', class_='text-zone')
                     elif "animationmagazine.net" in entry.link:
                         kapsayici = soup_web.find('div', class_='post-content')
                         
-                    # Özel kural yoksa genel arama (Fallback)
                     if not kapsayici:
                         kapsayici = (
                             soup_web.find('article') or 
@@ -160,7 +169,6 @@ def icerik_ve_resim_cek(entry):
                         )
                     
                     if kapsayici:
-                        # ÇÖP AYIKLAMA: Menü, reklam ve altbilgileri sil
                         for gereksiz in kapsayici.find_all(['nav', 'footer', 'aside', 'header', 'script', 'style']):
                             gereksiz.decompose()
                         
@@ -271,7 +279,6 @@ def ana_islem():
                 
                 detaylar = icerik_ve_resim_cek(entry)
                 
-                # Her çeviri kendi içinde beklediği için burada ekstra time.sleep() kullanmıyoruz
                 tr_baslik = cevir(orijinal_baslik)
                 tr_ozet = cevir(orijinal_ozet[:250]) + "..."
                 tr_tam_metin = cevir(detaylar["metin"])
