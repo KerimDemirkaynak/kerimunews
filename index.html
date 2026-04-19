@@ -155,6 +155,7 @@
     <footer>
         <div class="footer-content">
             <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
+            <p id="toplam-haber-sayisi"></p>
             <div class="footer-links">
                 <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> | 
                 <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
@@ -181,6 +182,10 @@
                 if (!response.ok) throw new Error('Liste dosyası bulunamadı.');
                 
                 tumHaberler = await response.json();
+                
+                // Toplam haber sayısını footera yazdırma
+                document.getElementById('toplam-haber-sayisi').textContent = `Toplam ${tumHaberler.length} haber listelenmektedir.`;
+                
                 renderNews();
             } catch (error) {
                 console.error("Haberler yüklenirken hata:", error);
