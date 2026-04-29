@@ -248,6 +248,37 @@ def rss_olustur(liste):
     with open('rss.xml', 'w', encoding='utf-8') as f:
         f.write(rss_feed)
 
+def sitemap_olustur(liste):
+    base_url = "https://kerimdemirkaynak.github.io/kerimunews"
+    bugun = time.strftime("%Y-%m-%d")
+    
+    # Ana sayfa için sitemap öğesi
+    sitemap_items = f"""    <url>
+        <loc>{base_url}/</loc>
+        <lastmod>{bugun}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>"""
+    
+    # Her bir haber için sitemap öğesi
+    for h in liste:
+        haber_url = f"{base_url}/haber.html?id={h['id']}"
+        sitemap_items += f"""
+    <url>
+        <loc>{escape(haber_url)}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>"""
+
+    # Sitemap XML yapısını birleştir
+    sitemap_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{sitemap_items}
+</urlset>"""
+
+    with open('sitemap.xml', 'w', encoding='utf-8') as f:
+        f.write(sitemap_xml)
+
 def ana_islem():
     if not os.path.exists('haberler'):
         os.makedirs('haberler')
@@ -318,6 +349,7 @@ def ana_islem():
             json.dump(guncel_liste, f, ensure_ascii=False, indent=4)
             
         rss_olustur(guncel_liste)
+        sitemap_olustur(guncel_liste)
         print(f"\nİşlem tamam! {len(yeni_eklenenler)} yeni haber eklendi. Arşivdeki toplam haber: {len(guncel_liste)}")
     else:
         print("Hiçbir kaynaktan haber çekilemedi!")
