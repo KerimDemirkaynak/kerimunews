@@ -144,9 +144,13 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- TTS EKLENTİSİ BAŞLANGICI ---
+        // --- YENİ TTS (SESLİ OKUMA) SİSTEMİ BAŞLANGICI ---
         let isPlaying = false;
         const synth = window.speechSynthesis;
+        let checkSpeechInterval; // Sesi sürekli kontrol edeceğimiz döngü
+
+        // Utterance'ı çöpe atılmasın diye global yapıyoruz (Android WebView sorunları için)
+        window.benimUtterance = null;
 
         function sesliOkuToggle() {
             const btn = document.getElementById('tts-btn');
@@ -156,53 +160,80 @@
                 return;
             }
 
+            // DURDURMA İŞLEMİ
             if (isPlaying || synth.speaking) {
                 synth.cancel(); 
+                clearInterval(checkSpeechInterval);
                 isPlaying = false;
                 btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Haberi Sesli Dinle';
                 btn.style.backgroundColor = 'var(--accent)';
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto'; // Tıklanabilir yap
                 return;
             }
 
+            // OKUMA İŞLEMİNİ BAŞLATMA VE YÜKLENİYOR DURUMU
             const metin = document.getElementById('okunacak-metin').innerText;
-            const currentUtterance = new SpeechSynthesisUtterance(metin);
-            currentUtterance.lang = 'tr-TR'; 
-            currentUtterance.rate = 1.0;     
+            window.benimUtterance = new SpeechSynthesisUtterance(metin);
+            window.benimUtterance.lang = 'tr-TR'; 
+            window.benimUtterance.rate = 1.0;     
             
-            let motorTepkiVerdi = false; 
+            // Kullanıcıya yükleniyor animasyonu göster (ve buton spamini engelle)
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Ses Hazırlanıyor...';
+            btn.style.opacity = '0.7';
+            btn.style.pointerEvents = 'none'; // Yanlışlıkla çift tıklamayı engeller
 
-            currentUtterance.onstart = function() {
-                motorTepkiVerdi = true; 
-                isPlaying = true;
-                btn.innerHTML = '<i class="fa-solid fa-stop"></i> Dinlemeyi Durdur';
-                btn.style.backgroundColor = '#ef4444'; // Okunurken buton rengi
-            };
-
-            currentUtterance.onend = function() {
+            window.benimUtterance.onend = function() {
                 isPlaying = false;
+                clearInterval(checkSpeechInterval);
                 btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Haberi Sesli Dinle';
                 btn.style.backgroundColor = 'var(--accent)';
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
             };
 
-            currentUtterance.onerror = function() {
+            window.benimUtterance.onerror = function() {
                 isPlaying = false;
+                clearInterval(checkSpeechInterval);
                 btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Haberi Sesli Dinle';
                 btn.style.backgroundColor = 'var(--accent)';
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
             };
 
-            synth.speak(currentUtterance);
+            // Konuş emrini ver
+            synth.speak(window.benimUtterance);
 
-            setTimeout(() => {
-                if (!motorTepkiVerdi) {
+            // AKILLI KONTROL SİSTEMİ: Tarayıcının "onstart" fonksiyonunu beklemek yerine, 
+            // biz kendimiz her 300 milisaniyede bir "Şu an konuşuyor mu?" diye kontrol ediyoruz.
+            let beklemeSuresi = 0;
+            checkSpeechInterval = setInterval(() => {
+                beklemeSuresi += 300;
+                
+                if (synth.speaking) {
+                    // Konuşma başladı! Arayüzü okuyor durumuna getir ve döngüyü temizle
+                    clearInterval(checkSpeechInterval);
+                    isPlaying = true;
+                    btn.innerHTML = '<i class="fa-solid fa-stop"></i> Dinlemeyi Durdur';
+                    btn.style.backgroundColor = '#ef4444';
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
+                } 
+                // Eğer 12 saniye geçmesine rağmen konuşma HÂLÂ başlamadıysa (hata durumu)
+                else if (beklemeSuresi >= 12000) {
+                    clearInterval(checkSpeechInterval);
                     synth.cancel(); 
                     alert("Kullandığınız tarayıcı (WebView) cihazın ses motoruna erişime izin vermiyor. Özelliği kullanmak için standart bir tarayıcı kullanın.");
                     isPlaying = false;
                     btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Haberi Sesli Dinle';
                     btn.style.backgroundColor = 'var(--accent)';
+                    btn.style.opacity = '1';
+                    btn.style.pointerEvents = 'auto';
                 }
-            }, 10000); 
+            }, 300);
         }
 
+        // Sayfa kapatılırsa sesi sustur
         window.addEventListener('beforeunload', () => {
             if (synth && synth.speaking) {
                 synth.cancel();
