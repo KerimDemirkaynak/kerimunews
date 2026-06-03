@@ -1,5 +1,95 @@
 [
     {
+        "id": "e86070b223",
+        "kategori": "Anime",
+        "baslik": "Shin-Ei, Lotte'nin Chocolate Pie no Mi atıştırmalıkları için internet odaklı bir anime hazırlıyor.",
+        "ozet": "Crayon Shin-chan'ın ses sanatçısı Yumiko Kobayashi ve Hugtto! Precure'ün ses sanatçısı Rie Hikisaka yeni yapımda başrolleri paylaşıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gIF/cms/interest.3/238044/pie-no-mi-anime.jpeg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-06-02/shin-ei-makes-net-anime-for-lotte-chocolate-pie-no-mi-snacks/.238044"
+    },
+    {
+        "id": "e2cc7e348c",
+        "kategori": "Anime",
+        "baslik": "Skeleton Knight in Another World animesinin 2. sezonu 4 Temmuz’da başlıyor.",
+        "ozet": "Ennki Hakari'nin Skeleton Knight in Another World (Gaikotsu Kishi-sama, Tadaima Isekai e Odekakechū) adlı eserinden uyarlanan televizyon animesinin resmi web sitesi......",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gME/cms/news.9/236790/sk2-kv2.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/daily-briefs/2026-06-02/skeleton-knight-in-another-world-anime-season-2-premieres-on-july-4/.238080"
+    },
+    {
+        "id": "d23a088df3",
+        "kategori": "Anime",
+        "baslik": "REDICE Studio'nun Overgeared webtoonu, Ekim ayında Tempal isimli TV anime serisiyle izleyiciyle buluşuyor.",
+        "ozet": "Tatsumaru Tachibana ve Asami Seto, J.C. Staff yapımı animenin başrollerinde yer alıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gID/cms/news.9/238075/overgeared.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-02/redice-studio-overgeared-webtoon-gets-tempal-tv-anime-in-october/.238075"
+    },
+    {
+        "id": "862060522d",
+        "kategori": "Anime",
+        "baslik": "En Güçlü 10 Naruto Klanı, Sıralı Liste",
+        "ozet": "Gölge bükmeden böcek manipülasyonuna kadar, Naruto evrenindeki kan bağı klanlarının gerçek gücü, sahip oldukları eşsiz yeteneklerde ve stratejik avantajlarda yatar....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/01/naruto-shocked-and-scared-in-naruto.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.cbr.com/strongest-naruto-clans-ranked-list/"
+    },
+    {
+        "id": "a119cda0a6",
+        "kategori": "Anime",
+        "baslik": "Gerçek İnsanları Çileden Çıkaracak 5 Tuhaf Goku Alışkanlığı",
+        "ozet": "Dragon Ball serisinden Goku, animede kahraman bir karakter olabilir ancak gerçek hayatta uğraşılması son derece sinir bozucu biri olurdu....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/09/i-need-shonen-anime-to-start-breaking-the-mold-with-its-main-characters-asap.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.cbr.com/x-weird-goku-habits-that-would-annoy-real-people/"
+    },
+    {
+        "id": "7235891679",
+        "kategori": "Anime",
+        "baslik": "Dragon Ball Super Remake Serisinin En Güçlü 10 Karakteri, Sıralı Liste",
+        "ozet": "Dragon Ball Super: Beerus’un güç seviyeleri oldukça etkileyici ve en güçlü Dragon Ball karakterlerinden bazıları hayranları şaşırtabilir....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/02/6c4ad6ba-6c7d-4990-b07f-73a68307b827.jpeg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.cbr.com/dragon-ball-super-beerus-strongest-characters-ranked-list/"
+    },
+    {
+        "id": "27e7b931db",
+        "kategori": "Çizgi Film",
+        "baslik": "Psyop, 20 Bağımsız Stüdyoyu Yeni Bir Medya Grubu Çatısı Altında Birleştiriyor",
+        "ozet": "Şirket, bu girişimin animasyon, canlı çekim, tasarım ve yapay zeka destekli yeni nesil prodüksiyon hizmetlerine erişimi kolaylaştıracağını belirtiyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Psyop-Independent-Media-Group.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "2 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/studios/psyop-independent-media-group-261949.html"
+    },
+    {
+        "id": "5bdc8d2f29",
+        "kategori": "Çizgi Film",
+        "baslik": "Kazalar Kaçınılmazdır: Animatörler Teknik Arızaları, Sorunlu Müşterileri ve Yaratıcı Çöküşleri Anlatıyor",
+        "ozet": "Animatörler; yazılım arızaları, imkansız teslim tarihleri, kabus gibi müşteriler, yaratıcı tıkanıklıklar ve rayından çıkmış yapımlar üzerine tartışıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Accidents-Will-Happen.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "2 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/shorts/animation-production-nightmares-zaramella-yamamura-barnhardt-cowan-261960.html"
+    },
+    {
+        "id": "8b09af39ac",
+        "kategori": "Çizgi Film",
+        "baslik": "Cartoon Forum, 2026 Edisyonu İçin 66 Animasyon Projesini Tanıttı",
+        "ozet": "Cartoon Forum’un son seçkisi; uluslararası ortak yapımları, daha yüksek bütçeleri, bölgesel öz yeterliliği ve Avrupa yetişkin animasyonlarındaki yükselişi öne çıkarıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Cartoon-Forum.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "2 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/events/cartoon-forum-projects-lineup-2026-261954.html"
+    },
+    {
         "id": "9aebf0860c",
         "kategori": "Anime",
         "baslik": "Crunchyroll, Haziran 2026'da Los Angeles'taki The Loop perakende alanında bir pop-up deneyim merkezi açacak.",
