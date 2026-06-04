@@ -1,5 +1,95 @@
 [
     {
+        "id": "aa15484b28",
+        "kategori": "Anime",
+        "baslik": "Squid Girl'ün yaratıcısı Masahiro Anbe, Badokon! isimli yeni bir badminton mangası başlatıyor.",
+        "ozet": "Badokon! \"kızlar badminton komedisi\" serisi 23 Temmuz'da başlıyor...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gF5/cms/news.9/238114/badokon.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "4 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-03/squid-girl-masahiro-anbe-to-launch-badokon-badminton-manga/.238114"
+    },
+    {
+        "id": "afe6b1ef43",
+        "kategori": "Anime",
+        "baslik": "Japan Mint, Detective Conan Hatıra Para Setlerini Çıkarıyor",
+        "ozet": "Conan Edogawa'yı madeni para formunda görün....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGJ/cms/interest.3/238085/japan-mint-conan-coin-01.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "4 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-06-03/japan-mint-to-release-detective-conan-commemorative-coin-sets/.238085"
+    },
+    {
+        "id": "3fa5ae567a",
+        "kategori": "Anime",
+        "baslik": "BAKI-DOU: The Invincible Samurai animesinin 2. kısım fragmanı yeni tema şarkılarını gün yüzüne çıkardı.",
+        "ozet": "Chevon, \"Musashi/Roku no Rin\" animesinin açılış şarkısını seslendirirken, J SOUL BROTHERS III ise kapanış şarkısı olan \"Katana\"yı icra edecek....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHG/youtube/HZmBsIDbGuc.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "4 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-03/baki-dou-the-invincible-samurai-anime-part-2-trailer-reveals-new-theme-songs/.238113"
+    },
+    {
+        "id": "e33f1e4fdb",
+        "kategori": "Anime",
+        "baslik": "Naruto Serisindeki En Güçlü 8 Hokage: Sıralama",
+        "ozet": "Hokage, Naruto evrenindeki en prestijli mevkilerden biridir ve sadece Hashirama ile Kakashi gibi güçlü shinobi'lerin erişebildiği bir unvandır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/01/naruto-uzumaki-in-baryon-mode-in-boruto-anime.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "4 Haziran 2026",
+        "link": "https://www.cbr.com/naruto-official-strongest-hokage-ranked/"
+    },
+    {
+        "id": "39468c0832",
+        "kategori": "Anime",
+        "baslik": "Dragon Ball Serisindeki En Kötü 10 Hikaye Boşluğu",
+        "ozet": "Dragon Ball bir seri olarak, her yeni hikaye arkının kesin ve sarsılmaz hissettirmesini beklerken çoğu zaman kendi mantığını yeniden yazıyor; bu durum da beraberinde pek çok olay örgüsü hatasını getiriyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/dragon-ball-space-battles-without-protective-gear.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "4 Haziran 2026",
+        "link": "https://www.cbr.com/worst-dragon-ball-plot-holes/"
+    },
+    {
+        "id": "406ba3c8c2",
+        "kategori": "Anime",
+        "baslik": "Bir Sezon Erken Bitseydi Mükemmel Olacak 10 Anime",
+        "ozet": "Hayranlar, One-Punch Man ve The Promised Neverland gibi animelere bayılıyordu; ta ki her şey ters gidene kadar....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/10/one-punch-man-has-officially-become-anime-s-biggest-disgrace.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "4 Haziran 2026",
+        "link": "https://www.cbr.com/best-anime-ruined-by-one-bad-season/"
+    },
+    {
+        "id": "f4c8f38604",
+        "kategori": "Çizgi Film",
+        "baslik": "Ryuya Suzuki, karantina döneminde kendi kendine animasyon yapmayı öğrendi ve sadece beş yıl içinde ‘Jinsei’ filminin prömiyerini Annecy'de gerçekleştirdi.",
+        "ozet": "Kendi kendini yetiştirmiş sinemacı, *Jinsei*'nin ABD'deki vizyon gösterimi öncesinde, ilk uzun metrajlı filmini tek başına bir iPad üzerinde yapma sürecini anlatıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Jinsei-Cover.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/anime/jinsei-ryuya-suzuki-interview-theatrical-release-262047.html"
+    },
+    {
+        "id": "fbe154b526",
+        "kategori": "Çizgi Film",
+        "baslik": "Anime ikonu Rintaro, ‘Nezumikozō Jirokichi’ ile kayıp bir Japon sineması eserini yeniden hayata döndürüyor.",
+        "ozet": "Günün Seçimi, 1933 yılına ait kayıp bir samuray filminin eğlenceli bir yeniden kurgulaması olarak karşımıza çıkıyor. Bu yapım; benshi anlatımını, sessiz sinemayı ve modern anime tekniklerini bir araya getiriyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Nezumikozo-Jirokichi.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/cartoon-brew-pick/rintaro-nezumikozo-jirokichi-262048.html"
+    },
+    {
+        "id": "afffba7201",
+        "kategori": "Çizgi Film",
+        "baslik": "Bungie, Destiny serisinin geliştirilme sürecini sonlandırırken, oyunun geliştiricileri, sanatçıları ve hayranları son bir dilekte bulunuyor.",
+        "ozet": "İşten çıkarmalar, yaşanan çalkantılar ve gelen son güncellemenin ardından oyuncular ile eski ekip çalışanları, Destiny'nin 9 Haziran sonrasındaki geleceği için umut dolu bir destek kampanyasında bir araya geliyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Destiny-2.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "3 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/videogames/destiny-2-bungie-sony-262039.html"
+    },
+    {
         "id": "e86070b223",
         "kategori": "Anime",
         "baslik": "Shin-Ei, Lotte'nin Chocolate Pie no Mi atıştırmalıkları için internet odaklı bir anime hazırlıyor.",
