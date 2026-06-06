@@ -1,5 +1,95 @@
 [
     {
+        "id": "3187b9b896",
+        "kategori": "Anime",
+        "baslik": "Sonic Racing CrossWorlds oyunu, video içeriğiyle Godzilla ve Evangelion iş birliklerini duyurdu.",
+        "ozet": "Oyun, bu yılın ilerleyen dönemlerinde Teenage Mutant Ninja Turtles ve Avatar: The Last Airbender ile iş birliklerine ev sahipliği yapacak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gJG/youtube/r2u5Y5lrLB8.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "6 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-05/sonic-racing-crossworlds-game-reveals-collaborations-with-godzilla-evangelion-in-video/.238200"
+    },
+    {
+        "id": "8b158cb402",
+        "kategori": "Anime",
+        "baslik": "Palworld, yayınlanan fragman ile 1.0 sürümünün 10 Temmuz'da çıkacağını duyurdu.",
+        "ozet": "Oyunun ilk sinematik fragmanı yayınlandı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gG5/youtube/gKum7LqFi1s.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "6 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-05/palworld-game-reveals-version-1.0-release-on-july-10-in-trailer/.238206"
+    },
+    {
+        "id": "b6aa7044dd",
+        "kategori": "Anime",
+        "baslik": "Fumito Ueda, gen ATLAS Oyununu Duyurdu",
+        "ozet": "Daha önce \"Project: Robot\" adıyla bilinen tek oyunculu açık dünya aksiyon-macera oyunu....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gKA/youtube/AZMQtOXpZ8A.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "6 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-05/fumito-ueda-reveals-gen-atlas-game/.238203"
+    },
+    {
+        "id": "6e9a1e327d",
+        "kategori": "Anime",
+        "baslik": "Edward Elric'i Yenebilecek 5 Anime Kahramanı",
+        "ozet": "Fullmetal Alchemist serisinden Edward Elric'i kolayca yenebilecek 5 anime kahramanı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/aaaabrsn0vqziabmiskf1fckqokrwm-rrltbs0ytjkayzskrxlfgeqbb4mqqs-ymfij3ney0c2mj_idlqzzanqlrz3b8af7hosz3p0y3-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "6 Haziran 2026",
+        "link": "https://www.cbr.com/anime-heroes-vs-edward-elric-list/"
+    },
+    {
+        "id": "4b10f1b60c",
+        "kategori": "Anime",
+        "baslik": "Dünyanın En Büyük Manga Dergisi Resmen Kapatıldı",
+        "ozet": "Sektör tarihinin en büyük manga dergisi, kelimenin tam anlamıyla dağıtılamayacak kadar büyümesi üzerine resmen kapılarını kapattı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/04/filters_quality-95-format-webp-1.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "6 Haziran 2026",
+        "link": "https://www.cbr.com/dokodemo-young-champion-manga-magazine-shuts-down/"
+    },
+    {
+        "id": "428b3e1790",
+        "kategori": "Anime",
+        "baslik": "Solo Leveling'i Sevdiyseniz İzlemeniz Gereken En İyi 10 Anime",
+        "ozet": "Bu animeler, zorlukların üstesinden yılmaz bir çaba ve stratejik gelişimle gelen ana karakterleriyle Solo Leveling'in ruhunu yansıtıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/12/30051402.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "6 Haziran 2026",
+        "link": "https://www.cbr.com/best-anime-for-solo-leveling-fans-list/"
+    },
+    {
+        "id": "e9b95b6d95",
+        "kategori": "Çizgi Film",
+        "baslik": "DNEG, Anima Kitchent'ı satın alırken İspanya, Canary Island animasyon sektörünün büyümesi için 28,8 milyon dolarlık yatırım yapıyor.",
+        "ozet": "Bu anlaşma, VFX ve animasyon devine, sunduğu cömert vergi teşvikleriyle desteklenen, Avrupa'nın en hızlı büyüyen prodüksiyon merkezlerinden birinde sağlam bir yer ediniyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Cleo-Cuquin.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "5 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/business/dneg-anima-kitchent-spain-canary-islands-262166.html"
+    },
+    {
+        "id": "91be9b3e3d",
+        "kategori": "Çizgi Film",
+        "baslik": "Yeni Zelanda’nın İlk Stop-Motion Uzun Metrajlı Filmi ‘Kiri And Lou Go Raaa!’, Annecy Prömiyeri Öncesinde Fragmanına Kavuştu (ÖZEL HABER)",
+        "ozet": "Harry Sinclair ve Ant Elworthy tarafından yönetilen bu ön bölüm, Kiri ve Lou'nun nasıl arkadaş olduklarını konu alıyor. Yapımda Jemaine Clement ve Olivia Tennet'in performansları yer alıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Kiri-and-Lou-Go-Raaa.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "5 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/kiri-and-lou-go-raaa-trailer-annecy-262161.html"
+    },
+    {
+        "id": "eb6be11f83",
+        "kategori": "Çizgi Film",
+        "baslik": "Netflix’in ‘Swapped’ yapımı 100 milyon izlenmeyi aşarak animasyon dünyasında yeni bir rekora imza attı.",
+        "ozet": "Nathan Greno tarafından yönetilen Skydance yapımı filmde, büyülü bir beden değiştirme olayıyla karşı karşıya kalan rakip türlerin üyeleri olarak Michael B. Jordan ve Juno Temple başrolleri paylaşıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/05/Swapped.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "5 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/streaming/swapped-netflix-nathan-greno-skydance-animation-262156.html"
+    },
+    {
         "id": "3ebd58610c",
         "kategori": "Anime",
         "baslik": "Crunchyroll Manga, Haziran ayında A Silent Voice, Land of the Lustrous ve daha fazla Kodansha eserini kütüphanesine ekliyor.",
