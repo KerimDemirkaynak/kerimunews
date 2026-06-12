@@ -1,5 +1,105 @@
 [
     {
+        "id": "606fad4c4f",
+        "kategori": "Anime",
+        "baslik": "Akiwashi'nin 'Living in a World Without Magic' adlı müzik videosu için bir animasyon film projesi geliştiriliyor.",
+        "ozet": "Kasagi Labo, bağımsız müzik videosu filmi için yurt dışı planları yapıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHD/youtube/-RxE_7uSDVg.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "12 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-11/akiwashi-living-in-a-world-without-magic-music-video-has-animated-film-project-in-the-works/.238438"
+    },
+    {
+        "id": "5c032e6cf5",
+        "kategori": "Anime",
+        "baslik": "Bungo Stray Dogs Wan! 2 animesinin ana tanıtım videosu; kapanış şarkısını ve 2 Temmuz'daki prömiyer tarihini duyurdu.",
+        "ozet": "Kenshō Ono, (Ryūnosuke Akutagawa karakteri olarak) \"Bokura\" şarkısını seslendiriyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gIH/cms/news.9/236801/wan.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "12 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-11/bungo-stray-dogs-wan-2-anime-main-promo-video-unveils-ending-song-july-2-debut/.238437"
+    },
+    {
+        "id": "ea232c9133",
+        "kategori": "Anime",
+        "baslik": "Monster'ın yaratıcısı Naoki Urasawa, 12 Ağustos'ta yeni bir manga serisine başlıyor.",
+        "ozet": "Yawara, Master Keaton, 20th Century Boys, Pluto ve Billy Bat gibi başyapıtların yaratıcısı, yeni serisi Saigo no Manga Kyōshitsu’yu başlattı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gCH/cms/news.9/238436/xfs2giwq-400x400.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "12 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-11/monster-naoki-urasawa-to-launch-new-manga-series-on-august-12/.238436"
+    },
+    {
+        "id": "911644facc",
+        "kategori": "Anime",
+        "baslik": "Başka Hiçbir Serinin Asla Geride Bırakamayacağı 5 Anime Savaşı",
+        "ozet": "Dragon Ball Z, Jujutsu Kaisen ve Hunter x Hunter; animasyon dünyasının sunduğu en iyi savaşları temsil eden, abartılı anime sekanslarına ev sahipliği yapıyor!...",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2019/03/Father-Son-Kamehameha.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "12 Haziran 2026",
+        "link": "https://www.cbr.com/unbeatable-anime-battles-list/"
+    },
+    {
+        "id": "3bb98758aa",
+        "kategori": "Anime",
+        "baslik": "5 Prime Video Animesi: Hiç Kötü Sezonu Olmayan Yapımlar",
+        "ozet": "Prime Video üzerindeki en iyi animeler, başından sonuna kadar kusursuz bir deneyim sunuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/08/mob-psycho-100-opening.png?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "12 Haziran 2026",
+        "link": "https://www.cbr.com/prime-video-best-anime-no-bad-seasons-list/"
+    },
+    {
+        "id": "535c49f73b",
+        "kategori": "Anime",
+        "baslik": "JJK'dan Daha İyi 5 Başyapıt Aksiyon Animesi",
+        "ozet": "Naruto, Shangri-La Frontier ve daha fazlası gibi animeler, aksiyon konusunda Jujutsu Kaisen’i geride bırakıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/01/maki-zenin-looks-up-from-a-crater-while-grinning-maniacally-in-jujutsu-kaisen-season-3-episode-4.jpeg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "12 Haziran 2026",
+        "link": "https://www.cbr.com/masterpiece-action-anime-better-than-jjk/"
+    },
+    {
+        "id": "cf695d8f6c",
+        "kategori": "Çizgi Film",
+        "baslik": "Pixar'dan Gelen İlk 'Gatto' Tanıtımı, Stüdyonun Dramatik Estetik Değişimini Gözler Önüne Seriyor",
+        "ozet": "Mark Ruffalo ve Laurence Fishburne, Enrico Casarosa'nın Venedik'te geçen ve kedileri merkeze alan yeni uzun metrajlı filminde başrolleri paylaşıyor. Film, Mart 2027'de sinemalarda gösterime girecek....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Gatto.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "11 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/gatto-teaser-pixar-disney-enrico-casarosa-262782.html"
+    },
+    {
+        "id": "4058ab3ac8",
+        "kategori": "Çizgi Film",
+        "baslik": "Dünya Kupası başlarken, Esteban Pedrozo’nun imzasını taşıyan ‘Julio’, futbolun en saf haline yazılmış bir aşk mektubu sunuyor (ÖZEL HABER)",
+        "ozet": "Jorge Gutierrez tarafından seslendirilen bu kısa film, profesyonel seviyeye hiçbir zaman ulaşamayan ancak oyuna olan tutkusu asla azalmayan bir adamın hikayesini konu alıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Julio.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "11 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/shorts/esteban-pedrozo-julio-short-jorge-gutierrez-262772.html"
+    },
+    {
+        "id": "3411e6f8e8",
+        "kategori": "Çizgi Film",
+        "baslik": "Yaşayan Efsane Floyd Norman, Academy'den Onursal Oscar Ödülü Alacak",
+        "ozet": "Disney Animation'ın öncü isimlerinden ve stüdyonun uzun süreli işe alınan ilk Siyah sanatçısı olan Floyd Norman, bu sonbaharda Onursal Oscar ödülünün sahibi olacak....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Floyd-Norman.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "11 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/awards/floyd-norman-honorary-oscar-262767.html"
+    },
+    {
+        "id": "856c90ae65",
+        "kategori": "Çizgi Film",
+        "baslik": "Disney Jr., küresel çapta ses getiren yapım ‘Gracie’s Corner’ı okul öncesi program kuşağına dahil ediyor.",
+        "ozet": "Dünya genelinde çocukların ve ailelerin gönlünü kazanan, şarkı eşlikli animasyon serisi Gracie’s Corner; Disney Jr. ve Disney+ platformlarına geliyor. YouTube'da 6,3 milyonu aşkın abonesi ve 10 milyara yaklaşan toplam izlenme sayısıyla bir internet fenomeni haline gelen yapım, ekranlara taşınıyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "11 Haziran 2026",
+        "link": "https://www.animationmagazine.net/2026/06/disney-jr-welcomes-global-hit-gracies-corner-to-pre-k-lineup/"
+    },
+    {
         "id": "a843933dba",
         "kategori": "Anime",
         "baslik": "Bu BL ve Yuri Manga Paketi, I Want to Love You Till Your Dying Day ve Daha Fazlasını 1 ABD Dolarına Sunuyor",
