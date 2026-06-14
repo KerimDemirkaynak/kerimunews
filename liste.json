@@ -1,5 +1,65 @@
 [
     {
+        "id": "912126ff6b",
+        "kategori": "Anime",
+        "baslik": "Atelier Karia, ilk bakış videosunu yayınladı.",
+        "ozet": "Oyun; 2027 yılının başlarında Switch 2, PS5, Xbox X|S ve Steam üzerinden PC için çıkış yapacak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGB/youtube/SKOofUR_5cE.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-13/atelier-karia-game-streams-first-look-video/.238485"
+    },
+    {
+        "id": "a6dbc3c6da",
+        "kategori": "Anime",
+        "baslik": "Sword Art Online: Echoes of Aincrad oyununun hikaye fragmanı yayınlandı.",
+        "ozet": "Oyun, 16 Haziran'da yayınlanacak demonun ardından 10 Temmuz'da piyasaya çıkıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gE8/youtube/z8YfxeTT9Co.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-13/sword-art-online-echoes-of-aincrad-game-posts-story-trailer/.238486"
+    },
+    {
+        "id": "86eaf84241",
+        "kategori": "Anime",
+        "baslik": "Kill Blue animesinin seslendirme kadrosuna Ikumi Hasegawa katıldı.",
+        "ozet": "Hasegawa, utangaç ve cesur yönleri olan deniz sporları dahisi Mai Otohime'yi seslendiriyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHD/cms/news.9/238478/image-1.jpeg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-13/kill-blue-anime-casts-ikumi-hasegawa/.238478"
+    },
+    {
+        "id": "29f76c49ab",
+        "kategori": "Anime",
+        "baslik": "Güç Dengesi Konusunda Birer Başyapıt Olan 7 Anime Serisi",
+        "ozet": "Güç ölçeklendirmesi, bir savaş animesini eğlenceli kılan en önemli unsurlardan biridir. Bu yapımlar, türün en iyi ve en çok yönlü güç sistemlerine ev sahipliği yapıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/hunter-x-hunter-s-gon-and-killua-training.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "14 Haziran 2026",
+        "link": "https://www.cbr.com/anime-best-power-scaling-system/"
+    },
+    {
+        "id": "03fba2b48b",
+        "kategori": "Anime",
+        "baslik": "Son 25 Yılın En İyi 10 Bilim Kurgu Animesi, Sıralandı",
+        "ozet": "Anime dünyası, son 25 yıl içerisinde Steins;Gate, Planetes ve Psycho-Pass gibi bilim kurgu türünde öne çıkan modern klasiklere ev sahipliği yaptı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/parasyte-the-maxim-s-shinichi-and-migi.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "14 Haziran 2026",
+        "link": "https://www.cbr.com/greatest-sci-fi-anime-last-25-years/"
+    },
+    {
+        "id": "a2ede10fde",
+        "kategori": "Anime",
+        "baslik": "Gundam Seed serisinden Astray Red Frame, yeni bir ilk bakış görüntüsüyle resmen geri dönüyor.",
+        "ozet": "Cosmic Era'nın en ikonik mobil kıyafetlerinden (mobile suit) biri, Master Grade Gundam mühendisliğinin zirvesini temsil eden yepyeni bir model kit ile hayranlarının karşısına çıkıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/one-of-the-most-iconic-gundam-receives-a-new-model-kit.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "14 Haziran 2026",
+        "link": "https://www.cbr.com/gundam-seed-astray-red-frame-new-first-look/"
+    },
+    {
         "id": "8a0d05c6a8",
         "kategori": "Anime",
         "baslik": "Toho International, Anime Expo 2026 kapsamında My Hero Academia, Frieren ve daha birçok seriyi öne çıkaran bir stantla yer alıyor.",
