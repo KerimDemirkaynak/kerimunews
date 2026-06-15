@@ -1,13 +1,16 @@
 name: Share on Bluesky
 
 on:
-  workflow_dispatch: # 1. MANUEL TETİKLEME: GitHub Actions sekmesinde "Run workflow" butonu çıkarır.
+  workflow_dispatch:
   schedule:
-    - cron: '0 17 * * *' # 2. ZAMANLANMIŞ GÖREV: Her gün UTC 17:00 (Türkiye saati ile 20:00) çalışır.
+    - cron: '0 17 * * *'
 
 jobs:
   share:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Dosyayı Github'a kaydedebilmek için yazma izni
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,3 +30,12 @@ jobs:
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_PASSWORD: ${{ secrets.BLUESKY_PASSWORD }}
         run: python bluesky_share.py
+
+      # BOTUN NEREDE KALDIĞINI UNUTMAMASI İÇİN KAYDETME ADIMI
+      - name: Commit and push last posted ID
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add last_posted_id.txt
+          # Eğer dosyada değişiklik varsa kaydet ve Github'a gönder
+          git diff --staged --quiet || (git commit -m "Son paylasilan Bluesky ID'si guncellendi" && git push)
