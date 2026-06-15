@@ -1,11 +1,9 @@
 name: Share on Bluesky
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'liste.json' # Yalnızca liste.json güncellendiğinde tetiklenir
+  workflow_dispatch: # 1. MANUEL TETİKLEME: GitHub Actions sekmesinde "Run workflow" butonu çıkarır.
+  schedule:
+    - cron: '0 17 * * *' # 2. ZAMANLANMIŞ GÖREV: Her gün UTC 17:00 (Türkiye saati ile 20:00) çalışır.
 
 jobs:
   share:
