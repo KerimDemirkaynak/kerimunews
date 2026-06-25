@@ -1,5 +1,65 @@
 [
     {
+        "id": "5ccd250aaa",
+        "kategori": "Anime",
+        "baslik": "WIT Studio imzalı The One Piece animesinden Luffy, Zoro, Nami ve daha fazlasına ilk bakışı sunan fragman yayınlandı.",
+        "ozet": "Netflix, Eiichiro Oda'nın uzun soluklu mangası THE ONE PIECE'in merakla beklenen yeniden yapımı için WIT Studio imzalı ilk tanıtım fragmanını yayınladı. Fragman, Fransa'da düzenlenen 2026 Annecy Uluslararası Animasyon Film Festivali'nde izleyiciyle buluştu. Yayınlanan kısa tanıtım, hikayenin başlangıcına dair ipuçları sunuyor....",
+        "resim": "https://animehunch.com/wp-content/uploads/2026/06/The-One-Piece-2.jpg",
+        "kaynak": "AnimeHunch",
+        "tarih": "25 Haziran 2026",
+        "link": "https://animehunch.com/wit-studios-the-one-piece-anime-unveils-trailer-revealing-first-look-at-luffy-zoro-nami-more/"
+    },
+    {
+        "id": "c4f6153b80",
+        "kategori": "Anime",
+        "baslik": "Gacha Girls Corps isimli light novel serisi, Ocak 2027'de televizyon animesi olarak ekranlara geliyor.",
+        "ozet": "Daisuke Sakaguchi, Miyu Tomita ve Iori Noguchi yeni animenin başrollerini üstleniyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH2/cms/news.9/238935/gacha-tv.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "25 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-25/gacha-girls-corps-light-novel-series-gets-tv-anime-in-january-2027/.238935"
+    },
+    {
+        "id": "2c5b6a0ff5",
+        "kategori": "Anime",
+        "baslik": "Webtoon Tabanlı Live-Action Agent Kim Reactivated Dizisinden Fragman Geldi, Dünya Genelinde 26 Haziran'da Netflix'te Yayında",
+        "ozet": "Netflix'teki yayın, dizinin Kore'deki ilk televizyon gösterimi ile eş zamanlı olarak gerçekleşecek....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gN8/youtube/k5IDEniQNEk.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "25 Haziran 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-06-25/live-action-webtoon-based-agent-kim-reactivated-series-reveals-trailer-global-netflix-release-on-/.238862"
+    },
+    {
+        "id": "a747811dcd",
+        "kategori": "Çizgi Film",
+        "baslik": "Annecy, 'Danse Macabre' Prömiyerindeki Yapay Zeka Protestosunun Ardından Hisko Hulsing'i Savundu",
+        "ozet": "Annecy'nin sanat yönetmeni, 'Danse Macabre' hakkındaki protestoları kınadı. Tartışmalar ve sonrasında yaşananlar üzerine Hisko Hulsing ile konuştuk....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Danse-Macabre-8.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "25 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/festivals/annecy-danse-macabre-ai-hisko-hulsing-marcel-jean-263638.html"
+    },
+    {
+        "id": "1e95d72ff6",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Wildwood’ Yönetmeni Travis Knight Annecy’de: Günümüzde Stop-Motion Yapmak ‘Sessiz Bir Başkaldırı Gibi Hissettiriyor’",
+        "ozet": "Travis Knight, yeni 'Wildwood' görüntülerini paylaştı, stüdyonun yaratıcı sürecini açıkladı ve Laika'nın bugüne kadarki en iddialı uzun metrajlı filminin üstesinden nasıl geldiğini anlattı....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Wildwood.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "25 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/wildwood-travis-knight-annecy-263630.html"
+    },
+    {
+        "id": "19346c6483",
+        "kategori": "Çizgi Film",
+        "baslik": "'Desechable', Annecy Work in Progress oturumunda Kolombiya sokaklarında uyuşturucu kaynaklı bir devrimi gözler önüne seriyor.",
+        "ozet": "Yönetmen Carlos Gómez Salamanca, Nocroma ve Jaibo Films imzalı, politik tonu yüksek Kolombiya yapımı uzun metrajlı film 'Desechable'dan ilk görüntüleri paylaştı....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Desechable.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "25 Haziran 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/desechable-annecy-wip-carlos-gomez-salamanca-263467.html"
+    },
+    {
         "id": "08e17674bc",
         "kategori": "Anime",
         "baslik": "Cyborg 009: Nemesis, ana fragmanını yayınladı",
