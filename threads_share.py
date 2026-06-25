@@ -15,8 +15,16 @@ def get_working_token():
     return os.environ.get("THREADS_ACCESS_TOKEN")
 
 def post_to_threads(access_token, user_id, title, url, source, image_url=None):
+    # Metni birleştir
     full_text = f"{title}\n\nKaynak: {source}\n{url}"
     
+    # 500 karakter sınırına karşı metni kısaltma kontrolü
+    if len(full_text) > 480:
+        # Başlığı, linke yer kalacak şekilde kırp
+        overflow = len(full_text) - 480
+        shortened_title = title[:-overflow-3] + "..."
+        full_text = f"{shortened_title}\n\nKaynak: {source}\n{url}"
+
     create_url = f"https://graph.threads.net/v1.0/{user_id}/threads"
     payload = {
         "text": full_text,
@@ -48,14 +56,11 @@ def main():
         print("❌ Token bulunamadı!")
         return
 
-    # Son paylaşılan ID
     last_posted_id = None
     if os.path.exists(LAST_POSTED_FILE):
         with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
             last_posted_id = f.read().strip()
-        print(f"📄 Son paylaşılan ID: {last_posted_id}")
 
-    # JSON oku
     with open("liste.json", 'r', encoding='utf-8') as f:
         news_list = json.load(f)
 
@@ -63,40 +68,33 @@ def main():
         print("❌ liste.json boş.")
         return
 
-    # JSON zaten en yeni haber en başta geliyor
+    # Son paylaşılandan sonraki yeni haberleri topla
     yeni_haberler = []
     for haber in news_list:
         haber_id = str(haber.get('id', ''))
-        
         if last_posted_id and haber_id == last_posted_id:
-            print(f"✅ {haber_id} ID'si bulundu, bundan sonrakileri (daha yenileri) alıyoruz.")
             break
-            
         yeni_haberler.append(haber)
-
-    print(f"📊 Toplam haber: {len(news_list)} | Yeni bulunabilecek haber: {len(yeni_haberler)}")
 
     if not yeni_haberler:
         print("✅ Yeni haber yok.")
         return
 
-    # İlk çalıştırma kontrolü
+    # İlk çalıştırma ise son 5 haber
     if not last_posted_id:
-        print("🚀 İlk çalıştırma → sadece son 5 haber")
         yeni_haberler = yeni_haberler[:5]
 
-    # --- EN ÖNEMLİ EKLENTİ BURASI ---
-    # Haberleri eskiden yeniye doğru sıralıyoruz ki sırayı atlamasın
+    # Eskiden yeniye doğru sırala
     yeni_haberler.reverse()
 
-    # User ID
+    # User ID'yi al
     me = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}").json()
     user_id = me.get('id')
     if not user_id:
         print("❌ User ID alınamadı!")
         return
 
-    # Paylaşım (en eskiden en yeniye doğru)
+    # Sırayla paylaş
     for haber in yeni_haberler:
         haber_id = str(haber.get('id', ''))
         title = haber.get('baslik', '')
@@ -104,18 +102,15 @@ def main():
         source = haber.get('kaynak', 'Anitrendz')
         image_url = haber.get('resim', '')
 
-        print(f"📤 Paylaşılıyor → {title[:70]}...")
+        print(f"📤 Paylaşılıyor → {title[:50]}...")
 
         if post_to_threads(access_token, user_id, title, url, source, image_url):
-            print(f"✅ Paylaşıldı: {title}")
-            
-            # Her başarılı paylaşımda son ID'yi sırasıyla güncelle
+            print(f"✅ Paylaşıldı: {haber_id}")
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(haber_id)
-                
-            time.sleep(18)   # Threads rate limit için
+            time.sleep(18)
         else:
-            print(f"❌ Paylaşım başarısız: {title}")
+            print(f"❌ Paylaşım başarısız: {haber_id}")
             break
 
 if __name__ == "__main__":
