@@ -1,8 +1,8 @@
 name: Share News to Threads
 
 on:
+  # Her gün Türkiye saatiyle 20:00'de çalışması için 17:00 UTC ayarlandı
   schedule:
-    # Her gün Türkiye saatiyle 20:00'de çalışması için 17:00 UTC ayarlandı
     - cron: '0 17 * * *'
   workflow_dispatch:
 
@@ -32,7 +32,14 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # Sadece takip dosyasını commit'le, token'ı değil
+          # Sadece takip dosyasını ekle
           git add last_posted_threads.txt || echo "No files to add"
+          
+          # Değişiklik varsa commit at
           git commit -m "chore: update threads tracking states [skip ci]" || echo "No changes to commit"
-          git push
+          
+          # Remote'daki değişiklikleri al ve üzerine ekle
+          git pull --rebase origin main
+          
+          # Güncel halini pushla
+          git push origin main
