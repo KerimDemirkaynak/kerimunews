@@ -17,6 +17,14 @@ GRAPH_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
 MIN_RATIO = 0.8
 MAX_RATIO = 1.91
 
+def setup_git():
+    """Git yapılandırmasını ayarlar (actions ortamında çalışırken)."""
+    try:
+        subprocess.run(["git", "config", "--global", "user.name", "github-actions[bot]"], check=True)
+        subprocess.run(["git", "config", "--global", "user.email", "github-actions[bot]@users.noreply.github.com"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"⚠️ Git config ayarlanamadı: {e}")
+
 def get_working_token():
     if os.path.exists(TOKEN_FILE):
         with open(TOKEN_FILE, "r", encoding="utf-8") as f:
@@ -26,7 +34,6 @@ def get_working_token():
     return os.environ.get("IG_ACCESS_TOKEN")
 
 def refresh_token(current_token, app_id, app_secret):
-    """Uzun ömürlü token'ı tazeleyip 60 gün daha uzatmayı dener."""
     try:
         resp = requests.get(
             f"{GRAPH_BASE}/oauth/access_token",
@@ -48,9 +55,14 @@ def git_commit_push(message):
     """instagram_uploads/ klasöründeki değişiklikleri (ekleme/silme) commitleyip pushlar."""
     try:
         subprocess.run(["git", "add", "-A"], check=True)
-        result = subprocess.run(["git", "commit", "-m", message])
+        result = subprocess.run(["git", "commit", "-m", message], capture_output=True, text=True)
         if result.returncode != 0:
-            return True
+            if "nothing to commit" in result.stderr:
+                print("ℹ️ Commit gerektirecek değişiklik yok.")
+                return True
+            else:
+                print(f"⚠️ Commit başarısız: {result.stderr}")
+                return False
         subprocess.run(["git", "push"], check=True)
         return True
     except subprocess.CalledProcessError as e:
@@ -63,7 +75,6 @@ def get_image_bytes(url):
     return resp.content
 
 def crop_for_instagram(img):
-    """Görseli Instagram'ın kabul ettiği 4:5 - 1.91:1 oran aralığına ortadan kırpar."""
     width, height = img.size
     ratio = width / height
 
@@ -79,7 +90,6 @@ def crop_for_instagram(img):
     return img
 
 def build_caption(title, ozet, kaynak, tarih, kategori):
-    """Başlık, özet ve diğer bilgileri birleştirir (Instagram caption sınırı 2200 karakter)."""
     body = f"{title}\n\n{ozet}"
     
     tail = (
@@ -101,7 +111,6 @@ def build_caption(title, ozet, kaynak, tarih, kategori):
     return f"{body}{tail}"
 
 def create_container(ig_user_id, image_url, caption, access_token):
-    """Medya container oluşturur, hazır olana kadar dener."""
     last_res = None
     for attempt in range(3):
         resp = requests.post(
@@ -120,7 +129,6 @@ def create_container(ig_user_id, image_url, caption, access_token):
     return None, last_res
 
 def wait_until_finished(container_id, access_token):
-    """Container hazır olana kadar bekler."""
     status = None
     last_res = None
     for _ in range(10):
@@ -137,6 +145,8 @@ def wait_until_finished(container_id, access_token):
     return status, last_res
 
 def main():
+    setup_git()  # <-- Git kimlik ayarları eklendi
+
     ig_user_id = os.environ.get("IG_USER_ID")
     app_id = os.environ.get("IG_APP_ID")
     app_secret = os.environ.get("IG_APP_SECRET")
@@ -150,7 +160,6 @@ def main():
         print("❌ Hata: Erişim token'ı bulunamadı (IG_ACCESS_TOKEN secret eksik)!")
         return
 
-    # Token'ı yenile
     if app_id and app_secret:
         refreshed = refresh_token(access_token, app_id, app_secret)
         if refreshed:
@@ -159,7 +168,6 @@ def main():
                 f.write(access_token)
             print("🔄 Token yenilendi ve kaydedildi.")
 
-    # liste.json'u oku
     try:
         with open(LISTE_FILE, "r", encoding="utf-8") as f:
             haberler = json.load(f)
@@ -170,13 +178,11 @@ def main():
         print(f"❌ liste.json okunamadı: {e}")
         return
 
-    # Son paylaşılan haberi bul
     last_posted_id = None
     if os.path.exists(LAST_POSTED_FILE):
         with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
             last_posted_id = f.read().strip()
 
-    # Yeni haberleri filtrele (sondan başlayarak)
     yeni_haberler = []
     for haber in haberler:
         haber_id = str(haber.get("id", ""))
@@ -188,12 +194,10 @@ def main():
         print("✅ Yeni haber yok.")
         return
 
-    # İlk çalışmada son 3 haberi al (flood olmasın)
     if not last_posted_id:
         print("İlk çalışma algılandı, flood olmaması için son 3 haber işlenecek...")
         yeni_haberler = yeni_haberler[:3]
 
-    # Eski->yeni sıralaması
     yeni_haberler.reverse()
 
     os.makedirs(IMAGE_DIR, exist_ok=True)
@@ -212,7 +216,6 @@ def main():
         if not haber_id:
             continue
 
-        # Görsel yoksa atla
         if not image_url:
             print(f"⏭️ Görsel yok, atlanıyor: {title[:50]}...")
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
@@ -222,7 +225,6 @@ def main():
         local_path = os.path.join(IMAGE_DIR, f"{haber_id}.jpg")
 
         try:
-            # Görseli indir, kırp, kaydet
             img_data = get_image_bytes(image_url)
             img = Image.open(io.BytesIO(img_data)).convert("RGB")
             img = crop_for_instagram(img)
@@ -232,28 +234,24 @@ def main():
                 print("❌ GITHUB_REPOSITORY bulunamadı, görsel URL'si oluşturulamıyor.")
                 break
 
-            # Repoya pushla
             if not git_commit_push(f"IG görseli eklendi: {haber_id}"):
                 print(f"⚠️ Görsel push edilemedi, atlanıyor (ID: {haber_id})")
                 continue
 
             public_image_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{local_path}"
-            time.sleep(8)  # GitHub raw'ın güncellenmesi için bekle
+            time.sleep(8)
 
-            # Container oluştur
             caption = build_caption(title, ozet, kaynak, tarih, kategori)
             container_id, err = create_container(ig_user_id, public_image_url, caption, access_token)
             if not container_id:
                 print(f"❌ Container oluşturulamadı (ID: {haber_id}): {err}")
                 continue
 
-            # Container hazır olana kadar bekle
             status, status_res = wait_until_finished(container_id, access_token)
             if status != "FINISHED":
                 print(f"❌ Container hazır olmadı (ID: {haber_id}, durum: {status}): {status_res}")
                 continue
 
-            # Yayınla
             publish_res = requests.post(
                 f"{GRAPH_BASE}/{ig_user_id}/media_publish",
                 data={"creation_id": container_id, "access_token": access_token},
@@ -269,14 +267,13 @@ def main():
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(haber_id)
 
-            # Geçici görseli sil ve repoyu güncelle
             try:
                 os.remove(local_path)
             except OSError:
                 pass
             git_commit_push(f"IG görseli temizlendi: {haber_id}")
 
-            time.sleep(10)  # Rate-limit koruması
+            time.sleep(10)
 
         except Exception as e:
             print(f"❌ Paylaşım başarısız (ID: {haber_id}): {e}")
