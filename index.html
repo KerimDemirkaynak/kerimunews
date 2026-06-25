@@ -80,21 +80,36 @@
         .page-btn.active { background-color: var(--accent); border-color: var(--accent); }
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        footer { background-color: var(--header-bg); border-top: 1px solid #334155; padding: 2rem 1rem; text-align: center; margin-top: auto; }
+        /* Footer */
+        footer { 
+            background-color: var(--header-bg); 
+            border-top: 1px solid #334155; 
+            padding: 0; 
+            text-align: center; 
+            margin-top: auto; 
+        }
         
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
             color: var(--text-muted);
             font-size: 0.9rem;
         }
 
         .footer-section {
-            padding: 1rem 0;
+            padding: 1.5rem 1rem;
+            position: relative;
         }
 
-        .footer-section:not(:last-child) {
-            border-bottom: 1px solid #334155;
+        /* Yatay ayırıcı çizgiler: keskin değil, yumuşak geçişli */
+        .footer-section:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, #334155, rgba(51, 65, 85, 0.15));
         }
 
         .social-links {
