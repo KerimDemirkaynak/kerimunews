@@ -34,6 +34,7 @@ def get_working_token():
     return os.environ.get("IG_ACCESS_TOKEN")
 
 def refresh_token(current_token, app_id, app_secret):
+    """Uzun ömürlü token'ı tazelemeyi dener."""
     try:
         resp = requests.get(
             f"{GRAPH_BASE}/oauth/access_token",
@@ -51,8 +52,16 @@ def refresh_token(current_token, app_id, app_secret):
         print(f"⚠️ Token yenilenemedi, mevcut token ile devam ediliyor: {e}")
         return None
 
+def verify_token(token):
+    """Token'ın geçerli olup olmadığını kontrol eder."""
+    try:
+        resp = requests.get(f"{GRAPH_BASE}/me", params={"access_token": token}, timeout=10)
+        return resp.status_code == 200
+    except Exception:
+        return False
+
 def git_commit_push(message):
-    """instagram_uploads/ klasöründeki değişiklikleri (ekleme/silme) commitleyip pushlar."""
+    """Değişiklikleri commitleyip pushlar."""
     try:
         subprocess.run(["git", "add", "-A"], check=True)
         result = subprocess.run(["git", "commit", "-m", message], capture_output=True, text=True)
@@ -145,7 +154,7 @@ def wait_until_finished(container_id, access_token):
     return status, last_res
 
 def main():
-    setup_git()  # <-- Git kimlik ayarları eklendi
+    setup_git()
 
     ig_user_id = os.environ.get("IG_USER_ID")
     app_id = os.environ.get("IG_APP_ID")
@@ -160,14 +169,28 @@ def main():
         print("❌ Hata: Erişim token'ı bulunamadı (IG_ACCESS_TOKEN secret eksik)!")
         return
 
-    if app_id and app_secret:
-        refreshed = refresh_token(access_token, app_id, app_secret)
-        if refreshed:
-            access_token = refreshed
-            with open(TOKEN_FILE, "w", encoding="utf-8") as f:
-                f.write(access_token)
-            print("🔄 Token yenilendi ve kaydedildi.")
+    # Token'ı doğrula
+    if not verify_token(access_token):
+        print("❌ Token geçersiz! Yenilenmeye çalışılıyor...")
+        if app_id and app_secret:
+            refreshed = refresh_token(access_token, app_id, app_secret)
+            if refreshed:
+                access_token = refreshed
+                with open(TOKEN_FILE, "w", encoding="utf-8") as f:
+                    f.write(access_token)
+                print("🔄 Token yenilendi ve kaydedildi.")
+                # Yenilenen token'ı tekrar doğrula
+                if not verify_token(access_token):
+                    print("❌ Yenilenen token da geçersiz! Lütfen manuel olarak yenileyin.")
+                    return
+            else:
+                print("❌ Token yenilenemedi. Lütfen manuel olarak yenileyin.")
+                return
+        else:
+            print("❌ APP_ID ve APP_SECRET olmadan token yenilenemez. Lütfen manuel olarak yenileyin.")
+            return
 
+    # liste.json'u oku
     try:
         with open(LISTE_FILE, "r", encoding="utf-8") as f:
             haberler = json.load(f)
@@ -225,6 +248,7 @@ def main():
         local_path = os.path.join(IMAGE_DIR, f"{haber_id}.jpg")
 
         try:
+            # Görseli indir, kırp, kaydet
             img_data = get_image_bytes(image_url)
             img = Image.open(io.BytesIO(img_data)).convert("RGB")
             img = crop_for_instagram(img)
@@ -234,24 +258,39 @@ def main():
                 print("❌ GITHUB_REPOSITORY bulunamadı, görsel URL'si oluşturulamıyor.")
                 break
 
+            # Görseli repo'ya pushla
             if not git_commit_push(f"IG görseli eklendi: {haber_id}"):
                 print(f"⚠️ Görsel push edilemedi, atlanıyor (ID: {haber_id})")
+                # Dosyayı sil ve commit'le
+                try: os.remove(local_path)
+                except: pass
+                git_commit_push(f"IG görseli temizlendi (hata): {haber_id}")
                 continue
 
             public_image_url = f"https://raw.githubusercontent.com/{repo}/{branch}/{local_path}"
-            time.sleep(8)
+            time.sleep(8)  # GitHub raw'ın güncellenmesi için bekle
 
+            # Container oluştur
             caption = build_caption(title, ozet, kaynak, tarih, kategori)
             container_id, err = create_container(ig_user_id, public_image_url, caption, access_token)
             if not container_id:
                 print(f"❌ Container oluşturulamadı (ID: {haber_id}): {err}")
+                # Dosyayı sil ve commit'le
+                try: os.remove(local_path)
+                except: pass
+                git_commit_push(f"IG görseli temizlendi (container hatası): {haber_id}")
                 continue
 
+            # Container hazır olana kadar bekle
             status, status_res = wait_until_finished(container_id, access_token)
             if status != "FINISHED":
                 print(f"❌ Container hazır olmadı (ID: {haber_id}, durum: {status}): {status_res}")
+                try: os.remove(local_path)
+                except: pass
+                git_commit_push(f"IG görseli temizlendi (container hazır değil): {haber_id}")
                 continue
 
+            # Yayınla
             publish_res = requests.post(
                 f"{GRAPH_BASE}/{ig_user_id}/media_publish",
                 data={"creation_id": container_id, "access_token": access_token},
@@ -260,24 +299,44 @@ def main():
 
             if not publish_res.get("id"):
                 print(f"❌ Paylaşım yapılamadı (ID: {haber_id}): {publish_res}")
+                try: os.remove(local_path)
+                except: pass
+                git_commit_push(f"IG görseli temizlendi (yayın hatası): {haber_id}")
                 continue
 
             print(f"✅ Instagram'da paylaşıldı: {title[:50]}...")
 
+            # Başarılı, ID'yi kaydet
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(haber_id)
 
-            try:
-                os.remove(local_path)
-            except OSError:
-                pass
-            git_commit_push(f"IG görseli temizlendi: {haber_id}")
+            # Dosyayı sil ve commit'le
+            try: os.remove(local_path)
+            except: pass
+            git_commit_push(f"IG görseli temizlendi (başarılı): {haber_id}")
 
-            time.sleep(10)
+            time.sleep(10)  # Rate-limit koruması
 
         except Exception as e:
             print(f"❌ Paylaşım başarısız (ID: {haber_id}): {e}")
+            # Hata durumunda da dosyayı silmeyi dene
+            try: os.remove(local_path)
+            except: pass
+            git_commit_push(f"IG görseli temizlendi (hata): {haber_id}")
             break
+
+    # Tüm işlemler bittikten sonra IMAGE_DIR klasörünü sil (içi boşsa)
+    try:
+        # Önce içindeki tüm dosyaları sil (zaten boş olmalı ama emin olalım)
+        for f in os.listdir(IMAGE_DIR):
+            file_path = os.path.join(IMAGE_DIR, f)
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+        os.rmdir(IMAGE_DIR)
+        print(f"🗑️ {IMAGE_DIR} klasörü silindi.")
+        git_commit_push(f"IG {IMAGE_DIR} klasörü temizlendi")
+    except OSError as e:
+        print(f"ℹ️ {IMAGE_DIR} silinemedi: {e}")
 
 if __name__ == "__main__":
     main()
