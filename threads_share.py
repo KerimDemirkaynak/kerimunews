@@ -1,59 +1,62 @@
 import os
 import json
-import requests
 import time
+import io
+import mimetypes
+import urllib.request
+from mastodon import Mastodon
 
-TOKEN_FILE = "threads_token.txt"
-LAST_POSTED_FILE = "last_posted_threads.txt"
+LISTE_FILE = "liste.json"
+LAST_POSTED_FILE = "last_posted_mastodon.txt"
 
-def get_working_token():
-    if os.path.exists(TOKEN_FILE):
-        with open(TOKEN_FILE, "r", encoding="utf-8") as f:
-            token = f.read().strip()
-            if token:
-                return token
-    return os.environ.get("THREADS_ACCESS_TOKEN")
 
-def post_to_threads(access_token, user_id, title, url, source, image_url=None):
-    # Metni birleştir
-    full_text = f"{title}\n\nKaynak: {source}\n{url}"
-    
-    # 500 karakter sınırına karşı metni kısaltma kontrolü
-    if len(full_text) > 480:
-        # Başlığı, linke yer kalacak şekilde kırp
-        overflow = len(full_text) - 480
-        shortened_title = title[:-overflow-3] + "..."
-        full_text = f"{shortened_title}\n\nKaynak: {source}\n{url}"
+def get_image_bytes(image_url):
+    """İnternetten ya da yerel diskten görsel verisini oku."""
+    if image_url.startswith("http"):
+        req = urllib.request.Request(image_url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req) as response:
+            return response.read()
+    else:
+        with open(image_url, "rb") as f:
+            return f.read()
 
-    create_url = f"https://graph.threads.net/v1.0/{user_id}/threads"
-    payload = {
-        "text": full_text,
-        "access_token": access_token,
-        "media_type": "IMAGE" if image_url and image_url.startswith("http") else "TEXT"
-    }
-    if payload["media_type"] == "IMAGE":
-        payload["image_url"] = image_url
 
-    create_res = requests.post(create_url, data=payload)
-    if create_res.status_code != 200:
-        print(f"❌ Oluşturma hatası: {create_res.text}")
-        return False
+def build_status_text(title, url, kaynak):
+    """Mastodon'un karakter sınırına göre metni hazırla/kırp."""
+    full_text = f"📰 {title}\n\nKaynak: {kaynak}\n{url}"
 
-    container_id = create_res.json().get('id')
-    if not container_id:
-        return False
+    LIMIT = 480  # Mastodon varsayılan sınırı 500, link/biçim için pay bırakıyoruz
+    if len(full_text) > LIMIT:
+        overflow = len(full_text) - LIMIT
+        shortened_title = title[: max(0, len(title) - overflow - 3)] + "..."
+        full_text = f"📰 {shortened_title}\n\nKaynak: {kaynak}\n{url}"
 
-    pub_res = requests.post(
-        f"https://graph.threads.net/v1.0/{user_id}/threads_publish",
-        data={"creation_id": container_id, "access_token": access_token}
-    )
-    
-    return pub_res.status_code == 200
+    return full_text
+
 
 def main():
-    access_token = get_working_token()
-    if not access_token:
-        print("❌ Token bulunamadı!")
+    api_base_url = os.environ.get("MASTODON_API_BASE_URL")
+    access_token = os.environ.get("MASTODON_ACCESS_TOKEN")
+
+    if not api_base_url or not access_token:
+        print("❌ Hata: MASTODON_API_BASE_URL veya MASTODON_ACCESS_TOKEN eksik (Secret'lar eksik)!")
+        return
+
+    try:
+        mastodon = Mastodon(access_token=access_token, api_base_url=api_base_url)
+        print(f"Mastodon bağlantısı kuruldu ({api_base_url}), paylaşımlar başlatılıyor...")
+    except Exception as e:
+        print(f"❌ Mastodon'a bağlanılamadı: {e}")
+        return
+
+    try:
+        with open(LISTE_FILE, "r", encoding="utf-8") as f:
+            haberler = json.load(f)
+        if not haberler:
+            print("❌ liste.json boş.")
+            return
+    except Exception as e:
+        print(f"❌ liste.json okunurken hata oluştu: {e}")
         return
 
     last_posted_id = None
@@ -61,57 +64,71 @@ def main():
         with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
             last_posted_id = f.read().strip()
 
-    with open("liste.json", 'r', encoding='utf-8') as f:
-        news_list = json.load(f)
-
-    if not news_list:
-        print("❌ liste.json boş.")
-        return
-
-    # Son paylaşılandan sonraki yeni haberleri topla
+    # Son paylaşılandan bu yana eklenen tüm haberleri bul
     yeni_haberler = []
-    for haber in news_list:
-        haber_id = str(haber.get('id', ''))
+    for haber in haberler:
+        haber_id = str(haber.get("id", ""))
         if last_posted_id and haber_id == last_posted_id:
             break
         yeni_haberler.append(haber)
 
     if not yeni_haberler:
-        print("✅ Yeni haber yok.")
+        print("✅ Yeni haber bulunamadı.")
         return
 
-    # İlk çalıştırma ise son 5 haber
+    # İlk çalışmada flood olmasın diye sadece son 3 haber
     if not last_posted_id:
-        yeni_haberler = yeni_haberler[:5]
+        print("İlk çalışma algılandı, flood olmaması için son 3 haber paylaşılacak...")
+        yeni_haberler = yeni_haberler[:3]
 
     # Eskiden yeniye doğru sırala
     yeni_haberler.reverse()
 
-    # User ID'yi al
-    me = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}").json()
-    user_id = me.get('id')
-    if not user_id:
-        print("❌ User ID alınamadı!")
-        return
-
-    # Sırayla paylaş
     for haber in yeni_haberler:
-        haber_id = str(haber.get('id', ''))
-        title = haber.get('baslik', '')
-        url = haber.get('link', '')
-        source = haber.get('kaynak', 'Anitrendz')
-        image_url = haber.get('resim', '')
+        haber_id = str(haber.get("id", ""))
+        title = haber.get("baslik") or haber.get("title")
+        url = haber.get("link") or haber.get("url") or ""
+        kaynak = haber.get("kaynak", "Anitrendz")
+        image_url = haber.get("resim") or haber.get("image") or haber.get("gorsel")
 
-        print(f"📤 Paylaşılıyor → {title[:50]}...")
+        if not title or not haber_id:
+            continue
 
-        if post_to_threads(access_token, user_id, title, url, source, image_url):
-            print(f"✅ Paylaşıldı: {haber_id}")
+        status_text = build_status_text(title, url, kaynak)
+
+        try:
+            media_ids = None
+            if image_url:
+                try:
+                    img_data = get_image_bytes(image_url)
+                    mime_type, _ = mimetypes.guess_type(image_url)
+                    media = mastodon.media_post(
+                        io.BytesIO(img_data),
+                        mime_type=mime_type or "image/jpeg",
+                        description=title,
+                        synchronous=True,
+                    )
+                    media_ids = [media["id"]]
+                except Exception as img_err:
+                    # Görsel indirilemedi/yüklenemedi (örn. 404) diye tüm paylaşımı iptal etme,
+                    # görselsiz şekilde devam et.
+                    print(f"⚠️ Görsel alınamadı, görselsiz paylaşılacak (ID: {haber_id}): {img_err}")
+                    media_ids = None
+
+            mastodon.status_post(status=status_text, media_ids=media_ids)
+            print(f"✅ Başarıyla paylaşıldı: {title[:50]}...")
+
+            # Her başarılı paylaşımdan sonra ID'yi kaydet
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(haber_id)
-            time.sleep(18)
-        else:
-            print(f"❌ Paylaşım başarısız: {haber_id}")
+
+            # Mastodon hız limitlerine takılmamak için bekle
+            time.sleep(5)
+
+        except Exception as e:
+            print(f"❌ Paylaşım başarısız (ID: {haber_id}): {e}")
             break
+
 
 if __name__ == "__main__":
     main()
