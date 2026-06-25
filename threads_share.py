@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import time
 
 TOKEN_FILE = "threads_token.txt"
 
@@ -12,132 +13,66 @@ def get_working_token():
                 return saved_token
     return os.environ.get("THREADS_ACCESS_TOKEN")
 
-def refresh_threads_token(current_token, app_secret):
-    if not current_token or not app_secret:
-        return current_token
-
-    url = "https://graph.threads.net/refresh_access_token"
-    params = {
-        "grant_type": "th_refresh_token",
-        "access_token": current_token
-    }
+def post_to_threads(access_token, user_id, title, url, source, image_url=None):
+    # Haberi istediğiniz formatta birleştiriyoruz
+    full_text = f"{title}\n\nKaynak: {source}\n{url}"
     
-    try:
-        response = requests.get(url, params=params)
-        if response.status_code == 200:
-            new_token = response.json().get("access_token")
-            if new_token:
-                with open(TOKEN_FILE, "w", encoding="utf-8") as f:
-                    f.write(new_token)
-                print("Threads Access Token başarıyla yenilendi.")
-                return new_token
-        else:
-            print(f"Token yenilenemedi: {response.text}")
-    except Exception as e:
-        print(f"Token yenileme sırasında hata oluştu: {e}")
-        
-    return current_token
-
-def get_threads_user_id(access_token):
-    url = f"https://graph.threads.net/v1.0/me?access_token={access_token}"
-    response = requests.get(url)
-    if response.status_code == 200:
-        return response.json().get('id')
-    else:
-        print(f"Kullanıcı ID alınamadı: {response.text}")
-        return None
-
-def post_to_threads(access_token, user_id, text, link, image_url=None):
-    full_text = f"{text}\n\n{link}"
     create_url = f"https://graph.threads.net/v1.0/{user_id}/threads"
     
-    # Görsel varsa IMAGE, yoksa TEXT olarak kapsayıcı oluştur
+    payload = {"text": full_text, "access_token": access_token}
+    
     if image_url and image_url.startswith("http"):
-        payload = {
-            "media_type": "IMAGE",
-            "image_url": image_url,
-            "text": full_text,
-            "access_token": access_token
-        }
+        payload.update({"media_type": "IMAGE", "image_url": image_url})
     else:
-        payload = {
-            "media_type": "TEXT",
-            "text": full_text,
-            "access_token": access_token
-        }
+        payload.update({"media_type": "TEXT"})
     
     create_res = requests.post(create_url, data=payload)
     if create_res.status_code != 200:
-        print(f"Kapsayıcı oluşturma hatası: {create_res.text}")
+        print(f"Hata: {create_res.text}")
         return False
         
     container_id = create_res.json().get('id')
-    
-    # Kapsayıcıyı Yayınla
     publish_url = f"https://graph.threads.net/v1.0/{user_id}/threads_publish"
-    pub_payload = {
-        "creation_id": container_id,
-        "access_token": access_token
-    }
+    pub_res = requests.post(publish_url, data={"creation_id": container_id, "access_token": access_token})
     
-    pub_res = requests.post(publish_url, data=pub_payload)
-    if pub_res.status_code != 200:
-        print(f"Yayınlama hatası: {pub_res.text}")
-        return False
-        
-    print(f"Threads üzerinde başarıyla paylaşıldı! Post ID: {pub_res.json().get('id')}")
-    return True
+    return pub_res.status_code == 200
 
 def main():
-    APP_SECRET = os.environ.get("THREADS_APP_SECRET")
-    
     access_token = get_working_token()
-    if not access_token:
-        print("Hata: Threads erişim belirteci bulunamadı.")
-        return
-
-    list_file = "liste.json"
-    if not os.path.exists(list_file):
-        print("liste.json bulunamadı!")
-        return
-        
-    with open(list_file, 'r', encoding='utf-8') as f:
-        news_list = json.load(f)
-        
-    if not news_list:
-        print("Paylaşılacak haber bulunamadı.")
-        return
-        
-    latest_news = news_list[0]
-    title = latest_news.get('baslik', '')
-    url = latest_news.get('url', '')
-    news_id = latest_news.get('id', '')
-    
-    # Görsel URL'sini Tıpkı Bluesky Script'indeki Gibi Çıkar
-    image_url = latest_news.get('resim') or latest_news.get('image') or latest_news.get('gorsel')
-    
     last_posted_file = "last_posted_threads.txt"
+    
+    # ID string olduğu için doğrudan okuyoruz
     last_posted_id = ""
     if os.path.exists(last_posted_file):
         with open(last_posted_file, "r") as f:
             last_posted_id = f.read().strip()
             
-    if str(news_id) == str(last_posted_id):
-        print("En güncel haber Threads'te zaten paylaşılmış. Atlanıyor.")
-        refresh_threads_token(access_token, APP_SECRET)
-        return
-
-    user_id = get_threads_user_id(access_token)
-    if not user_id:
-        return
-        
-    # Haberi görseli ile birlikte paylaş
-    success = post_to_threads(access_token, user_id, title, url, image_url)
+    with open("liste.json", 'r', encoding='utf-8') as f:
+        news_list = json.load(f)
     
-    if success:
-        with open(last_posted_file, "w") as f:
-            f.write(str(news_id))
-        refresh_threads_token(access_token, APP_SECRET)
+    # Eskiden yeniye sıralıyoruz (reverse), böylece en yeni haber en son paylaşılır
+    news_list.reverse()
+    
+    user_id = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}").json().get('id')
+    
+    for news in news_list:
+        news_id = news.get('id', '')
+        
+        # ID karşılaştırmasını string üzerinden yapıyoruz
+        if news_id != last_posted_id:
+            title = news.get('baslik', '')
+            url = news.get('link', '') # liste.json'da 'link' kullanılmış
+            source = news.get('kaynak', 'Anitrendz')
+            image_url = news.get('resim', '')
+            
+            if post_to_threads(access_token, user_id, title, url, source, image_url):
+                print(f"Paylaşıldı: {title}")
+                with open(last_posted_file, "w") as f:
+                    f.write(news_id)
+                time.sleep(15) # Paylaşımlar arası spam koruması
+        else:
+            # last_posted_id'ye ulaştığımızda döngüden çıkabiliriz veya devam edebiliriz
+            continue
 
 if __name__ == "__main__":
     main()
