@@ -72,7 +72,7 @@
         .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid #334155; padding-top: 1rem; }
         
         .read-more-btn { display: inline-block; background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: color 0.2s; text-decoration: none; }
-        .news-card:hover .read-more-btn { color: #60a5fa; text-decoration: underline; } /* Tüm karta hover olunca yazının rengi değişsin */
+        .news-card:hover .read-more-btn { color: #60a5fa; text-decoration: underline; }
 
         .pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
         .page-btn { background-color: var(--card-bg); color: var(--text-main); border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: 0.2s; }
@@ -81,9 +81,46 @@
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         footer { background-color: var(--header-bg); border-top: 1px solid #334155; padding: 2rem 1rem; text-align: center; margin-top: auto; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 0.9rem; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; }
-        .footer-links a:hover { color: var(--accent); }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-section {
+            padding: 1rem 0;
+        }
+
+        .footer-section:not(:last-child) {
+            border-bottom: 1px solid #334155;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-links a { 
+            color: var(--text-muted); 
+            text-decoration: none; 
+            margin: 0 10px; 
+        }
+        .footer-links a:hover { 
+            color: var(--accent); 
+        }
         
         @media (max-width: 900px) { 
             .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.2rem; } 
@@ -94,7 +131,6 @@
             .filters { flex-wrap: wrap; }
         }
 
-        /* YENİ EKLENEN: MOBİL İÇİN BUTON KÜÇÜLTME AYARLARI */
         @media (max-width: 500px) {
             .pagination { gap: 0.25rem; } 
             .page-btn { 
@@ -154,24 +190,34 @@
 
     <footer>
         <div class="footer-content">
-            <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
-            
-            <!-- Sosyal Medya Bağlantıları - Toplam haber sayısının üstünde -->
-            <div style="margin: 1rem 0; display: flex; justify-content: center; gap: 15px; font-size: 1.3rem;">
-                <a href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads" style="color: var(--text-muted);"><i class="fa-brands fa-threads"></i></a>
-                <a href="https://mastodon.social/@animasyon" target="_blank" rel="noopener noreferrer" aria-label="Mastodon" style="color: var(--text-muted);"><i class="fa-brands fa-mastodon"></i></a>
-                <a href="https://www.instagram.com/kerimhaber?igsh=NmNva3lxbnRuYThm" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color: var(--text-muted);"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://bsky.app/profile/haber.kerim.qzz.io" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" style="color: var(--text-muted);"><i class="fa-brands fa-bluesky"></i>
-                </a>
+
+            <!-- Bölüm 1 -->
+            <div class="footer-section">
+                <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
             </div>
 
-            <p id="toplam-haber-sayisi"></p>
-            
-            <div class="footer-links">
-                <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> | 
-                <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
+            <!-- Bölüm 2 -->
+            <div class="footer-section">
+                <div class="social-links">
+                    <a href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
+                    <a href="https://mastodon.social/@animasyon" target="_blank" rel="noopener noreferrer" aria-label="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
+                    <a href="https://www.instagram.com/kerimhaber?igsh=NmNva3lxbnRuYThm" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://bsky.app/profile/haber.kerim.qzz.io" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+                </div>
+
+                <p id="toplam-haber-sayisi"></p>
             </div>
-            <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
+
+            <!-- Bölüm 3 -->
+            <div class="footer-section">
+                <div class="footer-links">
+                    <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> |
+                    <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
+                </div>
+
+                <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
+            </div>
+
         </div>
     </footer>
 
@@ -235,7 +281,6 @@
                     ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #334155;">`
                     : `<div class="card-img-placeholder"><span>${haber.kaynak}</span></div>`;
                 
-                // KARTIN TAMAMI TIKLANABİLİR YAPILDI
                 const card = `
                     <article class="news-card" onclick="window.location.href='haber.html?id=${haber.id}'" style="cursor: pointer;">
                         ${resimHTML}
@@ -256,14 +301,12 @@
             renderPagination(filtrelenmis.length);
         }
 
-        // YENİ EKLENEN: SABİT 5 BUTONLU SAYFALAMA ALGORİTMASI
         function renderPagination(toplamHaber) {
             paginationContainer.innerHTML = '';
             const toplamSayfa = Math.ceil(toplamHaber / haberSayisi);
             
             if (toplamSayfa <= 1) return;
 
-            // ÖNCEKİ BUTONU
             const prevBtn = document.createElement('button');
             prevBtn.className = 'page-btn';
             prevBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span>Önceki</span><i class="fa-solid fa-arrow-left"></i></div>';
@@ -271,7 +314,6 @@
             prevBtn.onclick = () => { sayfa--; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
             paginationContainer.appendChild(prevBtn);
 
-            // SABİT 5 BUTON MANTIĞI
             let sayfalar = new Set();
             
             if (toplamSayfa <= 5) {
@@ -297,7 +339,6 @@
             
             let siraliSayfalar = Array.from(sayfalar).sort((a, b) => a - b);
 
-            // NUMARA BUTONLARI
             siraliSayfalar.forEach(i => {
                 const btn = document.createElement('button');
                 btn.className = `page-btn ${i === sayfa ? 'active' : ''}`;
@@ -309,7 +350,6 @@
                 paginationContainer.appendChild(btn);
             });
 
-            // SONRAKİ BUTONU
             const nextBtn = document.createElement('button');
             nextBtn.className = 'page-btn';
             nextBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span>Sonraki</span><i class="fa-solid fa-arrow-right"></i></div>';
