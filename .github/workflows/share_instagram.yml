@@ -2,8 +2,8 @@ name: Share News to Instagram
 
 on:
   schedule:
-    - cron: '0 17 * * *' # Türkiye saatiyle 20:00 (UTC 17:00)
-  workflow_dispatch:
+    - cron: '0 17 * * *'   # UTC 17:00 = Türkiye 20:00
+  workflow_dispatch:       # manuel tetikleme için
 
 jobs:
   share:
