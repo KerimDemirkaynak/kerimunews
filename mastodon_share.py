@@ -99,15 +99,21 @@ def main():
         try:
             media_ids = None
             if image_url:
-                img_data = get_image_bytes(image_url)
-                mime_type, _ = mimetypes.guess_type(image_url)
-                media = mastodon.media_post(
-                    io.BytesIO(img_data),
-                    mime_type=mime_type or "image/jpeg",
-                    description=title,
-                    synchronous=True,
-                )
-                media_ids = [media["id"]]
+                try:
+                    img_data = get_image_bytes(image_url)
+                    mime_type, _ = mimetypes.guess_type(image_url)
+                    media = mastodon.media_post(
+                        io.BytesIO(img_data),
+                        mime_type=mime_type or "image/jpeg",
+                        description=title,
+                        synchronous=True,
+                    )
+                    media_ids = [media["id"]]
+                except Exception as img_err:
+                    # Görsel indirilemedi/yüklenemedi (örn. 404) diye tüm paylaşımı iptal etme,
+                    # görselsiz şekilde devam et.
+                    print(f"⚠️ Görsel alınamadı, görselsiz paylaşılacak (ID: {haber_id}): {img_err}")
+                    media_ids = None
 
             mastodon.status_post(status=status_text, media_ids=media_ids)
             print(f"✅ Başarıyla paylaşıldı: {title[:50]}...")
