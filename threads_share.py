@@ -63,7 +63,7 @@ def main():
         print("❌ liste.json boş.")
         return
 
-    # JSON zaten en yeni haber en başta geliyor (25 Haziran'dan başlıyor)
+    # JSON zaten en yeni haber en başta geliyor
     yeni_haberler = []
     for haber in news_list:
         haber_id = str(haber.get('id', ''))
@@ -81,9 +81,13 @@ def main():
         return
 
     # İlk çalıştırma kontrolü
-    if last_posted_id is None:
+    if not last_posted_id:
         print("🚀 İlk çalıştırma → sadece son 5 haber")
         yeni_haberler = yeni_haberler[:5]
+
+    # --- EN ÖNEMLİ EKLENTİ BURASI ---
+    # Haberleri eskiden yeniye doğru sıralıyoruz ki sırayı atlamasın
+    yeni_haberler.reverse()
 
     # User ID
     me = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}").json()
@@ -92,7 +96,7 @@ def main():
         print("❌ User ID alınamadı!")
         return
 
-    # Paylaşım (en yeniden başlayarak)
+    # Paylaşım (en eskiden en yeniye doğru)
     for haber in yeni_haberler:
         haber_id = str(haber.get('id', ''))
         title = haber.get('baslik', '')
@@ -104,9 +108,11 @@ def main():
 
         if post_to_threads(access_token, user_id, title, url, source, image_url):
             print(f"✅ Paylaşıldı: {title}")
-            # Her başarılı paylaşımda son ID'yi güncelle
+            
+            # Her başarılı paylaşımda son ID'yi sırasıyla güncelle
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(haber_id)
+                
             time.sleep(18)   # Threads rate limit için
         else:
             print(f"❌ Paylaşım başarısız: {title}")
