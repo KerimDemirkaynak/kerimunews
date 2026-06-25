@@ -4,3 +4,4 @@ beautifulsoup4==4.12.2
 deep-translator==1.11.4
 google-genai
 atproto>=0.0.1
+Mastodon.py
