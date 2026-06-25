@@ -4,61 +4,69 @@ import requests
 import time
 
 TOKEN_FILE = "threads_token.txt"
+LAST_POSTED_FILE = "last_posted_threads.txt"
 
 def get_working_token():
     if os.path.exists(TOKEN_FILE):
         with open(TOKEN_FILE, "r", encoding="utf-8") as f:
-            saved_token = f.read().strip()
-            if saved_token:
-                return saved_token
+            token = f.read().strip()
+            if token:
+                return token
     return os.environ.get("THREADS_ACCESS_TOKEN")
 
 def post_to_threads(access_token, user_id, title, url, source, image_url=None):
     full_text = f"{title}\n\nKaynak: {source}\n{url}"
+    
     create_url = f"https://graph.threads.net/v1.0/{user_id}/threads"
-    payload = {"text": full_text, "access_token": access_token}
+    payload = {
+        "text": full_text,
+        "access_token": access_token,
+        "media_type": "IMAGE" if image_url and image_url.startswith("http") else "TEXT"
+    }
     
-    if image_url and image_url.startswith("http"):
-        payload.update({"media_type": "IMAGE", "image_url": image_url})
-    else:
-        payload.update({"media_type": "TEXT"})
-    
+    if payload["media_type"] == "IMAGE":
+        payload["image_url"] = image_url
+
+    # Thread oluştur
     create_res = requests.post(create_url, data=payload)
     if create_res.status_code != 200:
         print(f"❌ Oluşturma hatası: {create_res.text}")
         return False
-        
+
     container_id = create_res.json().get('id')
+    if not container_id:
+        print("❌ Container ID alınamadı")
+        return False
+
+    # Yayınla
     publish_url = f"https://graph.threads.net/v1.0/{user_id}/threads_publish"
-    pub_res = requests.post(publish_url, data={"creation_id": container_id, "access_token": access_token})
-    
+    pub_res = requests.post(publish_url, data={
+        "creation_id": container_id,
+        "access_token": access_token
+    })
+
     if pub_res.status_code != 200:
         print(f"❌ Yayınlama hatası: {pub_res.text}")
         return False
+
     return True
 
 def main():
     access_token = get_working_token()
     if not access_token:
-        print("❌ Token yok!")
+        print("❌ Token bulunamadı!")
         return
 
-    last_posted_file = "last_posted_threads.txt"   # <-- DOĞRU DOSYA
+    # Son paylaşılan ID'yi oku
     last_posted_id = None
-
-    # Dosyadan oku
-    if os.path.exists(last_posted_file):
-        with open(last_posted_file, "r", encoding="utf-8") as f:
+    if os.path.exists(LAST_POSTED_FILE):
+        with open(LAST_POSTED_FILE, "r", encoding="utf-8") as f:
             content = f.read().strip()
             if content:
                 last_posted_id = content
-                print(f"📄 Dosyadaki ID: '{last_posted_id}'")
-            else:
-                print("⚠️ Dosya boş, ilk çalışma varsayılıyor.")
-    else:
-        print("⚠️ Dosya yok, ilk çalışma.")
+                print(f"📄 Son paylaşılan ID: {last_posted_id}")
 
-    # JSON'u oku
+    # JSON oku
     with open("liste.json", 'r', encoding='utf-8') as f:
         news_list = json.load(f)
 
@@ -66,65 +74,53 @@ def main():
         print("❌ liste.json boş.")
         return
 
-    # En yeniler başta olacak şekilde sırala (liste muhtemelen eskiden yeniye)
-    news_list.reverse()
-
-    # Yeni haberleri topla
+    # JSON zaten en yeni → en eski şeklinde olduğu için reverse() YAPMIYORUZ
     yeni_haberler = []
-    eslesme_bulundu = False
-
-    for haber in news_list:
-        haber_id = str(haber.get('id', ''))   # string'e çevir
+    for haber in news_list:          # ← en yeniden başlıyoruz
+        haber_id = str(haber.get('id', ''))
+        
         if haber_id == last_posted_id:
-            eslesme_bulundu = True
-            break   # eşleşen ID'ye geldik, daha eski haberleri alma
+            break  # Bu ve daha eskileri atla
+        
         yeni_haberler.append(haber)
 
-    print(f"📊 Toplam haber: {len(news_list)}, Yeni haber: {len(yeni_haberler)}")
-
-    # Eğer dosyadaki ID listede yoksa, hiç paylaşma ve en son ID'yi güncelle
-    if last_posted_id is not None and not eslesme_bulundu:
-        print("⚠️ Dosyadaki ID listede bulunamadı! Muhtemelen haber silinmiş veya ID formatı farklı.")
-        print("👉 Hiç paylaşım yapılmadan, en son haberin ID'si dosyaya yazılacak.")
-        if news_list:
-            newest_id = str(news_list[0].get('id', ''))
-            with open(last_posted_file, "w", encoding="utf-8") as f:
-                f.write(newest_id)
-            print(f"✅ Dosyaya yeni ID yazıldı: '{newest_id}'")
-        return   # paylaşım yok
+    print(f"📊 Toplam haber: {len(news_list)} | Paylaşılacak yeni haber: {len(yeni_haberler)}")
 
     if not yeni_haberler:
         print("✅ Yeni haber yok.")
         return
 
-    # İlk çalışma – sadece son 3 haber
+    # İlk çalıştırma için güvenlik (çok fazla paylaşım olmasın)
     if last_posted_id is None:
-        print("🚀 İlk çalışma, son 3 haber paylaşılacak.")
-        yeni_haberler = yeni_haberler[:3]
+        print("🚀 İlk çalıştırma → sadece son 5 haber paylaşılacak.")
+        yeni_haberler = yeni_haberler[:5]
 
-    # Paylaşım sırası (eskiden yeniye – isteğe bağlı)
-    yeni_haberler.reverse()
-
-    # User ID
-    user_id = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}").json().get('id')
+    # User ID al
+    me_res = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}")
+    user_id = me_res.json().get('id')
     if not user_id:
         print("❌ User ID alınamadı!")
         return
 
-    for haber in yeni_haberler:
+    # Paylaşım
+    for haber in yeni_haberler:   # en yeni başta
         news_id = str(haber.get('id', ''))
         title = haber.get('baslik', '')
         url = haber.get('link', '')
         source = haber.get('kaynak', 'Anitrendz')
         image_url = haber.get('resim', '')
 
+        print(f"📤 Paylaşılıyor: {title[:80]}...")
+
         if post_to_threads(access_token, user_id, title, url, source, image_url):
-            print(f"✅ Paylaşıldı: {title}")
-            with open(last_posted_file, "w", encoding="utf-8") as f:
+            print(f"✅ Başarılı: {title}")
+            # Her başarılı paylaşımda ID'yi güncelle
+            with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(news_id)
-            time.sleep(15)
+            time.sleep(15)  # Rate limit koruması
         else:
             print(f"❌ Başarısız: {title}")
+            break  # Hata olursa dur
 
 if __name__ == "__main__":
     main()
