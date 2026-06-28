@@ -14,6 +14,8 @@
             --text-muted: #94a3b8;
             --accent: #3b82f6;
             --header-bg: #0b1120;
+            --anime-tag: #ec4899;
+            --cartoon-tag: #f59e0b;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
@@ -24,30 +26,28 @@
         .logo-icon { display: flex; align-items: center; color: var(--accent); }
         header h1 { font-size: 1.25rem; font-weight: 600; margin: 0; }
         
-        main { flex: 1; max-width: 800px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
-        
+        /* GÜNCELLENEN ANA LAYOUT: Masaüstünde yan yana dizilim sağlar */
+        main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
+        .page-layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+        .content-area { min-width: 0; } /* Taşmayı önlemek için */
+
         .article-container { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid #334155; margin-bottom: 2rem; }
         .article-image { width: 100%; max-height: 400px; object-fit: cover; display: block; }
         
-        /* GÜNCELLENEN KISIM: Başlık boşlukları eşitlendi */
         .article-header { padding: 2rem; }
         .article-title { font-size: 2rem; color: #fff; margin-bottom: 0; line-height: 1.3; }
         
-        /* GÜNCELLENEN KISIM: Üst border eklendi, alt ve üst boşluklar eşitlendi */
         .article-sub-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
-            padding: 1.5rem 2rem; /* Üst 1.5rem, Alt 1.5rem (eşit) */
-            border-top: 1px solid #334155; /* Yeni eklenen üst çizgi */
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #334155;
             border-bottom: 1px solid #334155;
         }
-        .article-source {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .article-source { color: var(--text-muted); font-size: 0.9rem; }
         
         .article-body { padding: 2rem; color: #e2e8f0; font-size: 1.1rem; line-height: 1.8; }
         
@@ -56,33 +56,16 @@
 
         /* SOSYAL MEDYA PAYLAŞIM BUTONLARI CSS */
         .social-share {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 2.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #334155;
+            display: flex; align-items: center; flex-wrap: wrap; gap: 12px;
+            margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #334155;
         }
-        .share-text { 
-            font-weight: 600; 
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-        
-        .share-buttons-container {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
+        .share-text { font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+        .share-buttons-container { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 
         .share-btn {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px; border-radius: 50%;
-            color: #fff; text-decoration: none; font-size: 1.1rem;
-            transition: transform 0.2s, opacity 0.2s; border: none; cursor: pointer;
-            margin: 0;
+            width: 40px; height: 40px; border-radius: 50%; color: #fff; text-decoration: none; font-size: 1.1rem;
+            transition: transform 0.2s, opacity 0.2s; border: none; cursor: pointer; margin: 0;
         }
         .share-btn:hover { transform: translateY(-3px); opacity: 0.9; }
         .btn-twitter { background-color: #000000; border: 1px solid #334155; }
@@ -92,71 +75,34 @@
         .btn-copy { background-color: #475569; }
 
         /* YAZAR PROFİLİ STİLLERİ */
-        .author-meta-top {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .author-meta-top img {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .author-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .author-name {
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.05rem;
-            text-decoration: none;
-        }
-        .author-name:hover {
-            text-decoration: underline;
-        }
-        .author-date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
+        .author-meta-top { display: flex; align-items: center; gap: 12px; }
+        .author-meta-top img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+        .author-info { display: flex; flex-direction: column; }
+        .author-name { color: #fff; font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+        .author-name:hover { text-decoration: underline; }
+        .author-date { color: var(--text-muted); font-size: 0.9rem; }
 
         .author-card {
-            display: flex;
-            align-items: center;
-            background-color: #1a2235;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2.5rem;
-            gap: 1.5rem;
+            display: flex; align-items: center; background-color: #1a2235; border: 1px solid #334155;
+            border-radius: 12px; padding: 1.5rem; margin-top: 2.5rem; gap: 1.5rem;
         }
-        .author-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .author-card-text {
-            flex: 1;
-        }
-        .author-card-name {
-            color: #3b82f6; 
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.4rem;
-        }
-        .author-card-name:hover {
-            text-decoration: underline;
-        }
-        .author-card-text p {
-            color: #cbd5e1;
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.5;
-        }
+        .author-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+        .author-card-text { flex: 1; }
+        .author-card-name { color: #3b82f6; font-size: 1.3rem; font-weight: bold; text-decoration: none; display: block; margin-bottom: 0.4rem; }
+        .author-card-name:hover { text-decoration: underline; }
+        .author-card-text p { color: #cbd5e1; font-size: 0.95rem; margin: 0; line-height: 1.5; }
+
+        /* YENİ SAĞ WIDGET PANELİ STİLLERİ */
+        .sidebar-widget { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; border: 1px solid #334155; position: sticky; top: 2rem; }
+        .widget-title { font-size: 1.1rem; font-weight: bold; text-transform: uppercase; color: #ef4444; margin-bottom: 1.2rem; letter-spacing: 0.5px; border-left: 3px solid #ef4444; padding-left: 8px; }
+        .widget-list { display: flex; flex-direction: column; gap: 1rem; }
+        .widget-item { display: flex; gap: 12px; align-items: center; text-decoration: none; color: inherit; padding-bottom: 1rem; border-bottom: 1px solid #334155; cursor: pointer; }
+        .widget-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .widget-img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; background-color: #334155; flex-shrink: 0; }
+        .widget-text-container { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+        .widget-item-title { font-size: 0.9rem; font-weight: 600; color: #fff; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .widget-item-title:hover { color: var(--accent); }
+        .widget-item-meta { font-size: 0.75rem; color: var(--text-muted); }
 
         .comments-section { background-color: var(--card-bg); border-radius: 12px; padding: 2rem; border: 1px solid #334155; }
         .comments-title { font-size: 1.5rem; margin-bottom: 1.5rem; color: #fff; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;}
@@ -169,25 +115,22 @@
         .back-btn { display: inline-block; margin-bottom: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
         .back-btn:hover { text-decoration: underline; }
         
+        @media (max-width: 950px) {
+            /* Tablete ve mobile geçildiğinde widget'ı alta atar */
+            .page-layout { grid-template-columns: 1fr; gap: 2rem; }
+            .sidebar-widget { position: static; }
+        }
+
         @media (max-width: 768px) {
-            /* Mobil görünümler için de boşluklar güncellendi */
             .article-header { padding: 1.5rem; } 
             .article-sub-bar { padding: 1.2rem 1.5rem; } 
             .article-body { padding: 1.2rem; font-size: 1.05rem; }
             .article-title { font-size: 1.6rem; }
             .comments-section { padding: 1.2rem; }
             
-            .social-share {
-                flex-direction: column; 
-                align-items: flex-start;
-                gap: 8px;
-            }
+            .social-share { flex-direction: column; align-items: flex-start; gap: 8px; }
             .share-text { margin-bottom: 4px; }
-
-            .author-card {
-                flex-direction: column;
-                text-align: center;
-            }
+            .author-card { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -209,14 +152,29 @@
     <main>
         <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön</a>
         
-        <article class="article-container" id="news-content">
-            <div style="padding: 3rem; text-align: center; color: var(--text-muted);">Haber yükleniyor...</div>
-        </article>
+        <div class="page-layout">
+            
+            <div class="content-area">
+                <article class="article-container" id="news-content">
+                    <div style="padding: 3rem; text-align: center; color: var(--text-muted);">Haber yükleniyor...</div>
+                </article>
 
-        <section class="comments-section">
-            <h3 class="comments-title"><i class="fa-solid fa-comments"></i> Yorumlar</h3>
-            <div id="giscus-container"></div>
-        </section>
+                <section class="comments-section">
+                    <h3 class="comments-title"><i class="fa-solid fa-comments"></i> Yorumlar</h3>
+                    <div id="giscus-container"></div>
+                </section>
+            </div>
+
+            <aside class="sidebar-area">
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">DİĞER HABERLER</h3>
+                    <div class="widget-list" id="widget-news-container">
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">Yükleniyor...</p>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
     </main>
 
     <footer>
@@ -224,7 +182,7 @@
             <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
             <div class="footer-links" style="margin-top: 10px;">
                 <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> | 
-                <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
+                <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">Iletişim</a>
             </div>
         </div>
     </footer>
@@ -232,16 +190,13 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // --- YENİ TTS (SESLİ OKUMA) SİSTEMİ BAŞLANGICI ---
         let isPlaying = false;
         const synth = window.speechSynthesis;
         let checkSpeechInterval;
-
         window.benimUtterance = null;
 
         function sesliOkuToggle() {
             const btn = document.getElementById('tts-btn');
-            
             if (!('speechSynthesis' in window)) {
                 alert("Tarayıcınız sesli okuma özelliğini desteklemiyor.");
                 return;
@@ -290,7 +245,6 @@
             let beklemeSuresi = 0;
             checkSpeechInterval = setInterval(() => {
                 beklemeSuresi += 300;
-                
                 if (synth.speaking) {
                     clearInterval(checkSpeechInterval);
                     isPlaying = true;
@@ -313,16 +267,12 @@
         }
 
         window.addEventListener('beforeunload', () => {
-            if (synth && synth.speaking) {
-                synth.cancel();
-            }
+            if (synth && synth.speaking) { synth.cancel(); }
         });
-        // --- TTS EKLENTİSİ SONU ---
 
         const loadGiscus = () => {
             const container = document.getElementById('giscus-container');
             if (!container) return;
-            
             const giscusScript = document.createElement('script');
             giscusScript.src = "https://giscus.app/client.js";
             giscusScript.setAttribute('data-repo', "KerimDemirkaynak/Yorumlar");
@@ -338,7 +288,6 @@
             giscusScript.setAttribute('data-lang', "tr");
             giscusScript.setAttribute('crossorigin', "anonymous");
             giscusScript.async = true;
-
             container.appendChild(giscusScript);
         };
 
@@ -350,6 +299,47 @@
             });
         }
 
+        // YENİ WIDGET YÜKLEME SİSTEMİ: Ana sayfa ile aynı mantıkta liste.json'u çeker
+        async function widgetHaberleriYukle(currentHaberId) {
+            try {
+                const response = await fetch('liste.json');
+                if (!response.ok) return;
+                const tumHaberler = await response.json();
+                
+                // Mevcut okunan haber hariç en yeni 5 haberi ayıkla
+                const filtrelenmisHaberler = tumHaberler
+                    .filter(h => h.id !== currentHaberId)
+                    .slice(0, 5);
+
+                const widgetContainer = document.getElementById('widget-news-container');
+                widgetContainer.innerHTML = '';
+
+                if (filtrelenmisHaberler.length === 0) {
+                    widgetContainer.innerHTML = '<p style="color: var(--text-muted); font-size: 0.9rem;">Başka haber bulunamadı.</p>';
+                    return;
+                }
+
+                filtrelenmisHaberler.forEach(h => {
+                    const imgHTML = h.resim 
+                        ? `<img src="${h.resim}" alt="${h.baslik}" class="widget-img">`
+                        : `<div class="widget-img" style="display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:var(--text-muted); text-align:center; padding:2px;">${h.kaynak}</div>`;
+
+                    const itemHTML = `
+                        <a href="haber.html?id=${h.id}" class="widget-item">
+                            ${imgHTML}
+                            <div class="widget-text-container">
+                                <h4 class="widget-item-title">${h.baslik}</h4>
+                                <span class="widget-item-meta">${h.tarih}</span>
+                            </div>
+                        </a>
+                    `;
+                    widgetContainer.innerHTML += itemHTML;
+                });
+            } catch (e) {
+                console.error("Widget haberleri yüklenemedi:", e);
+            }
+        }
+
         async function haberiGetir() {
             const urlParams = new URLSearchParams(window.location.search);
             const haberId = urlParams.get('id');
@@ -359,14 +349,15 @@
                 return;
             }
 
+            // Sağ widget panelini doldurması için tetikliyoruz
+            widgetHaberleriYukle(haberId);
+
             try {
                 const response = await fetch(`haberler/${haberId}.json`);
                 if (!response.ok) throw new Error('Haber dosyası bulunamadı.');
-                
                 const haber = await response.json();
 
                 document.title = `${haber.baslik} - Kerimu Animasyon`;
-                
                 let resimHTML = haber.resim ? `<img src="${haber.resim}" alt="${haber.baslik}" class="article-image">` : '';
                 
                 let formatlanmisMetin = haber.tamMetin
@@ -407,7 +398,6 @@
                                 <span class="author-date">${haber.tarih}</span>
                             </div>
                         </div>
-
                         <div class="article-source">
                             <span>Kaynak: <strong>${haber.kaynak}</strong></span>
                         </div>
@@ -431,7 +421,6 @@
                                 <p>Yazılım geliştirici, açık kaynak katılımcısı ve vibe coder. Anime dünyasına olan ilgisini teknolojiyle birleştirerek içerikler üretiyor.</p>
                             </div>
                         </div>
-                        
                     </div>
                 `;
 
