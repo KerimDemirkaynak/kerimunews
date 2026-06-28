@@ -16,6 +16,9 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     
     <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml" />
@@ -24,66 +27,83 @@
         :root {
             --bg-color: #0B0809;
             --card-bg: #1B1718;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --surface: #131011;
+            --header-bg: #1B1718;
+            --text-main: #F7F4F1;
+            --text-body: #E4DFDC;
+            --text-muted: #A39A96;
             --accent: #3b82f6;
+            --accent-soft: rgba(59, 130, 246, 0.14);
             --anime-tag: #ec4899;
             --cartoon-tag: #f59e0b;
-            --header-bg: #1B1718;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --shadow-card: 0 24px 48px -28px rgba(0, 0, 0, 0.7);
+            --font-display: 'Sora', 'Segoe UI', sans-serif;
+            --font-body: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-body); }
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
 
-        header { background-color: var(--header-bg); border-bottom: 1px solid #2A2526; }
+        ::selection { background: var(--accent); color: #fff; }
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 8px; border: 2px solid var(--bg-color); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+        a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--border); position: relative; }
+        header::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--cartoon-tag), var(--anime-tag)); opacity: 0.85; }
         .header-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem 1rem; gap: 1rem; }
         
-        .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); text-decoration: none; }
-        .logo-icon { display: flex; align-items: center; color: var(--accent); }
-        header h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; margin: 0; }
+        .logo-container { display: flex; align-items: center; gap: 10px; color: var(--text-main); text-decoration: none; }
+        .logo-icon { display: flex; align-items: center; justify-content: center; color: var(--accent); width: 36px; height: 36px; border-radius: 10px; background-color: var(--accent-soft); flex-shrink: 0; }
+        header h1 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
         
         .filters { display: flex; gap: 0.8rem; justify-content: center; }
-        .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid #2A2526; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
-        .filter-btn:hover, .filter-btn.active { background-color: var(--card-bg); border-color: var(--accent); color: var(--text-main); }
+        .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid var(--border); padding: 0.5rem 1.2rem; border-radius: 8px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
+        .filter-btn:hover { background-color: var(--surface); border-color: var(--border-strong); color: var(--text-main); }
+        .filter-btn.active { background-color: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600; }
         
         .action-container { display: flex; justify-content: flex-end; align-items: center; }
         
         /* Arama Kutusu Stilleri */
-        .search-container { display: flex; align-items: center; background-color: #131011; border: 1px solid #2A2526; border-radius: 6px; padding: 0.4rem 0.8rem; margin-right: 1rem; transition: border-color 0.2s; }
-        .search-container:focus-within { border-color: var(--accent); }
+        .search-container { display: flex; align-items: center; background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 0.4rem 0.8rem; margin-right: 1rem; transition: border-color 0.2s, box-shadow 0.2s; }
+        .search-container:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
         .search-input { background: transparent; border: none; color: var(--text-main); font-size: 0.9rem; outline: none; padding-left: 8px; width: 200px; }
         .search-input::placeholder { color: var(--text-muted); }
 
-        .rss-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background-color: #f97316; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; white-space: nowrap; }
-        .rss-link-btn:hover { background-color: #ea580c; }
+        .rss-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background-color: #f97316; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s, box-shadow 0.2s; white-space: nowrap; }
+        .rss-link-btn:hover { background-color: #ea580c; box-shadow: 0 12px 24px -12px rgba(249, 115, 22, 0.55); }
 
         main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
         #news-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
 
-        .news-card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #2A2526; transition: transform 0.2s; }
-        .news-card:hover { transform: translateY(-5px); border-color: #3E3739; }
-        .card-img-placeholder { height: 180px; background-color: #2A2526; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; }
+        .news-card { background-color: var(--card-bg); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--border); box-shadow: var(--shadow-card); transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
+        .news-card:hover { transform: translateY(-5px); border-color: var(--border-strong); box-shadow: 0 28px 56px -24px rgba(0, 0, 0, 0.8); }
+        .card-img-placeholder { height: 180px; background-color: var(--surface); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; }
         .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
         .card-tag { align-self: flex-start; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; }
         .tag-anime { background-color: var(--anime-tag); color: white; }
         .tag-cartoon { background-color: var(--cartoon-tag); color: white; }
-        .card-title { font-size: 1.15rem; margin-bottom: 0.75rem; color: #fff; line-height: 1.4; }
+        .card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--text-main); line-height: 1.4; }
         .card-excerpt { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid #2A2526; padding-top: 1rem; }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 1rem; }
         
         .read-more-btn { display: inline-block; background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: color 0.2s; text-decoration: none; }
         .news-card:hover .read-more-btn { color: #60a5fa; text-decoration: underline; }
 
         .pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
-        .page-btn { background-color: var(--card-bg); color: var(--text-main); border: 1px solid #2A2526; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: 0.2s; }
-        .page-btn:hover:not(:disabled) { background-color: #2A2526; }
+        .page-btn { background-color: var(--card-bg); color: var(--text-main); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .page-btn:hover:not(:disabled):not(.active) { background-color: var(--surface); border-color: var(--border-strong); }
         .page-btn.active { background-color: var(--accent); border-color: var(--accent); }
         .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
         /* Footer */
         footer { 
             background-color: var(--header-bg); 
-            border-top: 1px solid #2A2526; 
+            border-top: 1px solid var(--border); 
             padding: 0; 
             text-align: center; 
             margin-top: auto; 
@@ -109,7 +129,7 @@
             left: 0;
             width: 100%;
             height: 1px;
-            background: linear-gradient(to right, #2A2526, rgba(42, 37, 38, 0.15));
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
         }
 
         .social-links {
@@ -122,6 +142,7 @@
 
         .social-links a {
             color: var(--text-muted);
+            transition: color 0.2s;
         }
 
         .social-links a:hover {
@@ -156,6 +177,10 @@
                 font-size: 0.75rem; 
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
     </style>
 </head>
 <body>
@@ -164,7 +189,7 @@
         <div class="header-content">
             <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="logo-container">
                 <div class="logo-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
                         <polyline points="17 2 12 7 7 2"></polyline>
                     </svg>
@@ -206,10 +231,12 @@
     <footer>
         <div class="footer-content">
 
+            <!-- Bölüm 1 -->
             <div class="footer-section">
                 <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
             </div>
 
+            <!-- Bölüm 2 -->
             <div class="footer-section">
                 <div class="social-links">
                     <a href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
@@ -221,6 +248,7 @@
                 <p id="toplam-haber-sayisi"></p>
             </div>
 
+            <!-- Bölüm 3 -->
             <div class="footer-section">
                 <div class="footer-links">
                     <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> |
@@ -259,7 +287,7 @@
             } catch (error) {
                 console.error("Haberler yüklenirken hata:", error);
                 container.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; color: #ef4444; background: #1B1718; padding: 2rem; border-radius: 8px; border: 1px solid #2A2526;">
+                    <div style="grid-column: 1/-1; text-align: center; color: #ef4444; background: var(--surface); padding: 2rem; border-radius: 12px;">
                         <h3>Haberler Henüz Yüklenmedi</h3>
                         <p style="color: var(--text-muted); margin-top: 10px;">Python botu henüz liste.json dosyasını oluşturmamış olabilir. Lütfen GitHub Actions'ın çalışmasını bekleyin.</p>
                     </div>`;
@@ -290,7 +318,7 @@
                 const tagClass = haber.kategori === 'Anime' ? 'tag-anime' : 'tag-cartoon';
                 
                 const resimHTML = haber.resim 
-                    ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #2A2526;">`
+                    ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #334155;">`
                     : `<div class="card-img-placeholder"><span>${haber.kaynak}</span></div>`;
                 
                 const card = `
