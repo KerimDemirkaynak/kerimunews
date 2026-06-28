@@ -171,11 +171,9 @@
     <main>
         <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön</a>
         
-        <!-- YENİ GRID YAPISI -->
-        <div class="page-layout">
+                <div class="page-layout">
             
-            <!-- SOL ALAN: Haber Detayı ve Yorumlar -->
-            <div class="content-area">
+                        <div class="content-area">
                 <article class="article-container" id="news-content">
                     <div style="padding: 3rem; text-align: center; color: var(--text-muted);">Haber yükleniyor...</div>
                 </article>
@@ -186,31 +184,27 @@
                 </section>
             </div>
 
-            <!-- SAĞ ALAN: Sticky Yan Panel -->
-            <aside class="sidebar-area">
+                        <aside class="sidebar-area">
                 
-                <!-- WIDGET 1: Sosyal Medya -->
-                <div class="sidebar-widget">
+                                <div class="sidebar-widget">
                     <h3 class="widget-title">Bizi Takip Edin</h3>
                     <div class="widget-socials">
                         <a href="https://www.threads.com/@animasyonhaberleri" target="_blank" class="w-social-btn" title="Threads"><i class="fa-brands fa-threads"></i></a>
                         <a href="https://mastodon.social/@animasyon" target="_blank" class="w-social-btn" title="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
                         <a href="https://www.instagram.com/kerimhaber?igsh=NmNva3lxbnRuYThm" target="_blank" class="w-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://bsky.app/profile/haber.kerim.qzz.io" target="_blank" class="w-social-btn" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
-                        <a href="rss.xml" target="_blank" class="w-social-btn" title="RSS Beslemesi" style="color: #f97316; border-color: #f9731633;"><i class="fa-solid fa-rss"></i></a>
+                        <a href="rss.xml" target="_blank" class="w-social-btn" title="RSS Beslemesi"<i class="fa-solid fa-rss"></i></a>
                     </div>
                 </div>
 
-                <!-- WIDGET 2: Diğer Haberler -->
-                <div class="sidebar-widget">
+                                <div class="sidebar-widget">
                     <h3 class="widget-title">DİĞER HABERLER</h3>
                     <div class="widget-list" id="widget-news-container">
                         <p style="color: var(--text-muted); font-size: 0.9rem;">Yükleniyor...</p>
                     </div>
                 </div>
 
-                <!-- WIDGET 3: Kategoriler -->
-                <div class="sidebar-widget">
+                                <div class="sidebar-widget">
                     <h3 class="widget-title">KATEGORİLER</h3>
                     <div class="widget-categories">
                         <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="w-category-btn">
@@ -449,7 +443,8 @@
                             </div>
                         </div>
                         <div class="article-source">
-                            <span>Kaynak: <strong>${haber.kaynak}</strong></span>
+                            <div style="margin-bottom: 4px;">Kaynak: <strong>${haber.kaynak}</strong></div>
+                            <div>Tür: <strong>${haber.kategori}</strong></div>
                         </div>
                     </div>
 
