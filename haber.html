@@ -75,6 +75,75 @@
         .btn-telegram { background-color: #0088cc; }
         .btn-copy { background-color: #475569; }
 
+        /* EKLENEN YAZAR PROFİLİ STİLLERİ BAŞLANGICI */
+        .author-meta-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+        }
+        .author-meta-top img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .author-name {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+        }
+        .author-name:hover {
+            text-decoration: underline;
+        }
+        .author-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .author-card {
+            display: flex;
+            align-items: center;
+            background-color: #1a2235;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2.5rem;
+            gap: 1.5rem;
+        }
+        .author-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .author-card-text {
+            flex: 1;
+        }
+        .author-card-name {
+            color: #3b82f6; 
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        .author-card-name:hover {
+            text-decoration: underline;
+        }
+        .author-card-text p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+        /* EKLENEN YAZAR PROFİLİ STİLLERİ SONU */
+
         .comments-section { background-color: var(--card-bg); border-radius: 12px; padding: 2rem; border: 1px solid #334155; }
         .comments-title { font-size: 1.5rem; margin-bottom: 1.5rem; color: #fff; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; display: inline-block;}
 
@@ -99,8 +168,12 @@
                 gap: 8px;
             }
             .share-text { margin-bottom: 4px; }
+
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
         }
-    </media>
     </style>
 </head>
 <body>
@@ -320,9 +393,20 @@
                     ${resimHTML}
                     <div class="article-header">
                         <h1 class="article-title">${haber.baslik}</h1>
+                        
+                        <!-- YENİ ÜST YAZAR KISMI -->
+                        <div class="author-meta-top">
+                            <a href="https://github.com/KerimDemirkaynak" target="_blank">
+                                <img src="https://avatars.githubusercontent.com/u/76594465?v=4&size=64" alt="Kerim Demirkaynak">
+                            </a>
+                            <div class="author-info">
+                                <a href="https://github.com/KerimDemirkaynak" target="_blank" class="author-name">Kerim Demirkaynak</a>
+                                <span class="author-date">${haber.tarih}</span>
+                            </div>
+                        </div>
+
                         <div class="article-meta">
                             <span>Kaynak: <strong>${haber.kaynak}</strong></span>
-                            <span>${haber.tarih}</span>
                         </div>
                     </div>
                     <div class="article-body">
@@ -331,7 +415,20 @@
                             ${formatlanmisMetin}
                         </div>
                         <a href="${haber.link}" target="_blank" class="original-link">Orijinal Habere Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        
                         ${paylasimHTML}
+
+                        <!-- YENİ ALT YAZAR KARTI -->
+                        <div class="author-card">
+                            <a href="https://github.com/KerimDemirkaynak" target="_blank">
+                                <img src="https://avatars.githubusercontent.com/u/76594465?v=4&size=64" alt="Kerim Demirkaynak">
+                            </a>
+                            <div class="author-card-text">
+                                <a href="https://github.com/KerimDemirkaynak" target="_blank" class="author-card-name">Kerim Demirkaynak</a>
+                                <p>Yazılım geliştirici, açık kaynak katılımcısı ve vibe coder. Anime dünyasına olan ilgisini teknolojiyle birleştirerek içerikler üretiyor.</p>
+                            </div>
+                        </div>
+                        
                     </div>
                 `;
 
