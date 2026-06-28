@@ -394,19 +394,20 @@
                     <div class="article-header">
                         <h1 class="article-title">${haber.baslik}</h1>
                         
-                        <!-- YENİ ÜST YAZAR KISMI -->
-                        <div class="author-meta-top">
-                            <a href="https://github.com/KerimDemirkaynak" target="_blank">
-                                <img src="https://avatars.githubusercontent.com/u/76594465?v=4&size=64" alt="Kerim Demirkaynak">
-                            </a>
-                            <div class="author-info">
-                                <a href="https://github.com/KerimDemirkaynak" target="_blank" class="author-name">Kerim Demirkaynak</a>
-                                <span class="author-date">${haber.tarih}</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div class="author-meta-top" style="margin-bottom: 0;">
+                                <a href="https://github.com/KerimDemirkaynak" target="_blank">
+                                    <img src="https://avatars.githubusercontent.com/u/76594465?v=4&size=64" alt="Kerim Demirkaynak">
+                                </a>
+                                <div class="author-info">
+                                    <a href="https://github.com/KerimDemirkaynak" target="_blank" class="author-name">Kerim Demirkaynak</a>
+                                    <span class="author-date">${haber.tarih}</span>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="article-meta">
-                            <span>Kaynak: <strong>${haber.kaynak}</strong></span>
+    
+                            <div style="color: var(--text-muted); font-size: 0.9rem;">
+                                <span>Kaynak: <strong>${haber.kaynak}</strong></span>
+                            </div>
                         </div>
                     </div>
                     <div class="article-body">
@@ -418,7 +419,6 @@
                         
                         ${paylasimHTML}
 
-                        <!-- YENİ ALT YAZAR KARTI -->
                         <div class="author-card">
                             <a href="https://github.com/KerimDemirkaynak" target="_blank">
                                 <img src="https://avatars.githubusercontent.com/u/76594465?v=4&size=64" alt="Kerim Demirkaynak">
