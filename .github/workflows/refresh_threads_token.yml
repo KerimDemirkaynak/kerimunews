@@ -29,9 +29,33 @@ jobs:
 
       - name: GitHub secret'ını güncelle (gh CLI ile)
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}       # repo + workflow yetkili PAT
+          GH_TOKEN: ${{ secrets.GH_PAT }}       # repo yetkili PAT
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}   # Uyumluluk için isteğe bağlı
         run: |
-          # Hangi depoya yazacağımızı --repo argümanı ile açıkça belirtiyoruz
-          echo "${{ steps.refresh.outputs.new_token }}" | gh secret set THREADS_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body-file -
+          NEW_TOKEN="${{ steps.refresh.outputs.new_token }}"
+          
+          # Token'ın boş olup olmadığını son bir kez garantiye al
+          if [ -z "$NEW_TOKEN" ] || [ "$NEW_TOKEN" = "null" ]; then
+            echo "❌ Secret olarak ayarlanacak yeni bir token bulunamadı."
+            exit 1
+          fi
+
+          # Güvenli geçici dosya oluştur ve sadece sahibine okuma/yazma izni ver (600)
+          TMPFILE=$(mktemp)
+          chmod 600 "$TMPFILE"
+          printf "%s" "$NEW_TOKEN" > "$TMPFILE"
+
+          # Secret'ı stdin yerine dosya üzerinden güncelle
+          gh secret set THREADS_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body-file "$TMPFILE"
+          RC=$?
+
+          # Güvenli temizlik (Dosyanın üzerine yazıp siler, başarısız olursa normal siler)
+          shred -u "$TMPFILE" 2>/dev/null || rm -f "$TMPFILE"
+
+          # gh komutunun çıkış kodunu kontrol et
+          if [ $RC -ne 0 ]; then
+            echo "❌ gh secret set işlemi $RC hata koduyla başarısız oldu."
+            exit $RC
+          fi
+
           echo "✅ Secret başarıyla güncellendi."
