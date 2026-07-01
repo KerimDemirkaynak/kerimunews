@@ -15,8 +15,8 @@ jobs:
           RESPONSE=$(curl -s -X GET "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${{ secrets.THREADS_ACCESS_TOKEN }}")
           NEW_TOKEN=$(echo "$RESPONSE" | jq -r '.access_token')
           
-          # Hata kontrolü
-          if [ -z "$NEW_TOKEN" || "$NEW_TOKEN" = "null" ]; then
+          # Hata kontrolü (Düzeltilmiş Sözdizimi)
+          if [ -z "$NEW_TOKEN" ] || [ "$NEW_TOKEN" = "null" ]; then
             echo "❌ Token yenilenemedi! Yanıt: $RESPONSE"
             exit 1
           fi
@@ -24,9 +24,14 @@ jobs:
           echo "new_token=$NEW_TOKEN" >> $GITHUB_OUTPUT
           echo "✅ Yeni token alındı."
 
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
       - name: GitHub secret'ını güncelle (gh CLI ile)
         env:
-          GH_TOKEN: ${{ secrets.GH_PAT }}   # repo + workflow yetkili PAT
+          GH_TOKEN: ${{ secrets.GH_PAT }}       # repo + workflow yetkili PAT
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}   # Uyumluluk için isteğe bağlı
         run: |
-          echo "${{ steps.refresh.outputs.new_token }}" | gh secret set THREADS_ACCESS_TOKEN --body-file -
+          # Hangi depoya yazacağımızı --repo argümanı ile açıkça belirtiyoruz
+          echo "${{ steps.refresh.outputs.new_token }}" | gh secret set THREADS_ACCESS_TOKEN --repo "$GITHUB_REPOSITORY" --body-file -
           echo "✅ Secret başarıyla güncellendi."
