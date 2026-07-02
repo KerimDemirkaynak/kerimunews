@@ -1,5 +1,105 @@
 [
     {
+        "id": "bd508a7418",
+        "kategori": "Anime",
+        "baslik": "Yoshitaka Amano'nun ZAN anime projesi, mecha türünün deneyimli isimlerinden oluşan kadrosunu duyurdu.",
+        "ozet": "Masashi Ikeda ve Tōru Yoshida animeyi yönetirken, serinin senaryolarını ise Ryōsuke Takahashi denetliyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gFK/cms/news.9/238614/zan-key-image.jpeg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "2 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-01/yoshitaka-amano-zan-anime-project-reveals-staff-of-mecha-anime-veterans/.239205"
+    },
+    {
+        "id": "7c520b2f7d",
+        "kategori": "Anime",
+        "baslik": "Witch and Hound fantezi light novel serisi için TV animesi duyuruldu.",
+        "ozet": "Hypnosis Mic anime filminin yönetmen koltuğunda, TriF Studio bünyesinde Takanori Tsujimoto oturuyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGD/youtube/Lzi5zhjLIlU.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "2 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-01/witch-and-hound-fantasy-light-novels-get-tv-anime/.239204"
+    },
+    {
+        "id": "f5582f6f21",
+        "kategori": "Anime",
+        "baslik": "Anime Expo 2026'dan Tüm Haberler ve İncelemeler",
+        "ozet": "Panel, etkinlik ve stantlarımızda bizlerle buluşun. Tüm programın detaylarına aşağıdan ulaşabilirsiniz....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gKH/cms/convention/238998/ax2026.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "1 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/.238998"
+    },
+    {
+        "id": "6ae0765663",
+        "kategori": "Anime",
+        "baslik": "Gundam, unutulmuş bir dönüşen mecha modelini devasa yeni bir sürümle yeniden canlandırıyor.",
+        "ozet": "METAL ROBOT SPIRITS serisi, bugüne kadarki en göz ardı edilmiş Gundam yapımlarından birinden çıkan, en sıra dışı Gundam tasarımlarından birini yeni bir aksiyon figürü olarak koleksiyonlara ekliyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/bandai-revives-1-of-gundam-s-most-experimental-mecha-with-massive-new-release.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "2 Temmuz 2026",
+        "link": "https://www.cbr.com/bandai-metal-robot-spirits-gundam-asshimar-release/"
+    },
+    {
+        "id": "06d2649de6",
+        "kategori": "Anime",
+        "baslik": "Gear 5 Luffy'den Nesnel Olarak Daha Güçlü 5 Anime Karakteri",
+        "ozet": "Gear 5, Luffy'ye Blackbeard ve Imu'yu alt etmesi için gereken gücü veriyor olabilir ancak bu yetenek, Sukuna ve Saitama gibi karakterler karşısında yeterli olmayacaktır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/12/33263085.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "2 Temmuz 2026",
+        "link": "https://www.cbr.com/one-piece-anime-characters-stronger-than-gear-5-luffy/"
+    },
+    {
+        "id": "9a6e81cdf4",
+        "kategori": "Anime",
+        "baslik": "27 Yıl Sonra, Spike'ın En İyi Cowboy Bebop Replikleri Anime Tarihinin En Akılda Kalan Sözleri Olmaya Devam Ediyor",
+        "ozet": "Cowboy Bebop, anime dünyasının en büyük başarılarından biridir ve yürek burkan final cümlesi, serinin kalıcı ve eskimeyen mirasını pekiştirmeye yardımcı olmaktadır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/01/spike-spiegel-bang-scene-at-the-end-of-cowboy-bebop.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "2 Temmuz 2026",
+        "link": "https://www.cbr.com/spike-spiegel-greatest-cowboy-bebop-line-most-haunting-anime/"
+    },
+    {
+        "id": "596c40f8eb",
+        "kategori": "Çizgi Film",
+        "baslik": "Robotların kontrolü ele geçirdiği ve teknolojinin çığırından çıktığı 30 animasyon vizyonu",
+        "ozet": "Erken dönem stop-motion klasiklerinden modern yapay zeka kıssalarına kadar, robot isyanlarını ilk hayal eden animasyon filmlerini ve dizilerini keşfedin....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/07/Animated-Robots.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "1 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/cartoon-study/killer-robots-animation-history-264106.html"
+    },
+    {
+        "id": "a85c1e2eb4",
+        "kategori": "Çizgi Film",
+        "baslik": "Yas ve Deneysellik, Oscar Adayı Kanadalı Animatör Christopher Hinton'ı Nasıl Yeniden Yarattı?",
+        "ozet": "Ünlü animatör, yeni bir sanatsal ses arayışını, yaşadığı aile trajedisinin etkilerini ve neden animasyon dünyasını geride bırakmaya hazır olduğunu anlatıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/07/Flux.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "1 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/animators/christopher-hinton-canada-click-264097.html"
+    },
+    {
+        "id": "860cf4b7bb",
+        "kategori": "Çizgi Film",
+        "baslik": "Next Lab Generation, sinemacıların Quill ve Magnific kullanmasını şart koştu; çoğu kişi VR'ı benimsedi ancak yapay zekayı terk etti.",
+        "ozet": "Next Lab Generation finalistleri, Madrid'deki sunumlarından önce projelerini geliştirirken Meta'nın Quill VR animasyon yazılımını ve Magnific AI teknolojisini kullanmak zorundaydı....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/07/Next-Lab-2026.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "1 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/events/next-lab-generation-finalists-quill-magnific-264084.html"
+    },
+    {
+        "id": "231ec6ddc9",
+        "kategori": "Çizgi Film",
+        "baslik": "Banijay Kids & Family, okul öncesi dönem için hazırlanan farkındalık serisi ‘Husha Be’nin dağıtım haklarını aldı.",
+        "ozet": "Banijay Kids & Family (Totally Spies!, Mr Bean: The Animated Series), Husha Be'nin dünya genelindeki dağıtım haklarını satın aldı. Galler merkezli Cwmni Da tarafından hazırlanan bu animasyon dizisi, genç izleyicilere farkındalık kavramını tanıtmak amacıyla tasarlandı. 52 bölümden oluşan ve her biri 7 dakika süren bu okul öncesi yapım, izleyicileriyle buluşmaya hazırlanıyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "1 Temmuz 2026",
+        "link": "https://www.animationmagazine.net/2026/07/banijay-kids-family-secures-distribution-rights-to-pre-k-mindfulness-series-husha-be/"
+    },
+    {
         "id": "6f7b1b36bf",
         "kategori": "Anime",
         "baslik": "Witch Hat Atelier 2. Sezon Resmi Olarak Duyuruldu: \"Hikaye Daha da Büyüyecek ve Derinleşecek\"",
