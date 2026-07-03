@@ -1,5 +1,75 @@
 [
     {
+        "id": "bc6d573e8b",
+        "kategori": "Anime",
+        "baslik": "Star Wars: Visions Presents - The Ninth Jedi animesinin fragmanı, 5 Ağustos'ta yapılacak ilk gösterimi duyurdu.",
+        "ozet": "Ghost in the Shell'in yapımcısı Production I.G, Star Wars: Visions kısa filminin genişletilmiş versiyonunu animeleştiriyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gK7/youtube/r70AWJ-zJS4.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "3 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-02/star-wars-visions-presents-the-ninth-jedi-anime-trailer-unveils-august-5-debut/.239238"
+    },
+    {
+        "id": "06df1e03d4",
+        "kategori": "Anime",
+        "baslik": "Crunchyroll, Akira anime filmini 4 Eylül'de ABD ve Kanada'da 4K ve IMAX formatlarında gösterime sunacak.",
+        "ozet": "Gösterimler hem İngilizce altyazılı hem de İngilizce dublajlı versiyonlarıyla izleyiciyle buluşacak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGQ/cms/news.9/239235/akira-j.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "3 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-02/crunchyroll-to-screen-akira-anime-film-in-u.s-canada-in-4k-imax-on-september-4/.239235"
+    },
+    {
+        "id": "8fd5fbfefe",
+        "kategori": "Anime",
+        "baslik": "To Your Eternity anime filmi, kadrosuna Naohito Fujiki'yi dahil etti.",
+        "ozet": "Fujiki, 9 Ekim'de vizyona girecek filmde sınıf öğretmeni Nishina karakterini canlandırıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gN1/cms/news.9/239236/nishina.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "3 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-02/to-you-in-the-beyond-anime-film-casts-naohito-fujiki/.239236"
+    },
+    {
+        "id": "4570c4ae5e",
+        "kategori": "Anime",
+        "baslik": "Gundam; Wing Zero, Aerial ve Z’Gok modelleri için 3 yeni şeffaf Gunpla model kitini duyurdu.",
+        "ozet": "Dünya genelindeki Gundam Base mağazaları, Gundam serisinin dört bir yanından gelen mekanik tasarımları temel alan üç özel yeni şeffaf model kitini satışa sunuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/gundam-reveals-3-new-clear-gunpla-model-kits-for-wing-zero-aerial-z-gok.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "3 Temmuz 2026",
+        "link": "https://www.cbr.com/gundam-clear-gunpla-redesign-july-2026/"
+    },
+    {
+        "id": "b61f4f099e",
+        "kategori": "Anime",
+        "baslik": "Sung Jinwoo Tarafından Yok Edilecek 5 Güçlü Anime Kötü Karakteri",
+        "ozet": "Bu antagonistler kendi dünyalarına hükmetmiş olabilirler, ancak Jinwoo ile karşılaşmak bambaşka bir sınav olacaktır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/02/jinwoo-putting-his-finger-on-his-lips-in-a-shushing-gesture-in-solo-leveling-season-2.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "3 Temmuz 2026",
+        "link": "https://www.cbr.com/powerful-anime-villains-destroyed-by-sung-jinwoo/"
+    },
+    {
+        "id": "a02effe360",
+        "kategori": "Anime",
+        "baslik": "Cowboy Bebop'ın En Trajik Karakteri Aslında Spike Spiegel Değildi",
+        "ozet": "Cowboy Bebop'tan Gren, Spike'ın asla hayal edemeyeceği bir trajediyi temsil ediyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/10/cowboy-bebop-spike-spiegel.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "3 Temmuz 2026",
+        "link": "https://www.cbr.com/cowboy-bebop-most-tragic-character-gren-not-spike/"
+    },
+    {
+        "id": "ba95fc8e9a",
+        "kategori": "Çizgi Film",
+        "baslik": "Movistar Plus+, İspanyol kısa filmlerine yönelik otuz yıllık desteğini sonlandırdı; bu karar sektörde büyük tepkilere yol açtı.",
+        "ozet": "Film yapımcıları ve animasyon dünyasının önde gelen isimleri, Proyecto Corto'nun kapanmasının, gelişmekte olan yeteneklerin finansman, dağıtım ve gösterim fırsatlarını kısıtlayacağı konusunda uyarılarda bulunuyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/07/Decorado.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "2 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/shorts/movistar-plus-cancels-proyecto-corto-264134.html"
+    },
+    {
         "id": "a0971e560a",
         "kategori": "Anime",
         "baslik": "SPYAIR’ın RE-BIRTH parçası, grubun yeni döneminin sadece başlangıcı.",
