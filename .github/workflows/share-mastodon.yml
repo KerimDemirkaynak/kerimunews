@@ -38,5 +38,10 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add last_posted_mastodon.txt
           
-          # Eğer dosyada değişiklik varsa kaydet, sunucudaki yenilikleri al (rebase) ve Github'a gönder
-          git diff --staged --quiet || (git commit -m "Son paylasilan Mastodon ID'si guncellendi" && git pull --rebase origin main && git push)
+          if git diff --staged --quiet; then
+            echo "Değişiklik yok, commit atlanıyor."
+          else
+            git commit -m "Son paylasilan Mastodon ID'si guncellendi"
+            git pull --rebase origin main
+            git push origin main || (git pull --rebase origin main && git push origin main)
+          fi
