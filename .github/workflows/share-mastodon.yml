@@ -3,45 +3,33 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 17 * * *'
-
 jobs:
   share:
     runs-on: ubuntu-latest
     permissions:
       contents: write # Dosyayı Github'a kaydedebilmek için yazma izni
-    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
           cache: 'pip'
-          
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          
       - name: Post to Mastodon
         env:
           MASTODON_API_BASE_URL: ${{ secrets.MASTODON_API_BASE_URL }}
           MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
         run: python mastodon_share.py
-        
       # BOTUN NEREDE KALDIĞINI UNUTMAMASI İÇİN KAYDETME ADIMI
       - name: Commit and push last posted ID
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add last_posted_mastodon.txt
-          
-          if git diff --staged --quiet; then
-            echo "Değişiklik yok, commit atlanıyor."
-          else
-            git commit -m "Son paylasilan Mastodon ID'si guncellendi"
-            git pull --rebase origin main
-            git push origin main || (git pull --rebase origin main && git push origin main)
-          fi
+          # Eğer dosyada değişiklik varsa kaydet ve Github'a gönder
+          git diff --staged --quiet || (git commit -m "Son paylasilan Mastodon ID'si guncellendi" && git push)
