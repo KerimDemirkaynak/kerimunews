@@ -1,5 +1,65 @@
 [
     {
+        "id": "45aac10651",
+        "kategori": "Anime",
+        "baslik": "Tomb Raider King 1-14. Cilt Manhwa İncelemesi",
+        "ozet": "Arkeoloji, sadece canavarlarla dolu mezarların içinde koşturmaktan ibaret değildir; bazen arkeoloji, dev şirketleri ve hükümetleri de dize getirmeniz gerektiği anlamına gelir....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gU0/cms/review.2/239041/tomb-raider-king-volume-1-cover-art.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/review/tomb-raider-king-volumes-1-14-manhwa/.239041"
+    },
+    {
+        "id": "825bfab44b",
+        "kategori": "Anime",
+        "baslik": "Kagurabachi anime prömiyeri, keskin ve temiz bir uyarlamayla izleyicilerin karşısına çıktı.",
+        "ozet": "Sadece bir TV animesi olmanın ötesine geçen Kagurabachi, üst düzey prodüksiyon kalitesiyle sinema filmi seviyesindeki yapımlarla aşık atıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gO7/cms/news.9/236804/mainvisual-kv.webp",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kagurabachi-anime-premiere-delivers-an-adaptation-with-clean-cuts/.239330"
+    },
+    {
+        "id": "27dbc6ea6e",
+        "kategori": "Anime",
+        "baslik": "Sasaki and Peeps 2. Sezon Prömiyeri",
+        "ozet": "İlk sezon, menüden sadece tek bir seçenek seçmekle yetinmemişti. Sihri, sunulan her şeyi seçmesinde yatıyordu. İkinci sezonun ilk bölümü ise bu yaklaşımı daha da ileri taşıyacağını açıkça gösteriyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gEF/cms/news.9/238535/sasaki1.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/sasaki-and-peeps-season-two-premiere/.239325"
+    },
+    {
+        "id": "4e2596509e",
+        "kategori": "Anime",
+        "baslik": "1990'lardan En İyi 5 Anime Serisi",
+        "ozet": "Bu animelerin etkisi, orijinal yayın tarihlerinin çok ötesine geçerek günümüz izleyicileri üzerinde yankı uyandırmaya devam ediyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/04/the-cast-of-yu-yu-hakusho.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.cbr.com/best-anime-series-1990s-berserk-evangelion/"
+    },
+    {
+        "id": "1ff9391edd",
+        "kategori": "Anime",
+        "baslik": "That Time I Got Reincarnated as a Slime, sonunda dünya genelinde Netflix'te yayına giriyor.",
+        "ozet": "Tüm zamanların en iyi isekai anime serilerinden biri, nihayet Crunchyroll dışında da izlenebilir hale geldi....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/03/screenshot-2026-03-10-at-22-33-24-99-that-time-i-got-reincarnated-as-a-slime-season-4-official-trailer-youtube-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.cbr.com/that-time-i-got-reincarnated-as-a-slime-netflix-streaming-worldwide/"
+    },
+    {
+        "id": "7e0b8e315f",
+        "kategori": "Anime",
+        "baslik": "Baştan Sona Kusursuz Olan 10 Unutulmuş Fantastik Manga",
+        "ozet": "Fantezi türündeki mangalar, doğal bitiş noktalarını geçip uzayıp gitme gibi kötü bir alışkanlığa sahiptir; ancak başlangıcından sonuna kadar net bir doğrultusu olanlar unutulmaz eserlere dönüşür....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/chrono-crusade-anime-and-manga-collage.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.cbr.com/perfect-but-forgotten-fantasy-manga/"
+    },
+    {
         "id": "98efb819b8",
         "kategori": "Anime",
         "baslik": "Black Clover 2. Sezon Ana Fragmanı Yayınlandı",
