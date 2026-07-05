@@ -1,5 +1,65 @@
 [
     {
+        "id": "9f4d30518b",
+        "kategori": "Anime",
+        "baslik": "Omoi, dört yeni yapımı ve Red String Manga ile Square Enix Manga ortaklıklarını duyurdu.",
+        "ozet": "Lisanslanan yapımlar arasında Walking Home with You, Shonen Racket ve Natsume & Natsume: More Perfume, more yer alıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gF5/cms/news.9/239265/unnamed-2.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-04/omoi-announces-4-new-titles-partnerships-with-red-string-manga-square-enix-manga/.239265"
+    },
+    {
+        "id": "58251f6e02",
+        "kategori": "Anime",
+        "baslik": "Yuri, Thunder 3 Animesinin Açılış Şarkısını Seslendiriyor",
+        "ozet": "Anime, 8 Temmuz'da başlıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGG/cms/news.9/233799/thunder.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-04/yuri-performs-opening-song-for-thunder-3-anime/.239310"
+    },
+    {
+        "id": "4908f2217d",
+        "kategori": "Anime",
+        "baslik": "Persona 4 Revival oyununun videoları, Protagonist ve Rise karakterlerini öne çıkarıyor.",
+        "ozet": "Abby Trott, Rise karakterinin yeni seslendirmeni oldu; MAPPA oyunun animasyon ara sahnelerinin yapımcılığını üstlenecek....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gL9/youtube/0LjCWgrexi8.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-04/persona-4-revival-game-videos-highlight-protagonist-rise/.239307"
+    },
+    {
+        "id": "e698e5b602",
+        "kategori": "Anime",
+        "baslik": "80'lerden En İyi 5 Anime Serisi",
+        "ozet": "1980'ler, Dragon Ball ve Gunbuster gibi günümüzde hala ikonik statüsünü koruyan öncü yapımlarla anime dünyası için altın bir çağdı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/10/goku-dragon-ball-header.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.cbr.com/best-80s-anime-series-list/"
+    },
+    {
+        "id": "eadaa9c48f",
+        "kategori": "Anime",
+        "baslik": "Fate/stay night'ın Orijinal Anime Serisi Resmî Olarak Dijital Platformlardan Kaldırılıyor",
+        "ozet": "Karanlık fantezi türündeki anime serisinin yayın platformundaki macerası resmen sona ermek üzere; hayranların seriyi izlemek için artık çok az zamanı kaldı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/07/The-main-cast-of-Fate-Stay-Night-2006.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.cbr.com/fate-stay-night-first-anime-hidive-streaming-exit/"
+    },
+    {
+        "id": "783d52f490",
+        "kategori": "Anime",
+        "baslik": "Dünyanın en büyük anime korsan sitesi HiAnime'nin arkasındaki operatörler, sitenin kapatılmasının ardından tutuklandı.",
+        "ozet": "Dünyanın en büyük anime korsan yayın sitesi HiAnime'nin arkasındaki operatörler, sitenin kapatılmasından dört ay sonra yetkililer tarafından resmen tutuklandı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/12/7-years-later-another-anime-streaming-site-shuts-down-following-mass-piracy-crackdown.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Temmuz 2026",
+        "link": "https://www.cbr.com/hianime-operators-arrested/"
+    },
+    {
         "id": "45cf5ea377",
         "kategori": "Anime",
         "baslik": "Witch Hat Atelier 2. Sezon için Anime Expo 2026’da yeni bir tanıtım fragmanı yayımlandı.",
