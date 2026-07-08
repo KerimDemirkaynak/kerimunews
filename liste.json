@@ -1,5 +1,105 @@
 [
     {
+        "id": "d78b144d78",
+        "kategori": "Anime",
+        "baslik": "Final Fantasy VII Ever Crisis oyununun servis hizmeti 6 Ekim tarihinde sona eriyor.",
+        "ozet": "Oyun, Eylül ve Aralık 2023 tarihlerinde mobil platformlar ve Steam için piyasaya sürüldü....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHH/cms/news.9/239424/final.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-08/final-fantasy-vii-ever-crisis-game-ends-service-on-october-6/.239424"
+    },
+    {
+        "id": "ab0745893e",
+        "kategori": "Anime",
+        "baslik": "Thunder 3 Anime'sinin Yeni Videosu Rebellion'ın Oyuncu Kadrosunu Açıkladı",
+        "ozet": "Anime, Çarşamba günü yayın hayatına başladı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gG7/cms/news.9/239427/hmuf79ca4aa5515.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-08/thunder-3-anime-new-video-unveils-rebellion-cast/.239427"
+    },
+    {
+        "id": "fedad94f6d",
+        "kategori": "Anime",
+        "baslik": "Jaadugar: A Witch in Mongolia animesinin \"Mongolia Arc\" videosu yeni seslendirme sanatçılarını ortaya çıkardı.",
+        "ozet": "Misaki Kuno, Ayaka Asai ve Mayumi Shintani, animenin seslendirme kadrosuna katıldı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGK/cms/news.9/239422/mongol2.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-07-08/jaadugar-a-witch-in-mongolia-anime-mongolia-arc-video-reveals-more-cast/.239422"
+    },
+    {
+        "id": "32c0caef19",
+        "kategori": "Anime",
+        "baslik": "Spy x Family, Anya ve Bond'un Büyük Devam Macerasıyla Dönüşüne İlk Bakışı Paylaştı",
+        "ozet": "Spy x Family serisi, animenin favori çocuk medyumunun ve onun Great Pyrenees cinsi köpeği Bond'un başrolde olduğu bir sonraki büyük yapımı için hazırlıklarını sürdürüyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/07/anyahugsbond.jpeg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.cbr.com/spy-x-family-2-new-first-look-reveal/"
+    },
+    {
+        "id": "27baaf8849",
+        "kategori": "Anime",
+        "baslik": "Kusursuz Birer Başyapıt Olarak Kabul Edilen 10 Manga Arkı",
+        "ozet": "Berserk ve Hunter x Hunter gibi başyapıt niteliğindeki mangalar, genellikle kusursuz hikaye örgülerine ev sahipliği yapar....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/06/mixcollage-16-jun-2024-11-47-pm-6215.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.cbr.com/best-manga-arcs-flawless-masterpieces/"
+    },
+    {
+        "id": "583e6acc37",
+        "kategori": "Anime",
+        "baslik": "Naruto Shippuden, 9 yıl aradan sonra yayınlanacak ilk yeni anime kısa filmiyle resmen geri dönüyor.",
+        "ozet": "Neredeyse 10 yılın ardından Naruto Shippuden, 2027 yılındaki 25. yıl dönümü kutlamaları öncesinde ilk yeni anime kısa filmiyle geri dönüyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/videoframe_81206.png?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.cbr.com/naruto-shippuden-new-anime-short-9-years/"
+    },
+    {
+        "id": "eaa348173d",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Smiling Friends’ Final Season, alıştığımız animasyon adaylıkları arasında Emmy adaylığı kazanmayı başardı.",
+        "ozet": "'Smiling Friends'; 'The Simpsons', 'Bob's Burgers', 'Rick and Morty', 'South Park' ve 'Star Wars: Visions' ile birlikte 2026 Emmy yarışına dahil oldu....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/07/Emmys-2026.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/awards/animation-vfx-emmy-nominees-smiling-friends-264203.html"
+    },
+    {
+        "id": "3c3f0db7c2",
+        "kategori": "Çizgi Film",
+        "baslik": "'Kültürel Açıdan Çok Saygılı Olmak İstedik': Science Saru'nun 'Jaadugar: A Witch in Mongolia' Anime Uyarlamasının Perde Arkası",
+        "ozet": "Naoko Yamada ve Abel Góngora, Jaadugar'ın uyarlanması, tarihi gerçekliğin dengelenmesi ve Pers ile Moğol kültürlerinin yansıtılması üzerine görüşlerini paylaşıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/06/Jaadugar.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/anime/naoko-yamada-abel-gongora-jaadugar-science-saru-263884.html"
+    },
+    {
+        "id": "d3e27b0b73",
+        "kategori": "Çizgi Film",
+        "baslik": "Fathom Entertainment, dağıtım hedeflerini genişletirken Jason Brenek’i CEO olarak atadı.",
+        "ozet": "Eski Disney ve IMAX yöneticisi, specialty distributor şirketi etkinlik sinemasından geniş çaplı vizyon gösterimlerine doğru genişlerken yönetimi devralıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2025/10/Wildwood.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.cartoonbrew.com/executives/fathom-entertainment-jason-brenek-ceo-264186.html"
+    },
+    {
+        "id": "d3a797a622",
+        "kategori": "Çizgi Film",
+        "baslik": "5’s Milkshake! Üç Yeni Orijinal Seri İçin Onay Verdi",
+        "ozet": "Birleşik Krallık kanalı Channel 5’ın okul öncesi çocuklara yönelik bloğu Milkshake!, üç yeni Birleşik Krallık yapımı projesini duyurdu. The Earth Cubs Show (2027), Earth Cubs Ltd ve 3M tarafından hazırlanan, gerçek dünya görüntüleri ile 2D animasyonu birleştiren 26 bölümlük ve her biri 7 dakika süren bir macera serisidir....",
+        "resim": "https://www.animationmagazine.net/wordpress/wp-content/uploads/The-Earth-Cubs-Show-image-1.jpg",
+        "kaynak": "AnimationMagazine",
+        "tarih": "8 Temmuz 2026",
+        "link": "https://www.animationmagazine.net/2026/07/5s-milkshake-greenlights-three-new-original-series/"
+    },
+    {
         "id": "c0da55adb9",
         "kategori": "Anime",
         "baslik": "Red River animesi, Yuri'nin ebeveynlerini seslendirmeleri için Minami Takayama ve Kazuhiko Inoue ile anlaştı.",
