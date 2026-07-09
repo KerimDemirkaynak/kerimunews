@@ -25,8 +25,10 @@ jobs:
           MASTODON_API_BASE_URL: ${{ secrets.MASTODON_API_BASE_URL }}
           MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
         run: python mastodon_share.py
+        
       # BOTUN NEREDE KALDIĞINI UNUTMAMASI İÇİN KAYDETME ADIMI
       - name: Commit and push last posted ID
+        if: always()  # <-- KRİTİK EKLEME: Önceki adımlar çökse bile bunu mutlaka çalıştır
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
