@@ -403,6 +403,11 @@
                 const haber = await response.json();
 
                 document.title = `${haber.baslik} - Kerimu Animasyon`;
+                
+                const DAKIKADA_KELIME = 200;
+                const kelimeSayisi = haber.tamMetin.trim().split(/\s+/).length;
+                const okumaSuresi = Math.ceil(kelimeSayisi / DAKIKADA_KELIME);
+
                 let resimHTML = haber.resim ? `<img src="${haber.resim}" alt="${haber.baslik}" class="article-image">` : '';
                 
                 let formatlanmisMetin = haber.tamMetin
@@ -445,7 +450,8 @@
                         </div>
                         <div class="article-source">
                             <div style="margin-bottom: 4px;">Kaynak: <strong>${haber.kaynak}</strong></div>
-                            <div>Tür: <strong>${haber.kategori}</strong></div>
+                            <div style="margin-bottom: 4px;">Tür: <strong>${haber.kategori}</strong></div>
+                            <div><i class="fa-regular fa-clock"></i> Okuma Süresi: <strong>${okumaSuresi} dk</strong></div>
                         </div>
                     </div>
 
