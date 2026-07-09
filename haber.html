@@ -242,40 +242,6 @@
         let checkSpeechInterval;
         window.benimUtterance = null;
 
-        // YENİ EKLENEN FONKSİYON: Tarihleri Görece Formata Çevirir
-        function getRelativeTime(dateString) {
-            const date = new Date(dateString);
-            if (isNaN(date.getTime())) return dateString;
-
-            const now = new Date();
-            const diffInSeconds = Math.floor((now - date) / 1000);
-            
-            if (diffInSeconds < 0) return dateString;
-
-            const diffInMinutes = Math.floor(diffInSeconds / 60);
-            const diffInHours = Math.floor(diffInMinutes / 60);
-            const diffInDays = Math.floor(diffInHours / 24);
-
-            if (diffInDays === 0) {
-                if (diffInHours > 0) return `${diffInHours} saat önce`;
-                if (diffInMinutes > 0) return `${diffInMinutes} dakika önce`;
-                return "Az önce";
-            } else if (diffInDays === 1) {
-                return "Dün";
-            } else if (diffInDays < 7) {
-                return `${diffInDays} gün önce`;
-            } else if (diffInDays < 30) {
-                const weeks = Math.floor(diffInDays / 7);
-                return `${weeks} hafta önce`;
-            } else if (diffInDays < 365) {
-                const months = Math.floor(diffInDays / 30);
-                return `${months} ay önce`;
-            } else {
-                const years = Math.floor(diffInDays / 365);
-                return `${years} yıl önce`;
-            }
-        }
-
         function sesliOkuToggle() {
             const btn = document.getElementById('tts-btn');
             if (!('speechSynthesis' in window)) {
@@ -409,7 +375,7 @@
                             ${imgHTML}
                             <div class="widget-text-container">
                                 <h4 class="widget-item-title">${h.baslik}</h4>
-                                <span class="widget-item-meta">${getRelativeTime(h.tarih)}</span>
+                                <span class="widget-item-meta">${h.tarih}</span>
                             </div>
                         </a>
                     `;
@@ -479,7 +445,7 @@
                             </a>
                             <div class="author-info">
                                 <a href="https://github.com/KerimDemirkaynak" target="_blank" class="author-name">Kerim Demirkaynak</a>
-                                <span class="author-date">${getRelativeTime(haber.tarih)}</span>
+                                <span class="author-date">${haber.tarih}</span>
                             </div>
                         </div>
                         <div class="article-source">
