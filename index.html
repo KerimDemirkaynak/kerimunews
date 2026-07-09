@@ -206,12 +206,10 @@
     <footer>
         <div class="footer-content">
 
-            <!-- Bölüm 1 -->
             <div class="footer-section">
                 <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
             </div>
 
-            <!-- Bölüm 2 -->
             <div class="footer-section">
                 <div class="social-links">
                     <a href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
@@ -223,7 +221,6 @@
                 <p id="toplam-haber-sayisi"></p>
             </div>
 
-            <!-- Bölüm 3 -->
             <div class="footer-section">
                 <div class="footer-links">
                     <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> |
@@ -247,6 +244,40 @@
 
         const container = document.getElementById('news-container');
         const paginationContainer = document.getElementById('pagination-container');
+
+        // YENİ EKLENEN FONKSİYON: Tarihleri Görece Formata Çevirir
+        function getRelativeTime(dateString) {
+            const date = new Date(dateString);
+            if (isNaN(date.getTime())) return dateString; // Dönüştürülemiyorsa orijinali ver
+
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+            
+            if (diffInSeconds < 0) return dateString;
+
+            const diffInMinutes = Math.floor(diffInSeconds / 60);
+            const diffInHours = Math.floor(diffInMinutes / 60);
+            const diffInDays = Math.floor(diffInHours / 24);
+
+            if (diffInDays === 0) {
+                if (diffInHours > 0) return `${diffInHours} saat önce`;
+                if (diffInMinutes > 0) return `${diffInMinutes} dakika önce`;
+                return "Az önce";
+            } else if (diffInDays === 1) {
+                return "Dün";
+            } else if (diffInDays < 7) {
+                return `${diffInDays} gün önce`;
+            } else if (diffInDays < 30) {
+                const weeks = Math.floor(diffInDays / 7);
+                return `${weeks} hafta önce`;
+            } else if (diffInDays < 365) {
+                const months = Math.floor(diffInDays / 30);
+                return `${months} ay önce`;
+            } else {
+                const years = Math.floor(diffInDays / 365);
+                return `${years} yıl önce`;
+            }
+        }
 
         async function haberleriYukle() {
             try {
@@ -304,7 +335,7 @@
                             <h2 class="card-title">${haber.baslik}</h2>
                             <p class="card-excerpt">${haber.ozet}</p>
                             <div class="card-footer">
-                                <span>${haber.tarih}</span>
+                                <span>${getRelativeTime(haber.tarih)}</span>
                                 <span class="read-more-btn">Haberi Oku <i class="fa-solid fa-arrow-right"></i></span>
                             </div>
                         </div>
