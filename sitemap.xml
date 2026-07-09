@@ -7,6 +7,16 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=a1d6a70ba7</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=abf77ec8d2</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=bfbca13a08</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
