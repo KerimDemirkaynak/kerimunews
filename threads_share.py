@@ -20,7 +20,6 @@ def post_to_threads(access_token, user_id, title, url, source, image_url=None):
     
     # 500 karakter sınırına karşı metni kısaltma kontrolü
     if len(full_text) > 480:
-        # Başlığı, linke yer kalacak şekilde kırp
         overflow = len(full_text) - 480
         shortened_title = title[:-overflow-3] + "..."
         full_text = f"{shortened_title}\n\nKaynak: {source}\n{url}"
@@ -35,6 +34,7 @@ def post_to_threads(access_token, user_id, title, url, source, image_url=None):
         payload["image_url"] = image_url
 
     try:
+        # 1. AŞAMA: Container (Kutu) oluştur
         create_res = requests.post(create_url, data=payload, timeout=15)
         if create_res.status_code != 200:
             print(f"❌ Oluşturma hatası: {create_res.text}")
@@ -42,15 +42,26 @@ def post_to_threads(access_token, user_id, title, url, source, image_url=None):
 
         container_id = create_res.json().get('id')
         if not container_id:
+            print("❌ Container ID alınamadı.")
             return False
 
+        # ÖNLEM 1: Meta sunucularının görseli/metni işlemesi için 10 saniye bekle
+        print("   ⏳ Meta'nın gönderiyi hazırlaması bekleniyor (10s)...")
+        time.sleep(10)
+
+        # 2. AŞAMA: Yayınla
         pub_res = requests.post(
             f"https://graph.threads.net/v1.0/{user_id}/threads_publish",
             data={"creation_id": container_id, "access_token": access_token},
             timeout=15
         )
         
-        return pub_res.status_code == 200
+        if pub_res.status_code == 200:
+            return True
+        else:
+            print(f"❌ Yayınlama (Publish) hatası: {pub_res.text}")
+            return False
+            
     except requests.exceptions.RequestException as e:
         print(f"❌ Bağlantı hatası: {e}")
         return False
@@ -73,7 +84,6 @@ def main():
         print("❌ liste.json boş.")
         return
 
-    # Son paylaşılandan sonraki yeni haberleri topla
     yeni_haberler = []
     for haber in news_list:
         haber_id = str(haber.get('id', ''))
@@ -85,21 +95,17 @@ def main():
         print("✅ Yeni haber yok.")
         return
 
-    # İlk çalıştırma ise son 5 haber
     if not last_posted_id:
         yeni_haberler = yeni_haberler[:5]
 
-    # Eskiden yeniye doğru sırala
     yeni_haberler.reverse()
 
-    # User ID'yi al
     me = requests.get(f"https://graph.threads.net/v1.0/me?access_token={access_token}").json()
     user_id = me.get('id')
     if not user_id:
         print("❌ User ID alınamadı!")
         return
 
-    # Sırayla paylaş
     for haber in yeni_haberler:
         haber_id = str(haber.get('id', ''))
         title = haber.get('baslik', '')
@@ -112,22 +118,23 @@ def main():
         max_deneme = 5
         basarili = False
 
+        # ÖNLEM 2: Hata olursa 5 kere tekrar deneme döngüsü
         for deneme in range(1, max_deneme + 1):
             if post_to_threads(access_token, user_id, title, url, source, image_url):
-                print(f"✅ Paylaşıldı: {haber_id}")
+                print(f"✅ Paylaşıldı: {haber_id}\n")
                 with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                     f.write(haber_id)
                 basarili = True
-                time.sleep(18) # Başarılı paylaşımlar arası normal bekleme
+                time.sleep(15) # İki farklı haber paylaşımı arasına 15 saniye koyuyoruz ki spama düşmesin
                 break
             else:
                 if deneme < max_deneme:
-                    bekleme_suresi = 30 # Hata alırsak 30 saniye dinlendir
-                    print(f"⚠️ Hata alındı ({deneme}/{max_deneme}). {bekleme_suresi} saniye sonra tekrar denenecek...")
+                    bekleme_suresi = 30 
+                    print(f"⚠️ Hata alındı ({deneme}/{max_deneme}). {bekleme_suresi} saniye dinlenip tekrar denenecek...\n")
                     time.sleep(bekleme_suresi)
                 
         if not basarili:
-            print(f"❌ {max_deneme} denemeye rağmen paylaşılamadı: {haber_id}. Sıralamanın bozulmaması için işlem durduruluyor.")
+            print(f"❌ {max_deneme} denemeye rağmen paylaşılamadı: {haber_id}. Sıralama bozulmasın diye işlem durduruluyor.")
             break
 
 if __name__ == "__main__":
