@@ -34,21 +34,26 @@ def post_to_threads(access_token, user_id, title, url, source, image_url=None):
     if payload["media_type"] == "IMAGE":
         payload["image_url"] = image_url
 
-    create_res = requests.post(create_url, data=payload)
-    if create_res.status_code != 200:
-        print(f"❌ Oluşturma hatası: {create_res.text}")
-        return False
+    try:
+        create_res = requests.post(create_url, data=payload, timeout=15)
+        if create_res.status_code != 200:
+            print(f"❌ Oluşturma hatası: {create_res.text}")
+            return False
 
-    container_id = create_res.json().get('id')
-    if not container_id:
-        return False
+        container_id = create_res.json().get('id')
+        if not container_id:
+            return False
 
-    pub_res = requests.post(
-        f"https://graph.threads.net/v1.0/{user_id}/threads_publish",
-        data={"creation_id": container_id, "access_token": access_token}
-    )
-    
-    return pub_res.status_code == 200
+        pub_res = requests.post(
+            f"https://graph.threads.net/v1.0/{user_id}/threads_publish",
+            data={"creation_id": container_id, "access_token": access_token},
+            timeout=15
+        )
+        
+        return pub_res.status_code == 200
+    except requests.exceptions.RequestException as e:
+        print(f"❌ Bağlantı hatası: {e}")
+        return False
 
 def main():
     access_token = get_working_token()
@@ -104,13 +109,25 @@ def main():
 
         print(f"📤 Paylaşılıyor → {title[:50]}...")
 
-        if post_to_threads(access_token, user_id, title, url, source, image_url):
-            print(f"✅ Paylaşıldı: {haber_id}")
-            with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
-                f.write(haber_id)
-            time.sleep(18)
-        else:
-            print(f"❌ Paylaşım başarısız: {haber_id}")
+        max_deneme = 5
+        basarili = False
+
+        for deneme in range(1, max_deneme + 1):
+            if post_to_threads(access_token, user_id, title, url, source, image_url):
+                print(f"✅ Paylaşıldı: {haber_id}")
+                with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
+                    f.write(haber_id)
+                basarili = True
+                time.sleep(18) # Başarılı paylaşımlar arası normal bekleme
+                break
+            else:
+                if deneme < max_deneme:
+                    bekleme_suresi = 30 # Hata alırsak 30 saniye dinlendir
+                    print(f"⚠️ Hata alındı ({deneme}/{max_deneme}). {bekleme_suresi} saniye sonra tekrar denenecek...")
+                    time.sleep(bekleme_suresi)
+                
+        if not basarili:
+            print(f"❌ {max_deneme} denemeye rağmen paylaşılamadı: {haber_id}. Sıralamanın bozulmaması için işlem durduruluyor.")
             break
 
 if __name__ == "__main__":
