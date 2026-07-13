@@ -9,7 +9,6 @@ from mastodon import Mastodon
 LISTE_FILE = "liste.json"
 LAST_POSTED_FILE = "last_posted_mastodon.txt"
 
-
 def get_image_bytes(image_url):
     """İnternetten ya da yerel diskten görsel verisini oku."""
     if image_url.startswith("http"):
@@ -19,7 +18,6 @@ def get_image_bytes(image_url):
     else:
         with open(image_url, "rb") as f:
             return f.read()
-
 
 def build_status_text(title, url, kaynak):
     """Mastodon'un karakter sınırına göre metni hazırla/kırp."""
@@ -32,7 +30,6 @@ def build_status_text(title, url, kaynak):
         full_text = f"📰 {shortened_title}\n\nKaynak: {kaynak}\n{url}"
 
     return full_text
-
 
 def main():
     api_base_url = os.environ.get("MASTODON_API_BASE_URL")
@@ -95,40 +92,47 @@ def main():
             continue
 
         status_text = build_status_text(title, url, kaynak)
+        media_ids = None
 
-        try:
-            media_ids = None
-            if image_url:
-                try:
-                    img_data = get_image_bytes(image_url)
-                    mime_type, _ = mimetypes.guess_type(image_url)
-                    media = mastodon.media_post(
-                        io.BytesIO(img_data),
-                        mime_type=mime_type or "image/jpeg",
-                        description=title,
-                        synchronous=True,
-                    )
-                    media_ids = [media["id"]]
-                except Exception as img_err:
-                    # Görsel indirilemedi/yüklenemedi (örn. 404) diye tüm paylaşımı iptal etme,
-                    # görselsiz şekilde devam et.
-                    print(f"⚠️ Görsel alınamadı, görselsiz paylaşılacak (ID: {haber_id}): {img_err}")
-                    media_ids = None
+        # Görsel yükleme işlemi (hata verirse görselsiz devam eder)
+        if image_url:
+            try:
+                img_data = get_image_bytes(image_url)
+                mime_type, _ = mimetypes.guess_type(image_url)
+                media = mastodon.media_post(
+                    io.BytesIO(img_data),
+                    mime_type=mime_type or "image/jpeg",
+                    description=title,
+                    synchronous=True,
+                )
+                media_ids = [media["id"]]
+            except Exception as img_err:
+                print(f"⚠️ Görsel alınamadı, görselsiz paylaşılacak (ID: {haber_id}): {img_err}")
+                media_ids = None
 
-            mastodon.status_post(status=status_text, media_ids=media_ids)
+        # Paylaşım işlemi için Retry (Tekrar deneme) mekanizması
+        max_deneme = 3
+        basarili = False
+
+        for deneme in range(max_deneme):
+            try:
+                mastodon.status_post(status=status_text, media_ids=media_ids)
+                basarili = True
+                break  # Başarılı olursa döngüden çık
+            except Exception as e:
+                print(f"⚠️ Paylaşım hatası (Deneme {deneme + 1}/{max_deneme}) ID {haber_id}: {e}")
+                if deneme < max_deneme - 1:
+                    time.sleep(10)  # Bir sonraki denemeden önce 10 saniye bekle
+
+        if basarili:
             print(f"✅ Başarıyla paylaşıldı: {title[:50]}...")
-
-            # Her başarılı paylaşımdan sonra ID'yi kaydet
+            # Her başarılı paylaşımdan sonra ID'yi anında kaydet
             with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
                 f.write(haber_id)
-
-            # Mastodon hız limitlerine takılmamak için bekle
-            time.sleep(5)
-
-        except Exception as e:
-            print(f"❌ Paylaşım başarısız (ID: {haber_id}): {e}")
-            break
-
+            time.sleep(5)  # Mastodon hız limitlerine takılmamak için bekle
+        else:
+            print(f"❌ Paylaşım 3 denemeye rağmen başarısız oldu. İşlem durduruluyor.")
+            break  # Sırayı bozmamak için diğer haberlere geçmeden durdur
 
 if __name__ == "__main__":
     main()
