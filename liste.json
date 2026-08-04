@@ -1,5 +1,115 @@
 [
     {
+        "id": "b22e457ccb",
+        "kategori": "Anime",
+        "baslik": "Yeni Bir Soruşturma, Shogakukan’ın Jojin Kamen Skandalındaki Ciddi İnsan Hakları İhlalini Ortaya Çıkardı",
+        "ozet": "Jojin Kamen tartışması üzerine yürütülen bağımsız ve tarafsız bir soruşturma, Japon yayıncı Shogakukan Inc.’e ait Manga One platformunun, hüküm giymiş cinsel suçluların gizli takma adlar altında eser yayımlamasına defalarca ve isteyerek olanak sağladığını ortaya koydu. Platformun, bu süreçte mağduriyetleri ise görmezden geldiği belirlendi....",
+        "resim": "https://animehunch.com/wp-content/uploads/2026/08/Jojin-Kamen-350x500.webp",
+        "kaynak": "AnimeHunch",
+        "tarih": "3 Ağustos 2026",
+        "link": "https://animehunch.com/investigation-exposes-shogakukans-jojin-kamen-scandal/"
+    },
+    {
+        "id": "dad3fa7108",
+        "kategori": "Anime",
+        "baslik": "Yang Can’t Live Alone serisinin yaratıcısı, yayıncıyla yaşadığı güven kaybı nedeniyle seriyi Square Enix’in Manga UP! platformundan çekti.",
+        "ozet": "*Yang Can’t Live Alone* eserinin yaratıcısı sooncha, X hesabı üzerinden yaptığı açıklamada, Square Enix’in *Manga UP!* uygulamasında yayımlanan manganın serileştirilmesinin, yayıncıyla yaşadıkları anlaşmazlık nedeniyle bu ay sona ereceğini duyurdu. Yapılan açıklamaya göre;...",
+        "resim": "https://animehunch.com/wp-content/uploads/2026/08/Yang-Cant-Live-Alone.webp",
+        "kaynak": "AnimeHunch",
+        "tarih": "3 Ağustos 2026",
+        "link": "https://animehunch.com/yang-cant-live-alone-creator-pulls-series-from-square-enixs-manga-up-over-broken-trust-with-publisher/"
+    },
+    {
+        "id": "51d2159785",
+        "kategori": "Anime",
+        "baslik": "Love is Better the Second Time Around 2. sezonu için geri dönen 2 oyuncuyu doğruladı.",
+        "ozet": "Aloha Takamatsu ve Junya Shiraishi, 2. sezon için geri dönüyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGF/cms/news.9/240253/koinido-s2visual.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "4 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-08-03/live-action-love-is-better-the-second-time-around-season-2-confirms-2-returning-cast-members/.240253"
+    },
+    {
+        "id": "38fcd90c64",
+        "kategori": "Anime",
+        "baslik": "Digimon serisi, ilk 4 Digimon anime serisinin en iyi bölümlerini belirlemek için düzenlenen anketin kazananlarını açıkladı.",
+        "ozet": "Dünya genelindeki Digimon hayranları, en sevdikleri bölümleri oylayarak sıraladı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gJJ/encyc/A40398-3867450920.1785593349.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "4 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-08-03/digimon-franchise-reveals-poll-winners-for-best-episodes-of-1st-4-digimon-anime-series/.240229"
+    },
+    {
+        "id": "f87999bf6d",
+        "kategori": "Anime",
+        "baslik": "Beast of Reincarnation Oyun İncelemesi",
+        "ozet": "Beast of Reincarnation, türünün gerçekten parlak örneklerinin ulaştığı zirveye tam olarak çıkamasa da, kendi başına gerçekten mükemmel bir oyun olduğunu kanıtlamak için fazlasıyla yeterli bir başarı sergiliyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gR0/cms/game-review/240177/beast-of-reincarnation-cover.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "4 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/review/game/pc-playstation-5-xbox-series-x/s/beast-of-reincarnation/.240177"
+    },
+    {
+        "id": "4a8cf327f4",
+        "kategori": "Anime",
+        "baslik": "10 Üzerinden 10 Puanlık Mükemmellikte 5 JJK Karakter Tasarımı",
+        "ozet": "Jujutsu Kaisen, modern anime dünyasını tanımlamaya devam eden birçok ikonik karakter tasarımına ev sahipliği yapıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/12/jujutsu-kaisen-gojo-satoru-2.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "4 Ağustos 2026",
+        "link": "https://www.cbr.com/perfect-jujutsu-kaisen-character-designs/"
+    },
+    {
+        "id": "290610f6f1",
+        "kategori": "Anime",
+        "baslik": "10/10 Başyapıt Olan 10 Shonen Manga",
+        "ozet": "Shonen manga türü, animasyon tarihinin en etkileyici hikayelerinden bazılarını ortaya koymuştur; ancak bunlardan sadece birkaçı istisnai kalitesini korumayı başarmıştır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/blue-lock-volume-1-manga-cover.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "4 Ağustos 2026",
+        "link": "https://www.cbr.com/masterpiece-shonen-manga-perfect-10/"
+    },
+    {
+        "id": "911f9b3c6e",
+        "kategori": "Anime",
+        "baslik": "Princess Mononoke'nin resmi canlı aksiyon yapımı sadece 1 günlüğüne yayında olacak.",
+        "ozet": "Japonya dışındaki Princess Mononoke hayranlarının, bu efsanevi anime filminin canlı çekim (live-action) uyarlamasını izleyebilmeleri için önlerinde kısıtlı bir zaman aralığı bulunuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/02/untitled-4.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "4 Ağustos 2026",
+        "link": "https://www.cbr.com/princess-mononoke-super-kabuku-streaming-release-date/"
+    },
+    {
+        "id": "f409dac775",
+        "kategori": "Çizgi Film",
+        "baslik": "'The 70 Deadly Sins', USC’nin XA biriminin kapanış şokunu deneysel bir kısa filme dönüştürdü (ÖZEL HABER)",
+        "ozet": "Çinli animatör Tara Hou, 'The 70 Deadly Sins' projesinin yapım sürecini ve USC’nin Expanded Animation programının kapatılmasının MFA eğitimini nasıl sekteye uğrattığını anlatıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/70-Deadly-Sins.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "3 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/shorts/70-deadly-sins-tara-hou-usc-xa-265118.html"
+    },
+    {
+        "id": "6c6e38304f",
+        "kategori": "Çizgi Film",
+        "baslik": "54. Annie Awards başvuruları başladı ve anime kategorisi eklendi.",
+        "ozet": "54. Annie Awards için başvurular başladı. Bu yılki ödüllerde, televizyon ve medya için hazırlanan uluslararası anime yapımlarını onurlandıracak yeni bir kategori de yer alacak....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/Annie-Awards-2027.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "3 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/awards/annie-award-submissions-open-anime-category-265121.html"
+    },
+    {
+        "id": "45d1de1bd2",
+        "kategori": "Çizgi Film",
+        "baslik": "Görüş: Bir Film, Kendi Ülkesine Karşı Ne Zaman Sorumludur?",
+        "ozet": "OIAF programcısı Chris Robinson ve meslektaşları; boykotları, Rus ve İsrail yapımı filmleri ve sanatçıların ülkelerinin eylemleriyle yargılanıp yargılanmamaları gerektiğini değerlendiriyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/Russian-Shorts.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "3 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/opinion/opinion-festival-country-boycotts-265104.html"
+    },
+    {
         "id": "bc51e8bf5f",
         "kategori": "Anime",
         "baslik": "Masami Yūki, yeni bir Patlabor tek bölümlük mangasını daha çiziyor.",
