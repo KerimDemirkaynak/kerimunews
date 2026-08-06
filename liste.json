@@ -1,5 +1,105 @@
 [
     {
+        "id": "5d1ac1f9b7",
+        "kategori": "Anime",
+        "baslik": "Ironmouse, iki yeni Bleach karakteriyle birlikte sevimli sprite formuyla Fortnite Battle Royale'e katılıyor.",
+        "ozet": "Dünyaca ünlü battle royale oyununa, toplanabilir bir Sprite olarak VTuber eklendi....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gJD/herald/200097/ironmouse-fortnite.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "6 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-08-05/ironmouse-joins-fortnite-battle-royale-in-cute-sprite-form-along-with-2-more-bleach-characters/.240309"
+    },
+    {
+        "id": "ac23a19fea",
+        "kategori": "Anime",
+        "baslik": "Akumi Agitogi'nin kaleme aldığı The Emperor's Shaman adlı roman serisi, yeni bir manga uyarlamasına kavuşuyor.",
+        "ozet": "Yuru Sasara tarafından hazırlanan yeni manga uyarlaması 10 Ağustos'ta başlıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gL7/cms/news.9/240298/shaman2.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-08-05/akumi-agitogi-the-emperor-shaman-novels-get-new-manga-adaptation/.240298"
+    },
+    {
+        "id": "de44caaaed",
+        "kategori": "Anime",
+        "baslik": "Otakon'daki Ascension of a Bookworm paneli, yapım ekibinin kendi animelerine duyduğu derin sevgiyi gözler önüne serdi.",
+        "ozet": "Yapımcı Goshi Yoshida sahne arkasından koşarak çıktı, panel odasının çevresini dolaştı ve orta koridordan hızla ilerlerken seyircilerin hepsiyle \"beşlik\" çaktı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gNB/cms/news.9/233207/bookworm.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/convention/2026/otakon-ascension-of-a-bookworm-panel-shows-just-how-much-the-staff-love-their-anime/.240217"
+    },
+    {
+        "id": "0cb531c5bc",
+        "kategori": "Anime",
+        "baslik": "Anime Dünyasındaki En Güçlü 5 Lanetli Obje, Sıralamalı Listesi",
+        "ozet": "Death Note ve Sukuna's fingers gibi en tehlikeli anime nesnelerinden bazıları, üzerlerinde doğaüstü lanetler taşımaktadır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/12/light-yagami-smiles-as-he-holds-the-death-note-while-speaking-to-ryuk-in-the-death-note-anime-cropped.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "6 Ağustos 2026",
+        "link": "https://www.cbr.com/strongest-cursed-objects-in-anime-ranked/"
+    },
+    {
+        "id": "d1eb5c5d32",
+        "kategori": "Anime",
+        "baslik": "One Piece Serisindeki Unutulmaz 10 Sanji Dövüşü",
+        "ozet": "One Piece serisinde Sanji'nin gerçekleştirdiği dövüşler; görsel bir şölen sunan anlardan aksiyon dolu başyapıtlara ve hatta yıkıcı ve trajik sahnelere kadar uzanıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/sanji-uses-ifrit-jambe-in-one-piece-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "6 Ağustos 2026",
+        "link": "https://www.cbr.com/one-piece-unforgettable-sanji-fights/"
+    },
+    {
+        "id": "a0a168c84c",
+        "kategori": "Anime",
+        "baslik": "Solo Leveling hayranları, 14 Ağustos'taki çıkış öncesinde System Sync'e ilk bakışı atıyor.",
+        "ozet": "Solo Leveling, 14 Ağustos'ta \"System Sync\" için Omniscient Reader's Viewpoint ile güçlerini birleştiriyor ve manhwa hayranları, neler beklemeleri gerektiğine dair ilk ipuçlarını sonunda aldı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/9f588330-a750-4f9a-a229-1dc7538682b5-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "6 Ağustos 2026",
+        "link": "https://www.cbr.com/solo-leveling-orv-system-sync-first-look/"
+    },
+    {
+        "id": "5a384329b9",
+        "kategori": "Çizgi Film",
+        "baslik": "Pixar kurucu ortağı Ed Catmull, GenAI Film Yarışması için jüri üyeleri arasına katıldı.",
+        "ozet": "Higgsfield, 1 milyon dolarlık yapay zeka destekli film yapım yarışmasında jüri koltuğunda \"3D grafiklerin mucidi\"nin yer alacağını duyurdu....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/Ed-Catmull.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "5 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/artificial-intelligence/ed-catmull-higgsfield-ai-competition-265227.html"
+    },
+    {
+        "id": "41493bf51f",
+        "kategori": "Çizgi Film",
+        "baslik": "Frank Gladstone, emekliye ayrılan Sue Shakespeare’in yerine ASIFA-Hollywood Başkanı olarak seçildi.",
+        "ozet": "Shakespeare, altı yıllık görevinin ardından emekliye ayrılıyor. Michael Paxton ise yıllık Annie Awards'ta Gladstone'un yerini alarak yönetici yapımcı görevini devralıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2025/08/ASIFA-Hollywood.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "5 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/artist-rights/asifa-hollywood-frank-gladstone-president-265236.html"
+    },
+    {
+        "id": "74dd4739f5",
+        "kategori": "Çizgi Film",
+        "baslik": "TIFFCOM 2026; Anime, Japon Fikri Mülkiyetleri ve Uluslararası Ortak Yapımları Merkeze Alacak",
+        "ozet": "Tokyo'daki TIFFCOM, 28-30 Ekim tarihleri arasında genişletilmiş bir Japon fikri mülkiyet pazarı ve anime, yapay zeka ile uluslararası ortak yapımları konu alan oturumlarla geri dönüyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/TIFFCOM.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "5 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/festivals/tokyo-international-film-festival-tiffcom-265231.html"
+    },
+    {
+        "id": "a19ecca258",
+        "kategori": "Çizgi Film",
+        "baslik": "'Carnival of the Animals' adlı 2D müzikal özel bölümü, bu sonbaharda PBS KIDS ekranlarında izleyiciyle buluşuyor.",
+        "ozet": "PBS KIDS, her yaştan çocuğu ve ailelerini, klasik müzik dünyasının sevilen bir eserini eğlenceli ve yepyeni bir yolla keşfetmeye, Carnival of the Animals ile davet ediyor. Bu 2D animasyon özel yapım, Fransız besteci Camille Saint-Saëns’ın eserinin tamamını içeriyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "5 Ağustos 2026",
+        "link": "https://www.animationmagazine.net/2026/08/carnival-of-the-animals-2d-musical-special-takes-a-bow-on-pbs-kids-this-fall/"
+    },
+    {
         "id": "2112187606",
         "kategori": "Anime",
         "baslik": "One Piece Day ’26 Programı ve Küresel Yayın Detayları Açıklandı",
