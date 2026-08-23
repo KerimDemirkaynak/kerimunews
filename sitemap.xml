@@ -2,9 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://kerimdemirkaynak.github.io/kerimunews/</loc>
-        <lastmod>2026-08-22</lastmod>
+        <lastmod>2026-08-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=ce82c2d4a6</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=a1c0aa8585</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=71e2a8826f</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=343a6a5f05</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=1804aec41c</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=a134695fd6</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=5b7a019e47</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=94bed4a93a</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=01c48c6b4d</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=b09db97961</loc>
