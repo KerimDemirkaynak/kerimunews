@@ -1,5 +1,95 @@
 [
     {
+        "id": "1beca67e44",
+        "kategori": "Anime",
+        "baslik": "Shiro Yoshida, yeni Kemonogari mangasını başlatıyor.",
+        "ozet": "Tuhaf geleneklere sahip bir köyde geçen korku mangası....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gIA/cms/news.9/240960/kemonogari.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "26 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-08-25/shiro-yoshida-launches-new-kemonogari-manga/.240960"
+    },
+    {
+        "id": "0756f4cfc6",
+        "kategori": "Anime",
+        "baslik": "Ruby on the Cake: Feast of the Man-Eating Witches mangası sona erdi.",
+        "ozet": "Dizi, Nisan 2024'te yayın hayatına başladı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gW8/cms/news.9/232403/ruby.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "26 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-08-25/ruby-on-the-cake-feast-of-the-man-eating-witches-manga-ends/.240941"
+    },
+    {
+        "id": "b9bf8e5825",
+        "kategori": "Anime",
+        "baslik": "Kento Amemiya'nın Kinato's Magic mangası sona eriyor.",
+        "ozet": "Küçük iyileştirme yeteneklerine sahip genç bir çocuğun hikayesini anlatan manga, 2 Şubat tarihinde yayın hayatına başladı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gY4/cms/news.9/240965/kinato.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "26 Ağustos 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-08-25/kento-amemiya-kinato-magic-manga-ends/.240965"
+    },
+    {
+        "id": "39d676e779",
+        "kategori": "Anime",
+        "baslik": "Kaiju No. 8 resmen 5 Eylül'de geri dönüyor.",
+        "ozet": "Kaiju No. 8, bu Eylül ayında yeni bir orijinal anime ile geri dönüyor. Bu yapım, hayranların favorisi Gen Narumi'yi iş yerindeki kaotik bir haftanın merkezine yerleştirerek izleyicilerle buluşturuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/07/kaiju-no-8-why-kafka-kikoru-reno-make-the-best-shonen-anime-trio.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "26 Ağustos 2026",
+        "link": "https://www.cbr.com/kaiju-no-8-narumis-week-at-work-crunchyroll-release-date/"
+    },
+    {
+        "id": "a90f44c315",
+        "kategori": "Anime",
+        "baslik": "Howl's Moving Castle'ı Seviyorsanız İzlemeniz Gereken 10 Film",
+        "ozet": "Studio Ghibli yapımı Howl's Moving Castle zamansız bir klasik olsa da, aynı sihri, duyguyu ve büyüleyici atmosferi yakalayan başka anime filmleri de mevcut....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/howl-in-bird-form-holding-sophie-in-howl-s-moving-castle.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "26 Ağustos 2026",
+        "link": "https://www.cbr.com/movies-to-watch-if-you-love-howls-moving-castle/"
+    },
+    {
+        "id": "ffe655e6b4",
+        "kategori": "Anime",
+        "baslik": "Dragon Ball, DBZ'nin en büyük rekabetini resmen geri getiriyor.",
+        "ozet": "Dragon Ball'un resmi sitesi, Akira Toriyama tarafından 37 yıl önce çizilen ve seçkin bir Saiyan'ın gücünü gözler önüne seren nadir bir renkli sayfa taslağını paylaştı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/06/dragon-ball-s-anime-streaming-domination-isn-t-over-just-yet.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "25 Ağustos 2026",
+        "link": "https://www.cbr.com/dbz-goku-vs-vegeta-rivalry-color-draft-page-release/"
+    },
+    {
+        "id": "88a73cacf9",
+        "kategori": "Çizgi Film",
+        "baslik": "'Saga of Rex' Fragmanı; Disney'de Sağlık Kesintileri; Toksik Hayran Kitleleri",
+        "ozet": "Hafta sonu Michel Gagné, 14 yıl boyunca neredeyse tamamen kendi başına çizip canlandırdığı bir saatlik el çizimi uzun metrajlı filmi The Saga of Rex’in ilk fragmanını yayınladı. Devamı......",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/image-7.png",
+        "kaynak": "CartoonBrew",
+        "tarih": "25 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/newsletter/saga-of-rex-trailer-disney-health-cuts-toxic-fandoms-265948.html"
+    },
+    {
+        "id": "b38263f621",
+        "kategori": "Çizgi Film",
+        "baslik": "'Lesbian Space Princess' Tepkisi, Çevrimiçi Hayran Kitlelerinin En Kötü Halini Gözler Önüne Seriyor",
+        "ozet": "'Lesbian Space Princess' hakkındaki eleştiriler makul karşılanabilir; ancak filme ve yaratıcılarına yönelik yürütülen çirkin çevrim içi kampanya; acımasız, hedef gözetilmiş ve yapay bir his uyandırıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/Lesbian-Space-Princess.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "25 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/opinion/lesbian-space-princess-backlash-fandom-at-its-worst-265881.html"
+    },
+    {
+        "id": "a2fad0c284",
+        "kategori": "Çizgi Film",
+        "baslik": "Guillermo del Toro, James Gunn, Bob Persichetti ve Justin K. Thompson, Crunchyroll Anime Forum'un baş konuşmacıları olacak.",
+        "ozet": "İlki düzenlenecek olan Anime Future Forum, 7 Ekim tarihinde New York'ta önde gelen film yapımcılarını ve Japon animasyon yöneticilerini bir araya getirecek....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/08/Anime-Future-Forum.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "25 Ağustos 2026",
+        "link": "https://www.cartoonbrew.com/anime/del-toro-gunn-persichetti-thompson-crunchyroll-anime-forum-265952.html"
+    },
+    {
         "id": "760d99a89d",
         "kategori": "Anime",
         "baslik": "One Piece World Popularity Poll 2026 Sonuçları Açıklandı: Luffy Yeniden Birinci Sırada",
