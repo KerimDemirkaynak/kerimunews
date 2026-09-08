@@ -1,5 +1,85 @@
 [
     {
+        "id": "705bbb74e8",
+        "kategori": "Anime",
+        "baslik": "Marriage Toxin TV Anime'sinin 2. sezonu için tanıtım videosu ve ana görsel paylaşıldı.",
+        "ozet": "Jōmyaku ve Mizuki Yoda'nın mangasına dayanan anime serisinin ilk sezonu 7 Nisan'da yayınlandı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gF4/youtube/OaHtuLHAYzo.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "8 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-07/marriage-toxin-tv-anime-2nd-season-reveals-promo-video-key-visual/.241487"
+    },
+    {
+        "id": "b1f1659bad",
+        "kategori": "Anime",
+        "baslik": "You Are a Four Leaf Clover isimli romantik gerilim mangası animeye uyarlanıyor.",
+        "ozet": "Zorbalığa uğrayan bir öğrencinin, yıllar sonra aniden ortaya çıkan ilk aşkının hikayesi Koushi tarafından anlatılıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gCB/cms/news.9/241496/hrn1it5bkaekhdl.jpeg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "7 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-07/you-are-a-four-leaf-clover-romantic-suspense-manga-gets-anime/.241496"
+    },
+    {
+        "id": "e539319299",
+        "kategori": "Anime",
+        "baslik": "Fake It to Break It! Manga Serisinde Çizer Değişikliği",
+        "ozet": "Megumi Dorokawa, 10 Eylül tarihinden itibaren çizerlik görevini devralıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315g9W/cms/news.9/241470/hrit1qpbsaa8lng.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "7 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-07/fake-it-to-break-it-manga-changes-artists/.241470"
+    },
+    {
+        "id": "42996f556f",
+        "kategori": "Anime",
+        "baslik": "Studio Ghibli, Hayao Miyazaki'nin üretken yapay zekanın (Generative AI) ne olduğunu dahi bilmediğini açıkladı.",
+        "ozet": "Studio Ghibli'nin önde gelen yaratıcılarından birine göre, efsanevi Hayao Miyazaki, üretken yapay zeka (generative AI) konusundan (en iyi ihtimalle) yalnızca yüzeysel bir şekilde haberdar....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/10/Studio-Ghibli-director-and-animator-Hayao-Miyazaki-smiling.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Eylül 2026",
+        "link": "https://www.cbr.com/studio-ghibli-hayao-miyazak-ai-doesnt-know/"
+    },
+    {
+        "id": "5ea838a412",
+        "kategori": "Anime",
+        "baslik": "Kötü Karakterlerin İstedikleri Her Şeyi Elde Ettiği 4 Anime Serisi",
+        "ozet": "Bu anime kötüleri istedikleri her şeye ve daha fazlasına kavuşurken, kahramanlar çok daha kötü bir kadere mahkûm oldu....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/maxresdefault-1-4.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Eylül 2026",
+        "link": "https://www.cbr.com/anime-series-villain-gets-everything/"
+    },
+    {
+        "id": "8899f3ee05",
+        "kategori": "Anime",
+        "baslik": "Dragon Ball Super'ın çizeri Toyotarou, Vegeta'ya Ultra Ego'dan daha güçlü bir dönüşüm verdi.",
+        "ozet": "Dragon Ball Super mangakası Toyotarou, Vegeta’nın en özgün yeteneklerinden birini halihazırda DBAF kanonuna dahil etti. Üstelik bu yetenek, Ultra Ego’dan bile daha fazla potansiyel taşıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/c278c732-200e-466c-bfa0-611b956eda71.jpeg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Eylül 2026",
+        "link": "https://www.cbr.com/dragon-ball-super-vegeta-transformation-stronger-ultra-ego/"
+    },
+    {
+        "id": "f2f5b17717",
+        "kategori": "Çizgi Film",
+        "baslik": "'South Park', 13 yıl aradan sonra ilk Emmy ödülünü kazandı ve Trump'ı tiye aldı: \"Sonunda Emmy'ni aldın\"",
+        "ozet": "South Park, Trump'ı hedef alan 27. sezon prömiyeri \"Sermon on the ’Mount\" bölümüyle 2026 yılında Üstün Animasyon Programı dalında Emmy ödülünün sahibi oldu....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/South-Park-Emmy.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "7 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/series/south-park-emmy-donald-trump-paramount-266308.html"
+    },
+    {
+        "id": "70d657f8d1",
+        "kategori": "Çizgi Film",
+        "baslik": "'Coyote Vs. Acme' dünya gişesinde üçüncü sıraya yükseldi; 'Cars' ve 'Akira'nın yeniden vizyona giren yapımları yurt içinde başarı elde etti.",
+        "ozet": "'Coyote vs. Acme' dünya genelinde üçüncü sıraya yükselirken; 'Cars', 'Paw Patrol', 'Chiikawa' ve 'Akira'nın yeniden gösterimi gişede oldukça güçlü sonuçlar elde etti....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/Box-Office-Sept-4.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "7 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/box-office-report/coyote-vs-acme-cars-akira-paw-patrol-chiikawa-266303.html"
+    },
+    {
         "id": "55b488bebb",
         "kategori": "Anime",
         "baslik": "Qliphah in Providence's Shadow Game, oynanış fragmanını yayınladı.",
