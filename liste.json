@@ -1,5 +1,75 @@
 [
     {
+        "id": "54f1bb26f5",
+        "kategori": "Anime",
+        "baslik": "The Record of a Fallen Vampire mangası, 19 yıl aradan sonra yeni bir seriyle geri dönüyor; yeni bir duyuru için ise ipuçları verildi.",
+        "ozet": "In/Spectre serisinin yazarı Kyo Shirodaira ve Yuri Kimura, 9 Ekim tarihinde Vampire Jūjikai: Inu ni wa Inu no Uta isimli yeni eserlerini başlatıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH4/cms/news.9/241709/hr5ofwcamaet-qw.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-12/the-record-of-a-fallen-vampire-manga-gets-new-series-after-19-years-teases-announcement/.241709"
+    },
+    {
+        "id": "f937ec081a",
+        "kategori": "Anime",
+        "baslik": "In the Clear Moonlit Dusk mangası, önümüzdeki bahar ayında çıkacak 12. cilt ile sona eriyor.",
+        "ozet": "Seri, dünya genelinde 8,2 milyon kopyaya ulaştı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gFC/cms/news.9/241708/moonlit-dusk.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-12/in-the-clear-moonlit-dusk-manga-to-end-in-12th-volume-next-spring/.241708"
+    },
+    {
+        "id": "4a15f28d78",
+        "kategori": "Anime",
+        "baslik": "Star Detective Precure! filmi, iki yeni fragman ile You and Idol Precure ve Wonderful Precure! ekiplerini bir araya getiriyor.",
+        "ozet": "3 farklı seriden Precure kızları, gelecek Cuma vizyona girecek filmde bir araya geliyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHG/cms/news.9/241718/fix-c-scaled.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-12/star-detective-precure-film-assembles-you-and-idol-precure-wonderful-precure-in-2-trailers/.241718"
+    },
+    {
+        "id": "e7f98a0eec",
+        "kategori": "Anime",
+        "baslik": "Dandadan'ın Yaratıcısı, Bir Sonraki Hit Dövüş Sanatları Aksiyon Serisini Kutluyor",
+        "ozet": "Dandadan'ın yaratıcısı Tatsu Yukinobu, Kodansha'nın yeni dövüş sanatları temalı aksiyon mangasının tanıtımı için yayıneviyle iş birliği yapıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/12/dandadan-anime-manga.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.cbr.com/dandadan-tatsu-yukinobu-bouryoku-banzai-design/"
+    },
+    {
+        "id": "95a49c922a",
+        "kategori": "Anime",
+        "baslik": "Her Hikaye Arkı Bir Başyapıt Olan 5 Anime Serisi",
+        "ozet": "Hunter x Hunter ve Fullmetal Alchemist: Brotherhood gibi animeler, sahip oldukları çeşitli hikaye arkları ve sagalar söz konusu olduğunda her zaman beklentiyi karşılayan yapımlar sunuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/06/mixcollage-16-jun-2024-11-47-pm-6215.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.cbr.com/anime-series-every-arc-a-masterpiece-list/"
+    },
+    {
+        "id": "b5802c4984",
+        "kategori": "Anime",
+        "baslik": "Zayıf Bir Arkı Bile Olmayan 10 Fantastik Anime",
+        "ozet": "Delicious in Dungeon ve Frieren: Beyond Journey's End gibi başyapıt niteliğindeki fantastik animeler tek kelimeyle kusursuz; zayıf hiçbir hikâye örgüsüne yer yok!...",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/05/laios-and-his-party-escape-the-red-dragon-in-delicious-in-dungeon.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.cbr.com/fantasy-anime-no-weak-arcs-list/"
+    },
+    {
+        "id": "f10ff03aa0",
+        "kategori": "Çizgi Film",
+        "baslik": "Batman: The Animated Series'ten Daha İyi 6 Adet 90'lar Çizgi Filmi",
+        "ozet": "Batman: The Animated Series, 90'ların en harika çizgi dizilerinden biri olsa da, onun ikonik mirasını geride bırakan birkaç yapım da mevcut....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/bruce-wayne-upset-on-batman_-the-animated-series.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Çizgi Film",
+        "tarih": "13 Eylül 2026",
+        "link": "https://www.cbr.com/90s-cartoons-better-than-batman-the-animated-series-list/"
+    },
+    {
         "id": "ddce4d79ef",
         "kategori": "Anime",
         "baslik": "Crunchyroll, Witch on the Holy Night filmini Hindistan sinemalarına getiriyor.",
