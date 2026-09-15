@@ -1,5 +1,95 @@
 [
     {
+        "id": "4146d3c2b1",
+        "kategori": "Anime",
+        "baslik": "We Are Aliens filminin yeni fragmanı, başkarakter Konatsu'yu ön plana çıkarıyor.",
+        "ozet": "Film, 25 Eylül tarihinde Japonya'da vizyona giriyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gNH/youtube/P5bpfinInwQ.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "15 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-14/we-are-aliens-film-new-trailer-highlights-heroine-konatsu/.241788"
+    },
+    {
+        "id": "cf5c651294",
+        "kategori": "Anime",
+        "baslik": "Cyberpunk: Edgerunners, Overwatch ve Fortnite Battle Royale oyunlarına katılıyor.",
+        "ozet": "Tüm o siber donanımlarla cyberpsycho olmayasın yeter....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gJ7/encyc/A25775-1606880264.1654746135.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "15 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-09-14/cyberpunk-edgerunners-joins-overwatch-fortnite-battle-royale-games/.241766"
+    },
+    {
+        "id": "e6bd63fa7e",
+        "kategori": "Anime",
+        "baslik": "Silent Hill f oyunundaki Fox Mask karakterine dayanan bir manga duyuruldu.",
+        "ozet": "Manga, karakterin köken hikâyesini anlatıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH3/cms/news.9/241785/hrw1gq3buaa976m.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "15 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-14/silent-hill-f-game-gets-manga-based-on-fox-mask-character/.241785"
+    },
+    {
+        "id": "d5600dd7ab",
+        "kategori": "Anime",
+        "baslik": "Gundam 00, dönüşebilen mecha birimini büyük bir yeni güç yükseltmesiyle geri getiriyor.",
+        "ozet": "Bandai, Anno Domini zaman çizelgesini temel alan yeni bir Gundam model kitini, yalnızca Japonya'daki Gundam Base mağazalarına özel olarak piyasaya sürmeye hazırlanıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/gundam-00-gives-its-transforming-mecha-a-major-new-power-boost.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Eylül 2026",
+        "link": "https://www.cbr.com/gundam-00-kyrios-metallic-gloss-injection-gunpla/"
+    },
+    {
+        "id": "bf735a24d0",
+        "kategori": "Anime",
+        "baslik": "Anime Tarihindeki En İyi 10 Dedektif, Sıralı Liste",
+        "ozet": "Conan Edogawa ve L gibi dedektif karakterler, anime dünyasındaki en keskin zekalara sahip isimlerdir....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/02/conan-edogawa-being-cornered-near-a-bookshelf-in-case-closed.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Eylül 2026",
+        "link": "https://www.cbr.com/best-detectives-in-anime-history/"
+    },
+    {
+        "id": "0f5b40ce20",
+        "kategori": "Anime",
+        "baslik": "Ana Karakterinin Asla Mutlu Sona Ulaşamadığı 5 Anime Serisi",
+        "ozet": "Hüzünlü bir sona sahip olan her anime kahramanı öldürülmüyor; bazıları yıpratıcı bir zihinsel işkenceye veya derin bir kedere mahkûm ediliyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/05/madoka-greets-homura-in-puella-magi-madoka-magica-rebellion-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Eylül 2026",
+        "link": "https://www.cbr.com/anime-main-character-no-happy-ending/"
+    },
+    {
+        "id": "9ca089c881",
+        "kategori": "Çizgi Film",
+        "baslik": "Webtoon Uyarlamaları, Cesur Orijinal Yapımlar ve Fantastik Dünyalar: İzlenmesi Gereken 10 Cartoon Forum Projesi",
+        "ozet": "Cartoon Saloon, Xilam, Passion Pictures, TeamTO ve diğer stüdyolardan yeni yapımlar, bu hafta Toulouse'da düzenlenecek etkinlikte alıcılara sunulacak....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/Cartoon-Forum-2026.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/events/cartoon-forum-projects-pitches-to-watch-266493.html"
+    },
+    {
+        "id": "47b95d992a",
+        "kategori": "Çizgi Film",
+        "baslik": "Paramount ve Netflix, Skydance Animation anlaşmasını sonlandırdı; gelecekteki filmler sinemalarda gösterime girecek.",
+        "ozet": "Şirketler, 'Ray Gunn' ve Rich Moore’un yönettiği Jack and the Beanstalk filmlerinin vizyona girmesinin ardından anlaşmayı sona erdirme kararı aldı. Gelecekteki Skydance yapımı filmler ise doğrudan sinemalarda izleyiciyle buluşacak....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/04/Ray-Gunn.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/distribution/paramount-netflix-end-skydance-animation-deal-ray-gunn-266524.html"
+    },
+    {
+        "id": "ba1344a631",
+        "kategori": "Çizgi Film",
+        "baslik": "Panini’nin ‘Fantasy Riders’ serisi animasyon uyarlamasına kavuşuyor; Cartoon Forum sunumu öncesinde ilk tanıtım fragmanı yayınlandı (ÖZEL HABER)",
+        "ozet": "Panini’nin ticaret kartı serisine dayanan ve RTVE ortak yapımı olan, Hampa Studio imzalı animasyon dizisi Fantasy Riders için hazırlanan ilk tanıtım fragmanını izleyin....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/Fantasy-Riders.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/series/fantasy-riders-hampa-panini-cartoon-forum-rtve-266517.html"
+    },
+    {
         "id": "60824abd8e",
         "kategori": "Anime",
         "baslik": "Otomate markası, Hakuōki Shinkai Kiwame ve diğer yeni oyun duyurularını gerçekleştirdi.",
