@@ -1,5 +1,115 @@
 [
     {
+        "id": "c8bbde6541",
+        "kategori": "Anime",
+        "baslik": "Universal Studios Japan, 2027 yılında ilk Sailor Moon tema parkı eğlence aracını ziyarete açıyor.",
+        "ozet": "Universal Cool Japan 2027 kapsamında \"Moon Place Chapter Deluxe\" kısa filmi, tematik yiyecekler ve özel ürünler geri dönüyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gI9/cms/news.10/242327/sailormoon-usj.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "30 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-09-29/universal-studios-japan-offers-1st-sailor-moon-theme-park-ride-in-2027/.242327"
+    },
+    {
+        "id": "ec92b3e0f3",
+        "kategori": "Anime",
+        "baslik": "Mai Kuraki, Detective Conan anime serisi için seslendirdiği en fazla tema şarkısı sayısıyla kendi dünya rekorunu tazeledi.",
+        "ozet": "Kuraki, Detective Conan için seslendirdiği tema şarkısı sayısını 21'den 30'a çıkararak yeni bir rekora imza attı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gKD/cms/interest.3/242306/kuraki-mai-guinness-world-record-2026.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "30 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-09-29/mai-kuraki-breaks-own-world-record-for-most-theme-songs-for-detective-conan-anime/.242306"
+    },
+    {
+        "id": "5fd0738274",
+        "kategori": "Anime",
+        "baslik": "Marvel ve Kadokawa, Spider-Man ve Spider-Gwen Manga Serileri İçin Yeni Görseller ve Hikaye Detayları Paylaştı",
+        "ozet": "Manga, yıl sonundan önce Kadocomi'de yayına girecek....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gD0/cms/news.10/242325/spidergwen01.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "30 Eylül 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-09-29/marvel-kadokawa-unveil-more-art-story-details-for-spider-man-spider-gwen-manga/.242325"
+    },
+    {
+        "id": "c35b340d7c",
+        "kategori": "Anime",
+        "baslik": "Güçlerine Göre Sıralanmış Transformers Evrenindeki En Güçlü 10 Seeker",
+        "ozet": "Bu Seekers, Transformers tarihindeki en güçlü olanlar....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/choosenone-starscream-1.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "30 Eylül 2026",
+        "link": "https://www.cbr.com/transformers-strongest-seekers-ranked-by-power/"
+    },
+    {
+        "id": "5690fec6a3",
+        "kategori": "Anime",
+        "baslik": "Final Fantasy, neredeyse 1.000 savaş haritasına sahip yeni retro buharlı strateji oyununda Gundam ile buluşuyor.",
+        "ozet": "Son dönemlerin popüler bağımsız oyunu; retro ve anime temalı grafikleri, SD Gundam oyunlarından esintiler ve Nintendo'nun oyun kütüphanesindeki yapımlardan unsurlarla bir araya getiriyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/10/cloud-and-sephiroth-final-fantasy-vii.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "30 Eylül 2026",
+        "link": "https://www.cbr.com/banana-kingdom-steam-update/"
+    },
+    {
+        "id": "0fc843e388",
+        "kategori": "Anime",
+        "baslik": "Black Clover Serisindeki En Güçlü 6 Kardeş, Sıralaması",
+        "ozet": "Black Clover, hafife alınmaması gereken pek çok güçlü kardeş grubuna sahip....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/screenshot-2026-08-19-at-00-57-18-black-clover-manga-yami-ichika-reunion-jpg-webp-image-2048-x-1152-pixels-1.png?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "30 Eylül 2026",
+        "link": "https://www.cbr.com/black-clover-strongest-siblings-ranked/"
+    },
+    {
+        "id": "f35d8dd2d0",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Forgotten Island’ Tkeziliyor; ‘Futurama’nın Çizim Kuralları; ‘Ray Gunn’ın Perde Arkası",
+        "ozet": "Forgotten Island için açılış hafta sonu oldukça zorlu geçti. Yapım, eleştirmenlerden güçlü övgüler almasına rağmen bu başarısını gişe rakamlarına yansıtmakta zorlandı. DreamWorks imzalı bu orijinal yapımın verilerini detaylıca inceliyoruz… Devamı...",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/image-6.png",
+        "kaynak": "CartoonBrew",
+        "tarih": "29 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/newsletter/forgotten-island-stumbles-futuramas-drawing-rules-inside-ray-gunn-267273.html"
+    },
+    {
+        "id": "4584eec61e",
+        "kategori": "Çizgi Film",
+        "baslik": "Ekran Zaferi: ‘Toy Story 5’, Disney+ platformunda ilk beş gününde 20 milyon izlenmeye ulaştı.",
+        "ozet": "Seri; Disney+ üzerindeki izlenme oranları, gişe hasılatı ve perakende satışlarıyla rekorlar kırmaya devam ediyor. Yapım, dijital platformda 2 milyar saatin üzerinde izlenmeye ulaştı ve küresel gişede 4 milyar dolarlık bir kazanç elde etti....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/Toy-Story-5.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "29 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/streaming/toy-story-5-streaming-numbers-267281.html"
+    },
+    {
+        "id": "7ca2afb000",
+        "kategori": "Çizgi Film",
+        "baslik": "Mahmoud Khalil’in Göçmen Gözaltı Mektubu 'Awake' Fragmanıyla Hayat Buluyor (ÖZEL)",
+        "ozet": "Yönetmenler Elyse Kelly ve Dan Fipphen, Khalil’in kaleme aldığı metni Edmonton'daki ilk gösterimi öncesinde beş dakikalık bir animasyon belgesele dönüştürme süreçlerini anlatıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/09/Awake-Lead.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "29 Eylül 2026",
+        "link": "https://www.cartoonbrew.com/shorts/awake-trailer-mhmoud-khalil-elyse-kelly-dan-fipphen-267272.html"
+    },
+    {
+        "id": "4f3573d073",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Hayate’ Animasyon Dizisi, TFOU ve Easy Peasy İş Birliğiyle Geliştiriliyor",
+        "ozet": "Fransa'dan TFOU (TF1 Group) ve Easy Peasy Entertainment, 4-7 yaş arası çocuklar için hazırlanan 52 bölüm x 11 dakikalık 2D animasyon dizisi \"Hayate\"nin geliştirilme sürecine resmen onay verdi. Yann Walcker ve Shiilia'nın \"Hayate and the Piracats\" adlı çocuk kitabı serisine dayanan proje, hayranları şimdiden heyecanlandırmaya başladı!...",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "29 Eylül 2026",
+        "link": "https://www.animationmagazine.net/2026/09/hayate-animated-series-in-development-with-tfou-easy-peasy/"
+    },
+    {
+        "id": "4ce9c12fe6",
+        "kategori": "Çizgi Film",
+        "baslik": "South Park'ın \"South America\" Destanı, Butters'ın Veri Merkezleriyle Mücadelesiyle Devam Ediyor",
+        "ozet": "Emmy Ödüllü animasyon dizisi South Park’ın yeni bölümünde Butters, milyarderlerin arka bahçelerimize inşa ettiği veri merkezlerinden oldukça mutsuz. Dizi, 29. sezonu için South America ismini aldı. Yeni bölüm,...",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "29 Eylül 2026",
+        "link": "https://www.animationmagazine.net/2026/09/south-parks-south-america-saga-continues-as-butters-battles-data-centers/"
+    },
+    {
         "id": "b46f794493",
         "kategori": "Anime",
         "baslik": "Jump Festa 2027, One Piece, Kagurabachi, Naruto ve Black Clover gibi yapımların da aralarında bulunduğu 34 seriyi 3 farklı sahnede duyurdu.",
