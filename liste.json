@@ -1,5 +1,65 @@
 [
     {
+        "id": "2a836e414c",
+        "kategori": "Anime",
+        "baslik": "Chanta, Noro-Noro Puku-Puku manga serisini başlatıyor.",
+        "ozet": "Sachi's Records: Sachi's Book of Revelation yaratıcısından, kafasına kara kedi musallat olan bir mabet bakiresinin komedisi....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gA5/cms/news.10/242483/noronoro.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-05/chanta-launches-noro-noro-puku-puku-manga/.242483"
+    },
+    {
+        "id": "227a073ed1",
+        "kategori": "Anime",
+        "baslik": "Hirayasumi mangası, 2 bölüm sonra final yapıyor.",
+        "ozet": "2021 yılında başlayan manga serisi, 2025'te canlı çekim (live-action) bir diziye ilham verdi; Ocak 2027'de ise TV anime uyarlaması izleyicilerle buluşacak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gCI/cms/news.10/242491/hirayasumi.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-04/hirayasumi-manga-to-end-in-2-more-chapters/.242491"
+    },
+    {
+        "id": "33e21da5f2",
+        "kategori": "Anime",
+        "baslik": "Naoki Shigeno, Sanada Damashii Manga Serisini 6. Cilt ile Sonlandırıyor",
+        "ozet": "Ninja Girl & Samurai Master'ın yaratıcısı, seriyi 2015 yılında başlattı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gCD/cms/news.10/242481/91j01ik-e-l.sl1500.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "5 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-04/naoki-shigeno-to-end-sanada-damashii-manga-in-6th-volume/.242481"
+    },
+    {
+        "id": "0588a682f0",
+        "kategori": "Anime",
+        "baslik": "Her Bölümü Bir Başyapıt Olan 7 Hard Sci-Fi Anime Serisi",
+        "ozet": "Planetes gibi animeler, hard sci-fi türünün hayranları için mükemmel bir seçenek....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/05/6c3dbfcbbe55beb3bea3fc5f4a4cbf8b4a55408c8106e341ea8f587b52aa7344-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Ekim 2026",
+        "link": "https://www.cbr.com/hard-sci-fi-anime-series-every-episode-masterpiece/"
+    },
+    {
+        "id": "a29d2e2aae",
+        "kategori": "Anime",
+        "baslik": "Transformers, Premium Yeni Tasarımlarıyla 2 Klasik G1 Autobot'u Geri Getiriyor",
+        "ozet": "En çok değer görmeyen iki Autobot, koleksiyoncuların kaçırmak istemeyeceği yepyeni tasarımlarıyla resmen geri dönüyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/10/takara-tomy-transformers-mpg-27-twincast-rewind-full-reveal.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Ekim 2026",
+        "link": "https://www.cbr.com/transformers-g1-twincast-rewind-premium-designs/"
+    },
+    {
+        "id": "cb8eeac162",
+        "kategori": "Anime",
+        "baslik": "Tekrar Tekrar İzlemeye Değer 7 Cartoon Network Animesi",
+        "ozet": "Cartoon Network, 1990'larda ve 2000'lerde pek çok çocuğu anime dünyasıyla tanıştırdı. Bu kanalın en iyi yapımları, sadece nostalji yaşatmakla kalmıyor, tekrar izlenmeyi de fazlasıyla hak ediyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/12/dragon-ball-s-goku-giving-a-thumbs-up.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "5 Ekim 2026",
+        "link": "https://www.cbr.com/cartoon-network-anime-worth-rewatching/"
+    },
+    {
         "id": "8ca79ffeec",
         "kategori": "Anime",
         "baslik": "The Apothecary Diaries animesi, Universal Studios Japan'e geri dönüyor.",
