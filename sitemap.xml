@@ -2,9 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://kerimdemirkaynak.github.io/kerimunews/</loc>
-        <lastmod>2026-10-10</lastmod>
+        <lastmod>2026-10-11</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=03aee5b907</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=fcc5ce0961</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=3f2aab0d13</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=060e4fc825</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=fc3b11d47e</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=59a80a1815</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=5538151af2</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=2b5296a3d9</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://kerimdemirkaynak.github.io/kerimunews/haber.html?id=8c38e7414e</loc>
