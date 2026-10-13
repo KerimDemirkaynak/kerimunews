@@ -1,5 +1,105 @@
 [
     {
+        "id": "ed73de3f39",
+        "kategori": "Anime",
+        "baslik": "Anime Dünyasının Dört Bir Yanından Mutlu Spor Bayramı, Bölüm II",
+        "ozet": "Jujutsu Kaisen, Frieren: Beyond Journey's End, Resident Evil, Slam Dunk, Square Enix, Doraemon, Jōji Nakata ve çok daha fazlasını içeren içeriklerle karşınızdayız!...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHA/herald/202131/idolmaster-sports.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "13 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-10-12/happy-sports-day-from-around-the-anime-world-part-ii/.242753"
+    },
+    {
+        "id": "cf8c7b092d",
+        "kategori": "Anime",
+        "baslik": "The Apothecary Diaries: The Late Lady's Treasure filminin yeni tanıtım videosu, Kajadan Pirates ekibinin seslendirme kadrosunu duyurdu.",
+        "ozet": "Kenshō Ono, Ryōta Takeuchi ve Jirō Saitō seslendirme kadrosuna katıldı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH9/youtube/VXl2OgfOdgk.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "13 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-12/the-apothecary-diaries-the-late-lady-treasure-film-new-video-unveils-kajadan-pirates-cast/.242761"
+    },
+    {
+        "id": "31e8edd392",
+        "kategori": "Anime",
+        "baslik": "Anime Dünyasının Dört Bir Yanından Mutlu Spor Bayramı, Bölüm I",
+        "ozet": "Naruto, Final Fantasy, Dan Da Dan, Takopi's Original Sin, Sega, Chibi Maruko-chan, Warner Bros. Japan ve çok daha fazlasını içeriyor!...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gLG/herald/202130/naruto-soccer.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "13 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-10-12/happy-sports-day-from-around-the-anime-world-part-i/.242750"
+    },
+    {
+        "id": "b4725d3f84",
+        "kategori": "Anime",
+        "baslik": "Spy x Family, Yeni Çıkışıyla ABD'de İlk 10 Listesine Hızlı Bir Giriş Yaptı",
+        "ozet": "Tatsuya Endo'nun hit aksiyon-komedi mangası Spy x Family; Batman, The Owl House ve diğer pek çok yapımla birlikte resmi New York Times çok satanlar listesine girdi....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/04/untitled2-1.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "13 Ekim 2026",
+        "link": "https://www.cbr.com/spy-x-family-volume-16-new-york-times-bestseller-october-2026/"
+    },
+    {
+        "id": "49991835dc",
+        "kategori": "Anime",
+        "baslik": "Tüm Zamanların En İyi 10 Anime Kötü Karakter Ölümü, Sıralamalı Listesi",
+        "ozet": "Ustalıkla kurgulanmış bir son, korkutucu düşmanları unutulmaz efsanelere dönüştürürken, jenerik aktıktan çok sonra bile izleyicilerin zihninde kalıcı bir iz bırakıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/thumb-1920-1337080-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "13 Ekim 2026",
+        "link": "https://www.cbr.com/greatest-anime-villain-deaths-all-time/"
+    },
+    {
+        "id": "fb3c38a5af",
+        "kategori": "Anime",
+        "baslik": "Transformers Serisindeki En İyi 10 Optimus Prime Tasarımı, Sıralı Liste",
+        "ozet": "Optimus Prime, Transformers serisindeki en popüler Autobot karakteridir ve bugüne kadar birbirinden etkileyici tasarımlarıyla karşımıza çıkmıştır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/01/custom-image-of-optimus-prime-from-the-transformers-franchise.png?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "13 Ekim 2026",
+        "link": "https://www.cbr.com/transformers-best-optimus-prime-designs-ranked-list/"
+    },
+    {
+        "id": "a82b2f58c4",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscars Kısa Film Adayları: ‘Living With A Visionary’ Yönetmeni Stephen P. Neary",
+        "ozet": "James Cromwell tarafından seslendirilen bu el yapımı film; John Matthias’ın anı kitabından uyarlanan samimi bir hikâye aracılığıyla aşk, bakım verme ve kayıp kavramlarını inceliyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Living-With-A-Visionary.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "12 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/awards/living-with-a-visionary-stephen-p-neary-267802.html"
+    },
+    {
+        "id": "551879f8a1",
+        "kategori": "Çizgi Film",
+        "baslik": "Crunchyroll’un NYCC Duyuruları Arasında Webtoon Uyarlaması Anlaşması ile 'Sekiro' ve 'Ghost of Tsushima' Güncellemeleri Yer Alıyor",
+        "ozet": "Crunchyroll’un NYCC etkinliğinde 'Sekiro: No Defeat', 'Ghost of Tsushima Legends', 'Kagurabachi' ve 'The Remarried Empress' yapımlarının yanı sıra Webtoon ile yapılan yeni bir geliştirme anlaşması da duyuruldu....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/The-Boxer.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "12 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/anime/crunchyroll-webtoon-anime-adaptations-nycc-2026-267754.html"
+    },
+    {
+        "id": "eea7e730ea",
+        "kategori": "Çizgi Film",
+        "baslik": "Yeni ‘Hexed’ Fragmanı, Jodie Foster’ın Cadı Kraliçesi’ni ve Walton Goggins’in Üç Gözlü Kedisi’ni Tanıtıyor",
+        "ozet": "Yönetmenler Fawn Veerasunthorn ve Jason Hand’in imzasını taşıyan yeni 'Hexed' fragmanı, Hexe'nin büyülü dünyasına ve orada yaşayan karakterlere daha yakından bakmamızı sağlıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Hexed.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "12 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/hexed-trailer-disney-walton-goggins-jodie-foster-267811.html"
+    },
+    {
+        "id": "a29d73b891",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Pucca’, DeAPlaneta ve Tiger Studio iş birliğiyle gerçekleştirilen uluslararası yeniden lansman ile 20. yıl dönümünü kutluyor.",
+        "ozet": "DeAPlaneta Entertainment ve Tiger Studio, Pucca'nın serüveninin 20. yılına denk gelen uluslararası yolculuğunda yeni bir sayfa açmak için güçlerini birleştiriyor. Her iki şirket, markanın küresel çapta yeniden lansmanı üzerinde birlikte çalışacak....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "12 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/pucca-marks-20th-anniversary-with-international-relaunch-from-deaplaneta-tiger-studio/"
+    },
+    {
         "id": "96344fdfa8",
         "kategori": "Anime",
         "baslik": "The Apothecary Diaries: The Late Lady's Treasure filminin yeni videosu, Bi klanının oyuncu kadrosunu ortaya çıkardı.",
