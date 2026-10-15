@@ -1,5 +1,105 @@
 [
     {
+        "id": "f732617993",
+        "kategori": "Anime",
+        "baslik": "SANZIGEN, Sakura Miko'nun yeni Hololive müzik videosunu hazırlıyor.",
+        "ozet": "Hololive yeteneği Sakura Miko'nun \"PON-DERFUL!!!\" adlı şarkısı, anime formatında izleyiciyle buluşuyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gDV/youtube/i5GP5VRzB4E.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-10-14/sanzigen-animates-sakura-miko-new-hololive-music-video/.242810"
+    },
+    {
+        "id": "45c045d733",
+        "kategori": "Anime",
+        "baslik": "Spirited Away Stage Play'in Dünya Turu İçin Oyuncu Kadrosu Açıklandı",
+        "ozet": "Kanna Hashimoto, Mone Kamishiraishi ve Momoko Fukuchi, Chihiro rolünü yeniden canlandıracak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHB/cms/news.10/242822/spiritedawaystage-cast.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-14/spirited-away-stage-play-world-tour-unveils-cast/.242822"
+    },
+    {
+        "id": "4cce8920f5",
+        "kategori": "Anime",
+        "baslik": "Croquette! serisinin yaratıcısı Manavu Kishimoto, yeni bir manga serisine başlıyor.",
+        "ozet": "Kishimoto, Tantei Neko Machida mangasını Salı günü başlattı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gVG/cms/news.10/242805/manavu.webp",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-14/croquette-s-manavu-kishimoto-launches-new-manga/.242805"
+    },
+    {
+        "id": "416382a803",
+        "kategori": "Anime",
+        "baslik": "Kötü Karakterin Kazandığı 10 Anime Serisi",
+        "ozet": "Berserk gibi animeler, kötü karakterlerin kazanmasına izin vererek beklentileri yerle bir ediyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/cd04a563-2dec-42a9-bbc1-b8108344bd03_1400x700-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.cbr.com/anime-series-where-the-villain-wins-list/"
+    },
+    {
+        "id": "112e4ccb65",
+        "kategori": "Anime",
+        "baslik": "18 Yıl Sonra, Pain'in En İyi Naruto Alıntısı Hala Anime Tarihindeki En Büyük Kötü Karakter Sözlerinden Biri",
+        "ozet": "Pain, anime dünyasındaki en iyi kötülerden biri ve bir ikonik repliği, neden tüm zamanların en iyisi olduğunu tam anlamıyla kanıtlıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/03/the-six-paths-of-pain-in-naruto-shippuden.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.cbr.com/naruto-pain-quote-greatest-villain-line-anime-history/"
+    },
+    {
+        "id": "0cc1e435c1",
+        "kategori": "Anime",
+        "baslik": "Netflix'teki İzlenmesi En Zor 10 Anime, Sıralı Liste",
+        "ozet": "En kötü Netflix animeleri, özensizlik onları tamamen yutmadan önce izleyicilerin ilham pırıltılarını neredeyse seçebildiği yapımlardır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/05/yuno-and-yukiteru-yuno-gasai-and-yuki-amano-37986621-1600-900-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.cbr.com/netflix-most-unwatchable-anime/"
+    },
+    {
+        "id": "23784381eb",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscars Kısa Film Adayları: ‘Daughters Of The Late Colonel’ Yönetmeni Lizzy Hobbs",
+        "ozet": "Katherine Mansfield’ın hikayesinden uyarlanan bu mürekkep ve boya çalışması; baskıcı babalarının vefatının ardından hayatlarını yeniden gözden geçiren iki kız kardeşin hikayesini, sıcaklık ve mizah dolu bir anlatımla ekranlara taşıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Daughters_of_the_Late.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/awards/2027-oscars-short-film-contenders-daughters-of-the-late-colonel-director-lizzy-hobbs-267879.html"
+    },
+    {
+        "id": "7108066f1b",
+        "kategori": "Çizgi Film",
+        "baslik": "220'den Fazla Kukla, 142.000 Yedek Yüz ve 2.776 Çekim: Laika'nın ‘Wildwood’ Yapımının Ardındaki Şaşırtıcı Rakamlar",
+        "ozet": "View Conference'ta Görsel Efekt Sorumlusu Steve Emerson, stüdyonun bugüne kadarki en iddialı filmi için el yapımı animasyon ile dijital efektleri nasıl harmanladığını açıkladı....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Wildwood-View-Conference.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/events/wildwood-steve-emersson-view-conference-267874.html"
+    },
+    {
+        "id": "a8b844ad30",
+        "kategori": "Çizgi Film",
+        "baslik": "Disney’in Çığır Açan Yapımı ‘The Proud Family’, Stop-Motion Tatil Özel Bölümüyle Geri Dönüyor",
+        "ozet": "Bruce W. Smith, Disney'in sevilen animasyon ailesini ilk kez stop-motion tekniğiyle ekranlara taşımak için Portland merkezli HouseSpecial stüdyosu ile bir araya geliyor. Bu özel iş birliği, yepyeni bir tatil macerası ile izleyicilerle buluşacak....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/A-Proud-Family-Wizmas.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/animators/proud-family-wizmas-disney-plus-bruce-w-smith-267880.html"
+    },
+    {
+        "id": "f33e60f1ae",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Be With Zee’, animasyon odaklı farkındalık derslerini TVOkids ekranlarına taşıyor.",
+        "ozet": "Gelecek ay Kanadalı izleyiciler, Be With Zee ile hem sakinleştirici hem de eğlenceli yeni bir animasyon dünyasıyla tanışacak. Ailelere yönelik dinlendirici bir TVOkids Original serisi olan ve her biri 6 dakika süren 26 bölümden oluşan yapım, meraklı ve sevimli genç orman yaratığı Zee ile bakıcısı Matua'nın maceralarını konu alıyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "14 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/be-with-zee-brings-animated-mindfulness-lessons-to-tvokids/"
+    },
+    {
         "id": "5b876f9a2d",
         "kategori": "Anime",
         "baslik": "Masashi Kishimoto, Naruto'nun \"Blank Period\" dönemine odaklanan yeni manga serisi Naruto: Shadow Rising ile geri dönüyor.",
