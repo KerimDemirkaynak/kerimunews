@@ -1,5 +1,105 @@
 [
     {
+        "id": "0ac710dade",
+        "kategori": "Anime",
+        "baslik": "Şarkıcı Kenshi Yonezu, 2027 yılının başlarında dünya turnesine çıkıyor.",
+        "ozet": "Turne; Güney Kore, Singapur, ABD, Meksika, Kanada, Birleşik Krallık, Fransa ve Hollanda'ya gidiyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHG/cms/news.10/242870/yonezu.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "16 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-15/singer-kenshi-yonezu-goes-on-world-tour-in-early-2027/.242870"
+    },
+    {
+        "id": "fd9c80b169",
+        "kategori": "Anime",
+        "baslik": "Crunchyroll, The Apothecary Diaries 3. Sezon için dublajlı yayın yapacağını duyurdu.",
+        "ozet": "Dublajlı versiyon Cuma günü çıkıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHF/cms/news.9/240600/hpwnmzta4aajc53.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "16 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-15/crunchyroll-streams-dub-for-the-apothecary-diaries-season-3/.242868"
+    },
+    {
+        "id": "2a1e772a34",
+        "kategori": "Anime",
+        "baslik": "GKIDS, CITY the Animation için Blu-ray Koleksiyoncu Sürümünü 15 Aralık'ta piyasaya sürüyor.",
+        "ozet": "Yayın, sadece GKIDS çevrimiçi mağazasında satışa sunulmuştur....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH8/cms/news.10/242867/city-productshots-explodedpackshot-01b-transparent-legal.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "16 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-15/gkids-offers-city-the-animation-on-bd-collector-edition-on-december-15/.242867"
+    },
+    {
+        "id": "a5159b96bb",
+        "kategori": "Anime",
+        "baslik": "Gundam'ın yeni 2027 mecha'sı, Bandai'nin şimdiye kadarki en gelişmiş Gunpla teknolojisini tanıtıyor.",
+        "ozet": "Bandai, 2027 yılı için yeni High Grade Gunpla model kitini resmen duyurdu. Bu model, hayranların bugüne kadar gördüğü en gelişmiş teknolojiyi gözler önüne seriyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/bandai-namco-filmworks-xarx-zero-teaser-visual-1.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "16 Ekim 2026",
+        "link": "https://www.cbr.com/gundam-zero-high-grade-gunpla-release-details/"
+    },
+    {
+        "id": "d30660ee35",
+        "kategori": "Anime",
+        "baslik": "Kahramanın Nihai Kötü Karaktere Dönüştüğü 5 Anime Serisi",
+        "ozet": "Code Geass gibi animelerde, ana karakter zamanla karanlık bir yola girerek bir kötüye dönüşür....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/05/lelouch-plays-chess-in-code-geass-season-1-episode-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "16 Ekim 2026",
+        "link": "https://www.cbr.com/anime-hero-becomes-final-villain-list/"
+    },
+    {
+        "id": "1a2e7bee95",
+        "kategori": "Anime",
+        "baslik": "Solo Leveling'den Daha İyi Dünya İnşasına Sahip 5 Anime",
+        "ozet": "Bu anime serileri, anime dünyasında görülebilecek en sürükleyici ve özenle kurgulanmış evrenlere sahip olup, Solo Leveling'i gölgede bırakıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/solo-leveling-s-sung-jinwoo-smirking.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "16 Ekim 2026",
+        "link": "https://www.cbr.com/anime-with-better-worldbuilding-than-solo-leveling/"
+    },
+    {
+        "id": "c966725f31",
+        "kategori": "Çizgi Film",
+        "baslik": "Hollywood Yönetmenlerinin Gözünden Günümüz Sektörü: İyi (Filmler), Kötü (Dağıtım) ve Çirkin (Yapay Zeka) Gerçekler",
+        "ozet": "View etkinliğinde 'GOAT', 'Forgotten Island' ve 'Toy Story 5' filmlerinin yönetmenleri; gişenin mevcut durumunu, özgün hikaye anlatımını ve kaçınılmaz bir konu olan yapay zekayı masaya yatırdı....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/View-Directors.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/events/view-conference-joel-crawford-januel-mercado-mckenna-harris-tyree-dillihay-267957.html"
+    },
+    {
+        "id": "59dc05b8e4",
+        "kategori": "Çizgi Film",
+        "baslik": "View Conference'ta Sony, ILM, Skydance ve daha pek çok şirketten yöneticiler yapay zeka ve inovasyonu masaya yatırdı ancak istihdamla ilgili endişeler gündemdeki yerini koruyor.",
+        "ozet": "Önde gelen stüdyo yöneticileri; değişen prodüksiyon süreçlerini, vergi teşviklerini, yeni iş fırsatlarını ve iş güçlerini nasıl koruyabileceklerini tartışıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/View-Executives.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/events/studio-executive-roundtable-view-conference-267928.html"
+    },
+    {
+        "id": "5f9ea5f9cd",
+        "kategori": "Çizgi Film",
+        "baslik": "Netflix, 1.000 Çalışanını İşten Çıkarırken Çalışanlarına \"İşimiz Güçlü ve Büyüyor\" Dedi",
+        "ozet": "\"İşimiz güçlü ve büyümeye devam ediyor,\" dedi Netflix'in eş CEO'ları, çalışanlarına gönderdikleri ve %6'sının işine son verileceğini duyurdukları aynı mektupta....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Inside-Job.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/artist-rights/netflix-layoff-1000-dan-evans-aaron-davidson-267939.html"
+    },
+    {
+        "id": "a04dec200f",
+        "kategori": "Çizgi Film",
+        "baslik": "‘MaeBee’ Yıldızlarla Dolu Seslendirme Kadrosuyla Ekim Ayında Başlıyor",
+        "ozet": "BAFTA ve Emmy ödüllü Londra merkezli animasyon stüdyosu Karrot Entertainment (Sarah & Duck, Peppa Pig) ve Dublin merkezli Kavaleer Productions (Boy Girl Dog Cat Mouse Cheese, Wonder Pets: In the City), yeni okul öncesi komedi dizisi MaeBee'nin yapım aşamasında olduğunu duyurdu....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "15 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/maebee-sets-october-launch-with-star-studded-voice-cast/"
+    },
+    {
         "id": "f732617993",
         "kategori": "Anime",
         "baslik": "SANZIGEN, Sakura Miko'nun yeni Hololive müzik videosunu hazırlıyor.",
