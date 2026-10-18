@@ -1,5 +1,75 @@
 [
     {
+        "id": "a7d7c82920",
+        "kategori": "Anime",
+        "baslik": "Octopath Traveler 1 & 2 Oyun İncelemesi",
+        "ozet": "Square Enix'in deneysel RPG'leri Octopath Traveler I ve II artık Nintendo Switch 2'de, peki bu kısa öykü formatı ve bölünmüş anlatı tarzı gerçekten bahsedildiği kadar harika mı?...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHF/cms/game-review/242702/ann-octopath-bundle.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "17 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/review/game/nintendo-switch-2/octopath-traveler-1-and-2/.242702"
+    },
+    {
+        "id": "a478130084",
+        "kategori": "Anime",
+        "baslik": "Japonya Video Oyunu Sıralamaları, 5-11 Ekim",
+        "ozet": "Kingdom Hearts Collection Switch 2 versiyonu listelere 1 numaradan giriş yaparken, Ace Combat 8 ise 3. sırada yer aldı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gNK/cms/news.10/242888/khcollection.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "17 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-17/japan-video-game-rankings-october-5-11/.242888"
+    },
+    {
+        "id": "5a317528b3",
+        "kategori": "Anime",
+        "baslik": "'Art of Manga'yı Brooklyn Museum'a Getirmek",
+        "ozet": "Küratör Rousmaniere, \"Brooklyn'in yaptığı şey, her bir sanatçıyı kendi özgün tarzlarıyla gerçekten ön plana çıkarmak ve eserleri oldukça estetik bir şekilde sergilemek oldu. Bence bu, yapabilecekleri en sürükleyici format.\" ifadelerini kullandı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gQ7/cms/feature/242455/14-309377-20250612.jpeg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "17 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/feature/2026-10-17/bringing-the-art-of-manga-to-the-brooklyn-museum/.242455"
+    },
+    {
+        "id": "8d5a1b924d",
+        "kategori": "Anime",
+        "baslik": "36 Yıl Aradan Sonra, 90'ların Kült Cyberpunk Serisi Nihayet Dönüş Tarihini Belirledi",
+        "ozet": "Tüm zamanların en iyi cyberpunk animelerinden birinin 1990'lardan kalma ve hak ettiği değeri görememiş ön hikayesi nihayet geri dönüyor; üstelik beklediğimizden de yakın....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/ad-police-files-android-skeleton-discovered.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "18 Ekim 2026",
+        "link": "https://www.cbr.com/ad-police-files-4k-blu-ray-release-date/"
+    },
+    {
+        "id": "9d630e4d46",
+        "kategori": "Anime",
+        "baslik": "Attack on Titan'ın En Karanlık Hikaye Yaylarını Seviyorsanız İzlemeniz Gereken 10 Anime",
+        "ozet": "Attack on Titan izleyicisini kasvetli bir dünyaya sürüklüyor ancak Devilman Crybaby ve Berserk gibi diğer anime yapımları da aynı derecede karanlık gelişmeler sunuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/maxresdefault-2.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "18 Ekim 2026",
+        "link": "https://www.cbr.com/anime-to-watch-if-you-love-attack-on-titan-darkest-arcs/"
+    },
+    {
+        "id": "cd4d397048",
+        "kategori": "Anime",
+        "baslik": "'Animesinden Farklı': Attack on Titan’ın 2023’teki Başarılı Yapımı Nisan Ayında Resmen Geri Dönüyor",
+        "ozet": "Hajime Isayama'dan tam not almayı başaran Attack on Titan sahne gösterisinin ABD turnesi, 2027 baharında yepyeni bir gösterim dönemiyle geri dönüyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/05/attack-on-titan-stageplay.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "18 Ekim 2026",
+        "link": "https://www.cbr.com/attack-on-titan-musical-world-tour-april-2027/"
+    },
+    {
+        "id": "6457ad960f",
+        "kategori": "Çizgi Film",
+        "baslik": "Jinko Gotoh, 13 yıllık dönüştürücü bir sürecin ardından WIA Başkanı görevinden ayrılan Marge Dean'in yerine geçiyor.",
+        "ozet": "Dean, neredeyse 18.000 üyeye sahip küresel bir organizasyondan ayrılırken, Oscar adayı Gotoh, büyük bir sektör çalkantısı ortasında görevi devralıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Jinko-Marge.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "17 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/artist-rights/wia-jinko-gotoh-marge-dean-268021.html"
+    },
+    {
         "id": "8d9939bbb8",
         "kategori": "Anime",
         "baslik": "Trails in the Sky 2nd Chapter Oyun İncelemesi",
