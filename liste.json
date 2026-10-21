@@ -1,5 +1,105 @@
 [
     {
+        "id": "c19e784f37",
+        "kategori": "Anime",
+        "baslik": "Amerika Birleşik Devletleri'ndeki ilk One Piece Store, 6 Kasım'da Los Angeles'ta açılıyor.",
+        "ozet": "Efsanevi One Piece her zaman Melekler Şehri'nde miydi?...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH3/cms/interest.3/243022/store-desk.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-10-20/1st-ever-u.s-one-piece-store-to-open-in-los-angeles-on-november-6/.243022"
+    },
+    {
+        "id": "7cfe01123a",
+        "kategori": "Anime",
+        "baslik": "ghost – end of night Anime Filmi 3 Yeni Seslendirme Sanatçısını Duyurdu",
+        "ozet": "Kenjirō Tsuda, Hiroki Yasumoto ve Hiroshi Kamiya seslendirme kadrosuna katıldı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gFK/cms/news.9/239177/ghostkey.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-20/ghost-end-of-night-anime-film-unveils-3-cast-members/.243040"
+    },
+    {
+        "id": "e6361506d5",
+        "kategori": "Anime",
+        "baslik": "Yazar Skyfarm ve çizer Tentashi'nin Wildcard Alchemist mangası sona erdi.",
+        "ozet": "Manga, Nisan 2025'te yayına girecek....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gF0/cms/news.9/241519/978.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "20 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-20/writer-skyfarm-artist-tentashi-wildcard-alchemist-manga-ends/.243019"
+    },
+    {
+        "id": "6fa46367af",
+        "kategori": "Anime",
+        "baslik": "Optimus Prime'dan Daha Güçlü 5 Decepticon",
+        "ozet": "Optimus Prime güçlü bir Autobot olabilir, ancak Transformers serisindeki en güçlü Decepticon'lar karşısında hiçbir şansı yok....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/optimus-prime-on-the-cover-to-skybound-s-transformers-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.cbr.com/transformers-decepticons-stronger-than-optimus-prime-list/"
+    },
+    {
+        "id": "7be6b1acc2",
+        "kategori": "Anime",
+        "baslik": "Kokushibo'dan Daha Güçlü 5 Anime İblisi",
+        "ozet": "Demon Slayer serisinden Kokushibo, Hashira üyelerini mağlup edebilir ancak diğer animelerin en güçlü iblislerine karşı hiçbir şansı yok....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/kokushibo-facing-forward-in-demon-slayer.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.cbr.com/demon-slayer-anime-demons-stronger-than-kokushibo/"
+    },
+    {
+        "id": "3873871fd5",
+        "kategori": "Anime",
+        "baslik": "Bugün İzlenmesi İmkansız Olan 7 Klasik Cartoon Network Anime Serisi",
+        "ozet": "Dragon Ball Z gibi tüm zamanların en popüler anime yapımlarından bazıları Cartoon Network ekranlarında yayınlanmıştı, ancak her seri zamanın sınavını geçmeyi başaramadı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/toonami-tom.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.cbr.com/cartoon-network-anime-unwatchable-today-ranked-list/"
+    },
+    {
+        "id": "e5dc6e3ebf",
+        "kategori": "Çizgi Film",
+        "baslik": "Netflix'te Dan Lin dönemi sona erdi; Disney yapay zeka çalışanlarını bünyesine katıyor; Jinko Gotoh, WIA'nın başına geçiyor.",
+        "ozet": "Netflix'in son işten çıkarmaları, şirkete animasyon alanında güçlü bir kariyere sahip olan Film Şefi Dan Lin’e mal oldu. Bu arada, bir yıllık işten çıkarma sürecinin ardından Disney, yoluna devam ediyor......",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/image-3.png",
+        "kaynak": "CartoonBrew",
+        "tarih": "20 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/newsletter/dan-lin-out-at-netflix-ai-staff-in-at-disney-jinko-gotoh-to-lead-wia-268167.html"
+    },
+    {
+        "id": "78f0e6fc7f",
+        "kategori": "Çizgi Film",
+        "baslik": "Netflix’in ‘In Waves’ Fragmanında İlk Aşk, Hayat Değiştiren Bir Kayıpla Buluşuyor",
+        "ozet": "AJ Dungo’nun grafik anı kitabından uyarlanan ve yönetmen koltuğunda Phuong Mai Nguyen’in oturduğu bu ilk uzun metrajlı film; Güney Kaliforniya’da geçen ilk aşk, sörf ve yas sürecini konu alıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/In-Waves.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "20 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/first-love-meets-life-changing-loss-in-netflixs-in-waves-trailer-268162.html"
+    },
+    {
+        "id": "54cd8ab975",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscars Kısa Film Adayları: ‘Because Today Is Saturday’ Yönetmeni Alice Guimarães",
+        "ozet": "Bir annenin yazmaya vakit ayırma çabası; görünmez ev işlerinin, zihinsel yükün ve yaratıcı özgürlüğe duyulan ihtiyacın canlı bir keşfine dönüşüyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/Because-Today-Is-Saturday.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "20 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/awards/because-today-is-saturday-alice-guimaraes-268151.html"
+    },
+    {
+        "id": "2f022e6082",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Star Wars Funday Football’, Super Bowl LXI’i ‘Çok Uzak Bir Galaksiye’ Taşıyor",
+        "ozet": "Gelecek yıl ESPN, Lucasfilm, Disney ve NFL; Super Bowl LXI'in gerçek zamanlı ve animasyon tabanlı alternatif bir yayını olan Star Wars Funday Football'u izleyicilerle buluşturacak. Star Wars galaksisinde geçen bu özel yayın, orijinal karakterler de dahil olmak üzere Lucasfilm evreninin dört bir yanından sevilen isimleri bir araya getirecek....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "20 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/star-wars-funday-football-brings-super-bowl-lxi-to-a-galaxy-far-far-away/"
+    },
+    {
         "id": "e93b3c7605",
         "kategori": "Anime",
         "baslik": "Haruhi Suzumiya'nın gerçek hayattaki okulu, son bir kez halka açılıyor.",
