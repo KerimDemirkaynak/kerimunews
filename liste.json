@@ -1,5 +1,125 @@
 [
     {
+        "id": "cee09994d3",
+        "kategori": "Anime",
+        "baslik": "Anime Dünyası, Oyuncu Hiroshi Tsuchida'nın Vefatının Ardından Taziyelerini İletiyor, Bölüm I",
+        "ozet": "Meslektaşları onu, Super Sentai köklerinden seslendirme sanatçılığındaki verimli yıllarına kadar uzanan kariyeriyle hatırlıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gI6/herald/202383/hvd0rtcbwaa0oa0.jpeg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "22 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-10-21/anime-world-offers-condolences-after-actor-hiroshi-tsuchida-death-part-i/.243070"
+    },
+    {
+        "id": "207bce9064",
+        "kategori": "Anime",
+        "baslik": "Live-Action My Sister's Boyfriend filminin fragmanı, timelesz tarafından seslendirilen şarkıyı gün yüzüne çıkardı.",
+        "ozet": "timelesz, 4 Aralık’ta vizyona girecek film için \"Hontō no Koto o Iu to\" adlı tema şarkısını seslendiriyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH3/youtube/c15tili15oU.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "22 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-21/live-action-my-sister-boyfriend-film-trailer-unveils-song-by-timelesz/.243083"
+    },
+    {
+        "id": "f919cb42e1",
+        "kategori": "Anime",
+        "baslik": "Cygames, iptal edilen Uma Musume konserleri için seyahat ve konaklama masraflarını karşılayacak.",
+        "ozet": "Cygames, etkinliğe gitmeyi planlayanların iptal ücretlerini ve yola çıkmış olanların masraflarını karşılayacak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gG5/cms/news.9/239701/uma-musume-world-tour.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "22 Ekim 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-10-21/cygames-to-reimburse-travel-lodging-for-canceled-uma-musume-concerts/.243082"
+    },
+    {
+        "id": "46701d5081",
+        "kategori": "Anime",
+        "baslik": "Cowboy Bebop Sevenlerin İzlemesi Gereken 10 Anime",
+        "ozet": "Cowboy Bebop gibi harika animelerden bolca bulunuyor ve bu serinin her hayranı Samurai Champloo gibi yapımları bir an önce izlemeli....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/04/cowboy_bebop_anime_movie_group-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "22 Ekim 2026",
+        "link": "https://www.cbr.com/anime-to-watch-if-you-love-cowboy-bebop-list/"
+    },
+    {
+        "id": "2567097c0e",
+        "kategori": "Anime",
+        "baslik": "Naruto Serisindeki En İyi 5 Madara Uchiha Savaşı, Sıralamalı Listesi",
+        "ozet": "Madara Uchiha anime tarihindeki en büyük kötülerden biri ve en iyi beş savaşı, bu Naruto antagonistinin aslında ne kadar inanılmaz olduğunu gözler önüne seriyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/10/madara-uchiha-looks-down-in-naruto-shippuden.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "22 Ekim 2026",
+        "link": "https://www.cbr.com/naruto-greatest-madara-uchiha-battles-ranked/"
+    },
+    {
+        "id": "e4db32ab14",
+        "kategori": "Anime",
+        "baslik": "2026 Yılının Şimdiye Kadarki En İyi 6 Shojo Animesi",
+        "ozet": "2026 anime seçkisi, shojo hayranlarına sevilecek pek çok içerik sundu. İşte şu ana kadar yıla damgasını vuran o altı yapım....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/izumi-carrying-mizuki-in-hana-kimi-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "22 Ekim 2026",
+        "link": "https://www.cbr.com/best-shojo-anime-2026-so-far/"
+    },
+    {
+        "id": "562432eba0",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Cool World’den ‘Wildwood’a: PG-13 Animasyonun Sıra Dışı Tarihi",
+        "ozet": "'Bebe’s Kids' 2D animasyon dünyasında çığır açtı, 'Final Fantasy: The Spirits Within' CG teknolojisine büyük bir adım attı ve 'The Simpsons Movie' gişe rekorlarını altüst eden bir başarıya dönüştü....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/PG-13.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/cartoon-study/pg-13-animated-feature-history-268220.html"
+    },
+    {
+        "id": "d7eb12678f",
+        "kategori": "Çizgi Film",
+        "baslik": "Matt Braly, Animation Is Film etkinliğinde gotik dünyası ‘Clara and the Below’u ilk kez gün yüzüne çıkardı (ÖZEL HABER)",
+        "ozet": "Ürkütücü renk taslakları, öte dünyadan esintiler taşıyan arka planlar ve detaylı karakter tasarımları da dahil olmak üzere sunumdaki tüm görsellere göz atın....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/03/Clara-and-the-Below-Head.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/series/clara-and-the-below-animation-is-film-268203.html"
+    },
+    {
+        "id": "4899591e9d",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscars Kısa Film Adayları: ‘The End’ Yönetmeni Niki Lindroth Von Bahr",
+        "ozet": "Dante'nin arafından esinlenilen bir havalimanında yaşayan hayvan yolcular, modern hayatın hicvedildiği bu stop-motion yapımda günlük hayal kırıklıklarıyla fanilik kavramı arasında buluşuyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/10/The-End.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.cartoonbrew.com/awards/the-end-niki-lindroth-von-bahr-268194.html"
+    },
+    {
+        "id": "afc1c44032",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Small Prophets’ Ekibi, Dizinin El Yapımı Homunculus'larını Nasıl Yarattı?",
+        "ozet": "*Bu makale, Animation Magazine'in Aralık 2026 sayısı (No. 363) için kaleme alınmıştır.*\n\nYa kehanette bulunabilen minik bir insansı olan homunculus yetiştirmek için antik bir simya tarifi bulsaydınız? İşte Small Prop'un merak uyandıran çıkış noktası bu....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/how-the-small-prophets-team-crafted-the-shows-hand-made-homunculi/"
+    },
+    {
+        "id": "2f3b14fcf1",
+        "kategori": "Çizgi Film",
+        "baslik": "UNDP Hızlandırıcısı için Sekiz Güney Afrika Animasyon Stüdyosu Seçildi",
+        "ozet": "Birleşmiş Milletler Kalkınma Programı (UNDP) destekli yeni bir hızlandırma programı, Afrika'nın yaratıcı endüstrilerinin büyümesi ve bölgede önemli bir istihdam kaynağı haline gelmesi için gereken finansmana ve pazarlara erişimini sağlamayı hedefliyor. Bu girişim, Cape Town merkezli sekiz animasyon stüdyosu ile başlıyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/eight-south-african-animation-studios-selected-for-undp-accelerator/"
+    },
+    {
+        "id": "e3f0e4d03a",
+        "kategori": "Çizgi Film",
+        "baslik": "Ön Gösterim: Tim Long ve John Harvatine IV, Yeni Simpsons 'Treehouse of Horror' Antolojisinden İpuçları Veriyor!",
+        "ozet": "Cadılar Bayramı sezonunun en iyi yanlarından biri, The Simpsons'ın korkutucu derecede eğlenceli \"Treehouse of Horror\" bölümünün gelişidir. İlk kez 1990 yılında yayınlanan bu geleneksel özel antoloji serisi, 37. edisyonuyla 25 Ekim'de geri dönüyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "21 Ekim 2026",
+        "link": "https://www.animationmagazine.net/2026/10/sneak-peek-tim-long-and-john-harvatine-iv-preview-the-new-simpsons-treehouse-of-horror-anthology/"
+    },
+    {
         "id": "c19e784f37",
         "kategori": "Anime",
         "baslik": "Amerika Birleşik Devletleri'ndeki ilk One Piece Store, 6 Kasım'da Los Angeles'ta açılıyor.",
