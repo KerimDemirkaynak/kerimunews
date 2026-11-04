@@ -2,9 +2,11 @@ import os
 import json
 import requests
 import time
+from urllib.parse import urlsplit, urlunsplit, quote, unquote
 
 TOKEN_FILE = "threads_token.txt"
 LAST_POSTED_FILE = "last_posted_threads.txt"
+
 
 def get_working_token():
     if os.path.exists(TOKEN_FILE):
@@ -14,10 +16,22 @@ def get_working_token():
                 return token
     return os.environ.get("THREADS_ACCESS_TOKEN")
 
+
+def safe_url(url):
+    """ASCII olmayan karakterleri (Japonca, Kiril, Arapça, emoji vb.) yüzde-kodlar."""
+    try:
+        p = urlsplit(url.strip())
+        path = quote(unquote(p.path), safe="/")
+        query = quote(unquote(p.query), safe="=&")
+        return urlunsplit((p.scheme, p.netloc.encode("idna").decode("ascii"), path, query, p.fragment))
+    except Exception:
+        return url
+
+
 def post_to_threads(access_token, user_id, title, url, source, image_url=None):
     # Metni birleştir
     full_text = f"{title}\n\nKaynak: {source}\n{url}"
-    
+
     # 500 karakter sınırına karşı metni kısaltma kontrolü
     if len(full_text) > 480:
         overflow = len(full_text) - 480
@@ -31,7 +45,7 @@ def post_to_threads(access_token, user_id, title, url, source, image_url=None):
         "media_type": "IMAGE" if image_url and image_url.startswith("http") else "TEXT"
     }
     if payload["media_type"] == "IMAGE":
-        payload["image_url"] = image_url
+        payload["image_url"] = safe_url(image_url)  # Unicode karakterli URL'leri ASCII'ye çevir
 
     try:
         # 1. AŞAMA: Container (Kutu) oluştur
@@ -55,16 +69,17 @@ def post_to_threads(access_token, user_id, title, url, source, image_url=None):
             data={"creation_id": container_id, "access_token": access_token},
             timeout=15
         )
-        
+
         if pub_res.status_code == 200:
             return True
         else:
             print(f"❌ Yayınlama (Publish) hatası: {pub_res.text}")
             return False
-            
+
     except requests.exceptions.RequestException as e:
         print(f"❌ Bağlantı hatası: {e}")
         return False
+
 
 def main():
     access_token = get_working_token()
@@ -118,24 +133,35 @@ def main():
         max_deneme = 5
         basarili = False
 
-        # ÖNLEM 2: Hata olursa 5 kere tekrar deneme döngüsü
-        for deneme in range(1, max_deneme + 1):
-            if post_to_threads(access_token, user_id, title, url, source, image_url):
-                print(f"✅ Paylaşıldı: {haber_id}\n")
-                with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
-                    f.write(haber_id)
-                basarili = True
-                time.sleep(15) # İki farklı haber paylaşımı arasına 15 saniye koyuyoruz ki spama düşmesin
+        # Önce görselle dene, olmazsa görselsiz (sadece metin) paylaş
+        adaylar = [image_url, None] if image_url else [None]
+
+        for aday in adaylar:
+            if aday is None and image_url:
+                print("⚠️ Görselle paylaşılamadı, görselsiz deneniyor...\n")
+
+            # ÖNLEM 2: Hata olursa 5 kere tekrar deneme döngüsü
+            for deneme in range(1, max_deneme + 1):
+                if post_to_threads(access_token, user_id, title, url, source, aday):
+                    print(f"✅ Paylaşıldı: {haber_id}\n")
+                    with open(LAST_POSTED_FILE, "w", encoding="utf-8") as f:
+                        f.write(haber_id)
+                    basarili = True
+                    time.sleep(15)  # İki farklı haber paylaşımı arasına 15 saniye koyuyoruz ki spama düşmesin
+                    break
+                else:
+                    if deneme < max_deneme:
+                        bekleme_suresi = 30
+                        print(f"⚠️ Hata alındı ({deneme}/{max_deneme}). {bekleme_suresi} saniye dinlenip tekrar denenecek...\n")
+                        time.sleep(bekleme_suresi)
+
+            if basarili:
                 break
-            else:
-                if deneme < max_deneme:
-                    bekleme_suresi = 30 
-                    print(f"⚠️ Hata alındı ({deneme}/{max_deneme}). {bekleme_suresi} saniye dinlenip tekrar denenecek...\n")
-                    time.sleep(bekleme_suresi)
-                
+
         if not basarili:
             print(f"❌ {max_deneme} denemeye rağmen paylaşılamadı: {haber_id}. Sıralama bozulmasın diye işlem durduruluyor.")
             break
+
 
 if __name__ == "__main__":
     main()
