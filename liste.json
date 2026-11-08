@@ -1,5 +1,85 @@
 [
     {
+        "id": "daeaa19369",
+        "kategori": "Anime",
+        "baslik": "Harajuku Himegoto House Multimedia Project Duyuruldu",
+        "ozet": "Suikastçıların çalıştığı bir kafe projesi, televizyon animesini de içeriyor!...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gFG/youtube/q_3Mkye4sQg.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "8 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-07/harajuku-himegoto-house-multimedia-project-announced/.243612"
+    },
+    {
+        "id": "3aed4431be",
+        "kategori": "Anime",
+        "baslik": "Memoirs of Amorous Gentlemen Musical İncelemesi",
+        "ozet": "Duncan Sheik'in son eseri ve ilk Amerikan manga müzikali, muhteşem bir başrol performansı sayesinde toparlanmış olsa da, karmaşık bir karışım olmuş....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gR0/cms/review.2/243017/screenshot-2026-10-19-at-11.43.05-pm.png.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "7 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/review/memoirs-of-amorous-gentlemen/musical/.243017"
+    },
+    {
+        "id": "545a739eb8",
+        "kategori": "Anime",
+        "baslik": "Makoto Furukawa, One-Punch Man Season 3'ün İkinci Kısmı İçin Giriş Şarkısını Yazdı ve Söyledi",
+        "ozet": "4 yeni kahraman görseli ve 2 canavar görseli de sunuldu....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gB6/cms/news.10/243608/0b758bf553f3587daa222a1b0ef74ea0-scaled.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "7 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-07/makoto-furukawa-writes-sings-ending-for-one-punch-man-season-3-2nd-part/.243608"
+    },
+    {
+        "id": "1012d60a53",
+        "kategori": "Anime",
+        "baslik": "Unutulmuş 10 Muhteşem 2000'ler Anime Filmi",
+        "ozet": "Studio Ghibli'nin erişemediği ve her sıralamada zirveye oturan bir avuç film dışındaki 2000'li yılların animasyon filmleri dünyasında, daha sakin bir grup yer alıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/08/vampire-hunter-d-bloodlust-screen-capture.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Kasım 2026",
+        "link": "https://www.cbr.com/masterpiece-2000s-anime-movies-forgotten/"
+    },
+    {
+        "id": "09700685d2",
+        "kategori": "Anime",
+        "baslik": "Kaiju No. 8'in Yaratıcısı, Bir Sonraki Hit Doğaüstü Shonen Jump Serisini Öneriyor",
+        "ozet": "Naoya Matsumoto, Shonen Jump'ın yeni korku-komedi hitinin samimi büyüsünü övgüyle karşıladı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/08/kaiju-no-8.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Kasım 2026",
+        "link": "https://www.cbr.com/kaiju-no-8-creator-rokus-house-of-oddities-manga/"
+    },
+    {
+        "id": "120eb6fcab",
+        "kategori": "Anime",
+        "baslik": "2026'da Okunması Gereken En İyi 10 Devam Eden Manhwa",
+        "ozet": "Devam eden en iyi manhwa'lar, bir sonraki bölümü beklemeye değer kılacak kadar bitirilmemiş işlere sahip....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/12/lookism01-cropped.png?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "8 Kasım 2026",
+        "link": "https://www.cbr.com/best-ongoing-manhwa-2026/"
+    },
+    {
+        "id": "ef39c40ef6",
+        "kategori": "Çizgi Film",
+        "baslik": "Scratch DJ Kid Koala, ilk uzun metrajlı animasyon filmi 'Space Cadet' için kare kare konuşmayı öğrendi.",
+        "ozet": "İlk yönetmen Eric San, 16 animatörle çalışmayı, el yapımı bir CG dünyası yaratmayı ve robot karakterine insani bir dokunuş katmak için döner platformlar kullanmayı anlatıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Space-Cadet.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "7 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/space-cadet-kid-koala-eric-san-interview-269165.html"
+    },
+    {
+        "id": "d980503cec",
+        "kategori": "Çizgi Film",
+        "baslik": "Sylvain Chomet, Dior Reklamının Elle Çizildiğinde Israr Ediyor, Ancak 'Otomatik Enterpolasyon' Kullanıldığını Kabul Ediyor.",
+        "ozet": "Yönetmen ve yapımcısı, reklama harcanan emeği savundular ancak ara kareleri oluşturmak için kullanılan araçlar hakkında pek teknik detay vermiyorlar....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Chomet-Dior-6.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "7 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/artificial-intelligence/sylvain-chomet-dior-ad-automated-interpolation-269167.html"
+    },
+    {
         "id": "1427bde4c2",
         "kategori": "Anime",
         "baslik": "'Gerçekten Geldi': Interspecies Reviewers Yazarının Yeni Ecchi Animesi, Şaka Yaptıktan Sadece Bir Hafta Sonra Onaylandı",
