@@ -1,5 +1,105 @@
 [
     {
+        "id": "88d8709682",
+        "kategori": "Anime",
+        "baslik": "CyberAgent, MAPPA ile İş Ortaklığına Giriyor, Anime Stüdyosunun Ana Şirketinden Pay Alıyor",
+        "ozet": "CyberAgent, *Jujutsu Kaisen* ve *Chainsaw Man* gibi yapımların arkasındaki stüdyo MAPPA ile yaptığı yeni ortaklık sayesinde anime dünyasındaki yerini sağlamlaştırıyor. Şirket ayrıca MAPPA'nın ana şirketi MHD Inc.'in hisselerinin bir kısmını da satın aldı. Bu ortaklık,...",
+        "resim": "https://animehunch.com/wp-content/uploads/2026/11/CyberAgent-MAPPA-2.webp",
+        "kaynak": "AnimeHunch",
+        "tarih": "11 Kasım 2026",
+        "link": "https://animehunch.com/cyberagent-enters-business-partnership-with-mappa-acquires-stake-in-anime-studios-parent-company/"
+    },
+    {
+        "id": "7a9cbb28c5",
+        "kategori": "Anime",
+        "baslik": "Rei Mikamoto'nun Blood Friend Mangası Aralık Ayında Sona Eriyor!",
+        "ozet": "Dizi Aralık 2025'te izleyiciyle buluşacak!...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gJA/cms/news.10/243738/91qy4sapjtl.sl1500.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-11/rei-mikamoto-ends-blood-friend-manga-in-december/.243738"
+    },
+    {
+        "id": "042ab6137c",
+        "kategori": "Anime",
+        "baslik": "Duel Masters GT Manga'nın 3. Kısmı Sona Erdi",
+        "ozet": "3. kısım 12 Ağustos'ta yayınlandı...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gG8/cms/news.9/240533/duelmastersgt3.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-11/duel-masters-gt-manga-part-3-ends/.243737"
+    },
+    {
+        "id": "e4a1210b10",
+        "kategori": "Anime",
+        "baslik": "Tsugumi Project Anime, Ocak 2027'de Vizyona Girecek!",
+        "ozet": "Yeni görsel de yayınlandı...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gED/cms/news.10/243744/tsugumiproject-kv2.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-11/tsugumi-project-anime-reveals-january-2027-premiere/.243744"
+    },
+    {
+        "id": "3bf96f9483",
+        "kategori": "Anime",
+        "baslik": "Transformers'tan Orijinal G1 Tasarımcısından Dev Boyutlu, 256 Sayfalık Yeni G1 Koleksiyonu Geliyor!",
+        "ozet": "TakaraTomy'nin Transformers figürlerinin gelişimine, tüm bu süreçte orada bulunan bir tasarımcının gözünden bakan yeni bir kitap geliyor!...",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/09/hasbro-updates-transformers-with-brand-s-most-unique-trademark-more-than-40-years-on.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.cbr.com/transformers-kojin-ono-history-release/"
+    },
+    {
+        "id": "32135badda",
+        "kategori": "Anime",
+        "baslik": "İzlemeniz Gereken, Hiç Kötü Bölümü Olmayan 10 Crunchyroll Anime'si",
+        "ozet": "Crunchyroll'un anime dünyasına kattığı Code Geass ve Fullmetal Alchemist: Brotherhood gibi yapımlar, tek bir kötü bölüm bile içermiyor desek yeridir....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/06/code-geass-lelouch-4m0liuh5jmofrcljx0vbeimria-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.cbr.com/best-crunchyroll-anime-no-bad-arcs-list/"
+    },
+    {
+        "id": "36b186d115",
+        "kategori": "Anime",
+        "baslik": "2010'ların En İzlenmez Klasik 5 Anime'si",
+        "ozet": "Tokyo Ghoul gibi animeler 2010'larda yayınlandıklarında büyük ilgi görmüştü, ancak günümüzde izlemesi çok daha zor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/10/attack-on-titan-season-1-review.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.cbr.com/most-unwatchable-classic-2010s-anime-list/"
+    },
+    {
+        "id": "604f6ce264",
+        "kategori": "Çizgi Film",
+        "baslik": "Büyük beğeni toplayan Fransız yetişkin animasyon komedisi 'Jim Queen', Magnolia'nın dağıtım anlaşmasının ardından ABD sinemalarında gösterime giriyor.",
+        "ozet": "Magnolia Pictures, eleştirmenlerce beğenilen Fransız yetişkin animasyon komedisinin haklarını, Jordan Firstman ve Matteo Lane'in seslendirdiği bir İngilizce dublajla edindi....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Jim-Queen.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/distribution/jim-queen-us-theatrical-release-magnolia-pictures-269369.html"
+    },
+    {
+        "id": "505e268f2c",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscar Kısa Film Yarışmacıları: '18 Months'ın Yönetmenleri Paulo Garcia ve Natália Gouvea",
+        "ozet": "Stop-motion puppets, projected shadows, and digital expressions bring a true story of two fathers and an unexpected path to parenthood to life....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/18-Months.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "12 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/awards/18-months-directors-paulo-garcia-natalia-gouvea-269280.html"
+    },
+    {
+        "id": "9e95d7811a",
+        "kategori": "Çizgi Film",
+        "baslik": "Cannes ve Annecy Ödüllü ‘Iron Boy’un ABD Fragmanı ve Çıkış Tarihleri Belli Oldu",
+        "ozet": "Louis Clichy'nin muhteşem animasyon filmi, 4 Aralık'ta belirli sinemalarda gösterime girip 22 Ocak'ta ülke geneline yayılmadan önce, Oscar rüzgarını şimdiden arkasına alıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/05/Iron-Boy-1.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "11 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/iron-boy-trailer-us-release-date-269365.html"
+    },
+    {
         "id": "bed2ff8c62",
         "kategori": "Anime",
         "baslik": "Kodansha, Steam'de \"1999Tokoyo Building\" adlı Korku Oyunu Yayınlıyor",
