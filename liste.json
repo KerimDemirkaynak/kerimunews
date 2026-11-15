@@ -1,5 +1,75 @@
 [
     {
+        "id": "c505ea7016",
+        "kategori": "Anime",
+        "baslik": "Öğrenci Konseyinin Bile Açıkları Var! Anime Kadrosuna Yōko Hikasa Katıldı",
+        "ozet": "Bu hafta sonu 7. bölümde Hisako'nun annesini canlandırıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gG0/cms/news.10/243815/hxbgctybqaaqm8k.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-14/even-the-student-council-has-its-holes-anime-casts-yoko-hikasa/.243815"
+    },
+    {
+        "id": "c80cb2c2d1",
+        "kategori": "Anime",
+        "baslik": "Kakao, OpenAI ile Birlikte Ryan Begins Webtoon'una Dayanan Yapay Zeka Destekli Kısa Animasyon Üzerinde İşbirliği Yapıyor",
+        "ozet": "Yapım ekibi, istenen yönü ve duygusal tonu yakalamak için tek bir sahne için yaklaşık 1.500 prompt kullandıklarını belirtti....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gMG/youtube/REXgHT6Y_oo.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-14/kakao-openai-collaborate-on-ai-generated-short-animation-based-on-ryan-begins-webtoon/.243712"
+    },
+    {
+        "id": "2167d4efe2",
+        "kategori": "Anime",
+        "baslik": "Dedektif Conan: The Clash of the Red and Black Anime Dizisi İncelemesi",
+        "ozet": "Dedektif Conan'ın o tek gerçeği ortaya çıkarma mücadelesi devam ederken, yeni bir potansiyel müttefik, şeytani Black Organization ile olan bağlarını ortaya çıkarıyor ve FBI da harekete geçmeye başlıyor gibi görünüyor!...",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gXF/cms/review.2/243437/1000020362.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "14 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/review/detective-conan/the-clash-of-the-red-and-black/anime-series/.243437"
+    },
+    {
+        "id": "74fbb7c063",
+        "kategori": "Anime",
+        "baslik": "Naruto'daki En Zayıf 4 Jinchuriki, Sıralaması",
+        "ozet": "Naruto'daki Jinchuriki'lerin hepsi güçlü değil ve bazılarının şaşırtıcı derecede zayıf olduğu söyleniyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/the-three-tails-jinchuriki-yagura-smiles-warmly-in-naruto-shippuden.png?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Kasım 2026",
+        "link": "https://www.cbr.com/weakest-jinchuriki-naruto-ranked-list/"
+    },
+    {
+        "id": "e45218acbd",
+        "kategori": "Anime",
+        "baslik": "Dandadan, 2027'nin En Büyük Geri Dönen Serisine No. 1 Yerini Resmi Olarak Kaptırdı",
+        "ozet": "Japonya'dan gelen yeni manga sıralamaları, Dandadan serisinin popüler bir Shonen Jump aksiyon serisine ne kadar hızlı zemin kaybettiğini gözler önüne seriyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/12/dandadan-anime-manga.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Kasım 2026",
+        "link": "https://www.cbr.com/dandadan-spy-x-family-manga-sales-2026/"
+    },
+    {
+        "id": "91f77ec5ad",
+        "kategori": "Anime",
+        "baslik": "Hunter X Hunter'ın En Güçlü 35 Karakteri",
+        "ozet": "1998'deki çıkışından bu yana *Hunter x Hunter*, çok güçlü karakterler tanıttı ve bazı Nen kullanıcıları diğerlerinden daha dayanıklı....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2024/01/split-images-of-zeno-netero-and-meruem.jpg?w=1200&h=675&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "15 Kasım 2026",
+        "link": "https://www.cbr.com/strongest-hunterxhunter-characters/"
+    },
+    {
+        "id": "8983c9ae83",
+        "kategori": "Çizgi Film",
+        "baslik": "Avrupa Film Ödülleri Yılların En Güçlü Animasyon Kadrolarından Birini Açıklıyor",
+        "ozet": "'In Waves,' 'Iron Boy,' 'Jim Queen,' 'Lucy Lost' ve 'Viva Carmen,' Avrupa Film Ödülleri'ne yakın tarihin en güçlü animasyon seçkilerinden birini kazandırıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/European-Film-Awards-2026.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "14 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/awards/european-animation-award-nominees-269443.html"
+    },
+    {
         "id": "0d93ebf4b1",
         "kategori": "Anime",
         "baslik": "Uma Musume, F1 Japanese Grand Prix ile Motorlarını Çalıştırıyor",
