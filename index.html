@@ -2,786 +2,111 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Kerimu Animasyon Haberleri</title>
     <meta name="description" content="En güncel anime ve çizgi film haberlerini Türkçe okuyun. Anitrendz, CBR, ANN ve daha fazlasından RSS ile anında çeviriler.">
-    <meta name="keywords" content="anime haberleri, çizgi film haberleri, türkçe anime haber, manga, kerimu animasyon, myanimelist, cbr">
     <meta name="author" content="Kerim Demirkaynak">
-    
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#050811">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://kerimdemirkaynak.github.io/kerimunews/">
+
+    <meta property="og:site_name" content="Kerimu Animasyon Haberleri">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="website">
     <meta property="og:title" content="Kerimu Animasyon Haberleri">
     <meta property="og:description" content="Global animasyon ve anime haberleri anında Türkçe çevirisiyle tek bir yerde!">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop"> 
+    <meta property="og:url" content="https://kerimdemirkaynak.github.io/kerimunews/">
+    <meta property="og:image" content="https://kerimdemirkaynak.github.io/kerimunews/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kerimu Haber — anime ve çizgi film haberleri">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kerimu Animasyon Haberleri">
+    <meta name="twitter:description" content="Global animasyon ve anime haberleri anında Türkçe çevirisiyle tek bir yerde!">
+    <meta name="twitter:image" content="https://kerimdemirkaynak.github.io/kerimunews/assets/og-image.png">
 
-    <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/manifest.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml">
+    <meta name="keywords" content="anime haberleri, çizgi film haberleri, türkçe anime haber, manga, kerimu animasyon, myanimelist, cbr">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Kerimu Animasyon Haberleri","url":"https://kerimdemirkaynak.github.io/kerimunews/","inLanguage":"tr","description":"Global anime ve çizgi film haberleri Türkçe olarak.","publisher":{"@type":"Person","name":"Kerim Demirkaynak"}}
+    </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    
-    <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml" />
-
-    <style>
-        :root {
-            --bg-color: #050811;
-            --glass-surface: rgba(255, 255, 255, 0.06);
-            --glass-surface-hover: rgba(255, 255, 255, 0.11);
-            --glass-heavy: rgba(10, 15, 28, 0.52);
-            --glass-border: rgba(255, 255, 255, 0.16);
-            --glass-border-bright: rgba(255, 255, 255, 0.34);
-            --glass-highlight: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
-            --text-main: #f8fafc;
-            --text-muted: rgba(226, 232, 240, 0.68);
-            --accent: #60a5fa;
-            --anime-tag: rgba(236, 72, 153, 0.32);
-            --cartoon-tag: rgba(245, 158, 11, 0.32);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Liquid Glass Arka Plan Işık Küreleri (Refraksiyon için derinlik) */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            filter: blur(95px);
-            opacity: 0.65;
-            animation: liquidDrift 18s ease-in-out infinite alternate;
-        }
-
-        body::before {
-            width: 55vw;
-            height: 55vw;
-            max-width: 720px;
-            max-height: 720px;
-            top: -14%;
-            left: -10%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, rgba(139, 92, 246, 0.35) 48%, transparent 75%);
-        }
-
-        body::after {
-            width: 50vw;
-            height: 50vw;
-            max-width: 680px;
-            max-height: 680px;
-            bottom: -12%;
-            right: -8%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(14, 165, 233, 0.35) 50%, transparent 75%);
-            animation-delay: -9s;
-        }
-
-        @keyframes liquidDrift {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(4%, 6%) scale(1.08); }
-            100% { transform: translate(-3%, 3%) scale(0.96); }
-        }
-
-        /* Sticky Liquid Glass Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--glass-heavy);
-            backdrop-filter: blur(26px) saturate(190%);
-            -webkit-backdrop-filter: blur(26px) saturate(190%);
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.12);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            padding: 1rem 1.25rem;
-            gap: 1rem;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: transform 0.25s ease;
-        }
-
-        .logo-container:hover {
-            transform: scale(1.02);
-        }
-
-        .logo-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            color: #fff;
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.45), rgba(59, 130, 246, 0.18));
-            border: 1px solid rgba(255, 255, 255, 0.32);
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), var(--glass-highlight);
-        }
-
-        header h1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.2px;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-        }
-        
-        /* Liquid Kapsül Filtre Grubu */
-        .filters {
-            display: flex;
-            gap: 0.35rem;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 4px;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
-        }
-
-        .filter-btn {
-            background-color: transparent;
-            color: var(--text-muted);
-            border: 1px solid transparent;
-            padding: 0.45rem 1.15rem;
-            border-radius: 999px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .filter-btn:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.06);
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.09) 100%);
-            border-color: rgba(255, 255, 255, 0.35);
-            color: #fff;
-            font-weight: 600;
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.55);
-        }
-        
-        .action-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        
-        /* Arama Kutusu Stilleri (İçbükey Cam Kapsül) */
-        .search-container {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 999px;
-            padding: 0.45rem 0.95rem;
-            margin-right: 0.85rem;
-            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-            transition: all 0.25s ease;
-        }
-
-        .search-container:focus-within {
-            background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(255, 255, 255, 0.38);
-            box-shadow: 0 0 20px rgba(96, 165, 250, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-        }
-
-        .search-input {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            font-size: 0.9rem;
-            outline: none;
-            padding-left: 8px;
-            width: 190px;
-        }
-
-        .search-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        /* Renkli Liquid Glass RSS Butonu */
-        .rss-link-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.72), rgba(234, 88, 12, 0.45));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.36);
-            color: white;
-            padding: 0.5rem 1.1rem;
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 600;
-            box-shadow: 0 4px 18px rgba(249, 115, 22, 0.32), inset 0 1px 1.5px rgba(255, 255, 255, 0.55);
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-
-        .rss-link-btn:hover {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.88), rgba(234, 88, 12, 0.65));
-            transform: translateY(-1px);
-            box-shadow: 0 6px 24px rgba(249, 115, 22, 0.48), inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
-        }
-
-        main {
-            flex: 1;
-            max-width: 1200px;
-            margin: 2.25rem auto;
-            padding: 0 1.25rem;
-            width: 100%;
-        }
-
-        #news-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-        }
-
-        /* Liquid Glass Haber Kartları */
-        .news-card {
-            position: relative;
-            background: linear-gradient(155deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(255, 255, 255, 0.06) 100%);
-            backdrop-filter: blur(24px) saturate(185%);
-            -webkit-backdrop-filter: blur(24px) saturate(185%);
-            border-radius: 24px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), var(--glass-highlight);
-            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                        border-color 0.35s ease,
-                        background 0.35s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-6px) scale(1.008);
-            background: linear-gradient(155deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0.09) 100%);
-            border-color: var(--glass-border-bright);
-            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.48),
-                        0 0 28px rgba(96, 165, 250, 0.16),
-                        inset 0 1.5px 2px rgba(255, 255, 255, 0.55),
-                        inset 0 -1px 1px rgba(255, 255, 255, 0.1);
-        }
-
-        .news-card img {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
-            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .news-card:hover img {
-            transform: scale(1.03);
-        }
-
-        .card-img-placeholder {
-            height: 180px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.4px;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        /* Yarı Saydam Cam Etiketler */
-        .card-tag {
-            align-self: flex-start;
-            padding: 0.28rem 0.85rem;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .tag-anime {
-            background: var(--anime-tag);
-            border: 1px solid rgba(244, 114, 182, 0.48);
-            color: #fce7f3;
-            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-        }
-
-        .tag-cartoon {
-            background: var(--cartoon-tag);
-            border: 1px solid rgba(251, 191, 36, 0.48);
-            color: #fef3c7;
-            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
-        }
-
-        .card-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #ffffff;
-            line-height: 1.4;
-        }
-
-        .card-excerpt {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.84rem;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255, 255, 255, 0.11);
-            padding-top: 1rem;
-        }
-        
-        .read-more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: none;
-            border: none;
-            color: #93c5fd;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 0.88rem;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .news-card:hover .read-more-btn {
-            color: #ffffff;
-            text-shadow: 0 0 12px rgba(147, 197, 253, 0.7);
-        }
-
-        .news-card:hover .read-more-btn i {
-            transform: translateX(3px);
-        }
-
-        .read-more-btn i {
-            transition: transform 0.2s ease;
-        }
-
-        /* Liquid Glass Sayfalama (Pagination) */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.55rem;
-            margin-top: 2rem;
-        }
-
-        .page-btn {
-            background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
-            backdrop-filter: blur(18px) saturate(180%);
-            -webkit-backdrop-filter: blur(18px) saturate(180%);
-            color: var(--text-main);
-            border: 1px solid var(--glass-border);
-            padding: 0.55rem 1.05rem;
-            border-radius: 16px;
-            cursor: pointer;
-            font-weight: 500;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.3);
-            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .page-btn:hover:not(:disabled) {
-            background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
-            border-color: var(--glass-border-bright);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.45);
-        }
-
-        .page-btn.active {
-            background: linear-gradient(145deg, rgba(96, 165, 250, 0.55), rgba(59, 130, 246, 0.28));
-            border-color: rgba(255, 255, 255, 0.48);
-            color: #fff;
-            font-weight: 700;
-            box-shadow: 0 6px 22px rgba(59, 130, 246, 0.38), inset 0 1px 1.5px rgba(255, 255, 255, 0.65);
-        }
-
-        .page-btn:disabled {
-            opacity: 0.38;
-            cursor: not-allowed;
-        }
-
-        /* Liquid Glass Footer */
-        footer { 
-            background: var(--glass-heavy);
-            backdrop-filter: blur(26px) saturate(190%);
-            -webkit-backdrop-filter: blur(26px) saturate(190%);
-            border-top: 1px solid var(--glass-border);
-            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
-            padding: 0; 
-            text-align: center; 
-            margin-top: auto; 
-        }
-        
-        .footer-content {
-            width: 100%;
-            margin: 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .footer-section {
-            padding: 1.5rem 1rem;
-            position: relative;
-        }
-
-        /* Işık Kırılmalı Yatay Ayırıcı Çizgiler */
-        .footer-section:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 10%;
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            font-size: 1.2rem;
-            margin-bottom: 0.9rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            color: var(--text-main);
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.3);
-            transition: all 0.25s ease;
-        }
-
-        .social-links a:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.16);
-            border-color: rgba(255, 255, 255, 0.38);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-        }
-
-        .footer-links a { 
-            color: var(--text-muted); 
-            text-decoration: none; 
-            margin: 0 10px;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover { 
-            color: #ffffff; 
-        }
-        
-        @media (max-width: 900px) { 
-            .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.1rem; } 
-            .action-container { width: 100%; flex-direction: column; gap: 10px; }
-            .search-container { margin-right: 0; width: 100%; }
-            .search-input { width: 100%; }
-            .rss-link-btn { width: 100%; padding: 0.75rem; }
-            .filters { flex-wrap: wrap; }
-        }
-
-        @media (max-width: 500px) {
-            .pagination { gap: 0.3rem; } 
-            .page-btn { 
-                padding: 0.4rem 0.68rem; 
-                font-size: 0.85rem; 
-                border-radius: 12px;
-            }
-            .page-btn span {
-                font-size: 0.75rem; 
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/site.css?v=2">
+    <link rel="stylesheet" href="assets/home.css?v=2">
 </head>
 <body>
-
-    <header>
-        <div class="header-content">
-            <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="logo-container">
-                <div class="logo-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <header class="site-header site-header--home">
+        <div class="header-content header-content--home">
+            <a href="./" class="logo-container" aria-label="Kerimu Haber — ana sayfa">
+                <span class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
                         <polyline points="17 2 12 7 7 2"></polyline>
                     </svg>
-                </div>
-                <h1>Kerimu Haber</h1>
+                </span>
+                <h1 class="site-title">Kerimu Haber</h1>
             </a>
-            
-            <div class="filters">
-                <button class="filter-btn active" onclick="setCategory('Tümü')">Tümü</button>
-                <button class="filter-btn" onclick="setCategory('Anime')">Anime</button>
-                <button class="filter-btn" onclick="setCategory('Çizgi Film')">Çizgi Film</button>
+
+            <div class="filters" role="group" aria-label="Kategori filtresi">
+                <span class="filter-indicator" aria-hidden="true"></span>
+                <button type="button" class="filter-btn" data-category="Tümü" aria-pressed="true">Tümü</button>
+                <button type="button" class="filter-btn" data-category="Anime" aria-pressed="false">Anime</button>
+                <button type="button" class="filter-btn" data-category="Çizgi Film" aria-pressed="false">Çizgi Film</button>
             </div>
 
             <div class="action-container">
-                <div class="search-container">
-                    <i class="fa-solid fa-magnifying-glass" style="color: var(--text-muted);"></i>
-                    <input type="text" id="search-input" class="search-input" placeholder="Haberlerde ara...">
-                </div>
-
-                <a href="rss.xml" target="_blank" class="rss-link-btn">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 11a9 9 0 0 1 9 9"></path>
-                        <path d="M4 4a16 16 0 0 1 16 16"></path>
-                        <circle cx="5" cy="19" r="1"></circle>
+                <label class="search-container">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <span class="sr-only">Haberlerde ara</span>
+                    <input type="search" id="search-input" class="search-input" placeholder="Haberlerde ara..." autocomplete="off" enterkeyhint="search">
+                </label>
+                <a href="rss.xml" target="_blank" rel="noopener" class="rss-link-btn" aria-label="RSS Beslemesi">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
                     </svg>
-                    RSS Beslemesi
+                    RSS<span class="rss-long">&nbsp;Beslemesi</span>
                 </a>
             </div>
         </div>
     </header>
 
     <main>
-        <div id="news-container">
-            <p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Haberler yükleniyor...</p>
-        </div>
-        <div class="pagination" id="pagination-container"></div>
+        <div id="news-container" aria-live="polite" aria-busy="false"></div>
+        <nav class="pagination" id="pagination-container" aria-label="Sayfalama"></nav>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="footer-content">
-
-            <!-- Bölüm 1 -->
             <div class="footer-section">
                 <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
             </div>
-
-            <!-- Bölüm 2 -->
             <div class="footer-section">
                 <div class="social-links">
-                    <a href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fa-brands fa-threads"></i></a>
-                    <a href="https://mastodon.social/@animasyon" target="_blank" rel="noopener noreferrer" aria-label="Mastodon"><i class="fa-brands fa-mastodon"></i></a>
-                    <a href="https://www.instagram.com/kerimhaber?igsh=NmNva3lxbnRuYThm" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://bsky.app/profile/haber.kerim.qzz.io" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
-                    <a href="https://github.com/KerimDemirkaynak/kerimunews" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a class="icon-btn" href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://mastodon.social/@animasyon" target="_blank" rel="noopener noreferrer" aria-label="Mastodon" title="Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://www.instagram.com/kerimhaber?igsh=NmNva3lxbnRuYThm" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://bsky.app/profile/haber.kerim.qzz.io" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" title="Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://github.com/KerimDemirkaynak/kerimunews" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
                 </div>
-
                 <p id="toplam-haber-sayisi"></p>
             </div>
-
-            <!-- Bölüm 3 -->
             <div class="footer-section">
                 <div class="footer-links">
-                    <a href="hakkimizda.html">Hakkımızda & Kaynaklar</a> |
-                    <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">İletişim</a>
+                    <a href="hakkimizda.html">Hakkımızda &amp; Kaynaklar</a> |
+                    <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank" rel="noopener noreferrer">İletişim</a>
                 </div>
-
-                <p>&copy; <span id="current-year"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
+                <p>&copy; <span data-year></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
             </div>
-
         </div>
     </footer>
 
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        let tumHaberler = []; 
-        let aktifKategori = 'Tümü';
-        let aramaKelimesi = ''; 
-        let sayfa = 1;
-        const haberSayisi = 9; 
-
-        const container = document.getElementById('news-container');
-        const paginationContainer = document.getElementById('pagination-container');
-
-        async function haberleriYukle() {
-            try {
-                const response = await fetch('liste.json');
-                if (!response.ok) throw new Error('Liste dosyası bulunamadı.');
-                
-                tumHaberler = await response.json();
-                
-                // Toplam haber sayısını footera yazdırma
-                document.getElementById('toplam-haber-sayisi').textContent = `Toplam ${tumHaberler.length} haber listelenmektedir.`;
-                
-                renderNews();
-            } catch (error) {
-                console.error("Haberler yüklenirken hata:", error);
-                container.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; color: #fca5a5; background: rgba(239, 68, 68, 0.12); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25); padding: 2rem; border-radius: 24px;">
-                        <h3>Haberler Henüz Yüklenmedi</h3>
-                        <p style="color: var(--text-muted); margin-top: 10px;">Python botu henüz liste.json dosyasını oluşturmamış olabilir. Lütfen GitHub Actions'ın çalışmasını bekleyin.</p>
-                    </div>`;
-            }
-        }
-
-        function renderNews() {
-            container.innerHTML = '';
-            
-            const filtrelenmis = tumHaberler.filter(h => {
-                const kategoriUygun = aktifKategori === 'Tümü' || h.kategori === aktifKategori;
-                const aramaUygun = h.baslik.toLowerCase().includes(aramaKelimesi.toLowerCase()) || 
-                                   h.ozet.toLowerCase().includes(aramaKelimesi.toLowerCase());
-                return kategoriUygun && aramaUygun;
-            });
-            
-            const baslangic = (sayfa - 1) * haberSayisi;
-            const bitis = baslangic + haberSayisi;
-            const gosterilecekHaberler = filtrelenmis.slice(baslangic, bitis);
-
-            if (gosterilecekHaberler.length === 0) {
-                container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Bu kriterlere uygun haber bulunamadı.</p>';
-                paginationContainer.innerHTML = '';
-                return;
-            }
-
-            gosterilecekHaberler.forEach(haber => {
-                const tagClass = haber.kategori === 'Anime' ? 'tag-anime' : 'tag-cartoon';
-                
-                const resimHTML = haber.resim 
-                    ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.14);">`
-                    : `<div class="card-img-placeholder"><span>${haber.kaynak}</span></div>`;
-                
-                const card = `
-                    <article class="news-card" onclick="window.location.href='haber.html?id=${haber.id}'" style="cursor: pointer;">
-                        ${resimHTML}
-                        <div class="card-content">
-                            <span class="card-tag ${tagClass}">${haber.kategori}</span>
-                            <h2 class="card-title">${haber.baslik}</h2>
-                            <p class="card-excerpt">${haber.ozet}</p>
-                            <div class="card-footer">
-                                <span>${haber.tarih}</span>
-                                <span class="read-more-btn">Haberi Oku <i class="fa-solid fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                    </article>
-                `;
-                container.innerHTML += card;
-            });
-
-            renderPagination(filtrelenmis.length);
-        }
-
-        function renderPagination(toplamHaber) {
-            paginationContainer.innerHTML = '';
-            const toplamSayfa = Math.ceil(toplamHaber / haberSayisi);
-            
-            if (toplamSayfa <= 1) return;
-
-            const prevBtn = document.createElement('button');
-            prevBtn.className = 'page-btn';
-            prevBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span>Önceki</span><i class="fa-solid fa-arrow-left"></i></div>';
-            prevBtn.disabled = sayfa === 1;
-            prevBtn.onclick = () => { sayfa--; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-            paginationContainer.appendChild(prevBtn);
-
-            let sayfalar = new Set();
-            
-            if (toplamSayfa <= 5) {
-                for (let i = 1; i <= toplamSayfa; i++) sayfalar.add(i);
-            } else {
-                sayfalar.add(1);
-                sayfalar.add(toplamSayfa);
-                
-                if (sayfa <= 3) {
-                    sayfalar.add(2);
-                    sayfalar.add(3);
-                    sayfalar.add(4);
-                } else if (sayfa >= toplamSayfa - 2) {
-                    sayfalar.add(toplamSayfa - 3);
-                    sayfalar.add(toplamSayfa - 2);
-                    sayfalar.add(toplamSayfa - 1);
-                } else {
-                    sayfalar.add(sayfa - 1);
-                    sayfalar.add(sayfa);
-                    sayfalar.add(sayfa + 1);
-                }
-            }
-            
-            let siraliSayfalar = Array.from(sayfalar).sort((a, b) => a - b);
-
-            siraliSayfalar.forEach(i => {
-                const btn = document.createElement('button');
-                btn.className = `page-btn ${i === sayfa ? 'active' : ''}`;
-                btn.style.display = 'flex';
-                btn.style.alignItems = 'center';
-                btn.style.justifyContent = 'center';
-                btn.innerText = i;
-                btn.onclick = () => { sayfa = i; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-                paginationContainer.appendChild(btn);
-            });
-
-            const nextBtn = document.createElement('button');
-            nextBtn.className = 'page-btn';
-            nextBtn.innerHTML = '<div style="display: flex; flex-direction: column; align-items: center; gap: 2px;"><span>Sonraki</span><i class="fa-solid fa-arrow-right"></i></div>';
-            nextBtn.disabled = sayfa === toplamSayfa;
-            nextBtn.onclick = () => { sayfa++; renderNews(); window.scrollTo({top: 0, behavior: 'smooth'}); };
-            paginationContainer.appendChild(nextBtn);
-        }
-
-        window.setCategory = function(kategori) {
-            aktifKategori = kategori;
-            sayfa = 1; 
-            
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText === kategori);
-            });
-            renderNews();
-        }
-
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            aramaKelimesi = e.target.value;
-            sayfa = 1; 
-            renderNews();
-        });
-
-        window.onload = haberleriYukle;
-    </script>
+    <script src="assets/site.js?v=2"></script>
+    <script src="assets/home.js?v=2"></script>
 </body>
 </html>

@@ -2,368 +2,60 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Hakkımızda - Kerimu Animasyon Haberleri</title>
-    <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --bg-color: #050811;
-            --glass-surface: rgba(255, 255, 255, 0.06);
-            --glass-surface-hover: rgba(255, 255, 255, 0.11);
-            --glass-heavy: rgba(10, 15, 28, 0.52);
-            --glass-border: rgba(255, 255, 255, 0.16);
-            --glass-border-bright: rgba(255, 255, 255, 0.34);
-            --glass-highlight: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
-            --text-main: #f8fafc;
-            --text-muted: rgba(226, 232, 240, 0.74);
-            --accent: #60a5fa;
-        }
+    <meta name="description" content="Kerimu Animasyon Haberleri'nin kaynakları, kullanım koşulları, gizlilik ve çerez politikası, adil kullanım ilkesi ve yorum kuralları.">
+    <meta name="author" content="Kerim Demirkaynak">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="theme-color" content="#050811">
+    <meta name="color-scheme" content="dark">
+    <link rel="canonical" href="https://kerimdemirkaynak.github.io/kerimunews/hakkimizda.html">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
+    <meta property="og:site_name" content="Kerimu Animasyon Haberleri">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hakkımızda ve Kaynaklar - Kerimu Animasyon Haberleri">
+    <meta property="og:description" content="Haber kaynaklarımız, kullanım koşulları, gizlilik politikası ve yorum kuralları.">
+    <meta property="og:url" content="https://kerimdemirkaynak.github.io/kerimunews/hakkimizda.html">
+    <meta property="og:image" content="https://kerimdemirkaynak.github.io/kerimunews/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kerimu Haber — anime ve çizgi film haberleri">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hakkımızda ve Kaynaklar - Kerimu Animasyon Haberleri">
+    <meta name="twitter:description" content="Haber kaynaklarımız, kullanım koşulları, gizlilik politikası ve yorum kuralları.">
+    <meta name="twitter:image" content="https://kerimdemirkaynak.github.io/kerimunews/assets/og-image.png">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.65;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-48.png" type="image/png" sizes="48x48">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/manifest.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Kerimu Animasyon Haberleri RSS" href="rss.xml">
 
-        /* Liquid Glass Arka Plan Işık Küreleri (Refraksiyon için derinlik) */
-        body::before,
-        body::after {
-            content: '';
-            position: fixed;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-            filter: blur(95px);
-            opacity: 0.65;
-            animation: liquidDrift 18s ease-in-out infinite alternate;
-        }
-
-        body::before {
-            width: 55vw;
-            height: 55vw;
-            max-width: 720px;
-            max-height: 720px;
-            top: -14%;
-            left: -10%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, rgba(139, 92, 246, 0.35) 48%, transparent 75%);
-        }
-
-        body::after {
-            width: 50vw;
-            height: 50vw;
-            max-width: 680px;
-            max-height: 680px;
-            bottom: -12%;
-            right: -8%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(14, 165, 233, 0.35) 50%, transparent 75%);
-            animation-delay: -9s;
-        }
-
-        @keyframes liquidDrift {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(4%, 6%) scale(1.08); }
-            100% { transform: translate(-3%, 3%) scale(0.96); }
-        }
-
-        /* Sticky Liquid Glass Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--glass-heavy);
-            backdrop-filter: blur(26px) saturate(190%);
-            -webkit-backdrop-filter: blur(26px) saturate(190%);
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.12);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            padding: 1rem 1.25rem;
-            gap: 1rem;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-main);
-            text-decoration: none;
-            transition: transform 0.25s ease;
-        }
-
-        .logo-container:hover {
-            transform: scale(1.02);
-        }
-
-        .logo-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            color: #fff;
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.45), rgba(59, 130, 246, 0.18));
-            border: 1px solid rgba(255, 255, 255, 0.32);
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), var(--glass-highlight);
-        }
-
-        header h1 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.2px;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-        }
-        
-        main {
-            flex: 1;
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1.25rem;
-            width: 100%;
-        }
-
-        /* Geri Dön Kapsül Butonu */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 1.35rem;
-            padding: 0.55rem 1.15rem;
-            border-radius: 999px;
-            background: linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
-            backdrop-filter: blur(18px) saturate(180%);
-            -webkit-backdrop-filter: blur(18px) saturate(180%);
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.35);
-            color: #e2e8f0;
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 600;
-            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .back-btn:hover {
-            color: #ffffff;
-            background: linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
-            border-color: var(--glass-border-bright);
-            transform: translateX(-3px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.36), inset 0 1px 1px rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-        }
-
-        /* Ana İçerik Kutusu (Liquid Glass) */
-        .content-box {
-            background: linear-gradient(155deg, rgba(255, 255, 255, 0.095) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(255, 255, 255, 0.055) 100%);
-            backdrop-filter: blur(26px) saturate(185%);
-            -webkit-backdrop-filter: blur(26px) saturate(185%);
-            border-radius: 26px;
-            padding: 3rem;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42), var(--glass-highlight);
-            margin-bottom: 2rem;
-        }
-        
-        h1.page-title {
-            font-size: 2.15rem;
-            font-weight: 700;
-            letter-spacing: -0.3px;
-            color: #ffffff;
-            border-bottom: 2px solid rgba(96, 165, 250, 0.65);
-            padding-bottom: 0.65rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-            font-size: 1.45rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 1.2em;
-            border-radius: 999px;
-            background: linear-gradient(180deg, #93c5fd, #3b82f6);
-            box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
-        }
-
-        h3 {
-            font-size: 1.16rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            margin-top: 1.65rem;
-            margin-bottom: 0.55rem;
-        }
-
-        p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            font-size: 1.03rem;
-        }
-
-        ul, ol {
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.6rem;
-            font-size: 1.02rem;
-        }
-
-        li strong {
-            color: #f8fafc;
-        }
-
-        a {
-            color: #93c5fd;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
-        }
-
-        a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(147, 197, 253, 0.6);
-            text-decoration: underline;
-        }
-
-        code {
-            display: inline-block;
-            padding: 0.15rem 0.6rem;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #93c5fd;
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            font-size: 0.9rem;
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25);
-        }
-
-        hr {
-            border: none !important;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
-        }
-        
-        /* Kaynak Kartları (Liquid Glass Kapsül Kutucuklar) */
-        .sources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 1rem;
-            margin-top: 1.25rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .source-item {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035));
-            backdrop-filter: blur(16px) saturate(180%);
-            -webkit-backdrop-filter: blur(16px) saturate(180%);
-            padding: 1.05rem 1rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.96rem;
-            color: #93c5fd;
-            transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .source-item:hover {
-            transform: translateY(-3px);
-            background: linear-gradient(145deg, rgba(96, 165, 250, 0.24), rgba(255, 255, 255, 0.07));
-            border-color: rgba(255, 255, 255, 0.42);
-            color: #ffffff;
-            box-shadow: 0 10px 26px rgba(59, 130, 246, 0.25), inset 0 1px 1.5px rgba(255, 255, 255, 0.55);
-        }
-
-        /* Liquid Glass Footer */
-        footer {
-            background: var(--glass-heavy);
-            backdrop-filter: blur(26px) saturate(190%);
-            -webkit-backdrop-filter: blur(26px) saturate(190%);
-            border-top: 1px solid var(--glass-border);
-            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
-            padding: 2rem 1rem;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .footer-content p {
-            margin-bottom: 0;
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .content-box {
-                padding: 1.65rem;
-                border-radius: 22px;
-            }
-            h1.page-title {
-                font-size: 1.7rem;
-            }
-            h2 {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/site.css?v=2">
+    <link rel="stylesheet" href="assets/about.css?v=2">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="header-content">
-            <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="logo-container">
-                <div class="logo-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="./" class="logo-container" aria-label="Kerimu Haber — ana sayfa">
+                <span class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
                         <polyline points="17 2 12 7 7 2"></polyline>
                     </svg>
-                </div>
-                <h1>Kerimu Haber</h1>
+                </span>
+                <span class="site-title">Kerimu Haber</span>
             </a>
         </div>
     </header>
 
     <main>
-        <a href="https://kerimdemirkaynak.github.io/kerimunews/" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön</a>
-        
-        <div class="content-box">
+        <a href="./" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Ana Sayfaya Dön</a>
+
+        <div class="content-box glass-card">
             <h1 class="page-title">Hakkımızda ve Kaynaklar</h1>
             
             <p>Kerimu Animasyon Haberleri, global anime ve çizgi film haberlerini otomatik RSS sistemleri aracılığıyla toplayıp, anında Türkçeye çevirerek okuyucularına sunan bir haber servisidir.</p>
@@ -376,10 +68,10 @@
                 <div class="source-item">AnimeNewsNetwork</div>
                 <div class="source-item">CBR (Anime & Cartoons)</div>
                 <div class="source-item">CartoonBrew</div>
-                <div class="source-item">AnimationMagazine</div>                
+                <div class="source-item">AnimationMagazine</div>
             </div>
 
-            <hr style="border-color: #334155; margin: 3rem 0;">
+            <hr>
 
             <h2>Kullanım Koşulları</h2>
             <p>Sevgili ziyaretçimiz, lütfen Kerimu Animasyon Haberleri web sitemizi ziyaret etmeden önce işbu kullanım koşulları sözleşmesini dikkatlice okuyunuz. Siteye erişiminiz tamamen bu sözleşmeyi kabulünüze ve bu sözleşme ile belirlenen şartlara uymanıza bağlıdır. Şayet bu sözleşmede yazan herhangi bir koşulu kabul etmiyorsanız, lütfen siteye erişiminizi sonlandırınız.</p>
@@ -400,7 +92,7 @@
 
             <h2>Gizlilik Politikası</h2>
             <p>Güvenliğiniz bizim için önemli. Bu sebeple bizimle paylaşacağınız kişisel verileriniz hassasiyetle korunmaktadır. Biz, Kerimu Animasyon Haberleri, veri sorumlusu olarak, bu gizlilik ve kişisel verilerin korunması politikası ile, hangi kişisel verilerinizin hangi amaçla işleneceği hususunda sizleri aydınlatmayı amaçlıyoruz.</p>
-            <p>IP adresiniz ve kullanıcı aracısı bilgileriniz, sadece analiz yapmak amacıyla ve çerezler (cookies) vb. teknolojiler vasıtasıyla kaydedilerek işlenecektir. Haklarınızı kullanmak ve detaylı bilgi almak için <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">iletişim sayfamız</a> üzerinden bizimle irtibata geçebilirsiniz.</p>
+            <p>IP adresiniz ve kullanıcı aracısı bilgileriniz, sadece analiz yapmak amacıyla ve çerezler (cookies) vb. teknolojiler vasıtasıyla kaydedilerek işlenecektir. Haklarınızı kullanmak ve detaylı bilgi almak için <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank" rel="noopener noreferrer">iletişim sayfamız</a> üzerinden bizimle irtibata geçebilirsiniz.</p>
 
             <h2>Çerez Politikası</h2>
             <p>Sizlere daha iyi hizmet verebilmek adına, çerezler vasıtasıyla, ne tür kişisel verilerinizin hangi amaçla toplandığı ve nasıl işlendiği konularında, kısaca bilgi sahibi olmak için lütfen bu Çerez Politikasını okuyunuz.</p>
@@ -426,18 +118,35 @@
                 <li>SPOILER HAKKINDA! Gelecek bölümlerde yaşanacak olaylardan bahseden, öngörü ve tahminlerde bulunan yorumlar yaparken spoiler kodu kullanılması zorunludur. Kural dışı spoiler vermek yasaktır. Örnek spoiler kodu kullanımı: <code>&lt;spoiler&gt; YORUM &lt;/spoiler&gt;</code></li>
                 <li>Bilinçli veya bilinçsiz olarak reklam yapmak, Kerimu Animasyon Haberleri ile ilgisi olmayan bağlantı paylaşmak yasaktır.</li>
                 <li>Yorum yapılan seri ile ilgisi olmayan konu dışı bağlantı (URL) paylaşmak yasaktır.</li>
-                <li>Kurallara uymayan kişiler moderatörler tarafından uzaklaştırılabilir. Yorum yapması yasaklanmış kişilerin <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank">iletişim sayfamız</a> üzerinden moderatörlere ulaşması gerekmektedir.</li>
+                <li>Kurallara uymayan kişiler moderatörler tarafından uzaklaştırılabilir. Yorum yapması yasaklanmış kişilerin <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank" rel="noopener noreferrer">iletişim sayfamız</a> üzerinden moderatörlere ulaşması gerekmektedir.</li>
             </ol>
         </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="footer-content">
-            <p>&copy; <span id="current-year-footer"></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
+            <div class="footer-section">
+                <p>RSS altyapısı ile global animasyon haberlerini Türkçe olarak sunar.</p>
+            </div>
+            <div class="footer-section">
+                <div class="social-links">
+                    <a class="icon-btn" href="https://www.threads.com/@animasyonhaberleri" target="_blank" rel="noopener noreferrer" aria-label="Threads" title="Threads"><i class="fa-brands fa-threads" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://mastodon.social/@animasyon" target="_blank" rel="noopener noreferrer" aria-label="Mastodon" title="Mastodon"><i class="fa-brands fa-mastodon" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://www.instagram.com/kerimhaber?igsh=NmNva3lxbnRuYThm" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://bsky.app/profile/haber.kerim.qzz.io" target="_blank" rel="noopener noreferrer" aria-label="Bluesky" title="Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a>
+                    <a class="icon-btn" href="https://github.com/KerimDemirkaynak/kerimunews" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-links">
+                    <a href="hakkimizda.html">Hakkımızda &amp; Kaynaklar</a> |
+                    <a href="https://kerimdemirkaynak.github.io/iletisim" target="_blank" rel="noopener noreferrer">İletişim</a>
+                </div>
+                <p>&copy; <span data-year></span> Kerim Demirkaynak - Tüm Hakları Saklıdır.</p>
+            </div>
         </div>
     </footer>
-    <script>
-        document.getElementById('current-year-footer').textContent = new Date().getFullYear();
-    </script>
+
+    <script src="assets/site.js?v=2"></script>
 </body>
 </html>
