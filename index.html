@@ -22,68 +22,442 @@
 
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
+            --bg-color: #050811;
+            --glass-surface: rgba(255, 255, 255, 0.06);
+            --glass-surface-hover: rgba(255, 255, 255, 0.11);
+            --glass-heavy: rgba(10, 15, 28, 0.52);
+            --glass-border: rgba(255, 255, 255, 0.16);
+            --glass-border-bright: rgba(255, 255, 255, 0.34);
+            --glass-highlight: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
             --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #3b82f6;
-            --anime-tag: #ec4899;
-            --cartoon-tag: #f59e0b;
-            --header-bg: #0b1120;
+            --text-muted: rgba(226, 232, 240, 0.68);
+            --accent: #60a5fa;
+            --anime-tag: rgba(236, 72, 153, 0.32);
+            --cartoon-tag: rgba(245, 158, 11, 0.32);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
-        header { background-color: var(--header-bg); border-bottom: 1px solid #334155; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 1.2rem 1rem; gap: 1rem; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Liquid Glass Arka Plan Işık Küreleri (Refraksiyon için derinlik) */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(95px);
+            opacity: 0.65;
+            animation: liquidDrift 18s ease-in-out infinite alternate;
+        }
+
+        body::before {
+            width: 55vw;
+            height: 55vw;
+            max-width: 720px;
+            max-height: 720px;
+            top: -14%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, rgba(139, 92, 246, 0.35) 48%, transparent 75%);
+        }
+
+        body::after {
+            width: 50vw;
+            height: 50vw;
+            max-width: 680px;
+            max-height: 680px;
+            bottom: -12%;
+            right: -8%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(14, 165, 233, 0.35) 50%, transparent 75%);
+            animation-delay: -9s;
+        }
+
+        @keyframes liquidDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(4%, 6%) scale(1.08); }
+            100% { transform: translate(-3%, 3%) scale(0.96); }
+        }
+
+        /* Sticky Liquid Glass Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--glass-heavy);
+            backdrop-filter: blur(26px) saturate(190%);
+            -webkit-backdrop-filter: blur(26px) saturate(190%);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            gap: 1rem;
+        }
         
-        .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); text-decoration: none; }
-        .logo-icon { display: flex; align-items: center; color: var(--accent); }
-        header h1 { font-size: 1.25rem; font-weight: 600; letter-spacing: 0.5px; margin: 0; }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.45), rgba(59, 130, 246, 0.18));
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), var(--glass-highlight);
+        }
+
+        header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        }
         
-        .filters { display: flex; gap: 0.8rem; justify-content: center; }
-        .filter-btn { background-color: transparent; color: var(--text-muted); border: 1px solid #334155; padding: 0.5rem 1.2rem; border-radius: 6px; cursor: pointer; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
-        .filter-btn:hover, .filter-btn.active { background-color: var(--card-bg); border-color: var(--accent); color: var(--text-main); }
+        /* Liquid Kapsül Filtre Grubu */
+        .filters {
+            display: flex;
+            gap: 0.35rem;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .filter-btn {
+            background-color: transparent;
+            color: var(--text-muted);
+            border: 1px solid transparent;
+            padding: 0.45rem 1.15rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .filter-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.09) 100%);
+            border-color: rgba(255, 255, 255, 0.35);
+            color: #fff;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.55);
+        }
         
-        .action-container { display: flex; justify-content: flex-end; align-items: center; }
+        .action-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
         
-        /* Arama Kutusu Stilleri */
-        .search-container { display: flex; align-items: center; background-color: var(--card-bg); border: 1px solid #334155; border-radius: 6px; padding: 0.4rem 0.8rem; margin-right: 1rem; transition: border-color 0.2s; }
-        .search-container:focus-within { border-color: var(--accent); }
-        .search-input { background: transparent; border: none; color: var(--text-main); font-size: 0.9rem; outline: none; padding-left: 8px; width: 200px; }
-        .search-input::placeholder { color: var(--text-muted); }
+        /* Arama Kutusu Stilleri (İçbükey Cam Kapsül) */
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 999px;
+            padding: 0.45rem 0.95rem;
+            margin-right: 0.85rem;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            transition: all 0.25s ease;
+        }
 
-        .rss-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background-color: #f97316; color: white; padding: 0.5rem 1rem; border-radius: 6px; text-decoration: none; font-size: 0.9rem; font-weight: bold; transition: background 0.2s; white-space: nowrap; }
-        .rss-link-btn:hover { background-color: #ea580c; }
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.09);
+            border-color: rgba(255, 255, 255, 0.38);
+            box-shadow: 0 0 20px rgba(96, 165, 250, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+        }
 
-        main { flex: 1; max-width: 1200px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
-        #news-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .search-input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            outline: none;
+            padding-left: 8px;
+            width: 190px;
+        }
 
-        .news-card { background-color: var(--card-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #334155; transition: transform 0.2s; }
-        .news-card:hover { transform: translateY(-5px); border-color: #475569; }
-        .card-img-placeholder { height: 180px; background-color: #334155; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.9rem; }
-        .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-        .card-tag { align-self: flex-start; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.75rem; font-weight: bold; margin-bottom: 1rem; text-transform: uppercase; }
-        .tag-anime { background-color: var(--anime-tag); color: white; }
-        .tag-cartoon { background-color: var(--cartoon-tag); color: white; }
-        .card-title { font-size: 1.15rem; margin-bottom: 0.75rem; color: #fff; line-height: 1.4; }
-        .card-excerpt { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
-        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; color: var(--text-muted); border-top: 1px solid #334155; padding-top: 1rem; }
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Renkli Liquid Glass RSS Butonu */
+        .rss-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.72), rgba(234, 88, 12, 0.45));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.36);
+            color: white;
+            padding: 0.5rem 1.1rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 4px 18px rgba(249, 115, 22, 0.32), inset 0 1px 1.5px rgba(255, 255, 255, 0.55);
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .rss-link-btn:hover {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.88), rgba(234, 88, 12, 0.65));
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(249, 115, 22, 0.48), inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
+        }
+
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2.25rem auto;
+            padding: 0 1.25rem;
+            width: 100%;
+        }
+
+        #news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Liquid Glass Haber Kartları */
+        .news-card {
+            position: relative;
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(255, 255, 255, 0.06) 100%);
+            backdrop-filter: blur(24px) saturate(185%);
+            -webkit-backdrop-filter: blur(24px) saturate(185%);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), var(--glass-highlight);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 0.35s ease,
+                        background 0.35s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-6px) scale(1.008);
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0.09) 100%);
+            border-color: var(--glass-border-bright);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.48),
+                        0 0 28px rgba(96, 165, 250, 0.16),
+                        inset 0 1.5px 2px rgba(255, 255, 255, 0.55),
+                        inset 0 -1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .news-card img {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .news-card:hover img {
+            transform: scale(1.03);
+        }
+
+        .card-img-placeholder {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        /* Yarı Saydam Cam Etiketler */
+        .card-tag {
+            align-self: flex-start;
+            padding: 0.28rem 0.85rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .tag-anime {
+            background: var(--anime-tag);
+            border: 1px solid rgba(244, 114, 182, 0.48);
+            color: #fce7f3;
+            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+
+        .tag-cartoon {
+            background: var(--cartoon-tag);
+            border: 1px solid rgba(251, 191, 36, 0.48);
+            color: #fef3c7;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255, 255, 255, 0.11);
+            padding-top: 1rem;
+        }
         
-        .read-more-btn { display: inline-block; background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; font-size: 0.9rem; transition: color 0.2s; text-decoration: none; }
-        .news-card:hover .read-more-btn { color: #60a5fa; text-decoration: underline; }
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            color: #93c5fd;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.88rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
 
-        .pagination { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
-        .page-btn { background-color: var(--card-bg); color: var(--text-main); border: 1px solid #334155; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; transition: 0.2s; }
-        .page-btn:hover:not(:disabled) { background-color: #334155; }
-        .page-btn.active { background-color: var(--accent); border-color: var(--accent); }
-        .page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .news-card:hover .read-more-btn {
+            color: #ffffff;
+            text-shadow: 0 0 12px rgba(147, 197, 253, 0.7);
+        }
 
-        /* Footer */
+        .news-card:hover .read-more-btn i {
+            transform: translateX(3px);
+        }
+
+        .read-more-btn i {
+            transition: transform 0.2s ease;
+        }
+
+        /* Liquid Glass Sayfalama (Pagination) */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.55rem;
+            margin-top: 2rem;
+        }
+
+        .page-btn {
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03));
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            padding: 0.55rem 1.05rem;
+            border-radius: 16px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: linear-gradient(160deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.06));
+            border-color: var(--glass-border-bright);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+        }
+
+        .page-btn.active {
+            background: linear-gradient(145deg, rgba(96, 165, 250, 0.55), rgba(59, 130, 246, 0.28));
+            border-color: rgba(255, 255, 255, 0.48);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 6px 22px rgba(59, 130, 246, 0.38), inset 0 1px 1.5px rgba(255, 255, 255, 0.65);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.38;
+            cursor: not-allowed;
+        }
+
+        /* Liquid Glass Footer */
         footer { 
-            background-color: var(--header-bg); 
-            border-top: 1px solid #334155; 
+            background: var(--glass-heavy);
+            backdrop-filter: blur(26px) saturate(190%);
+            -webkit-backdrop-filter: blur(26px) saturate(190%);
+            border-top: 1px solid var(--glass-border);
+            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
             padding: 0; 
             text-align: center; 
             margin-top: auto; 
@@ -101,56 +475,73 @@
             position: relative;
         }
 
-        /* Yatay ayırıcı çizgiler: keskin değil, yumuşak geçişli */
+        /* Işık Kırılmalı Yatay Ayırıcı Çizgiler */
         .footer-section:not(:last-child)::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 100%;
+            left: 10%;
+            width: 80%;
             height: 1px;
-            background: linear-gradient(to right, #334155, rgba(51, 65, 85, 0.15));
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            gap: 14px;
+            font-size: 1.2rem;
+            margin-bottom: 0.9rem;
         }
 
         .social-links a {
-            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            transition: all 0.25s ease;
         }
 
         .social-links a:hover {
-            color: var(--accent);
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.16);
+            border-color: rgba(255, 255, 255, 0.38);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5);
         }
 
         .footer-links a { 
             color: var(--text-muted); 
             text-decoration: none; 
-            margin: 0 10px; 
+            margin: 0 10px;
+            transition: color 0.2s ease;
         }
+
         .footer-links a:hover { 
-            color: var(--accent); 
+            color: #ffffff; 
         }
         
         @media (max-width: 900px) { 
-            .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.2rem; } 
+            .header-content { display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 1.1rem; } 
             .action-container { width: 100%; flex-direction: column; gap: 10px; }
             .search-container { margin-right: 0; width: 100%; }
             .search-input { width: 100%; }
-            .rss-link-btn { width: 100%; padding: 0.8rem; }
+            .rss-link-btn { width: 100%; padding: 0.75rem; }
             .filters { flex-wrap: wrap; }
         }
 
         @media (max-width: 500px) {
-            .pagination { gap: 0.25rem; } 
+            .pagination { gap: 0.3rem; } 
             .page-btn { 
-                padding: 0.35rem 0.6rem; 
+                padding: 0.4rem 0.68rem; 
                 font-size: 0.85rem; 
+                border-radius: 12px;
             }
             .page-btn span {
                 font-size: 0.75rem; 
@@ -263,7 +654,7 @@
             } catch (error) {
                 console.error("Haberler yüklenirken hata:", error);
                 container.innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; color: #ef4444; background: #1e293b; padding: 2rem; border-radius: 8px;">
+                    <div style="grid-column: 1/-1; text-align: center; color: #fca5a5; background: rgba(239, 68, 68, 0.12); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(248, 113, 113, 0.3); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25); padding: 2rem; border-radius: 24px;">
                         <h3>Haberler Henüz Yüklenmedi</h3>
                         <p style="color: var(--text-muted); margin-top: 10px;">Python botu henüz liste.json dosyasını oluşturmamış olabilir. Lütfen GitHub Actions'ın çalışmasını bekleyin.</p>
                     </div>`;
@@ -294,7 +685,7 @@
                 const tagClass = haber.kategori === 'Anime' ? 'tag-anime' : 'tag-cartoon';
                 
                 const resimHTML = haber.resim 
-                    ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #334155;">`
+                    ? `<img src="${haber.resim}" alt="${haber.baslik}" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid rgba(255, 255, 255, 0.14);">`
                     : `<div class="card-img-placeholder"><span>${haber.kaynak}</span></div>`;
                 
                 const card = `
