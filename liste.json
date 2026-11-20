@@ -1,5 +1,105 @@
 [
     {
+        "id": "222ff2f843",
+        "kategori": "Anime",
+        "baslik": "Pokémon, 'Duo's Pokémon Party' Etkinliği İçin Duolingo ile Bir Araya Geliyor",
+        "ozet": "Hatta bu süreçte Pokémon dilini bile öğrenebilirsin....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gH6/youtube/3kmmiVQlGi0.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "20 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-11-19/pokemon-joins-duolingo-for-duo-pokemon-party-event/.243987"
+    },
+    {
+        "id": "6cd14d6e95",
+        "kategori": "Anime",
+        "baslik": "'I am the only one who is not attacked in the world filled with zombies' animesi, yeni oyuncu kadrosunu duyurdu ve 1 Ocak'ta televizyonda yayın hayatına başlıyor.",
+        "ozet": "Mitsuki Kuribayashi, Risae Matsuda, Sarah Emi Bridcutt, Seigo Yokota ve Shuhei Matsuda dahil olmak üzere 2 yeni isim daha oyuncu kadrosuna katıldı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHH/cms/news.10/242682/zombie-kv.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "20 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-19/i-am-the-only-one-who-is-not-attacked-in-the-world-filled-with-zombies-anime-reveals-more-cast-/.244007"
+    },
+    {
+        "id": "e3787fbf32",
+        "kategori": "Anime",
+        "baslik": "Live-Action Fukakōryoku no I Love You filminde başrolü M!LK idolü Shunta Sono üstleniyor.",
+        "ozet": "Idol grubu üyesi, Mart 2027'de vizyona girecek filmde Saku'nun çocukluk arkadaşı Rentarō Akizuki'yi canlandırıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gHB/cms/news.10/244006/shuntasono.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "20 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-19/live-action-fukakoryoku-no-i-love-you-film-casts-m-lk-idol-shunta-sono/.244006"
+    },
+    {
+        "id": "6636420deb",
+        "kategori": "Anime",
+        "baslik": "Kimsenin Bahsetmediği 10 Kusursuz '90'lar Animesi",
+        "ozet": "Flame of Recca ve Nadia: The Secret of Blue Water gibi 90'ların anime yapımları artık pek konuşulmuyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/11/nadia-the-secret-of-blue-water.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "20 Kasım 2026",
+        "link": "https://www.cbr.com/flawless-1990s-anime-fans-forgot-list/"
+    },
+    {
+        "id": "7d67407f66",
+        "kategori": "Anime",
+        "baslik": "Solo Leveling, yeni bir ön bölüm (prequel) bölümüyle 6 gün erkenden geri dönüyor.",
+        "ozet": "Solo Leveling'in yeni Hunter Origin webtoon bölümü, spin-off'un en büyük gizemiyle derin bağları olan Avcı Thalia De Rossi’nin hikayesini anlatıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/11/db82b536-85a5-4125-9c8c-f9dc019baa5b-1.jpeg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "20 Kasım 2026",
+        "link": "https://www.cbr.com/solo-leveling-arise-hunter-origin-39-thalia-derossi/"
+    },
+    {
+        "id": "5216428a18",
+        "kategori": "Anime",
+        "baslik": "10/10 Final Puanına Sahip 5 Gundam Animesi",
+        "ozet": "Bu beş Gundam yapımı, hikayelerini daha da unutulmaz kılan finalleriyle beklentileri tam anlamıyla karşılıyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/10/mobile-suit-gundam.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "20 Kasım 2026",
+        "link": "https://www.cbr.com/gundam-anime-with-perfect-finales/"
+    },
+    {
+        "id": "130a8852fe",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Steps’ Yönetmenleri; Motosikletli Troller, Kurmalı Mekanizmalar, Rokoko Tasarımlar ve ‘Cinderella’ Hikayesini Yeniden Yazmak Üzerine",
+        "ozet": "Alyce Tzue ve John Ripa, espresso köpüğünün saray sıvalarına nasıl ilham verdiğini ve bir mech kovalamacası içindeki duygusal sahneyi kurgularken neler öğrendiklerini açıklıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Steps-Mech.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "19 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/steps-alyce-tzue-john-ripa-interview-269608.html"
+    },
+    {
+        "id": "a92a4e6a90",
+        "kategori": "Çizgi Film",
+        "baslik": "Disney, on yıl aradan sonra serinin ilk sinema filmi olan Ice Age: Boiling Point için ilk fragmanı yayınladı.",
+        "ozet": "Yönetmen John C. Donkin, sürüyü tekrar Lost World'e götürüyor. Sürünün burada, bir dinozor yumurtasını aktif bir yanardağın tepesine taşıması gerekecek....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Ice-Age-Boiling-Point.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "19 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/feature-film/ice-age-boiling-point-trailer-269630.html"
+    },
+    {
+        "id": "e2a40d0d8c",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscars Kısa Film Adayları: 'Danse Macabre' Yönetmeni Hisko Hulsing",
+        "ozet": "Yağlı boya tablolar, canlandırılmış iskeletler ve Shostakovich’in müzikleri, faşizmin yeniden yükselişinden duyulan korkulardan ilham alan, savaşın kıyamet sonrası bir vizyonunu şekillendiriyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Danse-Macabre.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "19 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/awards/danse-macabre-hisko-hulsing-269621.html"
+    },
+    {
+        "id": "9897a867d7",
+        "kategori": "Çizgi Film",
+        "baslik": "'My Friend Maisy', Nick Jr. Amerika Prömiyeri İçin Okyanusu Aşıyor",
+        "ozet": "Okul öncesi yaş grubundaki çocuklar, 21 Kasım Cumartesi günü ABD'deki Nick Jr. kanalında prömiyerini yapacak olan yeni animasyon dizisi My Friend Maisy ile hayal gücü dolu bir dünyaya davet ediliyor. Lucy Cousins’in 46 milyondan fazla satan çok satan kitaplarından uyarlanan bu yapım, izleyicileri keyifli bir maceraya çıkaracak....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "19 Kasım 2026",
+        "link": "https://www.animationmagazine.net/2026/11/my-friend-maisy-crosses-the-pond-for-nick-jr-u-s-premiere/"
+    },
+    {
         "id": "2919c9454e",
         "kategori": "Anime",
         "baslik": "Masashi Kishimoto, Koji Kiriyama'nın Ninku'sunun Devamı Olsun Diye Naruto'yu Yarattı",
