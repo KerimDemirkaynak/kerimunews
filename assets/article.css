@@ -22,11 +22,17 @@ main { flex: 1; width: 100%; max-width: 1200px; margin: 2rem auto; padding: 0 1.
 .article-container.is-entering > *:nth-child(4) { animation-delay: 180ms; }
 
 .article-image {
-    width: 100%; max-height: 420px; object-fit: cover; display: block;
+    width: 100%; display: block; object-fit: cover;
+    height: auto; aspect-ratio: 16 / 9;                 /* yüklenene kadar yer ayır */
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     opacity: 0; transition: opacity 0.5s ease;
 }
 .article-image.loaded { opacity: 1; }
+/* Yatay görsel: tam genişlik, kendi oranında (uç oranlar JS'te 4:3 – 21:9 arasına sıkıştırılır) */
+.article-image.is-landscape { max-height: none; }
+/* Dikey / kare görsel: sabit yükseklikte kırpılmış şerit */
+.article-image.is-portrait { aspect-ratio: auto; height: 420px; }
+@media (max-width: 520px) { .article-image.is-portrait { height: 320px; } }
 
 .article-header { padding: 2rem; }
 .article-title {

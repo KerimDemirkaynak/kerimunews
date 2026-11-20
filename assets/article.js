@@ -221,7 +221,7 @@
 
             articleEl.classList.add('is-entering');
             articleEl.innerHTML = `
-                ${hasImg ? `<img src="${esc(h.resim)}" alt="" class="article-image" width="1200" height="630">` : ''}
+                ${hasImg ? `<img src="${esc(h.resim)}" alt="" class="article-image">` : ''}
                 <div class="article-header"><h1 class="article-title">${clean(h.baslik)}</h1></div>
 
                 <div class="article-sub-bar">
@@ -269,7 +269,20 @@
                 </div>`;
 
             const img = articleEl.querySelector('.article-image');
-            if (img) { img.complete && img.naturalWidth ? img.classList.add('loaded') : (img.onload = () => img.classList.add('loaded'), img.onerror = () => img.remove()); }
+            if (img) {
+                const ready = () => {
+                    const r = img.naturalWidth / img.naturalHeight;
+                    if (r >= 1.2) {          // yatay → kendi oranında göster
+                        img.classList.add('is-landscape');
+                        img.style.aspectRatio = String(Math.min(Math.max(r, 4 / 3), 21 / 9));
+                    } else {                 // dikey / kareye yakın → sabit yükseklik
+                        img.classList.add('is-portrait');
+                    }
+                    img.classList.add('loaded');
+                };
+                if (img.complete && img.naturalWidth) ready();
+                else { img.onload = ready; img.onerror = () => img.remove(); }
+            }
 
             const ttsBtn = document.getElementById('tts-btn');
             if (ttsBtn) { setTts(ttsBtn, 'idle'); ttsBtn.addEventListener('click', () => toggleTts(ttsBtn)); }

@@ -285,8 +285,8 @@ main { flex: 1; width: 100%; max-width: 1200px; margin: 2.25rem auto; padding: 0
     .rss-link-btn { padding: 0.5rem 0.95rem; }
     .rss-long { display: none; }
 
-    .pagination { gap: 0.35rem; }
-    .page-btn { min-width: 2.5rem; height: 2.5rem; padding: 0 0.6rem; border-radius: 12px; font-size: 0.9rem; }
+    .pagination { gap: 0.25rem; }
+    .page-btn { min-width: 2.25rem; height: 2.5rem; padding: 0 0.45rem; border-radius: 12px; font-size: 0.9rem; }
     .page-btn .page-label { display: none; }   /* Önceki / Sonraki → sadece ok */
-    .page-gap { min-width: 1rem; }
+    .page-gap { min-width: 0.9rem; }
 }

@@ -92,26 +92,25 @@
         media.innerHTML = `<span>${clean(item ? item.kaynak : '')}</span>`;
     }, true);
 
-    /* ---------- Sayfalama (en fazla ~7 düğme, 1000 sayfada bile) ---------- */
-    function pageTokens(total, current, siblings) {
-        const t = new Set([1, total, current]);
-        for (let d = 1; d <= siblings; d++) { t.add(current - d); t.add(current + d); }
-        const nums = Array.from(t).filter(n => n >= 1 && n <= total).sort((a, b) => a - b);
-        const out = [];
-        nums.forEach((n, i) => {
-            if (i > 0) {
-                const gap = n - nums[i - 1];
-                if (gap === 2) out.push(n - 1);        // tek sayı boşluğu → doğrudan göster
-                else if (gap > 2) out.push('gap');
-            }
-            out.push(n);
-        });
-        return out;
+    /* ---------- Sayfalama: sığabildiği kadar numara gösterir ---------- */
+    // Sabit slot sayısı (2*sib+5): başta/sonda pencere kayar, düğme sayısı hep aynı kalır.
+    function pageTokens(total, current, sib) {
+        const slots = 2 * sib + 5;
+        if (total <= slots) return Array.from({ length: total }, (_, i) => i + 1);
+        if (current <= sib + 3) {
+            return [...Array.from({ length: 2 * sib + 3 }, (_, i) => i + 1), 'gap', total];
+        }
+        if (current >= total - sib - 2) {
+            return [1, 'gap', ...Array.from({ length: 2 * sib + 3 }, (_, i) => total - (2 * sib + 2) + i)];
+        }
+        return [1, 'gap', ...Array.from({ length: 2 * sib + 1 }, (_, i) => current - sib + i), 'gap', total];
     }
 
-    const narrow = window.matchMedia('(max-width: 520px)');
+    const MAX_SIB = 5;
+    let lastTotalItems = 0;
 
     function renderPagination(totalItems) {
+        lastTotalItems = totalItems;
         pager.innerHTML = '';
         const total = Math.ceil(totalItems / PER_PAGE);
         if (total <= 1) return;
@@ -128,23 +127,46 @@
             return b;
         };
 
-        pager.appendChild(mk('<i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span class="page-label">Önceki</span>',
-            { disabled: page === 1, to: page - 1, label: 'Önceki sayfa' }));
+        const build = sib => {
+            pager.innerHTML = '';
+            pager.appendChild(mk('<i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span class="page-label">Önceki</span>',
+                { disabled: page === 1, to: page - 1, label: 'Önceki sayfa' }));
+            pageTokens(total, page, sib).forEach(tk => {
+                if (tk === 'gap') {
+                    const g = document.createElement('span');
+                    g.className = 'page-gap'; g.textContent = '…'; g.setAttribute('aria-hidden', 'true');
+                    pager.appendChild(g);
+                } else {
+                    pager.appendChild(mk(String(tk), { active: tk === page, to: tk, label: `Sayfa ${tk}` }));
+                }
+            });
+            pager.appendChild(mk('<span class="page-label">Sonraki</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>',
+                { disabled: page === total, to: page + 1, label: 'Sonraki sayfa' }));
+        };
+        // Tek satıra sığmıyorsa (alt satıra düştüyse) bir kademe küçült
+        const fitsOneRow = () => {
+            // Dikey merkezlere bak (… işareti düğmeden kısa olduğu için offsetTop güvenilmez)
+            const mid = k => { const r = k.getBoundingClientRect(); return r.top + r.height / 2; };
+            const kids = Array.from(pager.children), m0 = mid(kids[0]);
+            return kids.every(k => Math.abs(mid(k) - m0) < 8);
+        };
 
-        pageTokens(total, page, narrow.matches ? 0 : 1).forEach(tk => {
-            if (tk === 'gap') {
-                const s = document.createElement('span');
-                s.className = 'page-gap'; s.textContent = '…'; s.setAttribute('aria-hidden', 'true');
-                pager.appendChild(s);
-            } else {
-                pager.appendChild(mk(String(tk), { active: tk === page, to: tk, label: `Sayfa ${tk}` }));
-            }
-        });
-
-        pager.appendChild(mk('<span class="page-label">Sonraki</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i>',
-            { disabled: page === total, to: page + 1, label: 'Sonraki sayfa' }));
+        for (let sib = MAX_SIB; sib >= 0; sib--) {
+            build(sib);
+            if (fitsOneRow()) break;
+        }
     }
-    narrow.addEventListener('change', () => { if (allNews.length) renderPagination(filtered().length); });
+
+    // Ekran genişliği değişince (döndürme, pencere boyutu) yeniden hesapla
+    let lastW = 0, resizeTimer;
+    new ResizeObserver(entries => {
+        const w = Math.round(entries[0].contentRect.width);
+        if (w === lastW) return;
+        lastW = w;
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { if (lastTotalItems) renderPagination(lastTotalItems); }, 120);
+    }).observe(document.querySelector('main'));
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (lastTotalItems) renderPagination(lastTotalItems); });
 
     /* ---------- Filtre / render ---------- */
     function filtered() {
