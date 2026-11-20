@@ -6,17 +6,20 @@ on:
     - cron: '0 17 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   share:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -34,12 +37,12 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           # Sadece takip dosyasını ekle
           git add last_posted_threads.txt || echo "No files to add"
-          
+
           # Değişiklik varsa commit at
           git commit -m "chore: update threads tracking states [skip ci]" || echo "No changes to commit"
-          
+
           # Remote'daki değişiklikleri al ve üzerine ekle
           git pull --rebase origin main
-          
+
           # Güncel halini pushla
           git push origin main
