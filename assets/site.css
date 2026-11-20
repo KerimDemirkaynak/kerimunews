@@ -1,1 +1,313 @@
-assets
+/* ==========================================================
+   Kerimu Haber — ortak tasarım dosyası
+   Üç sayfa da (index, haber, hakkimizda) bu dosyayı kullanır.
+   Renk, yarıçap, gölge, font gibi her şey burada TEK yerde.
+   ========================================================== */
+
+:root {
+    color-scheme: dark;
+
+    /* Renkler */
+    --bg-color: #050811;
+    --glass-heavy: rgba(10, 15, 28, 0.62);
+    --glass-border: rgba(255, 255, 255, 0.16);
+    --glass-border-bright: rgba(255, 255, 255, 0.34);
+    --glass-highlight: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+    --text-main: #f8fafc;
+    --text-muted: rgba(226, 232, 240, 0.74);
+    --accent: #60a5fa;
+    --accent-soft: #93c5fd;
+    --anime-tag: rgba(236, 72, 153, 0.32);
+    --cartoon-tag: rgba(245, 158, 11, 0.32);
+
+    /* Yüzey (kart) dolgusu — tüm kartlar aynısını kullanır */
+    --surface: linear-gradient(155deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(255, 255, 255, 0.06) 100%);
+    --surface-hover: linear-gradient(155deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 55%, rgba(255, 255, 255, 0.09) 100%);
+
+    /* Yarıçaplar */
+    --r-card: 24px;
+    --r-ctl: 16px;
+    --r-pill: 999px;
+
+    /* Hareket */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --t-fast: 0.2s;
+    --t-base: 0.28s;
+
+    /* Yazı tipi: tek tanım, tek yer */
+    --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* Sabit header yüksekliği (scroll-margin için) */
+    --header-h: 4.5rem;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+/* font-family yalnızca body'de; "*" ile her şeye vermiyoruz.
+   (Font Awesome ikonlarının kendi fontunu ezip bozmasın diye.) */
+body {
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100dvh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+button, input { font: inherit; color: inherit; }
+img { max-width: 100%; }
+
+/* Klavye odağı: her yerde aynı */
+:focus-visible {
+    outline: 2px solid var(--accent-soft);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+.sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+[hidden] { display: none !important; }
+
+/* ---------- Arka plan ışık küreleri ---------- */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(95px);
+    opacity: 0.65;
+    will-change: transform;
+    animation: liquidDrift 18s ease-in-out infinite alternate;
+}
+body::before {
+    width: 55vw; height: 55vw; max-width: 720px; max-height: 720px;
+    top: -14%; left: -10%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, rgba(139, 92, 246, 0.35) 48%, transparent 75%);
+}
+body::after {
+    width: 50vw; height: 50vw; max-width: 680px; max-height: 680px;
+    bottom: -12%; right: -8%;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(14, 165, 233, 0.35) 50%, transparent 75%);
+    animation-delay: -9s;
+}
+@keyframes liquidDrift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(4%, 6%) scale(1.08); }
+    100% { transform: translate(-3%, 3%) scale(0.96); }
+}
+
+/* ---------- Header (üç sayfada aynı) ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--glass-heavy);
+    backdrop-filter: blur(26px) saturate(190%);
+    -webkit-backdrop-filter: blur(26px) saturate(190%);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: transform var(--t-base) var(--ease);
+}
+.logo-container:hover { transform: scale(1.02); }
+
+.logo-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.45), rgba(59, 130, 246, 0.18));
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), var(--glass-highlight);
+    flex-shrink: 0;
+}
+
+.site-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Ortak parçalar ---------- */
+.glass-card {
+    background: var(--surface);
+    backdrop-filter: blur(24px) saturate(185%);
+    -webkit-backdrop-filter: blur(24px) saturate(185%);
+    border-radius: var(--r-card);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.38), var(--glass-highlight);
+}
+
+.back-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: 1.35rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: var(--r-pill);
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: transform var(--t-base) var(--ease), background var(--t-base), border-color var(--t-base), color var(--t-base);
+}
+.back-btn:hover {
+    color: #fff;
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+    border-color: var(--glass-border-bright);
+    transform: translateX(-3px);
+}
+
+/* Yuvarlak ikon butonları (sosyal, paylaş) */
+.icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.15rem;
+    line-height: 1;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.32);
+    transition: transform var(--t-base) var(--ease), background var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
+}
+.icon-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(96, 165, 250, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+/* Font Awesome'ın ::after katmanı (duotone) ikonların altında artık nokta/çizgi bırakmasın */
+.icon-btn i::after, .read-more-btn i::after { content: none !important; }
+.icon-btn i, .read-more-btn i { line-height: 1; }
+
+/* ---------- Footer (üç sayfada aynı) ---------- */
+.site-footer {
+    background: var(--glass-heavy);
+    backdrop-filter: blur(26px) saturate(190%);
+    -webkit-backdrop-filter: blur(26px) saturate(190%);
+    border-top: 1px solid var(--glass-border);
+    box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    text-align: center;
+    margin-top: auto;
+}
+.footer-content { color: var(--text-muted); font-size: 0.9rem; max-width: 1200px; margin: 0 auto; }
+.footer-section { padding: 1.4rem 1rem; position: relative; }
+.footer-section p { margin: 0; }
+.footer-section + .footer-section::before {
+    content: '';
+    position: absolute; top: 0; left: 10%; width: 80%; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+.social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-bottom: 0.9rem; }
+.footer-links { margin-bottom: 0.4rem; }
+.footer-links a {
+    color: var(--text-muted); text-decoration: none; margin: 0 10px;
+    transition: color var(--t-fast) ease;
+}
+.footer-links a:hover { color: #fff; }
+
+/* ---------- Toast (alert yerine) ---------- */
+.toast {
+    position: fixed; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    transform: translate(-50%, 20px);
+    opacity: 0; pointer-events: none;
+    z-index: 300;
+    max-width: calc(100vw - 2rem);
+    padding: 0.7rem 1.25rem;
+    border-radius: var(--r-pill);
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--glass-border-bright);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), var(--glass-highlight);
+    font-size: 0.92rem; font-weight: 600;
+    transition: opacity var(--t-base) ease, transform var(--t-base) var(--ease);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ---------- Sayfalar arası geçiş (destekleyen tarayıcılarda) ---------- */
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: 0.18s ease both vtOut; }
+::view-transition-new(root) { animation: 0.32s var(--ease) both vtIn; }
+@keyframes vtOut { to { opacity: 0; } }
+@keyframes vtIn  { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---------- Giriş animasyonu (header + içerik, tek koreografi) ---------- */
+@keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.site-header { animation: fadeIn 0.5s ease both; }
+
+/* ---------- Skeleton (yüklenirken) ---------- */
+.skeleton {
+    position: relative; overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+}
+.skeleton::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.12) 50%, transparent 80%);
+    transform: translateX(-100%);
+    animation: shimmer 1.4s ease-in-out infinite;
+}
+@keyframes shimmer { to { transform: translateX(100%); } }
+
+/* ---------- Mobil performans ---------- */
+@media (max-width: 600px) {
+    .glass-card { backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); }
+    .header-content { padding: 0.85rem 1rem; }
+}
+
+/* ---------- Hareket azaltma tercihi ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+    @view-transition { navigation: none; }
+}
