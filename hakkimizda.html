@@ -7,35 +7,342 @@
     <link rel="icon" href="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://animenewsnetwork.com/&size=16">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        :root { --bg-color: #0f172a; --card-bg: #1e293b; --text-main: #f8fafc; --text-muted: #94a3b8; --accent: #3b82f6; --header-bg: #0b1120; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: var(--header-bg); border-bottom: 1px solid #334155; }
-        .header-content { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; padding: 1.2rem 1rem; gap: 1rem; }
-        .logo-container { display: flex; align-items: center; gap: 8px; color: var(--text-main); text-decoration: none; }
-        .logo-icon { display: flex; align-items: center; color: var(--accent); }
-        header h1 { font-size: 1.25rem; font-weight: 600; margin: 0; }
-        
-        main { flex: 1; max-width: 900px; margin: 2rem auto; padding: 0 1rem; width: 100%; }
-        .content-box { background-color: var(--card-bg); border-radius: 12px; padding: 3rem; border: 1px solid #334155; margin-bottom: 2rem; }
-        
-        h1.page-title { font-size: 2.2rem; color: #fff; border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-bottom: 2rem; }
-        h2 { font-size: 1.5rem; color: #fff; margin-top: 2.5rem; margin-bottom: 1rem; }
-        h3 { font-size: 1.2rem; color: #e2e8f0; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-        p { color: var(--text-muted); margin-bottom: 1rem; font-size: 1.05rem; }
-        ul, ol { color: var(--text-muted); margin-bottom: 1rem; padding-left: 1.5rem; }
-        li { margin-bottom: 0.5rem; }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        
-        .sources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
-        .source-item { background: #0f172a; padding: 1rem; border-radius: 8px; border: 1px solid #334155; text-align: center; font-weight: bold; color: var(--accent); }
+        :root {
+            --bg-color: #050811;
+            --glass-surface: rgba(255, 255, 255, 0.06);
+            --glass-surface-hover: rgba(255, 255, 255, 0.11);
+            --glass-heavy: rgba(10, 15, 28, 0.52);
+            --glass-border: rgba(255, 255, 255, 0.16);
+            --glass-border-bright: rgba(255, 255, 255, 0.34);
+            --glass-highlight: inset 0 1px 1.5px rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.06);
+            --text-main: #f8fafc;
+            --text-muted: rgba(226, 232, 240, 0.74);
+            --accent: #60a5fa;
+        }
 
-        footer { background-color: var(--header-bg); border-top: 1px solid #334155; padding: 2rem 1rem; text-align: center; margin-top: auto; }
-        .footer-content { max-width: 1200px; margin: 0 auto; color: var(--text-muted); font-size: 0.9rem; }
-        .back-btn { display: inline-block; margin-bottom: 1rem; color: var(--accent); text-decoration: none; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.65;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Liquid Glass Arka Plan Işık Küreleri (Refraksiyon için derinlik) */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(95px);
+            opacity: 0.65;
+            animation: liquidDrift 18s ease-in-out infinite alternate;
+        }
+
+        body::before {
+            width: 55vw;
+            height: 55vw;
+            max-width: 720px;
+            max-height: 720px;
+            top: -14%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.55) 0%, rgba(139, 92, 246, 0.35) 48%, transparent 75%);
+        }
+
+        body::after {
+            width: 50vw;
+            height: 50vw;
+            max-width: 680px;
+            max-height: 680px;
+            bottom: -12%;
+            right: -8%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.45) 0%, rgba(14, 165, 233, 0.35) 50%, transparent 75%);
+            animation-delay: -9s;
+        }
+
+        @keyframes liquidDrift {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(4%, 6%) scale(1.08); }
+            100% { transform: translate(-3%, 3%) scale(0.96); }
+        }
+
+        /* Sticky Liquid Glass Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--glass-heavy);
+            backdrop-filter: blur(26px) saturate(190%);
+            -webkit-backdrop-filter: blur(26px) saturate(190%);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.12);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.25rem;
+            gap: 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: transform 0.25s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(96, 165, 250, 0.45), rgba(59, 130, 246, 0.18));
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), var(--glass-highlight);
+        }
+
+        header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+        }
         
-        @media (max-width: 768px) { .content-box { padding: 1.5rem; } }
+        main {
+            flex: 1;
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.25rem;
+            width: 100%;
+        }
+
+        /* Geri Dön Kapsül Butonu */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.35rem;
+            padding: 0.55rem 1.15rem;
+            border-radius: 999px;
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+            backdrop-filter: blur(18px) saturate(180%);
+            -webkit-backdrop-filter: blur(18px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .back-btn:hover {
+            color: #ffffff;
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.07));
+            border-color: var(--glass-border-bright);
+            transform: translateX(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.36), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+        }
+
+        /* Ana İçerik Kutusu (Liquid Glass) */
+        .content-box {
+            background: linear-gradient(155deg, rgba(255, 255, 255, 0.095) 0%, rgba(255, 255, 255, 0.035) 55%, rgba(255, 255, 255, 0.055) 100%);
+            backdrop-filter: blur(26px) saturate(185%);
+            -webkit-backdrop-filter: blur(26px) saturate(185%);
+            border-radius: 26px;
+            padding: 3rem;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42), var(--glass-highlight);
+            margin-bottom: 2rem;
+        }
+        
+        h1.page-title {
+            font-size: 2.15rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #ffffff;
+            border-bottom: 2px solid rgba(96, 165, 250, 0.65);
+            padding-bottom: 0.65rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2em;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #93c5fd, #3b82f6);
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
+        }
+
+        h3 {
+            font-size: 1.16rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-top: 1.65rem;
+            margin-bottom: 0.55rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-size: 1.03rem;
+        }
+
+        ul, ol {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+            font-size: 1.02rem;
+        }
+
+        li strong {
+            color: #f8fafc;
+        }
+
+        a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(147, 197, 253, 0.6);
+            text-decoration: underline;
+        }
+
+        code {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #93c5fd;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9rem;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25);
+        }
+
+        hr {
+            border: none !important;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
+        }
+        
+        /* Kaynak Kartları (Liquid Glass Kapsül Kutucuklar) */
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .source-item {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035));
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            padding: 1.05rem 1rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.96rem;
+            color: #93c5fd;
+            transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .source-item:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(145deg, rgba(96, 165, 250, 0.24), rgba(255, 255, 255, 0.07));
+            border-color: rgba(255, 255, 255, 0.42);
+            color: #ffffff;
+            box-shadow: 0 10px 26px rgba(59, 130, 246, 0.25), inset 0 1px 1.5px rgba(255, 255, 255, 0.55);
+        }
+
+        /* Liquid Glass Footer */
+        footer {
+            background: var(--glass-heavy);
+            backdrop-filter: blur(26px) saturate(190%);
+            -webkit-backdrop-filter: blur(26px) saturate(190%);
+            border-top: 1px solid var(--glass-border);
+            box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.16);
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-content p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-box {
+                padding: 1.65rem;
+                border-radius: 22px;
+            }
+            h1.page-title {
+                font-size: 1.7rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
     </style>
 </head>
 <body>
