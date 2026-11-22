@@ -1,5 +1,75 @@
 [
     {
+        "id": "b660cef689",
+        "kategori": "Anime",
+        "baslik": "Uma Musume Pretty Derby, Denver Broncos'a Katılıyor",
+        "ozet": "At-kızlar, Miami Dolphins ile karşılaşmak için hazırlanıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGC/herald/203263/2027broncos-collabokv-w1500h2000-white-02-l1795126500b.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "22 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/interest/2026-11-21/uma-musume-pretty-derby-joins-the-denver-broncos/.244053"
+    },
+    {
+        "id": "40d8ba41ff",
+        "kategori": "Anime",
+        "baslik": "SHIBOYUGI: Playing Death Games to Put Food on the Table animesine devam serisi geliyor",
+        "ozet": "İlk tanıtım görseli de yayınlandı....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gIG/cms/news.10/244070/playing-death-games-sequel-utv.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "22 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-21/shiboyugi-playing-death-games-to-put-food-on-the-table-anime-gets-sequel/.244070"
+    },
+    {
+        "id": "4bda807c3f",
+        "kategori": "Anime",
+        "baslik": "Bride of the Barrier Master TV anime serisinin 6 Ocak'ta 1 saatlik özel bir bölümle başlayacağı açıklandı; yeni video ile birlikte oyuncu kadrosuna dair detaylar da paylaşıldı.",
+        "ozet": "Naniwa Danshi açılış temasını seslendiriyor; Chiaki Kobayashi ve Takuya Eguchi oyuncu kadrosuna katılıyor....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gL7/youtube/X6R__ZiTM2Y.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "22 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-21/bride-of-the-barrier-master-tv-anime-reveals-1-hour-debut-on-january-6-more-cast-in-video/.244073"
+    },
+    {
+        "id": "12142cb56d",
+        "kategori": "Anime",
+        "baslik": "Uzayda Geçen En İyi 10 Bilim Kurgu Animesi, Sıralı Liste",
+        "ozet": "Uzay her zaman hikaye anlatıcılarını büyülemiştir; anime ise bu büyülenmişliği eğlenceli yolculuklara, trajik savaşlara ve iş yeri dramalarına dönüştürür....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/11/touya-in-the-galaxy-from-the-orbital-children.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "22 Kasım 2026",
+        "link": "https://www.cbr.com/best-sci-fi-space-anime-ranked-list/"
+    },
+    {
+        "id": "12a889c527",
+        "kategori": "Anime",
+        "baslik": "Efsanevi 43 Yıllık Sert Bilim Kurgu Serisi, İkinci Dünya Savaşı İlhamıyla Yeni Bir Yöne Doğru İlerliyor",
+        "ozet": "Eleştirmenlerce en çok beğenilen (ve hak ettiği değeri fazlasıyla göremeyen) hard sci-fi mecha anime serilerinden biri, resmen cesur ve yepyeni bir yola giriyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/11/votoms-the-grey-witch-official-poster-art.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "22 Kasım 2026",
+        "link": "https://www.cbr.com/armored-trooper-votoms-new-movie-world-war-ii-inspiration/"
+    },
+    {
+        "id": "7a907bff44",
+        "kategori": "Anime",
+        "baslik": "Mutlaka İzlemeniz Gereken 10/10 Puanlık 7 Crunchyroll Spor Animesi",
+        "ozet": "Tomorrow's Joe, Blue Lock ve Ping Pong the Animation gibi yapımlarla Crunchyroll, öne çıkan spor animeleri için bir numaralı durak olmaya devam ediyor!...",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/04/joe-yabuki-in-a-fighting-stance-with-his-boxing-gloves-in-ashita-no-joe.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "22 Kasım 2026",
+        "link": "https://www.cbr.com/flawless-crunchyroll-sports-anime-masterpieces-list/"
+    },
+    {
+        "id": "69966875db",
+        "kategori": "Çizgi Film",
+        "baslik": "'An American Tail' 40. Yılını Kutlarken, Bize Hâlâ Kabuslar Gösteren Don Bluth Sahneleri",
+        "ozet": "An American Tail'in 40. yıl dönümünü kutlarken Vincent Alexander, denizdeki fırtınadan Sharptooth'un saldırılarına kadar, çocukken onu derinden sarsan sahneleri tekrar inceliyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Don-Bluth-Trauma.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "21 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/cartoon-study/don-bluth-scenes-that-give-us-nightmares-269675.html"
+    },
+    {
         "id": "a3b4c2e237",
         "kategori": "Anime",
         "baslik": "Sailor Moon Hayranları Universal Studios Japan'da Neler Satın Alabilir (& Yiyebilir)",
