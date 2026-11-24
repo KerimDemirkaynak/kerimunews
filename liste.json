@@ -1,5 +1,125 @@
 [
     {
+        "id": "a36882debb",
+        "kategori": "Anime",
+        "baslik": "[Özel] Sakamoto Days 2. Sezon, Demon Slayer'a Benzer Animasyon Teknikleri Kullandı, Yapımcı Açıkladı",
+        "ozet": "Bu gelişme, yapımcı ile yakın zamanda gerçekleştirilen bir röportajda ortaya çıktı....",
+        "resim": "https://animehunch.com/wp-content/uploads/2024/09/Sakamoto-Days-anime.jpg",
+        "kaynak": "AnimeHunch",
+        "tarih": "23 Kasım 2026",
+        "link": "https://animehunch.com/exclusive-sakamoto-days-season-2-uses-animation-techniques-similar-to-demon-sayer-producer-reveals/"
+    },
+    {
+        "id": "4bc9d6d742",
+        "kategori": "Anime",
+        "baslik": "[Özel Haber] Sakamoto Days Yapımcısı, 2. Sezondaki Yönetmen Değişikliğine Açıklık Getirdi; Eleştirilerin Ardından Büyük Animasyon ve İş Akışı Revizyonunu Duyurdu",
+        "ozet": "Yapımcı Hasegawa'ya göre 2. sezon, Demon Slayer'da görülen animasyon tekniklerini içerecek....",
+        "resim": "https://animehunch.com/wp-content/uploads/2026/11/ryota-scaled.webp",
+        "kaynak": "AnimeHunch",
+        "tarih": "23 Kasım 2026",
+        "link": "https://animehunch.com/exclusive-sakamoto-days-producer-interview-season-2/"
+    },
+    {
+        "id": "45368836ee",
+        "kategori": "Anime",
+        "baslik": "All You Need Is Kill, Kaguya!, Grotesqqque ve Daha Fazla Anime, Oscar Ödülleri İçin Aday Gösterilmeye Hak Kazandı",
+        "ozet": "Jinsei, Last Blossom, 2nd Gundam Hathaway filmi, Ribbon Hero, Super Mario Galaxy filmi ve Avatar Aang de adaylar arasında....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gG9/cms/news.9/232217/aynik_kv.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "24 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-24/all-you-need-is-kill-kaguya-grotesqqque-more-anime-confirmed-eligible-for-oscars/.244148"
+    },
+    {
+        "id": "2c3f75ba48",
+        "kategori": "Anime",
+        "baslik": "Getbackers Voice Comic Projesi Ekibi, Tanıtım Videosunda Üretken Yapay Zeka Kullanımı İçin Özür Diledi",
+        "ozet": "Ekip: Sesli çizgi romanın kendisinde üretken yapay zeka kullanılmamıştır....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gFC/cms/news.10/244140/getbackers.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "24 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-23/getbackers-voice-comic-staff-apologizes-for-generative-ai-use-in-pr-video/.244140"
+    },
+    {
+        "id": "74fdfb9e71",
+        "kategori": "Anime",
+        "baslik": "Jimoto no Ijimekko-tachi ni Shikaeshi Shiyō to Shitara animesinin tanıtım videosu seslendirme kadrosunu açıkladı.",
+        "ozet": "Kaori Maeda, Yūko Natsuyoshi ve daha fazlası 2027'de çıkacak romantik komedi animesinde başrolde yer alacak....",
+        "resim": "https://www.animenewsnetwork.com/thumbnails/crop600x315gGE/youtube/jAV5noX1OHM.jpg",
+        "kaynak": "AnimeNewsNetwork",
+        "tarih": "24 Kasım 2026",
+        "link": "https://www.animenewsnetwork.com/news/2026-11-23/jimoto-no-ijimekko-tachi-ni-shikaeshi-shiyo-to-shitara-anime-video-unveils-cast/.244049"
+    },
+    {
+        "id": "38e103f238",
+        "kategori": "Anime",
+        "baslik": "10/10 puanı hak eden pek fazla anime serisi yok, ancak bu 10 anime mutlaka izlenmesi gereken yapımlar arasında.",
+        "ozet": "Fullmetal Alchemist: Brotherhood gibi animeler, çok az serinin boy ölçüşebileceği gerçek başyapıtlardır....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/09/the-elric-brothers-in-fullmetal-alchemist-brotherhood.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "24 Kasım 2026",
+        "link": "https://www.cbr.com/best-must-watch-anime-series-flawless-start-to-finish-list/"
+    },
+    {
+        "id": "98ba32dc71",
+        "kategori": "Anime",
+        "baslik": "52 Yıllık Efsanevi Uzay Operası, Büyük Bir Yeni Yayınla 51 Klasik Bölümünü Geri Getiriyor",
+        "ozet": "Tüm zamanların en büyük iki anime uzay operası filmi, kırk yılı aşkın bir sürenin ardından nihayet ilk kez Blu-ray formatında piyasaya sürülüyor....",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/11/space-battleship-yamato.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "24 Kasım 2026",
+        "link": "https://www.cbr.com/space-battleship-yamato-ii-iii-first-blu-ray-release/"
+    },
+    {
+        "id": "03a7faf327",
+        "kategori": "Anime",
+        "baslik": "Sevimli Animasyonların Ardına Gizlenmiş 10 Karanlık Anime",
+        "ozet": "Bazı anime dünyasının en karanlık ve en yozlaşmış yapımları, gerçek doğalarını gizleyen eğlenceli ve samimi görsellerin ardında saklanıyor!...",
+        "resim": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2026/07/filters_quality-95-format-webp-1-1.jpg?w=1600&h=900&fit=crop",
+        "kaynak": "CBR Anime",
+        "tarih": "24 Kasım 2026",
+        "link": "https://www.cbr.com/dark-anime-hidden-behind-cute-animation/"
+    },
+    {
+        "id": "5800702f41",
+        "kategori": "Çizgi Film",
+        "baslik": "99. Academy Awards için 38 Animasyon Filmi Aday Adayı Oldu",
+        "ozet": "Oscar ödüllerine aday olmaya hak kazanan 38 animasyon filminin tamamını, son dönemlerin en güçlü seçkilerinden birinde keşfedin. Ayrıca, listeye giremeyen ancak festival favorisi olan yapımlara da göz atın....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Oscars-2027.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "23 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/awards/record-38-animated-features-eligible-for-oscars-269705.html"
+    },
+    {
+        "id": "9c952b2470",
+        "kategori": "Çizgi Film",
+        "baslik": "2027 Oscars Kısa Film Adayları: 'Soul Catcher' Yönetmenleri Amanda Strong ve Pamela Post",
+        "ozet": "Mistik CG efektleriyle zenginleştirilmiş el yapımı stop-motion animasyon, yazarın ailesinde çocukluğunda yaşanan bir olaydan esinlenerek Ts’msyen halkının kültürel geri kazanım hikayesini anlatıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/Soul-Catcher.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "23 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/awards/soul-catcher-amanda-strong-pamela-post-269701.html"
+    },
+    {
+        "id": "e353d871cd",
+        "kategori": "Çizgi Film",
+        "baslik": "ASIFA-Hollywood’un ilk özel etkinliği, gösterimleri pas geçerek animasyon zanaatını ödül sezonunun sahnesine taşıdı.",
+        "ozet": "Los Angeles'ta gerçekleşen iki günlük sunumların özetini çıkarıyoruz. Bu sunumlarda ‘Ray Gunn’, ‘Wildwood’, ‘Tangles’ ve ‘Toy Story 5’ gibi yapımların yanı sıra, ‘The Violinist’ ekibiyle gerçekleştirdiğimiz kapanış soru-cevap oturumu da yer alıyor....",
+        "resim": "https://www.cartoonbrew.com/wp-content/uploads/2026/11/The-Violinist-ASIFA-Showcase.jpg",
+        "kaynak": "CartoonBrew",
+        "tarih": "23 Kasım 2026",
+        "link": "https://www.cartoonbrew.com/events/asifa-hollywood-first-animation-showcase-recap-269693.html"
+    },
+    {
+        "id": "63f3c42ad4",
+        "kategori": "Çizgi Film",
+        "baslik": "‘Fireborn’ çizgi romanları, ‘Vox Machina’nın stüdyosu Titmouse tarafından animasyon dizisine uyarlanıyor.",
+        "ozet": "Curt Pires (Lost Fantasy, Galactic) ve Franklin Jonas imzalı, Patrick Mulholland’ın çizimleriyle hayat bulan Image Comics hiti Fireborn, yetişkin animasyon dünyasının eleştirmenlerce beğenilen stüdyosu Titmouse tarafından bir animasyon dizisine uyarlanıyor....",
+        "resim": "",
+        "kaynak": "AnimationMagazine",
+        "tarih": "23 Kasım 2026",
+        "link": "https://www.animationmagazine.net/2026/11/fireborn-comics-slated-for-animated-series-at-vox-machina-studio-titmouse/"
+    },
+    {
         "id": "a2aa9580c4",
         "kategori": "Anime",
         "baslik": "Live-Action Wakako-zake 10. Sezonu 6 Ocak'ta Başlıyor; Yıl Sonu Özel Bölümü ve Açılış Şarkısını Seslendirecek Sanatçılar Belli Oldu",
